@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>《星宿劫源：太初道主》Astral Sovereign v14.0 - 武俠合真風骨重造版（天命演武×龍泉鑄兵×萬劍屠魔×八卦合真）</title>
+  <link rel="stylesheet" href="css/style.css?v=26.1" />
+</head>
+<body>
+  <div id="app-container" data-realm="1">
+    <!-- 東方水墨煙雲與宣紙留白層 -->
+    <div class="ethereal-mist-layer">
+      <div class="mist-cloud c1"></div>
+      <div class="mist-cloud c2"></div>
+      <div class="mist-cloud c3"></div>
+    </div>
+
+    <!-- 畫中意境（意境掛機）退出輕題跋 -->
+    <div class="zen-exit-hint" id="zen-exit-btn">〔畫中清修〕山中無甲子，寒盡不知年 · 輕觸畫卷喚醒俗務</div>
+
+    <!-- 頂部古卷軸與溫潤玉牌資源欄 -->
+    <header class="game-header">
+      <div class="profile-slot">
+        <div class="avatar-ring" title="朱砂道印">
+          <div class="avatar-inner">印</div>
+        </div>
+        <div class="char-info">
+          <span class="char-name">陸沉舟</span>
+          <span class="char-realm-badge" id="char-name-badge">洞天境 第4重天</span>
+        </div>
+      </div>
+
+      <div class="currency-group">
+        <div class="currency-pill" id="curr-exp" title="天地元氣">✨ 2680</div>
+        <div class="currency-pill" id="curr-qi" title="本源真氣">☯️ 680</div>
+        <div class="currency-pill" id="curr-silver" title="上品靈石">🪙 1280</div>
+        <div class="currency-pill" id="curr-ingots" title="混沌天晶">💎 260</div>
+        <button class="btn-icon-circle" id="btn-toggle-sound" title="古琴松風仙音">琴</button>
+      </div>
+    </header>
+
+    <!-- 動態視圖容器 -->
+    <main id="view-viewport"></main>
+
+    <!-- 底部傳統書法器物字印導航欄（統一線條粗細 + 淡墨底托 + 朱砂印記） -->
+    <nav class="modern-dock">
+      <button class="dock-tab active" data-view="main">
+        <span class="dock-seal-icon">山</span>
+        <span>洞天</span>
+        <span class="dock-badge">境</span>
+      </button>
+      <button class="dock-tab" data-view="kungfu">
+        <span class="dock-seal-icon">經</span>
+        <span>道藏</span>
+      </button>
+      <button class="dock-tab" data-view="meridian">
+        <span class="dock-seal-icon">脈</span>
+        <span>氣脈</span>
+      </button>
+      <button class="dock-tab" data-view="inventory">
+        <span class="dock-seal-icon">器</span>
+        <span>納戒</span>
+      </button>
+      <button class="dock-tab" data-view="sect">
+        <span class="dock-seal-icon">宗</span>
+        <span>道統</span>
+      </button>
+      <button class="dock-tab" data-view="map">
+        <span class="dock-seal-icon">境</span>
+        <span>萬里</span>
+        <span class="dock-badge">遊</span>
+      </button>
+      <button class="dock-tab" data-view="market">
+        <span class="dock-seal-icon">商</span>
+        <span>星槎</span>
+      </button>
+    </nav>
+
+    <!-- 1. 破境飛升宣紙題跋視窗 -->
+    <div id="breakthrough-modal-overlay" class="modal-overlay">
+      <div class="breakthrough-celebration-card" style="padding:20px; text-align:center;">
+        <div style="font-size:0.95rem; color:var(--cinnabar-red); letter-spacing:2px; font-weight:900;">〔天道破境 · 水墨題跋〕</div>
+        <h2 id="celebration-realm-title" style="font-size:1.42rem; color:var(--ink-black); margin:10px 0 8px;">
+          陸沉舟，洞天境 第5重天！
+        </h2>
+        <div id="celebration-avatar-slot" style="display:flex; justify-content:center; margin:8px 0;"></div>
+        <div style="font-size:0.95rem; color:var(--stone-cyan); font-weight:800; margin-bottom:8px;">氣海開闊，五維道基精進如下：</div>
+        <div class="stat-surge-list" id="celebration-stat-surge"></div>
+        <button class="btn-jade" id="btn-close-celebration" style="width:100%; margin-top:8px;">
+          <span class="main-label">〔落印收卷 · 穩固道果〕</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. 內景觀想水墨長卷視窗 -->
+    <div id="contemplation-modal-overlay" class="modal-overlay">
+      <div class="modal-content-card" style="padding:18px; text-align:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <b style="color:var(--ink-black); font-size:1.12rem;">〔內景觀想 · 360° 水墨法相〕</b>
+          <span id="contemplation-angle-label" style="font-size:0.9rem; color:var(--stone-cyan); font-weight:800;">觀想視角: 0°</span>
+        </div>
+        <div style="height:220px; display:flex; justify-content:center; align-items:center; background:radial-gradient(circle, #fcfaf2 0%, #e4dccb 85%); border-radius:2px; border:1px solid var(--ink-black); overflow:hidden; perspective:900px;">
+          <div id="contemplation-3d-stage" style="transition:transform 0.1s ease; transform-style:preserve-3d;"></div>
+        </div>
+        <p id="contemplation-realm-desc" style="font-size:0.95rem; color:var(--ink-black); margin:12px 0; line-height:1.5;"></p>
+        <div style="margin:8px 0 14px;">
+          <div style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:6px; font-weight:700;">⬅️ 左右撥動畫軸環視內景法相 ➡️</div>
+          <input type="range" id="contemplation-rotate-slider" min="-180" max="180" value="0" style="width:100%; accent-color:#a32c22; cursor:pointer;" />
+        </div>
+        <button class="btn-modern gold full" id="btn-close-contemplation">收攏畫卷 · 返回靈台</button>
+      </div>
+    </div>
+
+    <!-- 3. 萬里江山探索卷軸視窗 -->
+    <div id="exploration-modal-overlay" class="modal-overlay">
+      <div class="modal-content-card" style="padding:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(34,32,28,0.3); padding-bottom:8px;">
+          <b id="explore-modal-title" style="color:var(--ink-black); font-size:1.1rem;">萬里遊歷卷軸</b>
+          <button id="btn-close-explore" style="background:transparent; border:none; color:var(--ink-mid); cursor:pointer; font-size:0.92rem; font-weight:800; font-family:var(--font-body);">✖ 收卷</button>
+        </div>
+        <div class="explore-flight-stage" id="explore-stage-box"></div>
+        <div id="explore-event-body" style="margin-bottom:12px; font-size:0.95rem;"></div>
+        <div id="explore-actions-box" style="display:flex; flex-direction:column; gap:8px;"></div>
+      </div>
+    </div>
+
+    <!-- 4. 全屏水墨演武畫卷劇場 -->
+    <div id="combat-modal-overlay" class="modal-overlay">
+      <div class="modal-content-card">
+        <div class="modal-header">
+          <b style="color:var(--ink-black); font-size:1.1rem;">〔水墨演武長卷〕</b>
+          <div style="display:flex; gap:6px;">
+            <button id="btn-combat-speed-toggle" class="chip-btn active">⚖️ 1.0x 標準</button>
+            <button id="btn-combat-switch-formation" class="chip-btn">☯️ 變陣</button>
+            <button id="btn-toggle-auto-combat" class="chip-btn">🔄 自動</button>
+          </div>
+        </div>
+
+        <div class="combat-arena-wrapper" id="combat-arena-box">
+          <div class="combat-vfx-layer" id="combat-vfx-slot"></div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; position:relative; z-index:10; width:100%;">
+            <div class="combatant-box">
+              <div id="p-callout-slot"></div>
+              <div id="p-float-slot"></div>
+              <div class="combat-avatar-circle" id="p-avatar-circle">劍</div>
+              <b id="p-name" style="font-size:1.02rem; color:var(--ink-black);">陸沉舟</b>
+              <div id="p-hp-text" style="font-size:0.84rem; color:var(--ink-mid); font-weight:700; margin:3px 0;">氣血 100% ｜ 護體真元 100%</div>
+              <div class="combat-bars-stack">
+                <div class="hp-bar-outer">
+                  <div id="p-hp-fill" class="hp-bar-fill" style="width:100%; background:var(--pine-green);"></div>
+                </div>
+                <div class="shield-bar-outer">
+                  <div id="p-shield-fill" class="shield-bar-fill" style="width:100%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="font-weight:900; font-size:1.22rem; color:var(--cinnabar-red); font-family:var(--font-title);">對決</div>
+
+            <div class="combatant-box">
+              <div id="e-callout-slot"></div>
+              <div id="e-float-slot"></div>
+              <div class="combat-avatar-circle" id="e-avatar-circle">敵</div>
+              <b id="e-name" style="font-size:1.02rem; color:var(--cinnabar-red);">強敵</b>
+              <div id="e-hp-text" style="font-size:0.84rem; color:var(--ink-mid); font-weight:700; margin:3px 0;">氣血 100% ｜ 護體真元 100%</div>
+              <div class="combat-bars-stack">
+                <div class="hp-bar-outer">
+                  <div id="e-hp-fill" class="hp-bar-fill" style="width:100%; background:var(--cinnabar-red);"></div>
+                </div>
+                <div class="shield-bar-outer">
+                  <div id="e-shield-fill" class="shield-bar-fill" style="width:100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mental-state-strip">
+          <span class="mental-pill clarity" id="p-clarity-pill">道心: 20%</span>
+          <span style="color:var(--ink-mid); font-size:0.84rem; font-weight:700;">道心圓滿必破敵防 ｜ 護體可定心神</span>
+          <span class="mental-pill demon" id="p-demon-pill">心魔: 0%</span>
+        </div>
+
+        <div id="combat-logs-content" class="combat-log-stream"></div>
+
+        <div class="combat-tactical-bar" id="combat-tactical-controls">
+          <div class="qte-ring-box" id="qte-ring-trigger">
+            <span style="font-size:0.94rem; font-weight:900;">〔靈機一閃〕氣機交感！輕觸此印觸發【完美破綻 · 1.5倍真傷】</span>
+            <span class="cinnabar-seal-stamp">破綻</span>
+          </div>
+          <div class="tactical-3btn-grid">
+            <button class="btn-tactic" id="btn-tactic-attack">
+              <span style="font-size:1.08rem; font-weight:900; color:var(--ink-black);">御劍普攻</span>
+              <span style="font-size:0.82rem; color:var(--ink-mid); font-weight:700;">削盾 · 回氣+45</span>
+            </button>
+            <button class="btn-tactic ultimate" id="btn-tactic-skill">
+              <span style="font-size:1.08rem; font-weight:900; color:var(--cinnabar-red);">祭出絕學</span>
+              <span style="font-size:0.82rem; color:var(--cinnabar-red); font-weight:700;">水墨大招 · 破綻印</span>
+            </button>
+            <button class="btn-tactic guard" id="btn-tactic-guard">
+              <span style="font-size:1.08rem; font-weight:900; color:var(--stone-cyan);">護體蓄力</span>
+              <span style="font-size:0.82rem; color:var(--stone-cyan); font-weight:700;">凝盾 · 下擊+65%</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="combat-summary-panel" id="combat-summary-panel">
+          <div id="combat-summary-title" style="font-size:1.08rem; font-weight:900;"></div>
+          <div id="combat-summary-body" style="font-size:0.94rem;"></div>
+          <div id="combat-best-hit-line" style="font-size:0.9rem; color:var(--stone-cyan); font-weight:800;"></div>
+          <div style="display:flex; gap:8px; margin-top:6px;">
+            <button id="btn-replay-combat" class="btn-modern secondary" style="flex:1;">展卷回顧</button>
+            <button id="btn-retry-combat" class="btn-modern" style="flex:1;">調息再戰</button>
+            <button id="btn-close-combat" class="btn-modern gold" style="flex:1;">收劍入鞘</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/game.js?v=26.1"></script>
+</body>
+</html>
