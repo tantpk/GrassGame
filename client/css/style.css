@@ -1,0 +1,3201 @@
+/* 星宿劫源：太初道主 - v11.5 高清大字級濃墨對比 × 微側身寫意水墨畫卷體系 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&display=swap');
+
+:root {
+  /* 宣紙底色與高對比濃墨／中墨階層（解決字色過淡與對比不足問題） */
+  --paper-bg: #f4efe4;
+  --paper-warm: #ebe3d2;
+  --paper-card: rgba(250, 246, 238, 0.94);
+  --paper-scroll: #e6ddca;
+  --paper-texture: repeating-linear-gradient(0deg, rgba(44, 42, 38, 0.015) 0px, rgba(44, 42, 38, 0.015) 1px, transparent 1px, transparent 4px);
+
+  /* 主要文字：濃墨（深灰黑 #141311），次要文字：中墨（#3d3a34），輔助題字：雅墨（#524e46） */
+  --ink-black: #141311;
+  --ink-dark: #22201c;
+  --ink-mid: #3d3a34;
+  --ink-light: #575249;
+  --ink-wash: rgba(20, 19, 17, 0.08);
+  --ink-border: rgba(34, 32, 28, 0.36);
+
+  /* 傳統朱砂紅、石青、松煙黛綠、赭石金 */
+  --cinnabar-red: #a32c22;
+  --cinnabar-light: rgba(163, 44, 34, 0.12);
+  --stone-cyan: #235363;
+  --stone-cyan-light: rgba(35, 83, 99, 0.12);
+  --pine-green: #2d5442;
+  --ochre-gold: #7d5420;
+
+  /* 兼容變數映射 */
+  --bg-deep: #dfd7c6;
+  --bg-card: rgba(250, 246, 238, 0.94);
+  --glass-border: rgba(34, 32, 28, 0.28);
+  --jade-green: #2d5442;
+  --jade-cyan: #235363;
+  --gold-main: #7d5420;
+  --gold-bright: #a32c22;
+  --cyan-spirit: #235363;
+  --purple-void: #4f3559;
+  --crimson-blood: #a32c22;
+  --text-main: #141311;
+  --text-sub: #22201c;
+  --text-muted: #3d3a34;
+
+  /* 標題略帶書法碑刻感，內文採用清晰楷體／宋體，字重以 Regular/Medium/Bold 為主 */
+  --font-title: "STKaiti", "Kaiti TC", "KaiTi", "BiauKai", "Noto Serif TC", serif;
+  --font-body: "Kaiti TC", "STKaiti", "KaiTi", "Songti TC", "Noto Serif TC", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html {
+  /* 基準字級 16px，確保 rem 換算精準對應手機直向 pt 標準 */
+  font-size: 16px;
+}
+
+body {
+  background-color: #cbc1ae;
+  background-image: radial-gradient(circle at 50% 30%, #dfd7c7 0%, #b8ad98 100%);
+  color: var(--ink-black);
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* 內文基準 15px (約 14-15pt) */
+  font-weight: 500;
+  line-height: 1.48;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* 遊戲主容器：宣紙立軸畫卷 */
+#app-container {
+  width: 100%;
+  max-width: 468px;
+  height: 100vh;
+  max-height: 950px;
+  background:
+    var(--paper-texture),
+    radial-gradient(ellipse at 50% 18%, rgba(255, 253, 249, 0.96) 0%, rgba(244, 238, 226, 0.92) 55%, rgba(228, 220, 202, 0.96) 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(20, 19, 17, 0.4), inset 0 0 42px rgba(138, 122, 98, 0.16);
+  border-left: 2px solid rgba(34, 32, 28, 0.35);
+  border-right: 2px solid rgba(34, 32, 28, 0.35);
+  transition: background 1s ease;
+}
+
+/* 水墨煙雲背景層 */
+.ethereal-mist-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  background-image:
+    radial-gradient(ellipse at 22% 25%, rgba(35, 83, 99, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 42%, rgba(20, 19, 17, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 85%, rgba(20, 19, 17, 0.11) 0%, transparent 65%);
+}
+.mist-cloud {
+  position: absolute;
+  width: 200%;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(255, 253, 248, 0.72) 0%, rgba(175, 168, 155, 0.18) 45%, transparent 72%);
+  filter: blur(12px);
+  animation: driftMist 30s ease-in-out infinite alternate;
+}
+.mist-cloud.c1 { top: 8%; left: -45%; }
+.mist-cloud.c2 { top: 36%; left: -35%; animation-duration: 40s; animation-direction: alternate-reverse; }
+.mist-cloud.c3 { bottom: 14%; left: -40%; animation-duration: 34s; }
+
+@keyframes driftMist {
+  0% { transform: translateX(-6%) translateY(0) scaleY(1); }
+  100% { transform: translateX(8%) translateY(-8px) scaleY(1.08); }
+}
+
+/* ==================== 「畫中意境」模式：UI 大幅淡化，角色變小融入山水雲海 ==================== */
+#app-container.zen-mode header.game-header,
+#app-container.zen-mode nav.modern-dock,
+#app-container.zen-mode .hide-in-zen {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  transition: all 0.65s ease;
+}
+#app-container.zen-mode .cultivation-hero-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-top: 16px !important;
+}
+#app-container.zen-mode .cultivation-stage {
+  min-height: 490px !important;
+  border: none !important;
+  background: transparent !important;
+}
+/* 角色縮小並融入遠山松崖之間，真正營造「人在畫中」 */
+#app-container.zen-mode .cultivator-centerpiece {
+  transform: scale(0.58) translate(28px, 36px) !important;
+}
+#app-container.zen-mode .ink-landscape-svg-bg {
+  opacity: 1 !important;
+  transform: scale(1.04);
+}
+.zen-exit-hint {
+  display: none;
+  position: absolute;
+  bottom: 28px;
+  left: 6%;
+  right: 6%;
+  width: 88%;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(246, 241, 231, 0.95);
+  border: 1.5px solid var(--ink-dark);
+  border-left: 5px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  z-index: 90;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(20, 19, 17, 0.22);
+}
+#app-container.zen-mode .zen-exit-hint {
+  display: block;
+}
+
+/* ==================== 頂部古卷軸與溫潤玉牌資源欄（次要資訊 12–13pt 保底） ==================== */
+header.game-header {
+  min-height: 64px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--paper-texture), linear-gradient(180deg, #e6ddcb 0%, rgba(242, 235, 221, 0.96) 100%);
+  border-bottom: 1.5px solid var(--ink-border);
+  box-shadow: 0 2px 10px rgba(20, 19, 17, 0.08);
+  z-index: 50;
+}
+
+.profile-slot {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.avatar-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 3px;
+  padding: 2px;
+  background: var(--cinnabar-red);
+  border: 1.5px solid #6b1912;
+  box-shadow: inset 0 0 0 1px rgba(255, 245, 238, 0.45);
+}
+.avatar-inner {
+  width: 100%;
+  height: 100%;
+  background: var(--cinnabar-red);
+  color: #fbf8f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+}
+.char-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.char-name {
+  font-size: 1.18rem; /* 頂部角色名清晰加粗 */
+  font-weight: 900;
+  color: var(--ink-black);
+  letter-spacing: 1.5px;
+  font-family: var(--font-title);
+}
+.char-realm-badge {
+  font-size: 0.85rem; /* 13.5px (>12pt) */
+  color: var(--cinnabar-red);
+  font-weight: 800;
+}
+
+/* 玉牌資源欄：字級提升至 0.84rem (13.5px, 約 12.5-13pt)，濃墨數字 */
+.currency-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.currency-pill {
+  background: var(--paper-texture), linear-gradient(180deg, #fbf8f2 0%, #eae2d0 100%);
+  border: 1px solid rgba(34, 32, 28, 0.38);
+  border-top: 2.5px solid var(--stone-cyan);
+  padding: 3px 9px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.84rem !important; /* 13.5px，絕不小於 12pt */
+  font-weight: 800;
+  color: var(--ink-black);
+  box-shadow: 0 1px 3px rgba(20, 19, 17, 0.1);
+  transition: transform 0.25s ease;
+}
+.currency-pill.fly-pulse {
+  transform: scale(1.1);
+  border-color: var(--cinnabar-red);
+  background: #fdf5f2;
+}
+
+.btn-icon-circle {
+  background: #f5efe2;
+  border: 1.5px solid var(--ink-dark);
+  color: var(--ink-black);
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: var(--font-title);
+  font-weight: 900;
+}
+
+/* 主視口 */
+main#view-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 14px 22px;
+  position: relative;
+  z-index: 10;
+  scrollbar-width: none;
+}
+main#view-viewport::-webkit-scrollbar { display: none; }
+
+/* ==================== 宣紙卡片與區塊標題（16–18pt） ==================== */
+.game-card {
+  background: var(--paper-texture), var(--paper-card);
+  border: 1px solid rgba(34, 32, 28, 0.3);
+  border-top: 2.5px solid var(--ink-black);
+  border-bottom: 2px solid rgba(34, 32, 28, 0.4);
+  border-radius: 3px;
+  padding: 14px 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(20, 19, 17, 0.08), inset 0 0 22px rgba(215, 204, 184, 0.28);
+  position: relative;
+  line-height: 1.48;
+}
+.game-card h2 {
+  font-size: 1.15rem !important; /* 約 17.5–18pt */
+  font-weight: 900 !important;
+  color: var(--ink-black) !important;
+  font-family: var(--font-title);
+  letter-spacing: 1px;
+}
+.game-card h3 {
+  font-size: 1.06rem !important; /* 約 16–17pt */
+  font-weight: 900 !important;
+  color: var(--ink-black) !important;
+  font-family: var(--font-title);
+  letter-spacing: 0.8px;
+}
+
+/* ==================== 上方四個功能鍵：宣紙紋理＋微墨邊＋18pt 大字級 ==================== */
+.sub-nav-pills {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+}
+.sub-pill-btn {
+  width: 100% !important;
+  background:
+    var(--paper-texture),
+    linear-gradient(180deg, #faf6ed 0%, #e7dfd0 100%) !important;
+  border: 1.5px solid rgba(34, 32, 28, 0.42) !important;
+  border-left: 4px solid var(--ink-dark) !important;
+  color: var(--ink-black) !important;
+  padding: 9px 10px !important;
+  border-radius: 2px !important;
+  font-size: 1.08rem !important; /* 17.5-18pt 主要功能鍵 */
+  font-weight: 900 !important;
+  font-family: var(--font-title) !important;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center !important;
+  box-shadow: 0 2px 5px rgba(20, 19, 17, 0.08), inset 0 0 0 1px rgba(255, 252, 245, 0.6) !important;
+  transition: all 0.2s ease;
+}
+.sub-pill-btn.active {
+  background:
+    var(--paper-texture),
+    linear-gradient(180deg, #fdfaf4 0%, #f2e8d5 100%) !important;
+  border-color: var(--cinnabar-red) !important;
+  border-left: 5px solid var(--cinnabar-red) !important;
+  color: var(--cinnabar-red) !important;
+  box-shadow: 0 3px 8px rgba(163, 44, 34, 0.16), inset 0 0 0 1px rgba(255, 245, 240, 0.7) !important;
+}
+
+/* ==================== 輕量化「歲月書卷」與完成後自動收合之「今日行程」 ==================== */
+.ink-scroll-strip {
+  background: rgba(246, 241, 230, 0.78);
+  border-top: 1px solid rgba(34, 32, 28, 0.28);
+  border-bottom: 1px solid rgba(34, 32, 28, 0.28);
+  border-left: 3.5px solid var(--ink-dark);
+  border-right: 3.5px solid var(--ink-dark);
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.ink-scroll-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.02rem; /* 16pt 區塊標題 */
+  font-weight: 900;
+  color: var(--ink-black);
+  font-family: var(--font-title);
+}
+.ink-scroll-body {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(34, 32, 28, 0.28);
+  font-size: 0.92rem; /* 14.5pt 內文 */
+  line-height: 1.5;
+  color: var(--ink-black);
+}
+
+.daily-destiny-bar {
+  background: rgba(246, 241, 230, 0.82);
+  border-top: 1px solid rgba(34, 32, 28, 0.28);
+  border-bottom: 1px solid rgba(34, 32, 28, 0.28);
+  border-left: 3.5px solid var(--stone-cyan);
+  border-right: 3.5px solid var(--stone-cyan);
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+.daily-destiny-bar.all-done-compact {
+  background: rgba(242, 237, 225, 0.65);
+  border-left-color: var(--ink-mid);
+  border-right-color: var(--ink-mid);
+  padding: 6px 12px;
+}
+.destiny-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.02rem; /* 16pt 區塊標題 */
+  font-weight: 900;
+  color: var(--ink-black);
+  font-family: var(--font-title);
+  cursor: pointer;
+}
+.destiny-tasks-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(34, 32, 28, 0.25);
+}
+.destiny-chip {
+  background: #fbf8f1;
+  border: 1px solid rgba(34, 32, 28, 0.32);
+  border-radius: 2px;
+  padding: 8px;
+  font-size: 0.88rem; /* 14pt 任務說明 */
+  color: var(--ink-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  cursor: pointer;
+}
+.destiny-chip.ready {
+  border: 1.5px solid var(--cinnabar-red);
+  background: #fdf6f4;
+}
+.destiny-chip.claimed {
+  opacity: 0.72;
+  background: #ebe4d4;
+}
+
+/* 舞台視角切換鍵：紙質微墨邊 */
+.stage-top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.view-switch-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip-btn {
+  background: var(--paper-texture), #f6f0e3;
+  border: 1px solid rgba(34, 32, 28, 0.42);
+  color: var(--ink-black);
+  font-size: 0.86rem !important; /* 13.5-14pt */
+  font-weight: 800;
+  font-family: var(--font-body);
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255, 252, 245, 0.5);
+}
+.chip-btn.active {
+  background: var(--stone-cyan);
+  border-color: #173842;
+  color: #fbf8f1;
+}
+
+/* ==================== 水墨山水舞台與角色角色呈現（角色名稱＋境界 20–22pt） ==================== */
+.cultivation-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 10px 12px;
+  position: relative;
+  min-height: 255px;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 254, 250, 0.94) 0%, rgba(236, 229, 214, 0.72) 68%, rgba(216, 206, 186, 0.52) 100%);
+  border: 1px solid rgba(34, 32, 28, 0.22);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all 0.55s ease;
+}
+
+.ink-landscape-svg-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.65;
+  transition: all 0.6s ease;
+}
+
+.cultivation-stage.closeup-mode .cultivator-centerpiece {
+  transform: scale(1.1) translateY(2px);
+}
+.cultivation-stage.closeup-mode .ink-landscape-svg-bg {
+  opacity: 0.52;
+}
+
+.cultivation-stage.panoramic-mode {
+  min-height: 280px;
+  background: linear-gradient(180deg, #fbf8f1 0%, #e4ddd0 68%, #cfc6b4 100%);
+}
+.cultivation-stage.panoramic-mode .cultivator-centerpiece {
+  transform: scale(0.72) translate(18px, 16px);
+}
+.cultivation-stage.panoramic-mode .ink-landscape-svg-bg {
+  opacity: 0.96;
+  transform: scale(1.03);
+}
+
+/* 角色名＋境界主標題：20–22pt (1.38rem = 22px)，濃墨加粗 */
+.hero-realm-title {
+  font-size: 1.38rem !important; /* 22px (約 21pt) */
+  font-weight: 900 !important;
+  color: var(--ink-black) !important;
+  font-family: var(--font-title);
+  letter-spacing: 2px;
+  line-height: 1.3;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.hero-realm-sub {
+  font-size: 0.88rem !important; /* 14px */
+  color: var(--ink-mid) !important;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* 修士立繪與自然流動的淡墨雲氣（完全無規則圓圈） */
+.cultivator-centerpiece {
+  position: relative;
+  width: 184px;
+  height: 184px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.5s ease;
+}
+.cultivator-centerpiece.inhaling {
+  transform: scale(1.06);
+}
+
+.cultivator-svg {
+  width: 152px;
+  height: 152px;
+  z-index: 6;
+  overflow: visible;
+}
+
+/* 角色微動態：呼吸、衣袂飄拂、髮絲微揚、懸掛劍穗搖曳、山間雲帶流淌 */
+.svg-torso-group {
+  animation: breatheTorso 3.8s ease-in-out infinite;
+  transform-origin: 80px 95px;
+}
+.svg-robe-sleeve {
+  animation: flutterSleeve 3.2s ease-in-out infinite alternate;
+  transform-origin: 75px 75px;
+}
+.svg-hair-strand {
+  animation: hairWave 2.9s ease-in-out infinite alternate;
+  transform-origin: 78px 45px;
+}
+.svg-tassel-pendulum {
+  animation: tasselSway 2.4s ease-in-out infinite alternate;
+  transform-origin: 36px 28px;
+}
+.svg-floating-sword {
+  animation: swordHover 3.4s ease-in-out infinite alternate;
+}
+.svg-mist-band-1 {
+  animation: inkMistDrift 11s ease-in-out infinite alternate;
+}
+.svg-mist-band-2 {
+  animation: inkMistDrift 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes breatheTorso {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-2.5px) scaleY(1.02); }
+}
+@keyframes flutterSleeve {
+  0% { transform: rotate(-1.8deg) skewX(-2deg); }
+  100% { transform: rotate(2.4deg) skewX(2.5deg); }
+}
+@keyframes hairWave {
+  0% { transform: rotate(-2.5deg) translateX(-1px); }
+  100% { transform: rotate(3deg) translateX(2px); }
+}
+@keyframes tasselSway {
+  0% { transform: rotate(-6deg); }
+  100% { transform: rotate(7deg); }
+}
+@keyframes swordHover {
+  0% { transform: translateY(-3px) rotate(-1.5deg); }
+  100% { transform: translateY(3px) rotate(1.5deg); }
+}
+@keyframes inkMistDrift {
+  0% { transform: translateX(-14px); opacity: 0.45; }
+  100% { transform: translateX(14px); opacity: 0.82; }
+}
+
+/* 文言心境題句（14–15pt，濃墨清晰） */
+.mood-bubble {
+  position: relative !important;
+  margin: 0 auto 8px !important;
+  max-width: 94% !important;
+  background: rgba(248, 243, 232, 0.92) !important;
+  border-top: 1px solid rgba(34, 32, 28, 0.28) !important;
+  border-bottom: 1px solid rgba(34, 32, 28, 0.28) !important;
+  border-left: 3.5px solid var(--cinnabar-red) !important;
+  border-right: none !important;
+  color: var(--ink-black) !important;
+  padding: 6px 14px !important;
+  font-size: 0.94rem !important; /* 15px (14–15pt) */
+  font-weight: 700;
+  text-align: center !important;
+  letter-spacing: 0.8px;
+  z-index: 12;
+}
+
+/* 長按吐納時淡墨氣流匯入丹田特效 */
+.qi-stream-particle {
+  position: absolute;
+  color: var(--ink-black);
+  font-size: 1.05rem;
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 20;
+  animation: suckInQi 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.ink-wisp-arc {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(20, 19, 17, 0.38);
+  border-left-color: rgba(35, 83, 99, 0.32);
+  pointer-events: none;
+  z-index: 19;
+  animation: wispSwirlIn 0.85s ease-out forwards;
+}
+@keyframes wispSwirlIn {
+  0% { opacity: 0.9; transform: scale(1.6) rotate(0deg); }
+  100% { opacity: 0; transform: scale(0.25) rotate(140deg); }
+}
+
+.floating-epiphany {
+  position: absolute;
+  top: 14%;
+  left: 6% !important;
+  right: 6% !important;
+  width: 88% !important;
+  margin: 0 auto !important;
+  background: rgba(250, 246, 236, 0.97);
+  border: 1.5px solid var(--ink-black);
+  border-left: 5px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 7px 14px;
+  font-size: 1.02rem; /* 16pt 文言短句回饋 */
+  font-weight: 900;
+  font-family: var(--font-title);
+  letter-spacing: 2px;
+  text-align: center !important;
+  pointer-events: none;
+  z-index: 30;
+  box-shadow: 0 6px 18px rgba(20, 19, 17, 0.2);
+  animation: floatUpFade 1.45s ease-out forwards;
+}
+
+/* ==================== 水墨暈染元氣進度條（14–15pt 數值加重） ==================== */
+.dual-progress-box {
+  background: #faf6ed;
+  border: 1px solid rgba(34, 32, 28, 0.32);
+  border-radius: 2px;
+  padding: 11px 13px;
+  margin: 10px 0 12px;
+}
+.progress-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem; /* 15px (14-15pt) */
+  color: var(--ink-black);
+  margin-bottom: 6px;
+}
+.progress-countdown-tag {
+  color: var(--stone-cyan);
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+.dual-track-outer {
+  width: 100%;
+  height: 14px;
+  background: #dfd7c5;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(34, 32, 28, 0.42);
+  box-shadow: inset 0 1px 4px rgba(20, 19, 17, 0.22);
+}
+/* 水墨暈染漸層進度條（濃墨 -> 石青 -> 墨韻邊緣） */
+.track-total-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #141311 0%, #235363 68%, #3c6e7d 92%, rgba(60, 110, 125, 0.65) 100%);
+  border-radius: 1px;
+  position: relative;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.track-today-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  background: var(--cinnabar-red);
+  transition: width 0.45s ease;
+}
+.progress-sub-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem; /* 13.8px (>13pt) */
+  color: var(--ink-mid);
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+/* ==================== 主要操作按鈕（18–20pt）與「已臻太初至境」淡墨題字＋小印章 ==================== */
+.action-buttons-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.btn-jade {
+  background: var(--paper-texture), linear-gradient(180deg, #fcf9f2 0%, #eae1ce 100%);
+  color: var(--ink-black);
+  border: 1.5px solid var(--ink-black);
+  border-left: 5px solid var(--stone-cyan);
+  border-radius: 2px;
+  padding: 11px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 3px 8px rgba(20, 19, 17, 0.12);
+  font-family: var(--font-title);
+  transition: all 0.15s ease;
+}
+.btn-jade:active, .btn-jade.holding {
+  background: #dfd6c2;
+  transform: translateY(1px);
+}
+.btn-jade .main-label {
+  font-size: 1.18rem !important; /* 約 19pt 主要操作按鈕 */
+  font-weight: 900;
+  color: var(--ink-black);
+  letter-spacing: 1.5px;
+}
+.btn-jade .sub-label {
+  font-size: 0.84rem !important; /* 13.5px (>12pt) */
+  color: var(--stone-cyan);
+  font-weight: 700;
+  font-family: var(--font-body);
+  margin-top: 3px;
+}
+
+.btn-breakthrough-talisman {
+  border-radius: 2px;
+  padding: 11px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  transition: all 0.25s ease;
+}
+.btn-breakthrough-talisman.state-locked {
+  background: var(--paper-texture), #ebe3d3;
+  border: 1.5px dashed rgba(34, 32, 28, 0.45);
+  color: var(--ink-dark);
+}
+.btn-breakthrough-talisman.state-near {
+  background: #f8f0e3;
+  border: 1.5px solid var(--cinnabar-red);
+  color: var(--cinnabar-red);
+}
+.btn-breakthrough-talisman.state-ready {
+  background: linear-gradient(180deg, #b03329 0%, #8a2119 100%);
+  border: 1.5px solid #57110c;
+  color: #fbf8f1;
+  box-shadow: 0 3px 12px rgba(163, 44, 34, 0.35), inset 0 0 0 1px rgba(255, 240, 230, 0.35);
+}
+
+/* 「已臻太初至境」淡墨題字＋小小朱砂印章感 */
+.realm-zenith-calligraphy,
+button:disabled,
+.btn-maxed {
+  background: var(--paper-texture), linear-gradient(90deg, rgba(235, 228, 213, 0.75), rgba(248, 244, 234, 0.95), rgba(235, 228, 213, 0.75)) !important;
+  border: 1px solid rgba(34, 32, 28, 0.32) !important;
+  border-left: 3.5px solid var(--ink-mid) !important;
+  color: var(--ink-mid) !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+.mini-red-seal {
+  display: inline-block;
+  background: var(--cinnabar-red);
+  color: #fbf8f1;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+  border: 1px solid #6b1912;
+}
+
+/* 通用按鈕字級提升 */
+.btn-modern {
+  background: var(--paper-texture), linear-gradient(180deg, #faf6ec 0%, #e5dcc9 100%);
+  color: var(--ink-black);
+  border: 1.5px solid var(--ink-dark);
+  border-left: 4px solid var(--stone-cyan);
+  padding: 8px 13px;
+  font-size: 0.94rem !important; /* 15px (14-15pt) */
+  font-weight: 800;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 4px rgba(20, 19, 17, 0.08);
+}
+.btn-modern.gold {
+  background: var(--paper-texture), linear-gradient(180deg, #fdf8f2 0%, #efe0cd 100%);
+  border-color: var(--cinnabar-red);
+  border-left: 4px solid var(--cinnabar-red);
+  color: var(--cinnabar-red);
+}
+.btn-modern.secondary {
+  background: #ebe4d4;
+  border: 1px solid rgba(34, 32, 28, 0.38);
+  color: var(--ink-black);
+}
+.btn-modern.full { width: 100%; }
+
+/* ==================== 五維道基與屬性數值（14–15pt 清晰濃墨） ==================== */
+.dao-foundation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 0;
+}
+.dao-diagnosis-banner {
+  background: #eee7d7;
+  border-left: 3.5px solid var(--stone-cyan);
+  border-top: 1px solid rgba(34, 32, 28, 0.18);
+  border-bottom: 1px solid rgba(34, 32, 28, 0.18);
+  padding: 8px 12px;
+  border-radius: 1px;
+  font-size: 0.9rem; /* 14.5px (14pt) */
+  line-height: 1.45;
+  color: var(--ink-black);
+  margin: 8px 0;
+}
+.attr-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.attr-story-card {
+  background: #fbf8f1;
+  border: 1px solid rgba(34, 32, 28, 0.3);
+  border-radius: 2px;
+  padding: 9px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.attr-story-card.near-unlock {
+  border-color: var(--cinnabar-red);
+  background: #fdf6f4;
+}
+.attr-mini-bar {
+  width: 100%;
+  height: 5px;
+  background: #dcd3c0;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.attr-mini-fill {
+  height: 100%;
+  background: var(--stone-cyan);
+}
+.attr-unlock-hint {
+  font-size: 0.8rem; /* 12.8px (12pt 保底) */
+  color: var(--ink-mid);
+  font-weight: 600;
+}
+.attr-story-card.near-unlock .attr-unlock-hint {
+  color: var(--cinnabar-red);
+  font-weight: 800;
+}
+
+/* 四大秘境入口（15–16pt 標題 + 13pt 副標） */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  margin-top: 10px;
+}
+.portal-btn {
+  background: var(--paper-texture), linear-gradient(180deg, #fbf7ee 0%, #e9e0ce 100%);
+  border: 1.5px solid rgba(34, 32, 28, 0.38);
+  border-left: 4px solid var(--ink-black);
+  border-radius: 2px;
+  padding: 10px 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+}
+.portal-icon {
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--ink-black);
+  background: #f0e8d5;
+  color: var(--ink-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-family: var(--font-title);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.portal-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.35;
+}
+.portal-name {
+  font-size: 0.96rem; /* 15.5px */
+  font-weight: 900;
+  color: var(--ink-black);
+}
+.portal-hook-tag {
+  font-size: 0.82rem; /* 13px (12.5pt) */
+  color: var(--cinnabar-red);
+  font-weight: 700;
+}
+
+/* ==================== 底部導航欄：統一線條粗細與方印風格 ==================== */
+nav.modern-dock {
+  height: 68px;
+  background: var(--paper-texture), linear-gradient(180deg, #e5dcc9 0%, #d6cbb4 100%);
+  border-top: 2px solid var(--ink-black);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+}
+.dock-tab {
+  background: transparent;
+  border: none;
+  color: var(--ink-dark);
+  font-size: 0.84rem; /* 13.5px (13pt) 清晰導航字 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  position: relative;
+}
+.dock-seal-icon {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--ink-dark);
+  background: #faf6ec;
+  color: var(--ink-black);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  box-shadow: inset 0 0 0 1px rgba(34, 32, 28, 0.12);
+  transition: all 0.2s ease;
+}
+.dock-tab.active {
+  color: var(--cinnabar-red);
+}
+.dock-tab.active .dock-seal-icon {
+  background: var(--cinnabar-red);
+  border-color: #631610;
+  color: #fbf8f1;
+  box-shadow: 0 2px 6px rgba(163, 44, 34, 0.35), inset 0 0 0 1px rgba(255, 240, 230, 0.35);
+}
+.dock-tab .dock-badge {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  background: var(--cinnabar-red);
+  color: #fbf8f1;
+  font-size: 0.68rem;
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+/* ==================== 品質標籤與詞條（12–13pt 保底） ==================== */
+.loot-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rarity-pill {
+  padding: 3px 9px;
+  border-radius: 2px;
+  font-size: 0.82rem !important; /* 13px (12.5pt) */
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.rarity-white { background: #f2ece0; border: 1px solid var(--ink-mid); color: var(--ink-dark); }
+.rarity-green { background: #eaf0eb; border: 1px solid var(--pine-green); color: var(--pine-green); }
+.rarity-blue { background: #e6eef1; border: 1px solid var(--stone-cyan); color: var(--stone-cyan); }
+.rarity-purple { background: #efeaf2; border: 1px solid #4f3559; color: #3f2747; }
+.rarity-gold {
+  background: #fdf5f3;
+  border: 1.5px solid var(--cinnabar-red);
+  color: var(--cinnabar-red);
+}
+
+.affix-tag {
+  display: inline-block;
+  background: #efe9dc;
+  border: 1px solid rgba(34, 32, 28, 0.35);
+  border-left: 3px solid var(--stone-cyan);
+  color: var(--ink-black);
+  font-size: 0.82rem !important; /* 13px */
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 1px;
+  margin-right: 5px;
+  margin-top: 4px;
+}
+.stat-diff-up { color: var(--pine-green); font-weight: 900; font-size: 0.86rem; }
+.stat-diff-down { color: var(--cinnabar-red); font-weight: 900; font-size: 0.86rem; }
+
+/* 各系統卡片與網格內邊距與字級放大 */
+.equip-hero-grid, .herb-field-grid, .abyss-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.equip-slot-card, .herb-plot-tile, .relic-draft-card, .puppet-hero-card, .acupoint-node-card, .region-map-card, .map-node-card {
+  background: #fbf8f1 !important;
+  border: 1px solid rgba(34, 32, 28, 0.34) !important;
+  border-radius: 2px !important;
+  padding: 11px 10px !important;
+  color: var(--ink-black) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+  box-shadow: 0 2px 6px rgba(20, 19, 17, 0.06) !important;
+}
+.equip-slot-card b, .herb-plot-tile b, .puppet-hero-card b, .acupoint-node-card b, .region-map-card b, .map-node-card b {
+  color: var(--ink-black) !important;
+  font-size: 0.98rem !important;
+}
+.herb-plot-tile.mature, .puppet-hero-card.deployed, .acupoint-node-card.node-can-open, .map-node-card.node-fortune {
+  border: 1.5px solid var(--cinnabar-red) !important;
+  background: #fdf6f4 !important;
+}
+.acupoint-node-card.node-opened, .map-node-card.node-explored {
+  border-left: 4px solid var(--stone-cyan) !important;
+  background: #eff4f5 !important;
+}
+.alchemy-furnace-stage, .formation-centerpiece-card, .combo-active-banner {
+  background: var(--paper-texture), linear-gradient(180deg, #fbf7ee 0%, #eae0cd 100%) !important;
+  border: 1.5px solid var(--ink-black) !important;
+  border-top: 3px solid var(--cinnabar-red) !important;
+  border-radius: 2px !important;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--ink-black) !important;
+}
+.skill-loadout-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin-bottom: 12px;
+}
+.loadout-slot-pill {
+  background: #fbf8f1;
+  border: 1px solid rgba(34, 32, 28, 0.36);
+  border-top: 2.5px solid var(--ink-black);
+  border-radius: 2px;
+  padding: 8px 5px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-black);
+  cursor: pointer;
+}
+
+/* ==================== 展開卷軸 ➔ 朱砂印章落下回饋 ==================== */
+.scroll-reward-toast {
+  position: fixed;
+  top: 74px;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #dacdb5 0%, #fbf7ee 8%, #fbf7ee 92%, #dacdb5 100%);
+  border-top: 2px solid var(--ink-black);
+  border-bottom: 2px solid var(--ink-black);
+  border-left: 6px solid #523822;
+  border-right: 6px solid #523822;
+  padding: 11px 15px;
+  z-index: 9999;
+  box-shadow: 0 10px 28px rgba(20, 19, 17, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  animation: unrollScrollAnim 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes unrollScrollAnim {
+  0% { opacity: 0; transform: scaleX(0.25); }
+  100% { opacity: 1; transform: scaleX(1); }
+}
+.cinnabar-seal-stamp {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--cinnabar-red);
+  color: #fbf8f1;
+  border: 1.5px solid #631610;
+  padding: 3px 9px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  border-radius: 2px;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 1px rgba(255, 240, 230, 0.4);
+  animation: stampDropAnim 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.3) forwards;
+}
+@keyframes stampDropAnim {
+  0% { opacity: 0; transform: scale(2.1) rotate(-10deg); }
+  70% { opacity: 1; transform: scale(0.94) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-2deg); }
+}
+
+.system-notice-toast {
+  position: fixed;
+  top: 68px;
+  left: 5% !important;
+  right: 5% !important;
+  width: 90% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+  background: #fbf7ee;
+  border: 1.5px solid var(--ink-black);
+  border-left: 5px solid var(--stone-cyan);
+  color: var(--ink-black);
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(20, 19, 17, 0.28);
+  pointer-events: none;
+}
+.system-notice-toast.warn {
+  border-left-color: var(--cinnabar-red);
+  color: var(--cinnabar-red);
+}
+
+/* ==================== 模態視窗與全屏水墨演武畫卷劇場 ==================== */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 19, 17, 0.68);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 14px;
+}
+.modal-overlay.active { display: flex; }
+
+.modal-content-card, .breakthrough-celebration-card {
+  width: 100%;
+  max-height: 90%;
+  background: var(--paper-bg) !important;
+  border: 2px solid var(--ink-black) !important;
+  border-top: 4px solid var(--cinnabar-red) !important;
+  border-radius: 3px !important;
+  color: var(--ink-black) !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(20, 19, 17, 0.55);
+}
+.modal-header {
+  padding: 10px 14px;
+  background: #e5dcc9;
+  border-bottom: 1.5px solid rgba(34, 32, 28, 0.32);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#combat-modal-overlay.modal-overlay {
+  padding: 0 !important;
+  background: var(--paper-bg) !important;
+}
+#combat-modal-overlay .modal-content-card {
+  width: 100% !important;
+  max-width: 468px !important;
+  height: 100vh !important;
+  max-height: 950px !important;
+  border: none !important;
+  justify-content: space-between;
+}
+#combat-modal-overlay .combat-arena-wrapper {
+  min-height: 275px !important;
+  padding: 26px 12px 14px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 40%, #fcfaf4 0%, #eae1cf 70%, #dad0bc 100%) !important;
+  border-bottom: 2px solid var(--ink-black) !important;
+}
+
+.combatant-box {
+  width: 45%;
+  text-align: center;
+  position: relative;
+}
+.combat-avatar-circle {
+  width: 72px !important;
+  height: 72px !important;
+  margin: 0 auto 5px;
+  border-radius: 50%;
+  background: #fbf7ee;
+  border: 2px solid var(--ink-black);
+  box-shadow: 0 0 0 3px rgba(34, 32, 28, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem !important;
+  font-family: var(--font-title);
+  font-weight: 900;
+}
+.combat-avatar-circle.enemy-enraged {
+  border-color: var(--cinnabar-red);
+  box-shadow: 0 0 16px rgba(163, 44, 34, 0.45);
+}
+
+.combat-bars-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px;
+}
+.hp-bar-outer {
+  width: 100%;
+  height: 11px;
+  background: #dcd3c0;
+  border-radius: 1px;
+  overflow: hidden;
+  border: 1px solid var(--ink-black);
+}
+.hp-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.shield-bar-outer {
+  width: 100%;
+  height: 6px;
+  background: #e5dccb;
+  border-radius: 1px;
+  overflow: hidden;
+  border: 1px solid var(--stone-cyan);
+}
+.shield-bar-fill {
+  height: 100%;
+  background: var(--stone-cyan);
+  transition: width 0.3s ease;
+}
+
+.combat-vfx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vfx-grand-showcase {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  background: radial-gradient(circle, rgba(244, 239, 228, 0.94) 0%, rgba(234, 226, 208, 0.5) 80%);
+  animation: grandVfxLifecycle 2.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes grandVfxLifecycle {
+  0% { opacity: 0; transform: scale(0.88); }
+  12% { opacity: 1; transform: scale(1.02); }
+  82% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.06); }
+}
+.vfx-skill-calligraphy {
+  max-width: 94%;
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  letter-spacing: 3px;
+  color: var(--ink-black);
+  padding: 8px 18px;
+  border-top: 2px solid var(--ink-black);
+  border-bottom: 2px solid var(--ink-black);
+  background: rgba(251, 247, 238, 0.97);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.vfx-skill-subtitle {
+  max-width: 92%;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--cinnabar-red);
+  background: #fbf7ee;
+  padding: 4px 14px;
+  border: 1.5px solid var(--cinnabar-red);
+  text-align: center;
+}
+
+.combat-callout-pill {
+  position: absolute !important;
+  top: -24px !important;
+  left: 2px !important;
+  right: 2px !important;
+  background: #fbf7ee !important;
+  border: 1px solid var(--ink-black) !important;
+  border-left: 3.5px solid var(--cinnabar-red) !important;
+  color: var(--ink-black) !important;
+  font-size: 0.82rem !important; /* 13px */
+  font-weight: 900;
+  padding: 2px 6px !important;
+  border-radius: 1px !important;
+  text-align: center !important;
+  z-index: 38;
+}
+.dmg-float-num {
+  position: absolute;
+  top: -8px;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 1.42rem !important;
+  font-weight: 900;
+  color: var(--cinnabar-red) !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+  z-index: 40;
+  animation: dmgPopFloatSlow 1.85s ease forwards !important;
+}
+@keyframes dmgPopFloatSlow {
+  0% { opacity: 0; transform: translateY(8px) scale(0.7); }
+  18% { opacity: 1; transform: translateY(-10px) scale(1.12); }
+  82% { opacity: 1; transform: translateY(-20px) scale(1); }
+  100% { opacity: 0; transform: translateY(-30px) scale(0.95); }
+}
+
+.mental-state-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  background: #e5dcc9;
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(34, 32, 28, 0.28);
+  font-size: 0.85rem;
+  color: var(--ink-black);
+}
+.mental-pill {
+  padding: 2px 9px;
+  border-radius: 2px;
+  font-weight: 800;
+  font-size: 0.84rem;
+}
+.mental-pill.clarity {
+  background: #e8eff1;
+  border: 1px solid var(--stone-cyan);
+  color: var(--stone-cyan);
+}
+.mental-pill.demon {
+  background: #f9ecea;
+  border: 1px solid var(--cinnabar-red);
+  color: var(--cinnabar-red);
+}
+
+.combat-log-stream {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  font-size: 0.96rem !important; /* 15.5px (15pt) 戰鬥內文清晰好讀 */
+  line-height: 1.65;
+  background: #f6f1e5;
+  color: var(--ink-black);
+}
+
+.combat-tactical-bar {
+  padding: 10px 12px;
+  background: #e6ddcb;
+  border-top: 1.5px solid var(--ink-black);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tactical-3btn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.btn-tactic {
+  background: var(--paper-texture), #fbf7ee;
+  border: 1.5px solid var(--ink-black);
+  border-top: 3px solid var(--ink-black);
+  border-radius: 2px;
+  padding: 9px 6px;
+  color: var(--ink-black);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-title);
+}
+.btn-tactic.ultimate {
+  background: #fdf6f4;
+  border-color: var(--cinnabar-red);
+  border-top: 3.5px solid var(--cinnabar-red);
+}
+.btn-tactic.guard {
+  background: #f1f6f7;
+  border-color: var(--stone-cyan);
+  border-top: 3.5px solid var(--stone-cyan);
+}
+
+.qte-ring-box {
+  display: none;
+  width: 100% !important;
+  align-items: center;
+  justify-content: space-between;
+  background: #fdf6f4;
+  border: 1.5px solid var(--cinnabar-red);
+  border-left: 5px solid var(--cinnabar-red);
+  border-radius: 2px;
+  padding: 9px 12px !important;
+  color: var(--cinnabar-red);
+  font-size: 0.92rem !important;
+  cursor: pointer;
+}
+.qte-ring-box.active { display: flex; }
+
+.combat-summary-panel {
+  display: none;
+  padding: 14px;
+  background: #eee6d4;
+  border-top: 2px solid var(--cinnabar-red);
+  flex-direction: column;
+  gap: 8px;
+}
+.combat-summary-panel.active { display: flex; }
+
+.explore-flight-stage {
+  height: 120px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #fbf8f0 0%, #e4dccb 100%);
+  border: 1px solid var(--ink-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.sword-flight-avatar {
+  font-size: 2.1rem;
+  animation: flyAcrossStage 1.6s ease-in-out infinite alternate;
+}
+@keyframes flyAcrossStage {
+  0% { transform: translateX(-28px) translateY(3px); }
+  100% { transform: translateX(28px) translateY(-5px); }
+}
+
+.stat-surge-list {
+  background: #fbf8f1;
+  border: 1px solid var(--ink-black);
+  border-radius: 2px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.stat-surge-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--ink-black);
+}
+.stat-surge-item b {
+  color: var(--cinnabar-red);
+}
+
+
+/* ==================== v11.1 十二時辰道心條、入定層數、渡劫小遊戲、火候控制、器靈與因果錄樣式 ==================== */
+
+/* 頂部時辰與道心值進度條橫幅 */
+.shichen-daoxin-bar {
+  width: 100%;
+  background: var(--paper-texture), linear-gradient(90deg, #e5dcc8 0%, #f5efe2 50%, #e5dcc8 100%);
+  border-top: 1px solid rgba(34, 32, 28, 0.28);
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.shichen-badge-btn {
+  background: #fbf8f1;
+  border: 1.5px solid var(--ink-black);
+  border-left: 4px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.daoxin-meter-wrap {
+  flex: 1;
+  min-width: 155px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.daoxin-bar-outer {
+  flex: 1;
+  height: 10px;
+  background: #d8cfc0;
+  border: 1px solid var(--ink-black);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.daoxin-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stone-cyan), var(--pine-green));
+  transition: width 0.35s ease;
+}
+
+/* 舞台左上角「入定 ×1~×5」徽章 */
+.ruding-stack-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(251, 247, 238, 0.95);
+  border: 1.5px solid var(--stone-cyan);
+  border-left: 4px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  border-radius: 2px;
+  z-index: 25;
+  box-shadow: 0 3px 10px rgba(20, 19, 17, 0.14);
+}
+
+/* 舞台右上角「器靈短句氣泡」 */
+.spirit-whisper-bubble {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-width: 190px;
+  background: rgba(253, 246, 244, 0.95);
+  border: 1px solid var(--cinnabar-red);
+  border-right: 4px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 4px 9px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 2px;
+  z-index: 25;
+  box-shadow: 0 3px 10px rgba(20, 19, 17, 0.12);
+}
+
+/* 彈出式心魔干擾卡 / 靈台頓悟四選一卡 / 渡劫小遊戲 / 火候控制條容器 */
+.interactive-event-overlay-box {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 350;
+  background: rgba(20, 19, 17, 0.65);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.interactive-event-overlay-box.active {
+  display: flex !important;
+}
+.interactive-scroll-card {
+  width: 100%;
+  max-width: 432px;
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--paper-texture), #fbf7ee;
+  border: 2px solid var(--ink-black);
+  border-top: 4px solid var(--cinnabar-red);
+  border-radius: 3px;
+  padding: 16px;
+  box-shadow: 0 12px 36px rgba(20, 19, 17, 0.45);
+  position: relative;
+}
+
+/* 煉丹火候掌控條 */
+.fire-gauge-track {
+  width: 100%;
+  height: 22px;
+  background: linear-gradient(90deg, #b8c4c8 0%, #dcd3c0 55%, #a8d5ba 60%, #a8d5ba 85%, #e8a598 86%, #c94a38 100%);
+  border: 2px solid var(--ink-black);
+  border-radius: 3px;
+  position: relative;
+  margin: 10px 0;
+}
+.fire-gauge-zone-label {
+  position: absolute;
+  left: 60%;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  border-left: 2px dashed var(--pine-green);
+  border-right: 2px dashed var(--pine-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: #143625;
+}
+.fire-gauge-pointer {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 8px;
+  background: var(--cinnabar-red);
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+  transition: left 0.18s ease;
+}
+
+/* 戰鬥中右側手動「合璧」朱砂按鈕 */
+.combat-hebi-floating-btn {
+  display: none;
+  background: linear-gradient(180deg, #b83227 0%, #821d15 100%);
+  border: 2px solid #fbf8f1;
+  outline: 2px solid var(--cinnabar-red);
+  color: #fbf8f1;
+  padding: 7px 14px;
+  border-radius: 3px;
+  font-size: 0.96rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(163, 44, 34, 0.5);
+  animation: stampDropAnim 0.4s ease;
+}
+.combat-hebi-floating-btn.active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.combat-hebi-floating-btn.cooldown {
+  background: #cfc6b4;
+  outline-color: var(--ink-mid);
+  color: var(--ink-dark);
+  box-shadow: none;
+}
+
+/* 大境界破境 8-12 秒悟道獨白全屏水墨劇場 */
+.monologue-scroll-box {
+  background:
+    var(--paper-texture),
+    radial-gradient(circle at 50% 35%, #fdfbf6 0%, #e8dfd0 75%, #d6cbb6 100%);
+  border: 2px solid var(--ink-black);
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+.monologue-line {
+  font-size: 1.15rem;
+  font-weight: 900;
+  font-family: var(--font-title);
+  color: var(--ink-black);
+  line-height: 1.85;
+  letter-spacing: 2px;
+  margin: 12px 0;
+  animation: floatUpFade 3s ease forwards;
+}
+
+
+/* ==================== v11.2 《星宿劫源》三幕主線道途條與道途錄卷軸樣式 ==================== */
+.daotu-persistent-bar {
+  background: var(--paper-texture), linear-gradient(90deg, #ede4d1 0%, #fbf8f0 50%, #ede4d1 100%);
+  border: 1.5px solid var(--ink-black);
+  border-left: 5px solid var(--cinnabar-red);
+  border-radius: 2px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  box-shadow: 0 3px 10px rgba(20, 19, 17, 0.08);
+}
+.daotu-act-tag {
+  background: var(--cinnabar-red);
+  color: #fbf8f1;
+  font-family: var(--font-title);
+  font-size: 0.84rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+.daotu-status-text {
+  font-size: 0.94rem;
+  font-weight: 900;
+  color: var(--ink-black);
+  font-family: var(--font-title);
+}
+.daotu-node-card {
+  background: #fbf8f0;
+  border: 1px solid var(--ink-border);
+  border-left: 4px solid var(--stone-cyan);
+  padding: 9px 11px;
+  border-radius: 2px;
+  margin-bottom: 7px;
+}
+.daotu-node-card.done {
+  border-left-color: var(--pine-green);
+  background: #f5f1e6;
+}
+.daotu-node-card.current {
+  border-left-color: var(--cinnabar-red);
+  background: #fdf6f4;
+}
+
+/* ==================== v12.0 核心重構版：5大核心系統 × 一息循環 × 起承轉合呼吸吐納 ==================== */
+.v12-loop-tracker-card {
+  background: linear-gradient(90deg, rgba(235, 227, 210, 0.96) 0%, rgba(250, 246, 238, 0.98) 100%);
+  border: 1.5px solid var(--ink-dark);
+  border-left: 5px solid var(--stone-cyan);
+  border-radius: 3px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 10px rgba(20, 19, 17, 0.08);
+}
+.v12-loop-steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+.v12-loop-step {
+  background: rgba(255, 252, 245, 0.92);
+  border: 1px solid rgba(34, 32, 28, 0.3);
+  border-radius: 2px;
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ink-mid);
+  transition: all 0.25s ease;
+}
+.v12-loop-step.done {
+  background: rgba(45, 84, 66, 0.14);
+  border-color: var(--pine-green);
+  color: var(--pine-green);
+}
+.v12-loop-step.active-step {
+  border-color: var(--cinnabar-red);
+  box-shadow: inset 0 0 0 1px var(--cinnabar-red);
+  color: var(--ink-black);
+}
+
+/* 起承轉合四階呼吸條 */
+.v12-breath-cycle-box {
+  background: linear-gradient(180deg, rgba(246, 241, 231, 0.96) 0%, rgba(232, 224, 208, 0.96) 100%);
+  border: 1.5px solid var(--ink-dark);
+  border-radius: 3px;
+  padding: 10px 12px;
+  margin: 8px 0 10px;
+}
+.v12-breath-phases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 8px 0;
+}
+.v12-breath-node {
+  padding: 7px 4px;
+  text-align: center;
+  border: 1.5px solid rgba(34, 32, 28, 0.28);
+  background: rgba(255, 253, 248, 0.88);
+  border-radius: 2px;
+  font-family: var(--font-title);
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: var(--ink-mid);
+  transition: all 0.22s ease;
+}
+.v12-breath-node.lit {
+  background: var(--stone-cyan);
+  color: #fffdf8;
+  border-color: var(--ink-black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(35, 83, 99, 0.32);
+}
+.v12-breath-node.crit-window {
+  background: var(--cinnabar-red);
+  color: #fffdf8;
+  border-color: #5c130d;
+  animation: pulseCinnabar 0.55s ease-in-out infinite alternate;
+}
+@keyframes pulseCinnabar {
+  0% { transform: scale(1); box-shadow: 0 0 6px rgba(163, 44, 34, 0.4); }
+  100% { transform: scale(1.05); box-shadow: 0 0 16px rgba(163, 44, 34, 0.85); }
+}
+
+/* 可收合輔修與終局分層面板 */
+.v12-layer-drawer {
+  background: rgba(250, 246, 238, 0.95);
+  border: 1.5px solid var(--ink-border);
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.v12-layer-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  background: rgba(230, 221, 202, 0.75);
+  cursor: pointer;
+  font-size: 0.96rem;
+  font-weight: 900;
+  color: var(--ink-black);
+}
+.v12-layer-drawer.endgame-glow {
+  border-color: var(--cinnabar-red);
+  box-shadow: 0 0 14px rgba(163, 44, 34, 0.22);
+}
+.dock-tab.endgame-lit .dock-seal-icon {
+  background: var(--cinnabar-red) !important;
+  color: #fffdf8 !important;
+  box-shadow: 0 0 10px rgba(163, 44, 34, 0.65);
+}
+
+/* ==================== v13.0 超級洗腦上頭重製版：四大洗腦核心引擎樣式 ==================== */
+
+/* 1. 小丑牌式 (Balatro) 天命乘算輪盤 */
+.v13-slot-machine-card {
+  background: linear-gradient(180deg, #fcf8f0 0%, #e8dec9 100%);
+  border: 2px solid var(--ink-black);
+  border-top: 5px solid var(--cinnabar-red);
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(20, 19, 17, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+.v13-joker-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.v13-joker-card {
+  background: linear-gradient(135deg, #2b2623 0%, #171412 100%);
+  color: #f7eedc;
+  border: 1.5px solid #d4a038;
+  border-radius: 3px;
+  padding: 5px 4px;
+  text-align: center;
+  font-size: 0.76rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.28);
+  transition: transform 0.2s ease;
+}
+.v13-joker-card.triggered {
+  transform: scale(1.08) translateY(-2px);
+  border-color: #ff4733;
+  box-shadow: 0 0 14px rgba(255, 71, 51, 0.75);
+}
+.v13-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(20, 19, 17, 0.08);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1.5px solid var(--ink-dark);
+}
+.v13-slot-cell {
+  height: 68px;
+  background: radial-gradient(circle, #fffdf9 0%, #ede4d1 100%);
+  border: 2px solid rgba(34, 32, 28, 0.45);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  transition: all 0.18s ease;
+  box-shadow: inset 0 0 10px rgba(138, 122, 98, 0.2);
+}
+.v13-slot-cell.spinning {
+  animation: slotBlur 0.14s linear infinite;
+}
+.v13-slot-cell.winning-cell {
+  border-color: var(--cinnabar-red);
+  background: linear-gradient(135deg, #fff6e5 0%, #ffd9b3 100%);
+  box-shadow: 0 0 16px rgba(163, 44, 34, 0.65);
+  transform: scale(1.05);
+}
+@keyframes slotBlur {
+  0% { transform: translateY(-3px) scale(0.97); filter: blur(1px); }
+  50% { transform: translateY(3px) scale(1.02); filter: blur(0px); }
+  100% { transform: translateY(-3px) scale(0.97); filter: blur(1px); }
+}
+
+/* Balatro 乘算計分板 */
+.v13-balatro-score-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  padding: 8px 10px;
+  background: #1a1816;
+  color: #fff;
+  border-radius: 4px;
+  border: 1.5px solid #d4a038;
+  font-family: var(--font-title);
+}
+.v13-score-chip {
+  background: #235363;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  min-width: 78px;
+  text-align: center;
+}
+.v13-score-mult {
+  background: #a32c22;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  min-width: 78px;
+  text-align: center;
+}
+.v13-score-total {
+  background: linear-gradient(90deg, #b87b1e 0%, #e3a832 100%);
+  color: #141311;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  min-width: 96px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(227, 168, 50, 0.6);
+}
+
+/* 2. 《尋道大千》式無限開鼎爆裝與綠字對比卡 */
+.v13-cauldron-box {
+  background: radial-gradient(circle at 50% 35%, #fffaf0 0%, #e5dac3 100%);
+  border: 2px solid var(--ink-black);
+  border-radius: 4px;
+  padding: 12px;
+  text-align: center;
+  position: relative;
+}
+.v13-cauldron-icon {
+  width: 92px;
+  height: 92px;
+  margin: 6px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3a2d24 0%, #171310 100%);
+  border: 3px solid #c9933b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.6rem;
+  color: #f7d279;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(20, 19, 17, 0.35), inset 0 0 18px rgba(201, 147, 59, 0.45);
+  transition: transform 0.12s ease;
+}
+.v13-cauldron-icon:active, .v13-cauldron-icon.smashing {
+  transform: scale(0.88) rotate(-4deg);
+  box-shadow: 0 0 28px rgba(255, 85, 34, 0.9);
+}
+.v13-loot-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+  text-align: left;
+}
+.v13-equip-card {
+  background: #fcf9f2;
+  border: 2px solid var(--ink-border);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+}
+.v13-equip-card.mythic-rainbow {
+  border-image: linear-gradient(135deg, #ff3300, #ffae00, #1ec95c, #2389ff, #b721ff) 1;
+  background: linear-gradient(135deg, #fffdf7 0%, #fff0d9 100%);
+  box-shadow: 0 0 16px rgba(255, 140, 0, 0.45);
+}
+
+/* 3. 《吸血鬼倖存者》式萬劍割草無雙 Canvas 演武場 */
+.v13-survivor-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  background: #1c1a17;
+  border: 2px solid var(--ink-black);
+  border-radius: 4px;
+  overflow: hidden;
+  touch-action: none;
+  cursor: crosshair;
+}
+#v13-mowing-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.v13-mowing-hud {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+.v13-mowing-pill {
+  background: rgba(20, 19, 17, 0.85);
+  color: #f7eedc;
+  border: 1px solid #d4a038;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+.v13-mowing-perk-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 19, 17, 0.88);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  z-index: 25;
+}
+.v13-mowing-perk-overlay.active {
+  display: flex;
+}
+
+/* 4. 《背包亂鬥》× 二合一九宮八卦合道盤 */
+.v13-merge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: rgba(20, 19, 17, 0.08);
+  padding: 10px;
+  border-radius: 4px;
+  border: 1.5px solid var(--ink-dark);
+}
+.v13-merge-cell {
+  height: 74px;
+  background: #fcf9f2;
+  border: 2px solid rgba(34, 32, 28, 0.35);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.16s ease;
+  padding: 4px;
+  text-align: center;
+}
+.v13-merge-cell.selected {
+  border-color: var(--cinnabar-red);
+  background: #fff0e5;
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(163, 44, 34, 0.55);
+}
+.v13-merge-cell.high-tier {
+  border-color: #c9933b;
+  background: linear-gradient(135deg, #fffdf7 0%, #f9e8c2 100%);
+}
+
+/* ==================== v14.0 武俠合真風骨（武合風）重造版樣式 ==================== */
+
+/* 武俠正統風骨色調與水墨邊框 */
+.wuxia-hebi-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 24px;
+}
+.wuxia-card {
+  background: linear-gradient(180deg, #fcf9f2 0%, #ebe2ce 100%);
+  border: 1.5px solid var(--ink-dark);
+  border-left: 5px solid var(--cinnabar-red);
+  border-radius: 3px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 14px rgba(20, 19, 17, 0.12);
+  position: relative;
+}
+.wuxia-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cinnabar-red);
+  color: #fffdf8;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.wuxia-quote-strip {
+  background: rgba(255, 252, 245, 0.94);
+  border: 1px solid var(--ink-border);
+  border-left: 3px solid var(--stone-cyan);
+  padding: 7px 10px;
+  border-radius: 2px;
+  font-size: 0.86rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin: 6px 0 10px;
+}
+
+/* 1. 太極演武天命盤（武俠演武拉霸） */
+.wuxia-slot-card {
+  background: radial-gradient(circle at 50% 25%, #fffdf8 0%, #e8dec7 100%);
+  border: 2px solid var(--ink-black);
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(20, 19, 17, 0.2);
+}
+.wuxia-joker-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.wuxia-joker-card {
+  background: linear-gradient(135deg, #24201d 0%, #12100e 100%);
+  color: #f7eedc;
+  border: 1.5px solid #c9933b;
+  border-radius: 3px;
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.74rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.wuxia-joker-card.active {
+  border-color: #ff4733;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(255, 71, 51, 0.65);
+}
+.wuxia-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(20, 19, 17, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1.5px solid var(--ink-dark);
+}
+.wuxia-slot-cell {
+  height: 70px;
+  background: radial-gradient(circle, #fffdf8 0%, #ece2cb 100%);
+  border: 2px solid rgba(34, 32, 28, 0.45);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  transition: all 0.18s ease;
+}
+.wuxia-slot-cell.spinning {
+  animation: wuxiaSlotBlur 0.12s linear infinite;
+}
+.wuxia-slot-cell.winning {
+  border-color: var(--cinnabar-red);
+  background: linear-gradient(135deg, #fff5e0 0%, #ffd2a8 100%);
+  box-shadow: 0 0 16px rgba(163, 44, 34, 0.7);
+  transform: scale(1.05);
+}
+@keyframes wuxiaSlotBlur {
+  0% { transform: translateY(-3px) scale(0.98); filter: blur(1px); }
+  50% { transform: translateY(3px) scale(1.02); filter: blur(0px); }
+  100% { transform: translateY(-3px) scale(0.98); filter: blur(1px); }
+}
+
+/* 2. 龍泉神爐 · 俠道名劍鑄造 */
+.wuxia-forge-cauldron {
+  width: 96px;
+  height: 96px;
+  margin: 6px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3d2c1e 0%, #15110e 100%);
+  border: 3px solid #d4a038;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.7rem;
+  color: #ffda73;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(20, 19, 17, 0.35), inset 0 0 20px rgba(212, 160, 56, 0.5);
+  transition: transform 0.12s ease;
+}
+.wuxia-forge-cauldron:active, .wuxia-forge-cauldron.smash {
+  transform: scale(0.88) rotate(-4deg);
+  box-shadow: 0 0 32px rgba(255, 71, 51, 0.95);
+}
+.wuxia-equip-card {
+  background: #fdfaf4;
+  border: 2px solid var(--ink-border);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.wuxia-equip-card.mythic {
+  border-image: linear-gradient(135deg, #ff3300, #ffae00, #1ec95c, #2389ff, #b721ff) 1;
+  background: linear-gradient(135deg, #fffdf8 0%, #fff2d9 100%);
+  box-shadow: 0 0 16px rgba(255, 140, 0, 0.5);
+}
+
+/* 3. 萬劍屠魔水墨 Canvas 戰場 */
+.wuxia-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 335px;
+  background: #191714;
+  border: 2px solid var(--ink-black);
+  border-radius: 4px;
+  overflow: hidden;
+  touch-action: none;
+  cursor: crosshair;
+}
+.wuxia-mowing-hud {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+.wuxia-hud-pill {
+  background: rgba(20, 19, 17, 0.88);
+  color: #f7eedc;
+  border: 1px solid #d4a038;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+.wuxia-perk-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 16, 14, 0.92);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 25;
+}
+.wuxia-perk-modal.active {
+  display: flex;
+}
+
+/* 4. 武道合真八卦二合一陣盤 */
+.wuxia-merge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: rgba(20, 19, 17, 0.08);
+  padding: 10px;
+  border-radius: 4px;
+  border: 1.5px solid var(--ink-dark);
+}
+.wuxia-merge-cell {
+  height: 74px;
+  background: #fdfaf4;
+  border: 2px solid rgba(34, 32, 28, 0.35);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.16s ease;
+  padding: 4px;
+  text-align: center;
+}
+.wuxia-merge-cell.selected {
+  border-color: var(--cinnabar-red);
+  background: #fff0e2;
+  transform: scale(1.06);
+  box-shadow: 0 0 14px rgba(163, 44, 34, 0.6);
+}
+.wuxia-merge-cell.master {
+  border-color: #c9933b;
+  background: linear-gradient(135deg, #fffdf8 0%, #f7e6be 100%);
+}
+
+/* 現代 2D 像素風（Pixel Art）戰場與 UI 樣式體系 */
+.pixel-canvas-box {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: #120f0d;
+  border: 3px solid #1a1614;
+  box-shadow: 0 0 0 2px #473a2f, 0 4px 12px rgba(0, 0, 0, 0.6);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+#v13-mowing-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-pill {
+  font-family: monospace, sans-serif !important;
+  font-size: 0.8rem !important;
+  background: #1e1b18 !important;
+  color: #f7eedc !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0px !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  padding: 3px 7px !important;
+  letter-spacing: 0.5px;
+}
+
+.pixel-btn {
+  font-family: monospace, sans-serif !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0px !important;
+  box-shadow: 2px 2px 0px #000000 !important;
+  transition: transform 0.05s ease !important;
+}
+
+.pixel-btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+.pixel-badge {
+  display: inline-block;
+  font-family: monospace, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  background: #a32c22;
+  color: #ffffff;
+  padding: 3px 6px;
+  border: 2px solid #000000;
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.mow-mode-tabs .mow-mode-btn {
+  font-family: monospace, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 2px 2px 0px #000000;
+  background: #ede4d1;
+  color: #1a1614;
+}
+
+.mow-mode-tabs .mow-mode-btn.active {
+  background: #a32c22;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: inset 1px 1px 0px rgba(255,255,255,0.4), 2px 2px 0px #000000;
+}
+
+.mow-pet-badge {
+  font-family: monospace, sans-serif;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-shadow: 1px 1px 0px #000000;
+  background: #fdfaf3;
+  padding: 2px 5px;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.mow-pet-badge.tier-2 {
+  border-color: #2563eb;
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
+.mow-pet-badge.tier-3 {
+  border-color: #d97706;
+  color: #b45309;
+  background: #fefce8;
+  box-shadow: 1px 1px 0px #000000, 0 0 6px rgba(217, 119, 6, 0.4);
+}
+
+/* ==================== v15.0 PokéSurvivor 大世界 4合1 與即時靈寵戰備盤樣式 ==================== */
+.pixel-pet-card {
+  font-family: monospace, sans-serif;
+  border-radius: 0px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.pixel-pet-card:hover {
+  transform: translateY(-2px);
+}
+.pixel-pet-card.tier-1 {
+  border-color: #64748b !important;
+}
+.pixel-pet-card.tier-2 {
+  border-color: #38bdf8 !important;
+  box-shadow: 2px 2px 0 #000, 0 0 6px rgba(56, 189, 248, 0.35) !important;
+}
+.pixel-pet-card.tier-3 {
+  border-color: #fbbf24 !important;
+  box-shadow: 2px 2px 0 #000, 0 0 10px rgba(251, 191, 36, 0.5) !important;
+}
+#wuxia-held-items-bar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.pixel-perk-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 16, 14, 0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 16px;
+  z-index: 60;
+  overflow-y: auto;
+}
+.pixel-perk-overlay.active {
+  display: flex !important;
+}
+
+/* ==================== v21.0 ~ v26.0 《萬劍屠魔：山海仙魔錄》獨立無雙遊戲完整介面樣式表 ==================== */
+
+/* 1. 全域容器與視窗響應式擴展 */
+#app-container {
+  max-width: 1060px !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  margin: 0 auto !important;
+}
+
+main#view-viewport {
+  padding: 8px 10px 16px !important;
+}
+
+.v21-standalone-shell {
+  max-width: 1020px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  font-family: var(--font-body);
+}
+
+/* 2. 主標題開始畫面 (Title Screen - 解決 image_ec2f58.jpg 標題未疊加、數據未分欄、按鈕未美化問題) */
+.v21-title-hero-card {
+  background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+  border: 2.5px solid #fbbf24;
+  border-radius: 6px;
+  padding: 14px;
+  color: #f8fafc;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.75), inset 0 0 24px rgba(251, 191, 36, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.v21-title-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(230px, 36vh, 330px);
+  border: 2px solid #38bdf8;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #07090d;
+  box-shadow: inset 0 0 30px rgba(56, 189, 248, 0.25);
+}
+
+#v21-title-bg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.v21-title-overlay-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  background: radial-gradient(circle at 50% 50%, rgba(7, 9, 13, 0.25) 0%, rgba(7, 9, 13, 0.72) 100%);
+  pointer-events: none;
+}
+
+.v21-game-crest-badge {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1.5px solid #38bdf8;
+  color: #7dd3fc;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 3px #000;
+}
+
+.v21-main-game-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  font-family: var(--font-title);
+  color: #fef08a;
+  letter-spacing: 8px;
+  text-shadow: 0 0 18px rgba(251, 191, 36, 0.85), 0 3px 8px #000000;
+  margin: 2px 0;
+}
+
+.v21-sub-game-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #e2e8f0;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 4px #000;
+  margin-bottom: 10px;
+}
+
+.v21-current-hero-tag {
+  background: rgba(24, 24, 27, 0.9);
+  border: 1.5px solid #fbbf24;
+  color: #fef08a;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.86rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* 生涯戰績 4 欄統計列 */
+.v21-career-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.v21-stat-box {
+  background: #18181b;
+  border: 1.5px solid #334155;
+  border-top: 3px solid #fbbf24;
+  border-radius: 4px;
+  padding: 8px 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.v21-stat-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.v21-stat-val {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-top: 3px;
+  font-family: monospace;
+}
+.v21-stat-val.gold { color: #fde047; }
+.v21-stat-val.crimson { color: #f87171; }
+.v21-stat-val.cyan { color: #38bdf8; }
+.v21-stat-val.emerald { color: #4ade80; }
+
+/* 主選單操作按鈕群 */
+.v21-title-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.v21-btn-primary-start {
+  width: 100%;
+  background: linear-gradient(90deg, #991b1b 0%, #d97706 50%, #991b1b 100%);
+  border: 2px solid #fde047;
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.4), inset 0 0 10px rgba(254, 240, 138, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.v21-btn-primary-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.6);
+}
+.v21-btn-primary-start:active {
+  transform: translateY(1px);
+}
+
+.v21-btn-main-txt {
+  font-size: 1.18rem;
+  font-weight: 900;
+  color: #fef08a;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+.v21-btn-sub-txt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.v21-title-secondary-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.v21-btn-QuickStart,
+.v21-btn-secondary {
+  background: #1e293b;
+  border: 1.5px solid #475569;
+  border-radius: 4px;
+  padding: 9px 8px;
+  color: #f8fafc;
+  font-size: 0.86rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+.v21-btn-QuickStart {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  border-color: #7dd3fc;
+  color: #ffffff;
+}
+.v21-btn-QuickStart:hover,
+.v21-btn-secondary:hover {
+  border-color: #fde047;
+  color: #fde047;
+  transform: translateY(-1px);
+}
+
+.v21-feature-highlights {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid #334155;
+  border-left: 4px solid #38bdf8;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.5;
+}
+.v21-feature-highlights b {
+  color: #fde047;
+}
+
+/* 標題彈出視窗 (太初道魂聖殿 / 百妖神兵圖鑑) */
+.v21-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+}
+.v21-modal-box {
+  width: 100%;
+  max-width: 880px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #0f172a;
+  border: 2.5px solid #fbbf24;
+  border-radius: 6px;
+  padding: 16px;
+  color: #f8fafc;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.85);
+}
+.v21-modal-close-btn {
+  background: #7f1d1d;
+  border: 1.5px solid #f87171;
+  color: #fef2f2;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* 3. 戰前整備與自訂配置畫面 (Loadout & Customization - 解決 螢幕擷取畫面 2026-10-22 112950.jpg 淺色背景導致黃白字看不清問題！) */
+.v21-loadout-card {
+  background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+  border: 2.5px solid #fbbf24;
+  border-radius: 6px;
+  padding: 14px 16px;
+  color: #f8fafc;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.v21-loadout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #334155;
+}
+
+.v21-btn-back {
+  background: #1e293b;
+  border: 1.5px solid #64748b;
+  color: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.84rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.v21-btn-back:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.v21-setup-section {
+  background: rgba(24, 24, 27, 0.88);
+  border: 1.5px solid #334155;
+  border-radius: 5px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.v21-sec-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.94rem;
+  font-weight: 900;
+  color: #fef08a;
+  border-bottom: 1px dashed #475569;
+  padding-bottom: 6px;
+}
+
+.v21-grid-4 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.v21-grid-6 {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+}
+
+.v21-grid-3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.v21-choice-box {
+  background: #111827 !important;
+  border: 2px solid #334155;
+  border-radius: 4px;
+  padding: 9px 11px !important;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  word-break: break-word !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+.v21-choice-box:hover {
+  background: #1e293b !important;
+  transform: translateY(-1px);
+}
+.v21-choice-box.active {
+  background: linear-gradient(135deg, #1e1b4b 0%, #172554 100%) !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.38), inset 0 0 8px rgba(251, 191, 36, 0.2);
+}
+.v21-choice-box.compact {
+  padding: 7px 6px !important;
+  text-align: center;
+}
+
+.v21-tag-selected {
+  background: #15803d;
+  border: 1px solid #86efac;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.v21-weapon-detail-preview {
+  background: #090d14;
+  border: 1.5px solid #38bdf8;
+  border-radius: 4px;
+  padding: 9px 11px;
+  margin-top: 2px;
+}
+
+.v21-tier-pill {
+  background: #1e293b;
+  border: 1.5px solid #475569;
+  color: #cbd5e1;
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.v21-tier-pill.active {
+  background: #b45309;
+  border-color: #fde047;
+  color: #ffffff;
+}
+
+/* 4. 戰鬥介面、武器切換列、2x2 靈寵戰陣與升級三選一卡片 (解決 image_ec323a.jpg 升級卡片白底未美化問題！) */
+.v19-weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.v19-weapon-tab {
+  background: #0f172a;
+  border: 1.5px solid #334155;
+  color: #cbd5e1;
+  padding: 5px 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+  font-family: monospace;
+}
+.v19-weapon-tab.active {
+  background: #1e1b4b;
+  border-color: #fbbf24;
+  color: #fef08a;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.45);
+}
+
+.v19-skill-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.v19-skill-slot-card {
+  background: #111827;
+  border: 1.5px solid #374151;
+  padding: 5px 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+.v19-skill-slot-card:hover {
+  border-color: #fde047;
+  transform: translateY(-1px);
+}
+
+.v20-pet-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.v20-pet-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+.v20-pet-header-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+#wuxia-pet-party-tray {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/* 局內升級三選一水平卡片 (.perk-choice-card & .perk-choice-icon) */
+.perk-choice-card {
+  width: 100%;
+  background: linear-gradient(180deg, #fcf9f2 0%, #e8dec9 100%);
+  border: 2px solid #fbbf24;
+  border-left: 6px solid #a32c22;
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.perk-choice-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: #38bdf8;
+  background: linear-gradient(180deg, #ffffff 0%, #f3ead8 100%);
+}
+.perk-choice-icon {
+  width: 44px;
+  height: 44px;
+  background: #0f172a;
+  border: 2px solid #fbbf24;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* 全螢幕專用底部懸浮快捷列 */
+.v20-fs-floating-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.88);
+  border: 1.5px solid #fbbf24;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: none;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 30;
+}
+.v20-canvas-only-fullscreen .v20-fs-floating-bar,
+#v13-canvas-box:fullscreen .v20-fs-floating-bar {
+  display: flex;
+}
+.v20-fs-wep-pill {
+  background: #1e293b;
+  border: 1px solid #64748b;
+  color: #e2e8f0;
+  padding: 3px 7px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  font-family: monospace;
+  cursor: pointer;
+}
+.v20-fs-wep-pill.active {
+  background: #b45309;
+  border-color: #fde047;
+  color: #ffffff;
+}
+
+/* 補充其餘散落輔助類別 (.ink-card, .shichen-badge-pill, .daoxin-progress-wrap 等) */
+.ink-card {
+  background: var(--paper-texture), var(--paper-card);
+  border: 1.5px solid var(--ink-border);
+  border-radius: 3px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(20, 19, 17, 0.08);
+}
+.shichen-badge-pill {
+  background: #fbf8f1;
+  border: 1.5px solid var(--ink-black);
+  border-left: 4px solid var(--cinnabar-red);
+  color: var(--ink-black);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 0.86rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.daoxin-progress-wrap {
+  width: 90px;
+  height: 9px;
+  background: #d8cfc0;
+  border: 1px solid var(--ink-black);
+  border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+.daoxin-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stone-cyan), var(--pine-green));
+}
+.fire-gauge-sweetspot {
+  position: absolute;
+  left: 55%;
+  width: 27%;
+  top: 0;
+  bottom: 0;
+  background: rgba(45, 84, 66, 0.28);
+  border-left: 2px dashed var(--pine-green);
+  border-right: 2px dashed var(--pine-green);
+}
+
+/* 5. 長方形遊戲主畫面與手機/全螢幕解析度自適應 */
+#v19-mowing-root-wrap {
+  width: 100% !important;
+  max-width: 1020px !important;
+  margin: 0 auto !important;
+  padding-bottom: 4px !important;
+}
+.v26-rectangular-game-stage#v13-canvas-box {
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  height: clamp(360px, calc(100dvh - 58px), 640px) !important;
+  max-height: calc(100dvh - 54px) !important;
+  border-radius: 2px !important;
+}
+
+@media (max-width: 768px) {
+  #view-viewport {
+    padding: 2px !important;
+  }
+  .v21-career-stats-bar,
+  .v21-title-secondary-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .v21-grid-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .v21-grid-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  .v26-rectangular-game-stage#v13-canvas-box {
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    height: calc(100dvh - 48px) !important;
+    max-height: calc(100dvh - 48px) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .v21-grid-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
+
+.v20-canvas-only-fullscreen#v13-canvas-box,
+#v13-canvas-box:fullscreen {
+  aspect-ratio: auto !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+}

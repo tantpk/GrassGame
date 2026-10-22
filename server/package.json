@@ -1,0 +1,14 @@
+{
+  "name": "ink-and-blade-server",
+  "version": "1.0.0",
+  "description": "Backend API & Arena Server for Ink & Blade (墨刃江湖)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/test_combat.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
