@@ -14914,14 +14914,14 @@ App.prototype.renderV12MartialView = function(container) {
         scale: 3.4,
         isMiniBoss: true,
         movePattern: "blade_lunge",
-        movePatternLabel: "狂刀追斬步",
+        movePatternLabel: "修羅旋風步",
         baseSpeed: 0.66
       }
     },
     {
       wave: 2,
       title: "荒原狼蹤 · 群狼突襲",
-      subtitle: "固定配額 32 隻魔物（16血刀門徒＋12幽冥妖狼＋4綠毒骨弓）兩翼突襲，小心狼群衝鋒！",
+      subtitle: "固定配額 32 隻魔物（16五派邪徒＋12幽冥妖狼＋4綠毒骨弓）兩翼包抄，小心妖狼扇形裂風爪與雙月弧線刃！",
       totalQuota: 32,
       composition: { swarm: 16, charger: 12, ranged: 4, guardian: 0, scorpion: 0, wraith: 0 },
       durationFrames: 1863,
@@ -15100,7 +15100,7 @@ App.prototype.renderV12MartialView = function(container) {
         scale: 4.1,
         isMiniBoss: false,
         movePattern: "thunder_line_charge",
-        movePatternLabel: "雷霆直線奔襲",
+        movePatternLabel: "九霄五雷步",
         baseSpeed: 0.64
       }
     },
@@ -15109,7 +15109,7 @@ App.prototype.renderV12MartialView = function(container) {
       title: "百鬼夜行 · 雙重包圍",
       subtitle: "固定配額 80 隻全精銳魔物（零低階雜兵）！遠程魔蠍與重甲鬼將聯手雙重包圍！",
       totalQuota: 80,
-      composition: { swarm: 0, charger: 14, ranged: 16, guardian: 16, scorpion: 18, wraith: 16 },
+      composition: { swarm: 10, charger: 12, ranged: 14, guardian: 14, scorpion: 16, wraith: 14 },
       durationFrames: 2898,
       spawnInterval: 22,
       maxMobs: 44,
@@ -15140,7 +15140,7 @@ App.prototype.renderV12MartialView = function(container) {
       title: "深淵前夕 · 魔後降世",
       subtitle: "固定配額 88 隻深淵禁衛！第九波大魔尊【幽冥血海魔後】率領重甲魔將與鬼將大軍壓境！",
       totalQuota: 88,
-      composition: { swarm: 0, charger: 12, ranged: 14, guardian: 22, scorpion: 20, wraith: 20 },
+      composition: { swarm: 10, charger: 12, ranged: 14, guardian: 18, scorpion: 18, wraith: 16 },
       durationFrames: 3064,
       spawnInterval: 21,
       maxMobs: 48,
@@ -15171,7 +15171,7 @@ App.prototype.renderV12MartialView = function(container) {
       title: "終極決戰 · 萬劫始祖魔帝",
       subtitle: "最終第 10 波決戰！固定配額 96 隻太古魔衛 ＋ 終極總首領【太古萬劫始祖魔帝】攜八方魔刃降世！",
       totalQuota: 96,
-      composition: { swarm: 0, charger: 10, ranged: 16, guardian: 24, scorpion: 22, wraith: 24 },
+      composition: { swarm: 10, charger: 12, ranged: 16, guardian: 18, scorpion: 20, wraith: 20 },
       durationFrames: 3450,
       spawnInterval: 19,
       maxMobs: 54,
@@ -18623,18 +18623,18 @@ App.prototype.renderV12MartialView = function(container) {
     { icon: "🧟", name: "湘西銅甲屍", spriteKey: "MOB_JIANGSHI", role: "第1波解鎖 · 旱魃騰空跳劈", appearanceDesc: "【2D可愛Q版武俠像素】頭戴清代紅頂官帽、額頭貼著隨跳躍掀動黃色鎮屍符紙的蹦跳小殭屍，雙手平伸。", pixelDetails: "26×26 4幀Q版點陣：紅頂官帽、動態掀起黃符咒、圓腮紅蒼白臉與深藍官服", desc: "【拋物線騰空跳劈 + 屍毒震地環】平時雙足併攏蹦跳前進，鎖定玩家落點後高高躍起砸落，迸發紫色劇毒屍氣震地環！" },
     { icon: "❄️", name: "玄陰教妖女", spriteKey: "MOB_XUANYIN", role: "第1波解鎖 · 預判寒冰封鎖陣", appearanceDesc: "【2D可愛Q版武俠像素】頭戴雙金小魔角紫黑兜帽的玄陰小妖女，粉紫瞳孔閃爍，掌心托著跳動紫青鬼火。", pixelDetails: "26×26 4幀Q版點陣：雙金小角紫兜帽、粉紫魔瞳、玄陰夜行衣與掌心冰魄鬼火", desc: "【中距離風箏 + 延遲六稜冰牢陷阱】保持中距離迂迴走位，在玩家腳下召喚六稜寒冰預警陣，延遲引爆並向四方射出寒冰手裡劍！" },
     { icon: "💣", name: "魔教赤炎狂徒", spriteKey: "MOB_DEMON_CULT", role: "第1波解鎖 · 狂熱紅圈自爆", appearanceDesc: "【2D可愛Q版武俠像素】綁著赤金火紋頭帶、雙眼狂熱發光的魔教小狂徒，雙手高舉隨時引爆的赤炎炸藥火雷。", pixelDetails: "26×26 4幀Q版點陣：赤金火紋頭帶、狂熱火瞳、黑紅魔衣與閃爍引線的赤炎火雷", desc: "【狂熱加速 + 68px紅圈倒數大自爆】受傷或逼近玩家時點燃全身魔火加速狂奔，腳下浮現68px收縮紅圈，倒數結束引發魔火大自爆並散射6顆火種！" },
-    { icon: "🐺", name: "幽冥妖狼", spriteKey: "ENEMY_SHADOW_FOX", role: "第2波解鎖 · 疾風猛撲獸群", appearanceDesc: "【2D可愛Q版武俠像素】豎著一對超大尖耳朵、琥珀色發光大眼睛與蓬鬆紫黑大尾巴的四足狂奔小狼妖。", pixelDetails: "26×26 4幀Q版點陣：超大雙尖狼耳、琥珀發光瞳、蓬鬆紫晶狼尾與四足奔跑爪", desc: "【紫電紅毯鎖定 ➔ 165px全路徑疾風猛撲】原地伏低拉出165px紫色衝鋒走廊，蓄力完成後沿整條路徑高速猛撲到底，終點揮出十字狼爪並向兩翼激發狼牙風刃！" },
+    { icon: "🐺", name: "幽冥妖狼", spriteKey: "ENEMY_SHADOW_FOX", role: "第2波解鎖 · 扇形裂風狼爪", appearanceDesc: "【2D可愛Q版武俠像素】豎著一對超大尖耳朵、琥珀色發光大眼睛與蓬鬆紫黑大尾巴的四足狂奔小狼妖。", pixelDetails: "26×26 4幀Q版點陣：超大雙尖狼耳、琥珀發光瞳、蓬鬆紫晶狼尾與四足奔跑爪", desc: "【孤月弧線繞獵 ＋ 扇形裂風狼爪波 ／ 雙翼弧線夾擊月刃】不再直線衝刺，改以側翼弧線繞獵包抄，交替施放「前方105px扇形預警三連紫電狼爪波」與「左右雙月弧線收攏夾擊風刃」！" },
     { icon: "🏹", name: "綠毒骨弓", spriteKey: "ENEMY_POISON_ARCHER", role: "第3波解鎖 · 風箏毒雨射手", appearanceDesc: "【2D可愛Q版武俠像素】頭戴墨綠破竹笠的圓頭Q版小骷髏射手，眼眶跳動碧綠鬼火，雙手挽滿翠綠毒骨弓。", pixelDetails: "26×26 4幀Q版點陣：翠綠竹笠、圓滾白骨頭、碧綠鬼火眼、小肋骨與滿弦毒骨弓", desc: "【白骨後撤步風箏 + 天降毒箭雨 / 五連扇形毒矢】玩家逼近時自動後撤拉開距離，交替施展「拋物線天降碧磷毒箭雨（落地殘留毒沼）」與「五連扇形封走位毒矢」！" },
-    { icon: "🛡️", name: "撼山魔將", spriteKey: "ENEMY_TITAN_GENERAL", role: "第4波解鎖 · 蠻牛衝撞重甲", appearanceDesc: "【2D可愛Q版武俠像素】圓墩墩重甲小胖將，頭頂雙金牛角鐵盔，胸嵌護心金鏡，左手舉玄鐵藍光盾、右手拎狼牙棒。", pixelDetails: "26×26 4幀Q版點陣：雙金牛角盔、圓滾重甲、護心金鏡、玄鐵藍光盾與黃金狼牙棒", desc: "【舉盾蠻牛150px全路徑衝撞 + 三連遞進裂地柱】自帶護體魔罡盾，鎖定150px金色衝撞走廊後蠻牛衝鋒到底，終點重錘砸地向前延伸爆發3座遞進熔岩裂地柱！" },
+    { icon: "🛡️", name: "撼山魔將", spriteKey: "ENEMY_TITAN_GENERAL", role: "第4波解鎖 · 裂地熔岩重甲", appearanceDesc: "【2D可愛Q版武俠像素】圓墩墩重甲小胖將，頭頂雙金牛角鐵盔，胸嵌護心金鏡，左手舉玄鐵藍光盾、右手拎狼牙棒。", pixelDetails: "26×26 4幀Q版點陣：雙金牛角盔、圓滾重甲、護心金鏡、玄鐵藍光盾與黃金狼牙棒", desc: "【玄鐵架盾凝罡 ＋ 撼山三連遞進熔岩火柱 ／ 八荒同心震地環】不再直線衝撞，改為穩步推進並周期性架起玄鐵反震盾，重錘砸地交替施放「由近而遠3座遞進熔岩裂地火柱陣」與「98px同心圓環崩山震波」！" },
     { icon: "🦂", name: "赤炎魔蠍", spriteKey: "ENEMY_FIRE_SCORPION", role: "第5波解鎖 · 毒沼拋投巨蠍", appearanceDesc: "【2D可愛Q版武俠像素】紅通通圓滾滾的大鉗小火蠍，水亮大黑豆眼，揮舞一對火紅大螯鉗，蠍尾高舉像素小火球。", pixelDetails: "26×26 4幀Q版點陣：高翹火球蠍尾、紅亮甲殼、呆萌黑豆大眼與張合雙巨螯", desc: "【高空拋投熔岩毒沼彈 + S型雙螺旋毒火針】蟹行橫移走位，交替拋投「高空拋物線熔岩巨彈（落地生成持續燃燒毒火沼澤）」與「S型正弦波雙螺旋赤尾毒針」！" },
     { icon: "👻", name: "九幽寒魄鬼將", spriteKey: "ENEMY_FROST_WRAITH", role: "第6波解鎖 · 瞬步背刺死神", appearanceDesc: "【2D可愛Q版武俠像素】頭戴高高白無常官帽、吐出粉紅長舌頭的飄浮小鬼將，手提搖晃的冰藍魂火小燈籠。", pixelDetails: "26×26 4幀Q版點陣：無常高帽、水藍幽靈尾、粉紅長舌萌鬼臉與冰藍魂火燈籠", desc: "【幽冥瞬步閃擊背刺 + 雙向迴旋死神魔鐮】在玩家側後方預先生成青紫鬼爪傳送陣預警，瞬移現身後立即擲出2柄大弧度飛出再折返的「迴旋死神雙鐮」！" },
-    { icon: "🩸", name: "血刀護法統領", spriteKey: "BOSS_WAVE_1", role: "第1波鎮關首領 · 狂刀追斬步", appearanceDesc: "【2D可愛Q版霸氣魔尊】頭生雙金魔角、身披赤紅王侯大披風與重甲的血刀統領，雙手揮舞巨型泣血雙刃。", pixelDetails: "34×34 4幀巨型點陣：黃金雙角帝冠、翻飛赤紅披風、金紋重甲與雙持泣血巨刃", desc: "【步法：220px全路徑狂刀突刺】三式絕技循環：①修羅五連扇形血月刀浪、②泣血迴旋八方血滴子、③十字血獄裂地斬走廊！" },
+    { icon: "🩸", name: "血刀護法統領", spriteKey: "BOSS_WAVE_1", role: "第1波鎮關首領 · 修羅旋風步", appearanceDesc: "【2D可愛Q版霸氣魔尊】頭生雙金魔角、身披赤紅王侯大披風與重甲的血刀統領，雙手揮舞巨型泣血雙刃。", pixelDetails: "34×34 4幀巨型點陣：黃金雙角帝冠、翻飛赤紅披風、金紋重甲與雙持泣血巨刃", desc: "【步法：泣血護體旋風刀輪（環繞自身外擴旋轉）】三式絕技循環：①修羅五連扇形血月刀浪、②泣血迴旋奪命血滴子、③十字血獄裂地斬！" },
     { icon: "🐺", name: "紫焰嗜月狼王", spriteKey: "BOSS_WAVE_2", role: "第2波鎮關首領 · 孤狼弧線繞獵", appearanceDesc: "【2D可愛Q版霸氣魔尊】毛茸茸紫焰大狼頭配額頭彎月金冠的妖狼王，雙瞳閃耀金光，揮舞紫電雙狼爪。", pixelDetails: "34×34 4幀巨型點陣：雙紫尖狼耳、額頂彎月金冠、紫焰王袍與閃電狼牙巨爪", desc: "【步法：S型弧線繞獵 + 230px疾風折返猛撲】三式絕技循環：①萬狼奔襲三平行衝鋒紅毯走廊、②左右兩翼雙月弧線收攏夾擊爪、③嗜月十字撕裂嵐！" },
     { icon: "👹", name: "赤目血熊魔尊", spriteKey: "BOSS_WAVE_3", role: "第3波鎮關首領 · 巨熊泰山跳劈", appearanceDesc: "【2D可愛Q版霸氣魔尊】圓耳赤紅巨熊王，額頭鑲嵌金色「王」字印記，身披黑紅魔甲，雙臂揮舞熔岩重刃。", pixelDetails: "34×34 4幀巨型點陣：赤紅圓熊耳、額頭金「王」字、可愛熊吻部與黑紅重裝魔鎧", desc: "【步法：騰空拋物線泰山壓頂跳劈】三式絕技循環：①撼地三環由內而外遞進崩山震波、②崩山子母半途分裂巨岩、③八荒扇形6座遞進裂地熔岩火柱陣！" },
     { icon: "🛡️", name: "玄鐵鎮獄魔帥", spriteKey: "BOSS_WAVE_4", role: "第4波鎮關首領 · 玄鐵盾陣推進", appearanceDesc: "【2D可愛Q版霸氣魔尊】身披玄鐵重鎧與黃金帝冠的魔軍統帥，左手揮舞雷電巨戟、右手高舉巨型藍光鎮獄魔盾。", pixelDetails: "34×34 4幀巨型點陣：黃金雙角冠、玄鐵藍紋胸甲、右手巨型藍光魔盾與左手破界戟", desc: "【步法：架盾凝罡 + 225px玄鐵盾衝】三式絕技循環：①十字4道全場持續旋轉電磁雷射砲、②鎮獄排戟5軌道平行齊射陣、③四方電磁包圍鎮獄網！" },
     { icon: "🦂", name: "焚天赤炎妖皇", spriteKey: "BOSS_WAVE_5", role: "第5波鎮關首領 · 熔岩橫移封鎖", appearanceDesc: "【2D可愛Q版霸氣魔尊】沐浴大荒熔岩而生的赤金妖皇，頭頂烈日金角冠，周身流淌金紅岩漿與焚天火翼。", pixelDetails: "34×34 4幀巨型點陣：赤金烈日魔角、熔岩流光王袍、熾金火瞳與雙持焚天熔岩刃", desc: "【步法：中距離蟹行橫移封鎖】三式絕技循環：①雙螺旋S型正弦波赤炎火龍旋、②五方高空拋投焚天熔岩毒沼海、③赤尾穿雲滅世狙擊雷射＋兩翼火針扇！" },
     { icon: "👻", name: "九幽噬魂冥王", spriteKey: "BOSS_WAVE_6", role: "第6波鎮關首領 · 九幽鐘擺飄移", appearanceDesc: "【2D可愛Q版霸氣魔尊】頭戴九幽金冠、身披深紫冥海披風的噬魂冥王，雙眸閃爍極寒青光，揮舞冰魄死神鐮。", pixelDetails: "34×34 4幀巨型點陣：九幽黃金冠、紫黑冥王披風、冰藍魂印胸甲與雙持死神鐮", desc: "【步法：八字鐘擺幽冥滑行】三式絕技循環：①九幽六合飛出懸停再折返死神巨鐮、②冥河引力噬魂黑洞奇點（持續牽引玩家走位）、③百鬼夜行S型噬魂潮！" },
-    { icon: "⚡", name: "紫電撼山妖皇", spriteKey: "BOSS_WAVE_7", role: "第7波鎮關首領 · 雷霆直線奔襲", appearanceDesc: "【2D可愛Q版霸氣魔尊】引九天紫電淬鍊魔軀的雷霆妖皇，頭頂耀金雷牛角，全身紫金重甲跳動耀眼電弧。", pixelDetails: "34×34 4幀巨型點陣：耀金雷霆雙角、紫金雷紋重鎧、閃電金眸與雙持神霄雷錘", desc: "【步法：240px全路徑紫電直線奔襲（沿途殘留雷獄陷阱）】三式絕技循環：①九霄子母分裂雷神球（4裂16）、②神霄井字棋盤交叉雷獄天網、③紫電雙極貫穿旋轉雷光！" },
+    { icon: "⚡", name: "紫電撼山妖皇", spriteKey: "BOSS_WAVE_7", role: "第7波鎮關首領 · 九霄五雷步", appearanceDesc: "【2D可愛Q版霸氣魔尊】引九天紫電淬鍊魔軀的雷霆妖皇，頭頂耀金雷牛角，全身紫金重甲跳動耀眼電弧。", pixelDetails: "34×34 4幀巨型點陣：耀金雷霆雙角、紫金雷紋重鎧、閃電金眸與雙持神霄雷錘", desc: "【步法：高舉雷錘召喚梅花五方神霄落雷陣】三式絕技循環：①九霄子母分裂雷神球（4裂16）、②神霄井字棋盤交叉雷獄天網、③紫電雙極貫穿旋轉雷光！" },
     { icon: "🔥", name: "血海修羅督軍", spriteKey: "BOSS_WAVE_8", role: "第8波鎮關首領 · 修羅折線踏步", appearanceDesc: "【2D可愛Q版霸氣魔尊】自萬劫血海殺出的阿修羅督軍，頭頂黃金修羅角，黑紅戰鎧浸滿金紅煞氣，揮舞修羅戰輪。", pixelDetails: "34×34 4幀巨型點陣：黃金修羅長角、血海狂戰披風、赤金胸甲與雙持修羅血火輪", desc: "【步法：之字形折線高速突襲】三式絕技循環：①六道修羅行星伸縮護體血火輪（環繞自身外擴168px再收縮）、②血海千刃雙曲率交錯飛輪風暴、③米字八荒血獄裂地陣！" },
     { icon: "🌙", name: "幽冥血海魔後", spriteKey: "BOSS_WAVE_9", role: "第9波鎮關首領 · 血海迴旋蓮步", appearanceDesc: "【2D可愛Q版霸氣魔尊】銀白長髮配血月鳳冠的絕美Q版小魔後，展開華貴紫紅雙翼，袖間飛出曼珠沙華彼岸花刃。", pixelDetails: "34×34 4幀巨型點陣：血月黃金鳳冠、及腰銀白長髮、展開紫紅魔翼與華貴霓裳羽衣", desc: "【步法：優雅螺旋環繞華爾滋】三式絕技循環：①曼珠沙華順逆雙向螺旋彼岸花海、②彼岸花開六合幻陣（5朵延遲十字綻放花陷阱）、③血月魅影迴旋花鐮！" },
     { icon: "🌌", name: "太古萬劫始祖魔帝", spriteKey: "BOSS_WAVE_10", role: "第10波終極首領 · 魔帝天威巡狩", appearanceDesc: "【2D可愛Q版霸氣魔尊】統御十波魔劫的終極始祖魔神！頭頂日月雙角鴻蒙金冕，背後展開滅世黑紅金雙翼，胸嵌混沌魔眼。", pixelDetails: "34×34 4幀終極點陣：日月鴻蒙金冕、展開黑紅金雙翼、混沌魔眼胸甲與太古誅仙帝劍", desc: "【步法：天威巡狩 + 250px鴻蒙破界衝鋒】三式終極奧義：①混沌九龍4道全場旋轉滅世雷射神光、②太古萬劍歸宗天降劍獄（落地迸發十字龍劍波）、③鴻蒙雙旋紫金龍劍風暴！" }
@@ -21439,8 +21439,8 @@ App.prototype.renderV12MartialView = function(container) {
       const buildEnemyEntity = (type, x, y) => {
         const hm = wCfg.hpMult || 1;
         const sm = wCfg.speedMult || 1;
-        const animOffset = Math.floor(Math.random() * 20);
-        const sectVariant = animOffset % 5;
+        const sectVariant = (state.waveSpawnedCount || 0) % 5;
+        const animOffset = sectVariant + Math.floor(Math.random() * 4) * 5;
         const swarmConfigs = [
           { name: "血刀門徒",   hpM: 1.0,  spM: 0.98, role: "boomerang" },
           { name: "青城叛劍客", hpM: 0.95, spM: 1.08, role: "sword_dash" },
@@ -23295,6 +23295,18 @@ App.prototype.renderV12MartialView = function(container) {
                     projType: "boss_chaos_dragon_sword", skillTitle: "太古誅仙劍氣"
                   });
                 }
+              } else if (hc.subType === "thunder_pillar") {
+                // ⚡ 紫電撼山妖皇 · 九霄五雷天罰柱：降下九天紫電落雷並向四方迸發連鎖電弧球
+                state.lightningBolts.push({ x: hc.x, y: hc.y, life: 28, maxLife: 28 });
+                for (let k = 0; k < 4; k++) {
+                  const ta = (k * Math.PI) / 2 + (hc.angle || 0);
+                  state.enemyProjectiles.push({
+                    x: hc.x, y: hc.y,
+                    vx: Math.cos(ta) * 2.55 * paceMult, vy: Math.sin(ta) * 2.55 * paceMult,
+                    angle: ta, life: 72, maxLife: 72, color: "#facc15",
+                    projType: "boss_thunder_sphere", skillTitle: "九霄五雷連鎖電球"
+                  });
+                }
               }
             }
           } else {
@@ -23324,86 +23336,61 @@ App.prototype.renderV12MartialView = function(container) {
           if (en.stunTimer && en.stunTimer > 0) {
             en.stunTimer--;
           } else if (en.type === "charger") {
-            // 🐺 幽冥妖狼：【38幀清晰地面165px紅毯蓄力預警（不傷人） ➔ 30幀平滑加速100%全路徑猛撲到底 ➔ 終點狼魂撕裂爪 + 兩翼風刃】
+            // 🐺 v46.0 幽冥妖狼：【徹底移除直線衝刺紅毯 ➔ 改為「孤月側翼繞獵步 ＋ 扇形三連裂風狼爪波 (cone預警) ＆ 左右雙月弧線夾擊風刃」】
+            en.chargeLockAngle = null;
+            en.dashLockAngle = null;
+            const orbitDir = ((en.animOffset || 0) % 2 === 0) ? 1 : -1;
+            if (distToTarget < 72) {
+              const retreatA = ang + Math.PI * 0.72 * orbitDir;
+              en.x += Math.cos(retreatA) * effSpeed * 0.85;
+              en.y += Math.sin(retreatA) * effSpeed * 0.85;
+            } else if (distToTarget > 138) {
+              const flankA = ang + 0.42 * orbitDir;
+              en.x += Math.cos(flankA) * effSpeed * 0.94;
+              en.y += Math.sin(flankA) * effSpeed * 0.94;
+            } else {
+              const circleA = ang + Math.PI * 0.52 * orbitDir;
+              en.x += Math.cos(circleA) * effSpeed * 0.88;
+              en.y += Math.sin(circleA) * effSpeed * 0.88;
+            }
+
             en.chargeTimer = (en.chargeTimer || 0) + 1;
-            if (en.chargeTimer >= 60 && en.chargeTimer < 98) {
-              if (en.chargeLockAngle === null || en.chargeLockAngle === undefined) {
-                if (distToTarget >= 42 && distToTarget <= 235) {
-                  en.chargeLockAngle = ang;
-                  en.dashTotalDist = 165;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(36, Math.min(WORLD_W - 36, en.x + Math.cos(ang) * en.dashTotalDist));
-                  en.dashEndY = Math.max(36, Math.min(WORLD_H - 36, en.y + Math.sin(ang) * en.dashTotalDist));
-                  en.dashProgress = 0;
-                  en._wolfClawTriggered = false;
-                } else {
-                  en.chargeTimer = 28;
-                }
-              }
-              if (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) {
-                en.isWindingUpDash = true;
-                en.dashWindupProg = (en.chargeTimer - 60) / 38;
-                en.x = en.dashStartX;
-                en.y = en.dashStartY;
-              }
-            } else if (en.chargeTimer >= 98 && en.chargeTimer <= 128) {
-              const lockA = (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) ? en.chargeLockAngle : ang;
-              if (en.dashStartX === undefined) {
-                en.dashTotalDist = 165;
-                en.dashStartX = en.x;
-                en.dashStartY = en.y;
-                en.dashEndX = Math.max(36, Math.min(WORLD_W - 36, en.x + Math.cos(lockA) * en.dashTotalDist));
-                en.dashEndY = Math.max(36, Math.min(WORLD_H - 36, en.y + Math.sin(lockA) * en.dashTotalDist));
-              }
-              en.isDashingActive = true;
-              const rawProg = Math.max(0, Math.min(1, (en.chargeTimer - 98) / 30));
-              // 平滑加速衝刺曲線（初速為 0 逐步加速衝到底，絕不第1幀瞬移跳格！）
-              const easeProg = rawProg * rawProg * (2.2 - 1.2 * rawProg);
-              en.dashProgress = easeProg;
-              en.x = en.dashStartX + (en.dashEndX - en.dashStartX) * easeProg;
-              en.y = en.dashStartY + (en.dashEndY - en.dashStartY) * easeProg;
-
-              if (state.frame % 3 === 0 && state.v38Afterimages && state.v38Afterimages.length < 14) {
-                state.v38Afterimages.push({
-                  x: en.x, y: en.y, flipLeft: (en.x < state.player.x),
-                  atlasKey: "ENEMY_SHADOW_FOX", color: "#a855f7",
-                  w: 42, h: 38, frameIdx: 1, life: 10, maxLife: 10
+            if (en.chargeTimer >= Math.round(124 / paceMult) && distToTarget < 195) {
+              en.chargeTimer = 0;
+              en.atkCycle = ((en.atkCycle || 0) + 1) % 2;
+              en.wolfSkillTagTimer = 36;
+              if (en.atkCycle === 1) {
+                // 招式 A：【幽冥扇形裂風爪】（地面 105px 扇形預警 46 幀 ➔ 擴張新月紫電狼爪波）
+                en.wolfSkillTag = "🐺裂風爪!";
+                state.hazardCircles.push({
+                  hazardType: "cone", owner: en,
+                  x: en.x, y: en.y, angle: ang, r: 105, spread: Math.PI * 0.52,
+                  color: "#a855f7", baseDmg: 15, title: "幽冥扇形裂風狼爪",
+                  life: 46, maxLife: 46
                 });
-              }
-
-              if (!en._wolfClawTriggered && rawProg >= 0.94) {
-                en._wolfClawTriggered = true;
                 state.skillEffects.push({
                   vfxType: "enemy_wolf_claw",
                   subStyle: (en.animOffset || 0) % 2,
-                  x: en.x + Math.cos(lockA) * 18, y: en.y + Math.sin(lockA) * 18,
-                  angle: lockA, life: 28, maxLife: 28
+                  x: en.x + Math.cos(ang) * 20, y: en.y + Math.sin(ang) * 20,
+                  angle: ang, life: 30, maxLife: 30
                 });
+              } else {
+                // 招式 B：【雙翼弧線夾擊狼牙月刃】（左右兩側弧線向內收攏剪刀差夾擊）
+                en.wolfSkillTag = "🐺雙月刃!";
                 for (const side of [-1, 1]) {
-                  const fa = lockA + side * 0.52;
+                  const startA = ang + side * 0.48;
                   state.enemyProjectiles.push({
                     x: en.x, y: en.y,
-                    vx: Math.cos(fa) * 2.75 * paceMult, vy: Math.sin(fa) * 2.75 * paceMult,
-                    angle: fa, life: 52, maxLife: 52, color: "#a855f7",
-                    projType: "boss_wolf_fang_wave", skillTitle: "幽冥狼牙裂風刃"
+                    vx: Math.cos(startA) * 2.65 * paceMult,
+                    vy: Math.sin(startA) * 2.65 * paceMult,
+                    angle: startA, curveRate: -side * 0.015,
+                    life: 86, maxLife: 86, color: "#a855f7",
+                    projType: "boss_wolf_fang_wave", skillTitle: "幽冥雙月夾擊刃"
                   });
                 }
               }
-            } else if (en.chargeTimer > 128) {
-              en.chargeTimer = 0;
-              en.chargeLockAngle = null;
-              en.dashStartX = undefined;
-              en.dashEndX = undefined;
-              en.dashProgress = 0;
-              en.dashWindupProg = 0;
-              en._wolfClawTriggered = false;
-            } else {
-              // 平時帶微幅側翼包抄弧線逼近
-              const flankA = ang + Math.sin((state.frame + (en.animOffset || 0) * 7) * 0.05) * 0.35;
-              en.x += Math.cos(flankA) * effSpeed * 0.88;
-              en.y += Math.sin(flankA) * effSpeed * 0.88;
             }
+            if (en.wolfSkillTagTimer && en.wolfSkillTagTimer > 0) en.wolfSkillTagTimer--;
           } else if (en.type === "ranged") {
             // 🏹 綠毒骨弓：【白骨後撤步風箏 + 拋物線天降毒箭雨 / 扇形預警封走位五連矢】
             if (distToTarget < 88) {
@@ -23518,83 +23505,50 @@ App.prototype.renderV12MartialView = function(container) {
               en.y += Math.sin(ang) * effSpeed * (en.teleportTargetX !== null ? 0.25 : 0.95);
             }
           } else if (en.type === "guardian") {
-            // 🛡️ 撼山魔將：【38幀玄鐵舉盾鎖定150px衝撞走廊（不傷人） ➔ 30幀平滑加速100%全路徑蠻牛重盾衝撞到底 ➔ 終點三連遞進裂地熔岩柱】
+            // 🛡️ v46.0 撼山魔將：【徹底移除蠻牛直線衝撞 ➔ 改為「玄鐵重盾鎮嶽步 ＋ 三連遞進裂地熔岩柱 ＆ 八荒同心圓環震地波」】
+            en.chargeLockAngle = null;
+            en.dashLockAngle = null;
             en.rangedTimer = (en.rangedTimer || 0) + 1;
-            const gMax = Math.round(170 / paceMult);
-            const gCycle = en.rangedTimer % gMax;
-            if (gCycle >= 90 && gCycle < 128) {
-              if (en.chargeLockAngle === null || en.chargeLockAngle === undefined) {
-                if (distToTarget >= 42 && distToTarget <= 230) {
-                  en.chargeLockAngle = ang;
-                  en.dashTotalDist = 150;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(38, Math.min(WORLD_W - 38, en.x + Math.cos(ang) * en.dashTotalDist));
-                  en.dashEndY = Math.max(38, Math.min(WORLD_H - 38, en.y + Math.sin(ang) * en.dashTotalDist));
-                  en.dashProgress = 0;
-                  en._guardianQuakeDone = false;
-                } else {
-                  en.rangedTimer = 45;
-                }
-              }
-              if (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) {
-                en.isWindingUpDash = true;
-                en.dashWindupProg = (gCycle - 90) / 38;
-                en.x = en.dashStartX;
-                en.y = en.dashStartY;
-              }
-            } else if (gCycle >= 128 && gCycle <= 158) {
-              const ca = (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) ? en.chargeLockAngle : ang;
-              if (en.dashStartX === undefined) {
-                en.dashTotalDist = 150;
-                en.dashStartX = en.x;
-                en.dashStartY = en.y;
-                en.dashEndX = Math.max(38, Math.min(WORLD_W - 38, en.x + Math.cos(ca) * en.dashTotalDist));
-                en.dashEndY = Math.max(38, Math.min(WORLD_H - 38, en.y + Math.sin(ca) * en.dashTotalDist));
-              }
-              en.isDashingActive = true;
-              const rawProg = Math.max(0, Math.min(1, (gCycle - 128) / 30));
-              const easeProg = rawProg * rawProg * (2.2 - 1.2 * rawProg);
-              en.dashProgress = easeProg;
-              en.x = en.dashStartX + (en.dashEndX - en.dashStartX) * easeProg;
-              en.y = en.dashStartY + (en.dashEndY - en.dashStartY) * easeProg;
+            const gMax = Math.round(156 / paceMult);
+            const isCastingStance = (en.rangedTimer >= gMax - 36);
+            en.guardianShieldStance = isCastingStance;
+            const moveMult = isCastingStance ? 0.25 : 0.92;
+            en.x += Math.cos(ang) * effSpeed * moveMult;
+            en.y += Math.sin(ang) * effSpeed * moveMult;
 
-              if (state.frame % 3 === 0 && state.v38Afterimages && state.v38Afterimages.length < 14) {
-                state.v38Afterimages.push({
-                  x: en.x, y: en.y, flipLeft: (en.x < state.player.x),
-                  atlasKey: "ENEMY_TITAN_GENERAL", color: "#f59e0b",
-                  w: 56, h: 56, frameIdx: 1, life: 10, maxLife: 10
-                });
-              }
-
-              if (!en._guardianQuakeDone && rawProg >= 0.95) {
-                en._guardianQuakeDone = true;
-                spawnShockwaveRing(en.x, en.y, 8, 68, "#f59e0b", 24, 3.5);
+            if (en.rangedTimer >= gMax && distToTarget < 225) {
+              en.rangedTimer = 0;
+              en.atkCycle = ((en.atkCycle || 0) + 1) % 2;
+              en.guardianSkillTagTimer = 42;
+              if (en.atkCycle === 1) {
+                // 招式 A：【撼山三連遞進熔岩裂地柱】（重錘頓地，朝玩家方向依序鋪開 3 座由近而遠遞進引爆的熔岩圓陣）
+                en.guardianSkillTag = "🛡️三連裂地!";
                 state.skillEffects.push({
                   vfxType: "v42_mob_skill_vfx",
                   mobSkill: "guardian_quake",
-                  x: en.x, y: en.y, r: 68, angle: ca, life: 28, maxLife: 28
+                  x: en.x, y: en.y, r: 64, angle: ang, life: 28, maxLife: 28
                 });
                 for (let step = 1; step <= 3; step++) {
                   state.hazardCircles.push({
                     hazardType: "circle", subType: "guardian_chain_quake", owner: en,
-                    x: Math.max(40, Math.min(WORLD_W - 40, en.x + Math.cos(ca) * (step * 46))),
-                    y: Math.max(40, Math.min(WORLD_H - 40, en.y + Math.sin(ca) * (step * 46))),
+                    x: Math.max(40, Math.min(WORLD_W - 40, en.x + Math.cos(ang) * (step * 48))),
+                    y: Math.max(40, Math.min(WORLD_H - 40, en.y + Math.sin(ang) * (step * 48))),
                     r: 36, color: "#f59e0b", baseDmg: 16,
-                    title: "撼山三連裂地柱", life: step * 16 + 18, maxLife: step * 16 + 18
+                    title: "撼山三連裂地熔岩柱", life: 24 + step * 15, maxLife: 24 + step * 15
                   });
                 }
+              } else {
+                // 招式 B：【玄鐵鎮嶽同心震地環】（於自身周圍展開內徑 42px、外徑 96px 的同心圓環裂地波）
+                en.guardianSkillTag = "🛡️同心震波!";
+                state.hazardCircles.push({
+                  hazardType: "ring_wave", owner: en,
+                  x: en.x, y: en.y, innerR: 40, outerR: 96,
+                  color: "#f59e0b", baseDmg: 17, title: "撼山玄鐵同心震地環",
+                  life: 48, maxLife: 48
+                });
               }
-            } else {
-              en.chargeLockAngle = null;
-              en.dashStartX = undefined;
-              en.dashEndX = undefined;
-              en.dashProgress = 0;
-              en.dashWindupProg = 0;
-              en._guardianQuakeDone = false;
-              en.x += Math.cos(ang) * effSpeed;
-              en.y += Math.sin(ang) * effSpeed;
             }
+            if (en.guardianSkillTagTimer && en.guardianSkillTagTimer > 0) en.guardianSkillTagTimer--;
           } else if (en.type === "boss") {
             // ==================== 👑 v45.0 十殿魔尊：10 種連續戰術步法（含清晰預警＋平滑全路徑衝鋒） + 每位 BOSS 3 式立體鎮關大招循環 ====================
             en.moveTick = (en.moveTick || 0) + 1;
@@ -23602,47 +23556,26 @@ App.prototype.renderV12MartialView = function(container) {
             const mt = en.moveTick;
 
             if (mPat === "blade_lunge") {
-              // 第1波【血刀護法統領 · 狂刀追斬步】：沉穩追擊 + 38幀預警鎖定 ➔ 32幀 210px 平滑全路徑直線狂刀突刺到底！
-              const cycle = mt % 185;
-              if (cycle >= 110 && cycle < 148) {
-                if (en.chargeLockAngle === null || en.chargeLockAngle === undefined) {
-                  en.chargeLockAngle = ang;
-                  en.dashTotalDist = 210;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(48, Math.min(WORLD_W - 48, en.x + Math.cos(ang) * en.dashTotalDist));
-                  en.dashEndY = Math.max(48, Math.min(WORLD_H - 48, en.y + Math.sin(ang) * en.dashTotalDist));
-                  en.dashProgress = 0;
-                  state.floatTexts.push({ x: en.x, y: en.y - 28, text: "🩸血刀突刺鎖定！", color: "#fca5a5", life: 24 });
+              // 第1波【血刀護法統領 · 修羅旋風步】：移除直線衝刺，改為沉穩追擊 + 周期性展開「泣血修羅護體旋風刀輪」！
+              en.chargeLockAngle = null;
+              const cycle = mt % 180;
+              if (cycle === 130) {
+                state.floatTexts.push({ x: en.x, y: en.y - 28, text: "🩸泣血修羅旋風刀輪！", color: "#fca5a5", life: 28 });
+                for (let k = 0; k < 4; k++) {
+                  state.enemyProjectiles.push({
+                    x: en.x, y: en.y, owner: en, originX: en.x, originY: en.y,
+                    vx: 0, vy: 0,
+                    isOrbitWheel: true, orbitAng: (k * Math.PI * 2) / 4,
+                    orbitSpeed: 0.062, maxOrbitR: 118,
+                    life: 96, maxLife: 96, color: "#ef4444",
+                    projType: "boss_blood_crescent", skillTitle: "泣血修羅護體刀輪"
+                  });
                 }
-                en.isWindingUpDash = true;
-                en.dashWindupProg = (cycle - 110) / 38;
-                en.x = en.dashStartX;
-                en.y = en.dashStartY;
-              } else if (cycle >= 148 && cycle <= 180) {
-                const cAng = (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) ? en.chargeLockAngle : ang;
-                if (en.dashStartX === undefined) {
-                  en.dashTotalDist = 210;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(48, Math.min(WORLD_W - 48, en.x + Math.cos(cAng) * en.dashTotalDist));
-                  en.dashEndY = Math.max(48, Math.min(WORLD_H - 48, en.y + Math.sin(cAng) * en.dashTotalDist));
-                }
-                en.isDashingActive = true;
-                const rawProg = Math.max(0, Math.min(1, (cycle - 148) / 32));
-                const easeProg = rawProg * rawProg * (2.2 - 1.2 * rawProg);
-                en.dashProgress = easeProg;
-                en.x = en.dashStartX + (en.dashEndX - en.dashStartX) * easeProg;
-                en.y = en.dashStartY + (en.dashEndY - en.dashStartY) * easeProg;
-              } else {
-                en.chargeLockAngle = null;
-                en.dashStartX = undefined;
-                en.dashEndX = undefined;
-                en.dashProgress = 0;
-                en.dashWindupProg = 0;
-                en.x += Math.cos(ang) * effSpeed;
-                en.y += Math.sin(ang) * effSpeed;
               }
+              const swayAng = ang + Math.sin(mt * 0.04) * 0.28;
+              const spdMult = (cycle >= 125 && cycle <= 165) ? 0.55 : 0.96;
+              en.x += Math.cos(swayAng) * effSpeed * spdMult;
+              en.y += Math.sin(swayAng) * effSpeed * spdMult;
             } else if (mPat === "wolf_arc_flank") {
               // 第2波【紫焰嗜月狼王 · 孤狼弧線繞獵 + 38幀預警 ➔ 32幀 230px 全路徑疾風撲擊】
               const cycle = mt % 190;
@@ -23736,54 +23669,26 @@ App.prototype.renderV12MartialView = function(container) {
               en.x += Math.cos(glideAng) * effSpeed * 1.05;
               en.y += Math.sin(glideAng) * effSpeed * 1.05;
             } else if (mPat === "thunder_line_charge") {
-              // 第7波【紫電撼山妖皇 · 240px 全路徑雷霆直線奔襲】：38幀鎖定預警 ➔ 34幀平滑衝刺到底，沿途留下延遲雷獄陷阱！
-              const cycle = mt % 195;
-              if (cycle >= 112 && cycle < 150) {
-                if (en.chargeLockAngle === null || en.chargeLockAngle === undefined) {
-                  en.chargeLockAngle = ang;
-                  en.dashTotalDist = 240;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(48, Math.min(WORLD_W - 48, en.x + Math.cos(ang) * en.dashTotalDist));
-                  en.dashEndY = Math.max(48, Math.min(WORLD_H - 48, en.y + Math.sin(ang) * en.dashTotalDist));
-                  en.dashProgress = 0;
-                  state.floatTexts.push({ x: en.x, y: en.y - 30, text: "⚡紫電直線奔襲蓄力！", color: "#c084fc", life: 28 });
-                }
-                en.isWindingUpDash = true;
-                en.dashWindupProg = (cycle - 112) / 38;
-                en.x = en.dashStartX;
-                en.y = en.dashStartY;
-              } else if (cycle >= 150 && cycle <= 184) {
-                const cAng = (en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) ? en.chargeLockAngle : ang;
-                if (en.dashStartX === undefined) {
-                  en.dashTotalDist = 240;
-                  en.dashStartX = en.x;
-                  en.dashStartY = en.y;
-                  en.dashEndX = Math.max(48, Math.min(WORLD_W - 48, en.x + Math.cos(cAng) * en.dashTotalDist));
-                  en.dashEndY = Math.max(48, Math.min(WORLD_H - 48, en.y + Math.sin(cAng) * en.dashTotalDist));
-                }
-                en.isDashingActive = true;
-                const rawProg = Math.max(0, Math.min(1, (cycle - 150) / 34));
-                const easeProg = rawProg * rawProg * (2.2 - 1.2 * rawProg);
-                en.dashProgress = easeProg;
-                en.x = en.dashStartX + (en.dashEndX - en.dashStartX) * easeProg;
-                en.y = en.dashStartY + (en.dashEndY - en.dashStartY) * easeProg;
-                if (cycle % 10 === 0) {
+              // 第7波【紫電撼山妖皇 · 九霄五雷天罰步】：移除直線衝刺，改為高舉雷錘召喚「梅花五方神霄落雷陣」！
+              en.chargeLockAngle = null;
+              const cycle = mt % 185;
+              if (cycle === 135) {
+                state.floatTexts.push({ x: en.x, y: en.y - 30, text: "⚡九霄梅花五雷天罰陣！", color: "#fde047", life: 30 });
+                for (let k = 0; k < 5; k++) {
+                  const pa = ang + (k * Math.PI * 2) / 5;
+                  const dist = (k === 0) ? 18 : 68;
                   state.hazardCircles.push({
-                    hazardType: "circle", owner: en,
-                    x: en.x, y: en.y, r: 42, color: "#facc15",
-                    baseDmg: 20, title: "紫電奔襲殘留雷獄", life: 46, maxLife: 46
+                    hazardType: "circle", subType: "thunder_pillar", owner: en,
+                    x: Math.max(48, Math.min(WORLD_W - 48, tx + Math.cos(pa) * dist)),
+                    y: Math.max(48, Math.min(WORLD_H - 48, ty + Math.sin(pa) * dist)),
+                    r: 44, angle: pa, color: "#facc15",
+                    baseDmg: 24, title: "九霄五雷天罰柱", life: 48 + k * 5, maxLife: 48 + k * 5
                   });
                 }
-              } else {
-                en.chargeLockAngle = null;
-                en.dashStartX = undefined;
-                en.dashEndX = undefined;
-                en.dashProgress = 0;
-                en.dashWindupProg = 0;
-                en.x += Math.cos(ang) * effSpeed * 0.94;
-                en.y += Math.sin(ang) * effSpeed * 0.94;
               }
+              const stepMult = (cycle >= 125 && cycle <= 165) ? 0.35 : 0.94;
+              en.x += Math.cos(ang) * effSpeed * stepMult;
+              en.y += Math.sin(ang) * effSpeed * stepMult;
             } else if (mPat === "asura_zigzag_step") {
               // 第8波【血海修羅督軍 · 修羅折線踏步】：之字形折線高速切入
               const zigDir = (Math.floor(mt / 50) % 2 === 0) ? 0.52 : -0.52;
@@ -23930,17 +23835,15 @@ App.prototype.renderV12MartialView = function(container) {
                 }
               } else if (mPat === "wolf_arc_flank") {
                 if (skillSlot === 0) {
-                  state.floatTexts.push({ x: en.x, y: en.y - 36, text: "🐺【狼王奧義 · 萬狼奔襲走廊】！", color: "#c084fc", life: 34 });
-                  const perpA = ang + Math.PI * 0.5;
-                  for (let lane = -1; lane <= 1; lane++) {
-                    const lx = en.x + Math.cos(perpA) * (lane * 64);
-                    const ly = en.y + Math.sin(perpA) * (lane * 64);
-                    state.hazardCircles.push({
-                      hazardType: "line", owner: en,
-                      x: lx, y: ly, angle: ang, length: 260, width: 34,
-                      color: "#a855f7", baseDmg: 24, title: "紫焰萬狼奔襲",
-                      spawnProjOnBurst: "boss_wolf_fang_wave", projSpeed: 4.0,
-                      life: 48 + (lane + 1) * 8, maxLife: 48 + (lane + 1) * 8
+                  state.floatTexts.push({ x: en.x, y: en.y - 36, text: "🐺【狼王奧義 · 紫月六合迴旋狼牙陣】！", color: "#c084fc", life: 34 });
+                  for (let k = 0; k < 6; k++) {
+                    const ba = ang + (k * Math.PI * 2) / 6;
+                    state.enemyProjectiles.push({
+                      x: en.x, y: en.y, originX: en.x, originY: en.y, owner: en,
+                      vx: Math.cos(ba) * 3.25 * paceMult, vy: Math.sin(ba) * 3.25 * paceMult,
+                      angle: ba, life: 122, maxLife: 122,
+                      isBoomerang: true, retSpeed: 3.4,
+                      color: "#c084fc", projType: "boss_wolf_fang_wave", skillTitle: "紫月迴旋狼牙刃"
                     });
                   }
                 } else if (skillSlot === 1) {
@@ -24315,9 +24218,9 @@ App.prototype.renderV12MartialView = function(container) {
                 });
               }
             } else if (sectVariant === 1) {
-              // 🗡️ 1.【青城叛劍客 · 38幀165px翠綠劍氣走廊蓄力（不傷人） ➔ 30幀平滑加速100%全路徑化劍突刺到底！】
+              // 🗡️ 1.【青城叛劍客（全場唯一小怪突進代表）· 中距離青竹穿雲劍氣 ＋ 165px翠綠劍氣走廊化劍突刺】
               en.dashTimer = (en.dashTimer || 0) + 1;
-              if (en.dashTimer < 72) {
+              if (en.dashTimer < 112) {
                 en.dashLockAngle = null;
                 en.dashStartX = undefined;
                 en.dashEndX = undefined;
@@ -24326,7 +24229,15 @@ App.prototype.renderV12MartialView = function(container) {
                 en._qcPierceDone = false;
                 en.x += Math.cos(ang) * effSpeed * 0.92;
                 en.y += Math.sin(ang) * effSpeed * 0.92;
-              } else if (en.dashTimer >= 72 && en.dashTimer < 110) {
+                if (en.dashTimer === 56 && distToTarget < 190 && distToTarget > 60) {
+                  state.enemyProjectiles.push({
+                    x: en.x, y: en.y,
+                    vx: Math.cos(ang) * 2.85 * paceMult, vy: Math.sin(ang) * 2.85 * paceMult,
+                    angle: ang, life: 78, maxLife: 78, color: "#10b981",
+                    projType: "poison_fan_arrow", skillTitle: "青城竹葉穿雲劍氣"
+                  });
+                }
+              } else if (en.dashTimer >= 112 && en.dashTimer < 150) {
                 if (en.dashLockAngle === null || en.dashLockAngle === undefined) {
                   if (distToTarget >= 42 && distToTarget < 215) {
                     en.dashLockAngle = ang;
@@ -24342,11 +24253,11 @@ App.prototype.renderV12MartialView = function(container) {
                 }
                 if (en.dashLockAngle !== null && en.dashLockAngle !== undefined) {
                   en.isWindingUpDash = true;
-                  en.dashWindupProg = (en.dashTimer - 72) / 38;
+                  en.dashWindupProg = (en.dashTimer - 112) / 38;
                   en.x = en.dashStartX;
                   en.y = en.dashStartY;
                 }
-              } else if (en.dashTimer >= 110 && en.dashTimer <= 140) {
+              } else if (en.dashTimer >= 150 && en.dashTimer <= 180) {
                 const da = (en.dashLockAngle !== null && en.dashLockAngle !== undefined) ? en.dashLockAngle : ang;
                 if (en.dashStartX === undefined) {
                   en.dashTotalDist = 165;
@@ -24356,7 +24267,7 @@ App.prototype.renderV12MartialView = function(container) {
                   en.dashEndY = Math.max(36, Math.min(WORLD_H - 36, en.y + Math.sin(da) * en.dashTotalDist));
                 }
                 en.isDashingActive = true;
-                const rawProg = Math.max(0, Math.min(1, (en.dashTimer - 110) / 30));
+                const rawProg = Math.max(0, Math.min(1, (en.dashTimer - 150) / 30));
                 const easeProg = rawProg * rawProg * (2.2 - 1.2 * rawProg);
                 en.dashProgress = easeProg;
                 en.x = en.dashStartX + (en.dashEndX - en.dashStartX) * easeProg;
@@ -24622,7 +24533,7 @@ App.prototype.renderV12MartialView = function(container) {
             let kw = 42, kh = 42;
             if (!isBossKill) {
               if (en.type === "swarm") {
-                resolvedSpriteKey = ["ENEMY_BLOOD_DISCIPLE", "MOB_XUANYIN", "MOB_QINGCHENG", "MOB_JIANGSHI", "MOB_DEMON_CULT"][(en.animOffset || 0) % 5];
+                resolvedSpriteKey = ["ENEMY_BLOOD_DISCIPLE", "MOB_QINGCHENG", "MOB_JIANGSHI", "MOB_XUANYIN", "MOB_DEMON_CULT"][(en.animOffset || 0) % 5];
               } else if (en.type === "charger") {
                 resolvedSpriteKey = ((en.animOffset || 0) % 2 === 0) ? "ENEMY_SHADOW_FOX" : "SUMMON_BLACK_WOLF";
               } else if (en.type === "ranged") {
@@ -28939,7 +28850,12 @@ App.prototype.renderV12MartialView = function(container) {
       const flashBody = isHit || (en.isSuiciding && (frame % 4 < 2));
       this.drawRefSprite(ctx, atlasKey, ex, ey + walkBob - jumpOffset, w, h, flipX, flashBody, 0, flashBody ? "#ffffff" : auraCol, fIdx, squashX, squashY);
 
-      // 頭頂戰術狀態警示標籤（自爆倒數／突進蓄力／猛撲鎖定／跳劈騰空）
+      // 🛡️ 撼山魔將架盾凝罡八卦光環
+      if (en.type === "guardian" && en.guardianShieldStance) {
+        WuxiaHDVFXEngine.drawBaguaOctagonRing(ctx, ex, ey, w * 0.62, frame * 0.06, "#f59e0b", "#38bdf8");
+      }
+
+      // 頭頂戰術狀態警示標籤（自爆倒數／青城劍突／妖狼裂風爪與雙月刃／魔將三連裂地與同心震波）
       if (en.isSuiciding) {
         ctx.font = "bold 10px monospace";
         ctx.textAlign = "center";
@@ -28949,7 +28865,17 @@ App.prototype.renderV12MartialView = function(container) {
         ctx.font = "bold 10px monospace";
         ctx.textAlign = "center";
         ctx.fillStyle = "#fde047";
-        ctx.fillText(en.type === "charger" ? "🐺猛撲!" : (en.type === "guardian" ? "🛡️衝撞!" : "⚡劍突!"), ex, ey - h * 0.58);
+        ctx.fillText("⚡劍突!", ex, ey - h * 0.58);
+      } else if (en.wolfSkillTagTimer && en.wolfSkillTagTimer > 0 && en.wolfSkillTag) {
+        ctx.font = "bold 10px monospace";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#e879f9";
+        ctx.fillText(en.wolfSkillTag, ex, ey - h * 0.58);
+      } else if (en.guardianSkillTagTimer && en.guardianSkillTagTimer > 0 && en.guardianSkillTag) {
+        ctx.font = "bold 10px monospace";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#fde047";
+        ctx.fillText(en.guardianSkillTag, ex, ey - h * 0.58);
       }
 
       if (en.type === "guardian" || en.type === "scorpion" || en.type === "wraith" || en.hp < en.maxHp) {
