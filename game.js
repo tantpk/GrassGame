@@ -8990,7 +8990,7 @@ App.prototype.renderV12MartialView = function(container) {
   // 《星宿劫源：太初道主》v13.0 超級洗腦上頭重製版（4大洗腦核心引擎：天命乘算輪盤 × 開鼎爆裝 × 萬劍割草 × 二合一合成）
   // ====================================================================================================
 
-  // 1. 定義天命輪盤符號庫（Balatro × 幸運房東式乘算共鳴）
+  // 1. 定義天命輪盤符號庫（太初星宿連環乘算共鳴）
   const V13_WHEEL_SYMBOLS = [
     { id: "sym_sword", icon: "🗡️", name: "太乙劍印", baseExp: 180, mult: 1.5, weight: 26, desc: "劍氣縱橫，每枚提供 ×1.5 劍道倍率" },
     { id: "sym_thunder", icon: "⚡", name: "紫極雷印", baseExp: 220, mult: 1.8, weight: 22, desc: "天劫雷威，連線時引動 ×1.8 雷暴倍率" },
@@ -9000,7 +9000,7 @@ App.prototype.renderV12MartialView = function(container) {
     { id: "sym_taichu", icon: "🌌", name: "太初道果", baseExp: 800, mult: 5.0, hammerDrop: 5, wudaoDrop: 1, weight: 6, desc: "【神話大獎】倍率直接 ×5.0，掉 5 錘 + 1 感悟！" }
   ];
 
-  // 小丑牌式「本命道印卡 (Dao Jokers)」（隨合成與破境自動解鎖，提供指數級乘算快感）
+  // 太初「本命道印倍率卡」（隨合成與破境自動解鎖，提供指數級乘算快感）
   const V13_DAO_JOKERS = [
     { id: "joker_sword", icon: "🗡️", name: "萬劍歸宗印", rule: "盤面每有 1 枚🗡️劍印，總倍率額外 ×1.35", minMergeTier: 1 },
     { id: "joker_hammer", icon: "🔨", name: "天工開物印", rule: "每次轉輪保底獲 +1 神錘；轉出🔨時神錘翻倍", minMergeTier: 2 },
@@ -9008,7 +9008,7 @@ App.prototype.renderV12MartialView = function(container) {
     { id: "joker_taichu", icon: "👑", name: "太初天命印", rule: "所有三連共鳴額外 ×2.5 倍，且自動觸發大周天爆擊", minMergeTier: 4 }
   ];
 
-  // 開鼎煉寶 7 階品質與閃光詞條池（《尋道大千》式無限開箱比裝）
+  // 開鼎煉寶 7 階品質與閃光詞條池（太初神爐無限煉寶比裝）
   const V13_RARITY_TIERS = [
     { tier: 1, name: "凡鐵", color: "#575249", bg: "#f4efe4", mult: 1.0, weight: 28 },
     { tier: 2, name: "靈階", color: "#2d5442", bg: "#e8f4ec", mult: 1.35, weight: 25 },
@@ -9065,7 +9065,7 @@ App.prototype.renderV12MartialView = function(container) {
         streakCount: 1,
         autoSpinActive: false,
 
-        // 2. 開鼎煉寶狀態（尋道大千式）
+        // 2. 開鼎煉寶狀態（神爐煉寶式）
         hammers: 35,
         cauldronLv: 1,
         cauldronExp: 0,
@@ -9078,7 +9078,7 @@ App.prototype.renderV12MartialView = function(container) {
           accessory: { name: "清心辟塵佩", rarityTier: 3, rarityName: "玄階", color: "#235363", atk: 240, hp: 980, def: 110, traitName: "💥 暴擊流", traitVal: 32 }
         },
 
-        // 3. 萬劍割草無雙狀態（吸血鬼倖存者式）
+        // 3. 萬劍割草無雙狀態（萬劍無雙割草式）
         mowingHighScore: 0,
         mowingTotalKills: 0,
         mowingSwordCount: 4,
@@ -9173,7 +9173,7 @@ App.prototype.renderV12MartialView = function(container) {
     });
   };
 
-  // ==================== 引擎一：〔轉〕太初天命輪盤（小丑牌 Balatro 式萬倍乘算拉霸 + 渡劫破境） ====================
+  // ==================== 引擎一：〔轉〕太初天命輪盤（太初星宿萬倍乘算拉霸 + 渡劫破境） ====================
   App.prototype.renderV12DongtianView = function(container) {
     const v13 = this.char.ensureV13AddictiveState();
     const st = this.char.ensureStoryState();
@@ -9244,7 +9244,7 @@ App.prototype.renderV12MartialView = function(container) {
       this.performBreakthrough(reqExp, realms[Math.min(8, this.char.realmIndex + 1)]);
     });
 
-    // 核心洗腦引擎一：3×3【太初天命輪盤 · 小丑牌式萬倍乘算】
+    // 核心洗腦引擎一：3×3【太初天命輪盤 · 太初星宿萬倍乘算】
     const slotCard = document.createElement("div");
     slotCard.className = "v13-slot-machine-card";
 
@@ -9280,7 +9280,7 @@ App.prototype.renderV12MartialView = function(container) {
         <span style="font-size:0.84rem; font-weight:900; color:var(--stone-cyan);">🔨 神錘庫存：${v13.hammers}</span>
       </div>
 
-      <!-- 頂部 4 張小丑牌式「本命道印倍率卡」 -->
+      <!-- 頂部 4 張太初「本命道印倍率卡」 -->
       <div class="v13-joker-bar">${jokersHtml}</div>
 
       <!-- 3×3 星宿輪盤網格 -->
@@ -9288,7 +9288,7 @@ App.prototype.renderV12MartialView = function(container) {
         ${cellsHtml}
       </div>
 
-      <!-- Balatro 式「底數 × 倍率 = 總爆發」計分板 -->
+      <!-- 太初「底數 × 倍率 = 總爆發」計分板 -->
       <div class="v13-balatro-score-strip">
         <div>
           <div style="font-size:0.7rem; color:#b8b0a0; text-align:center;">周天底數</div>
@@ -9358,7 +9358,7 @@ App.prototype.renderV12MartialView = function(container) {
     });
   };
 
-  // 執行天命輪盤旋轉與 Balatro 式乘算結算
+  // 執行天命輪盤旋轉與 太初星宿乘算結算
   App.prototype.spinV13DestinyWheel = function(times = 1, btnEl = null) {
     const v13 = this.char.ensureV13AddictiveState();
     const st = this.char.ensureStoryState();
@@ -9438,7 +9438,7 @@ App.prototype.renderV12MartialView = function(container) {
         }
       });
 
-      // 檢查道印小丑牌（Dao Jokers）乘算
+      // 檢查本命道印倍率卡乘算
       if (v13.highestMergeLv >= 1 && counts["sym_sword"]) {
         const swordBoost = Math.pow(1.35, counts["sym_sword"]);
         mult *= swordBoost;
@@ -9490,7 +9490,7 @@ App.prototype.renderV12MartialView = function(container) {
     }, 180);
   };
 
-  // ==================== 引擎二：〔鼎〕開鼎爆裝（《尋道大千》式無限敲鼎開箱 + 綠字比裝 + 自動衝鼎） ====================
+  // ==================== 引擎二：〔鼎〕開鼎爆裝（太初神爐無限敲鼎煉寶 + 綠字比裝 + 自動衝鼎） ====================
   App.prototype.renderV12FoundationView = function(container) {
     const v13 = this.char.ensureV13AddictiveState();
     const st = this.char.ensureStoryState();
@@ -9706,7 +9706,7 @@ App.prototype.renderV12MartialView = function(container) {
     });
   };
 
-  // ==================== 引擎三：〔割〕萬劍割草無雙場（《吸血鬼倖存者》式即時 60FPS Canvas 飛劍彈幕割草 + 肉鴿三選一超武） ====================
+  // ==================== 引擎三：〔割〕萬劍割草無雙場（即時 60FPS Canvas 飛劍彈幕割草 + 肉鴿三選一神通突破） ====================
   App.prototype.stopV13MowingLoop = function() {
     if (this._v13MowRaf) {
       cancelAnimationFrame(this._v13MowRaf);
@@ -9779,7 +9779,7 @@ App.prototype.renderV12MartialView = function(container) {
     });
   };
 
-  // 實作 60FPS《吸血鬼倖存者》式萬劍割草 Canvas 遊戲迴路
+  // 實作 60FPS太初萬劍割草無雙 Canvas 遊戲迴路
   App.prototype.startV13MowingArena = function(wrap) {
     const v13 = this.char.ensureV13AddictiveState();
     const st = this.char.ensureStoryState();
@@ -10160,7 +10160,7 @@ App.prototype.renderV12MartialView = function(container) {
     this._v13MowRaf = requestAnimationFrame(step);
   };
 
-  // ==================== 引擎四：〔合〕九宮八卦二合一合成盤（《背包亂鬥》× 二合一合成蛻變 + 本命神通演化） ====================
+  // ==================== 引擎四：〔合〕九宮八卦二合一合成盤（【九宮八卦陣盤 × 二合一蛻變機制】蛻變 + 本命神通演化） ====================
   App.prototype.renderV12MartialView = function(container) {
     const v13 = this.char.ensureV13AddictiveState();
     const st = this.char.ensureStoryState();
@@ -10206,7 +10206,7 @@ App.prototype.renderV12MartialView = function(container) {
           <span style="font-size:0.9rem; font-weight:900; color:var(--cinnabar-red);">全屬性乘算：×${(1 + totalMultBonus).toFixed(2)}</span>
         </div>
         <div style="font-size:0.84rem; color:var(--ink-mid); margin:6px 0;">
-          點擊兩枚相同階位之靈物即可「二合一升階蛻變」！合成高階神物不僅讓全屬性翻倍，還會永久解鎖【天命輪盤道印小丑牌】與【本命神通形態】！
+          點擊兩枚相同階位之靈物即可「二合一升階蛻變」！合成高階神物不僅讓全屬性翻倍，還會永久解鎖【天命輪盤本命道印卡】與【本命神通形態】！
         </div>
 
         <div class="v13-merge-grid" id="v13-merge-board-box">
@@ -10372,7 +10372,7 @@ App.prototype.renderV12MartialView = function(container) {
     { id: "sym_taichu", icon: "👑", name: "真武道果令", baseExp: 880, mult: 5.5, hammerDrop: 5, wudaoDrop: 1, weight: 6, lore: "【神話大獎】武道通神，天下共尊，全屏劍雨轟鳴！" }
   ];
 
-  // 2. 四大江湖宗師「武道心法小丑牌」（Jokers，隨八卦合真階位解鎖）
+  // 2. 四大江湖宗師「宗師武道心法印」（隨八卦合真階位解鎖）
   const V14_MASTER_JOKERS = [
     { id: "joker_sword", icon: "🗡️", name: "扶搖劍意 · 萬劍歸宗", master: "扶搖劍尊", rule: "盤面每有1枚🗡️青霜劍，總倍率額外 ×1.35", minMergeTier: 1 },
     { id: "joker_hammer", icon: "🔨", name: "天工神髓 · 龍泉百鍊", master: "玄牝丹祖", rule: "每次演武保底掉落+1神錘；轉出🔨時神錘產出翻倍", minMergeTier: 2 },
@@ -10380,7 +10380,7 @@ App.prototype.renderV12MartialView = function(container) {
     { id: "joker_taichu", icon: "👑", name: "太極無量 · 俠道共尊", master: "璇璣仙妃", rule: "所有三連共鳴額外 ×2.5 倍，自動催動太極護體真元！", minMergeTier: 4 }
   ];
 
-  // 3. 龍泉神爐 · 俠道名劍譜與武林名鎧（《尋道大千》式開箱比裝）
+  // 3. 龍泉神爐 · 俠道名劍譜與武林名鎧（太初神爐煉寶比裝）
   const V14_WUXIA_RARITIES = [
     { tier: 1, name: "凡鐵布衣", color: "#575249", bg: "#f4efe4", mult: 1.0, weight: 26 },
     { tier: 2, name: "百煉鋼品", color: "#2d5442", bg: "#e8f4ec", mult: 1.35, weight: 25 },
@@ -10532,7 +10532,7 @@ App.prototype.renderV12MartialView = function(container) {
     });
   };
 
-  // ==================== 1. 〔武〕太極天命演武盤（武合風 × 宗師論武 × 小丑牌連乘 × 主線咬合） ====================
+  // ==================== 1. 〔武〕太極天命演武盤（武合風 × 宗師論武 × 道印連乘 × 主線咬合） ====================
   App.prototype.renderV12DongtianView = function(container) {
     const v13 = this.char.ensureV13AddictiveState();
     const v14 = this.char.ensureV14WuxiaState();
@@ -10644,7 +10644,7 @@ App.prototype.renderV12MartialView = function(container) {
         <span style="font-size:0.84rem; font-weight:900; color:var(--stone-cyan);">🔨 龍泉神錘：${v13.hammers}</span>
       </div>
 
-      <!-- 四大江湖宗師心法加持條（Jokers） -->
+      <!-- 四大江湖宗師宗師心法加持條 -->
       <div class="wuxia-joker-strip">${jokersHtml}</div>
 
       <!-- 3×3 武學星宿輪盤 -->
@@ -10652,7 +10652,7 @@ App.prototype.renderV12MartialView = function(container) {
         ${cellsHtml}
       </div>
 
-      <!-- Balatro 式計分板 -->
+      <!-- 太初連乘計分板 -->
       <div class="v13-balatro-score-strip">
         <div>
           <div style="font-size:0.7rem; color:#b8b0a0; text-align:center;">武道底數</div>
@@ -11462,7 +11462,7 @@ App.prototype.renderV12MartialView = function(container) {
       color: "#38bdf8",
       baseCd: 370,
       vfxType: "uni_vfx_myriad_swords",
-      desc: "參考《暖雪·萬劍》與《Vampire Survivors》：於天穹展開誅仙劍門，傾瀉漫天青金飛劍精準貫穿全場魔物（每級傷害+40%、飛劍數量+3，可無限升級！）"
+      desc: "【太初劍道無雙秘術】：於天穹展開誅仙劍門，傾瀉漫天青金飛劍精準貫穿全場魔物（每級傷害+40%、飛劍數量+3，可無限升級！）"
     },
     {
       id: "uni_taiji_grinder",
@@ -11512,7 +11512,7 @@ App.prototype.renderV12MartialView = function(container) {
       tintColor: "rgba(220, 38, 38, 0.11)",
       weatherType: "hell_ember",
       tag: "高危殺伐秘境 · 全傷害+14% · 仙珍掉率+20% · 魔物更狂暴",
-      desc: "參考《Hades·冥界熔岩》與《暖雪·血海》：暗紅熔岩魔淵，全武器與靈寵傷害+14%，精英仙珍掉率提升 20%，並周期噴發可引誘魔群踏入的「修羅業火泉」！",
+      desc: "【上古修羅血海禁域】：暗紅熔岩魔淵，全武器與靈寵傷害+14%，精英仙珍掉率提升 20%，並周期噴發可引誘魔群踏入的「修羅業火泉」！",
       dmgBonus: 1.14,
       cdBonus: 0,
       lootMult: 1.20,
@@ -11527,7 +11527,7 @@ App.prototype.renderV12MartialView = function(container) {
       tintColor: "rgba(56, 189, 248, 0.10)",
       weatherType: "astral_snow",
       tag: "極光凝罡秘境 · 全技能冷卻-12% · 每3秒護罡+4 · 靈獸刷新+25%",
-      desc: "參考《Vampire Survivors·極光聖域》：萬載玄冰仙闕，所有武器絕技與通用神通冷卻縮短 12%，每 3 秒自動凝結 +4 點玄武護罡，且野生山海靈獸降臨頻率提升 25%！",
+      desc: "【崑崙萬載玄冰仙闕】：萬載玄冰仙闕，所有武器絕技與通用神通冷卻縮短 12%，每 3 秒自動凝結 +4 點玄武護罡，且野生山海靈獸降臨頻率提升 25%！",
       dmgBonus: 1.04,
       cdBonus: 0.12,
       lootMult: 1.10,
@@ -11632,7 +11632,7 @@ App.prototype.renderV12MartialView = function(container) {
       key: "⚡神行迷蹤玉佩",
       icon: "⚡",
       title: "【瞬步奇珍】神行迷蹤玉佩（[Shift]瞬步冷卻-35% · 留下雷爆幻影）",
-      desc: "參考《暖雪·神行迷蹤》：施展 [Shift] 瞬步閃避時冷卻縮短 35%，並在原地留下一尊引爆紫電劍陣的分身幻影！",
+      desc: "【太虛劍影身法秘術】：施展 [Shift] 瞬步閃避時冷卻縮短 35%，並在原地留下一尊引爆紫電劍陣的分身幻影！",
       onAcquire: (state) => {
         state.v52DashCloneRelic = true;
         state.player.frostShield = Math.min(state.player.maxShield, (state.player.frostShield || 0) + 25);
@@ -11640,9 +11640,9 @@ App.prototype.renderV12MartialView = function(container) {
     }
   ];
 
-  // ==================== v31.0 參照《Brotato》×《Vampire Survivors》10波段固定怪物配額與編隊組合配置表 ====================
+  // ==================== v31.0 參照經典動作肉鴿仙俠設計10波段固定怪物配額與編隊組合配置表 ====================
   // 每一波皆具備「固定魔物總數 (totalQuota)」與「精確兵種配比 (composition)」，並隨波次遞增生命 (hpMult)、傷害 (dmgMult) 與移速 (speedMult)！
-  // ==================== v55.0 對標《暖雪》《Brotato》《Hades》漸進式硬核博弈 × 受控成長十波配置 (`WUXIA_STAGE_WAVES`) ====================
+  // ==================== v55.0 對標經典動作肉鴿仙俠設計漸進式硬核博弈 × 受控成長十波配置 (`WUXIA_STAGE_WAVES`) ====================
   const WUXIA_STAGE_WAVES = [
     {
       wave: 1,
@@ -14245,7 +14245,7 @@ App.prototype.renderV12MartialView = function(container) {
   };
 
   // ==================== v32.0 頂級 2D 像素遊戲級別特效與處決引擎 (`WuxiaHDVFXEngine`) ====================
-  // 融合《Dead Cells》《Hyper Light Drifter》《Katana Zero》像素刀光殘影 (Smear Frames)、方向性暴擊火花 (Directional Hit Sparks)、
+  // 融合經典動作肉鴿仙俠設計像素刀光殘影 (Smear Frames)、方向性暴擊火花 (Directional Hit Sparks)、
   // 命中閃白剪影 (Impact Silhouette) 與六大屬性專屬像素處決擊殺演出 (Elemental & Weapon Kill Finisher VFX)
   const WuxiaHDVFXEngine = {
     snap(val, step = 2) {
@@ -14387,7 +14387,7 @@ App.prototype.renderV12MartialView = function(container) {
       ctx.restore();
     },
 
-    // 🗡️ Katana Zero / Dead Cells 風格：三層階梯式像素刀光殘影 (Smear Frame) + 尾端碎裂像素塊
+    // 🗡️ 凌厲武俠像素斬擊風格：三層階梯式像素刀光殘影 (Smear Frame) + 尾端碎裂像素塊
     drawPixelSmearSlash(ctx, x, y, radius, thickness, angle, spanAngle, glowColor, midColor, coreColor, frame = 0) {
       this.drawCrescentWave(ctx, x, y, radius, thickness, angle, spanAngle, glowColor, midColor, coreColor, frame);
     },
@@ -14699,7 +14699,7 @@ App.prototype.renderV12MartialView = function(container) {
       ctx.restore();
     },
 
-    // 💥 Dead Cells / Katana Zero 級別方向性受擊像素火花 (Directional Hit Spark)
+    // 💥 高幀率武俠動作級別方向性受擊像素火花 (Directional Hit Spark)
     drawPixelHitSpark(ctx, hs) {
       const maxL = hs.maxLife || 10;
       const prog = 1 - hs.life / maxL;
@@ -14766,7 +14766,7 @@ App.prototype.renderV12MartialView = function(container) {
         ctx.restore();
       }
 
-      // 1. ⚔️【刀劍一刀兩斷斬裂處決 (`slash_bisect`)】— 參考《Katana Zero》《Dead Cells》斜向錯位斷裂
+      // 1. ⚔️【刀劍一刀兩斷斬裂處決 (`slash_bisect`)】— 參考經典動作肉鴿仙俠設計斜向錯位斷裂
       if (style === "slash_bisect") {
         const slideDist = prog * (isBoss ? 36 : 20);
         const perpAng = hitAng + Math.PI / 2;
@@ -15474,6 +15474,11 @@ App.prototype.renderV12MartialView = function(container) {
         bestWave: 1,
         totalKills: 0,
         enableMouseMove: false, // v33.0 預設關閉滑鼠移動，統一使用 WASD / 方向鍵移動
+        mobileControlMode: "floating_joy", // v56.0 "floating_joy" (動態浮動搖桿·預設推薦) | "fixed_joy" (固定左下搖桿) | "touch_follow" (觸控/滑鼠點按跟隨) | "wasd_only" (純鍵盤WASD)
+        touchHudMode: "auto", // v56.0 "auto" (智慧偵測手機/平板/全螢幕自動顯示) | "always" (常駐顯示右手觸控面板) | "hidden" (隱藏觸控面板)
+        cameraFovMode: "wide", // v56.0 "wide" (廣角戰術視野·手機平板推薦) | "ultra" (全景遠視) | "standard" (標準近景)
+        autoBattleFullscreen: true, // v56.0 手機/平板進入戰場自動展開滿版全螢幕
+        doubleTapDash: true, // v56.0 雙擊移動區快速施展瞬步化影
         gamePaceMode: "cinematic", // "cinematic" (預設沉浸賞析) | "slow_mo" (慢動作特寫) | "fast" (緊湊疾風)
         controlSchemaVer: 33,
         talents: {
@@ -15495,6 +15500,21 @@ App.prototype.renderV12MartialView = function(container) {
     }
     if (!this.v21.gamePaceMode) {
       this.v21.gamePaceMode = "cinematic";
+    }
+    if (!this.v21.mobileControlMode) {
+      this.v21.mobileControlMode = this.v21.enableMouseMove ? "touch_follow" : "floating_joy";
+    }
+    if (!this.v21.touchHudMode) {
+      this.v21.touchHudMode = "auto";
+    }
+    if (!this.v21.cameraFovMode) {
+      this.v21.cameraFovMode = "wide";
+    }
+    if (typeof this.v21.autoBattleFullscreen !== "boolean") {
+      this.v21.autoBattleFullscreen = true;
+    }
+    if (typeof this.v21.doubleTapDash !== "boolean") {
+      this.v21.doubleTapDash = true;
     }
     if (!this.v21.talents) {
       this.v21.talents = { atkLv: 1, hpLv: 1, shieldLv: 1, speedLv: 1, petLv: 1 };
@@ -15521,7 +15541,36 @@ App.prototype.renderV12MartialView = function(container) {
     if (dockEl) dockEl.style.display = "none";
     if (zenBtn) zenBtn.style.display = "none";
     if (mistEl) mistEl.style.display = "none";
-    document.title = "《星宿劫源：太初道主 · 萬劍屠魔》 v39.0 鴻蒙萬象 HD-2D 全角色/四階神獸/十波魔尊/神兵超武與處決特效全面重製版";
+    document.title = "《星宿劫源：太初道主 · 萬劍屠魔》 v56.0 鴻蒙萬象 HD-2D 全角色/四階神獸/十波魔尊/手機平板全螢幕與虛擬搖桿觸控優化版";
+    if (!window.toggleAstralGlobalFullscreen) {
+      window.toggleAstralGlobalFullscreen = function(forceState) {
+        const appEl = document.getElementById("app-container") || document.documentElement;
+        const docEl = document.documentElement;
+        const isCurrentlyFs = Boolean(
+          document.fullscreenElement ||
+          document.webkitFullscreenElement ||
+          (appEl && appEl.classList.contains("v56-global-app-fullscreen"))
+        );
+        const nextFs = typeof forceState === "boolean" ? forceState : !isCurrentlyFs;
+        if (nextFs) {
+          if (appEl) appEl.classList.add("v56-global-app-fullscreen");
+          document.body.classList.add("v56-fs-locked");
+          const req = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
+          if (req) {
+            try { req.call(docEl).catch(() => {}); } catch (e) {}
+          }
+        } else {
+          if (appEl) appEl.classList.remove("v56-global-app-fullscreen");
+          document.body.classList.remove("v56-fs-locked");
+          const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+          if (exit && (document.fullscreenElement || document.webkitFullscreenElement)) {
+            try { exit.call(document).catch(() => {}); } catch (e) {}
+          }
+        }
+        setTimeout(() => window.dispatchEvent(new Event("resize")), 50);
+        return nextFs;
+      };
+    }
   };
 
   App.prototype.ensureCharacterLoaded = function() {
@@ -15602,6 +15651,7 @@ App.prototype.renderV12MartialView = function(container) {
 
   // ==================== 1. 全新獨立【開始介面（Title Screen）】：動態粒子劍陣畫布 + 聖殿天賦 + 百妖神兵圖鑑 ====================
   App.prototype.renderV21TitleScreen = function(container) {
+    if (typeof audio !== "undefined") audio.sceneMode = "sanctuary";
     const v21 = this.char.ensureV21StandaloneState();
     const skin = V21_HERO_SKINS[v21.heroSkin] || V21_HERO_SKINS.cyan;
     const wep = WUXIA_WEAPONS_ARSENAL[v21.weaponId] || WUXIA_WEAPONS_ARSENAL.sword;
@@ -15666,7 +15716,10 @@ App.prototype.renderV12MartialView = function(container) {
               📖 神兵與四聖獸圖鑑
             </button>
             <button type="button" class="v21-btn-secondary" id="btn-v21-open-settings" style="border-color:#38bdf8; color:#7dd3fc;">
-              ⚙️ 操作與節奏設定 (${v21.enableMouseMove ? 'WASD+滑鼠' : '預設WASD'})
+              🕹️ 移動與全螢幕設定 (${v21.mobileControlMode === 'fixed_joy' ? '固定搖桿' : (v21.mobileControlMode === 'touch_follow' ? '點按跟隨' : '動態搖桿+WASD')})
+            </button>
+            <button type="button" class="v21-btn-secondary" id="btn-v56-title-fullscreen" style="border-color:#fde047; color:#fef08a; background:linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);">
+              ⛶ 全螢幕沉浸模式
             </button>
             <button type="button" class="v21-btn-secondary" id="btn-v21-toggle-audio">
               🎵 古琴仙樂音效
@@ -15785,58 +15838,137 @@ App.prototype.renderV12MartialView = function(container) {
       this.renderView();
     });
 
+    wrap.querySelector("#btn-v56-title-fullscreen")?.addEventListener("click", (e) => {
+      const isFs = window.toggleAstralGlobalFullscreen?.();
+      e.currentTarget.innerText = isFs ? "❎ 退出全螢幕" : "⛶ 全螢幕沉浸模式";
+    });
+
     wrap.querySelector("#btn-v21-open-settings")?.addEventListener("click", () => {
       const modal = wrap.querySelector("#v21-title-modal");
       const box = wrap.querySelector("#v21-title-modal-content");
       if (!modal || !box) return;
       modal.style.display = "flex";
       const renderTitleSettings = () => {
+        const curCtrl = v21.mobileControlMode || "floating_joy";
+        const curFov = v21.cameraFovMode || "wide";
+        const curTouchHud = v21.touchHudMode || "auto";
         box.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #38bdf8; padding-bottom:8px; margin-bottom:12px;">
-            <b style="font-size:1.08rem; color:#7dd3fc;">⚙️ 遊戲操作方式與動畫節奏設定</b>
+            <b style="font-size:1.06rem; color:#7dd3fc;">🕹️ 手機／平板／電腦 移動操作、全螢幕與視野設定</b>
             <button type="button" class="v21-modal-close-btn" id="btn-v33-close-title-settings">✖ 關閉</button>
           </div>
-          <div style="display:flex; flex-direction:column; gap:12px; font-family:monospace;">
-            <div style="background:#18181b; border:1.5px solid #334155; padding:10px 12px;">
-              <div style="font-size:0.9rem; font-weight:900; color:#fef08a; margin-bottom:6px;">⌨️ 角色移動操作方式（預設收起滑鼠移動，僅用 WASD / 方向鍵）</div>
-              <div style="font-size:0.76rem; color:#cbd5e1; margin-bottom:8px;">預設關閉滑鼠游標跟隨移動，避免滑鼠點擊技能或移動游標時干擾角色走位；如需使用滑鼠引導移動可於此處手動開啟：</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-                <button type="button" data-v33-mouse="off" style="padding:8px; font-weight:900; font-size:0.82rem; cursor:pointer; background:${!v21.enableMouseMove ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${!v21.enableMouseMove ? '#fde047' : '#475569'};">
-                  ⌨️ 僅用 WASD / 方向鍵移動 ${!v21.enableMouseMove ? '✔ (當前啟用)' : ''}
+          <div style="display:flex; flex-direction:column; gap:10px; font-family:monospace;">
+            <div style="background:#18181b; border:1.5px solid #38bdf8; padding:10px 12px;">
+              <div style="font-size:0.88rem; font-weight:900; color:#fef08a; margin-bottom:4px;">🕹️ 1. 手機／平板／電腦 移動控制方式（全模式皆同時支援鍵盤 WASD / 方向鍵）</div>
+              <div style="font-size:0.73rem; color:#cbd5e1; margin-bottom:8px;">針對手機與平板全新設計 360° 太極星盤虛擬搖桿與多點觸控（左手拇指搖桿走位，右手拇指同時施放瞬步與絕技）：</div>
+              <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:7px;">
+                <button type="button" data-v56-ctrl="floating_joy" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${curCtrl === 'floating_joy' ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${curCtrl === 'floating_joy' ? '#fde047' : '#475569'};">
+                  🕹️ 動態浮動搖桿 ${curCtrl === 'floating_joy' ? '✔(推薦)' : ''}<br><span style="font-size:0.65rem; color:#e0f2fe; font-weight:700;">觸碰左半屏即刻生成搖桿並自動跟隨拇指</span>
                 </button>
-                <button type="button" data-v33-mouse="on" style="padding:8px; font-weight:900; font-size:0.82rem; cursor:pointer; background:${v21.enableMouseMove ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${v21.enableMouseMove ? '#fde047' : '#475569'};">
-                  🖱️ 啟用滑鼠游標跟隨移動 ${v21.enableMouseMove ? '✔ (當前啟用)' : ''}
+                <button type="button" data-v56-ctrl="fixed_joy" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${curCtrl === 'fixed_joy' ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${curCtrl === 'fixed_joy' ? '#fde047' : '#475569'};">
+                  📌 固定左下搖桿 ${curCtrl === 'fixed_joy' ? '✔(啟用)' : ''}<br><span style="font-size:0.65rem; color:#e0f2fe; font-weight:700;">搖桿固定於左下角拇指區（平板推薦）</span>
+                </button>
+                <button type="button" data-v56-ctrl="touch_follow" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${curCtrl === 'touch_follow' ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${curCtrl === 'touch_follow' ? '#fde047' : '#475569'};">
+                  👆 點擊／滑動跟隨 ${curCtrl === 'touch_follow' ? '✔(啟用)' : ''}<br><span style="font-size:0.65rem; color:#e0f2fe; font-weight:700;">手指或滑鼠點按畫面直接引導角色前往</span>
+                </button>
+                <button type="button" data-v56-ctrl="wasd_only" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${curCtrl === 'wasd_only' ? '#0284c7' : '#0f172a'}; color:#fff; border:2px solid ${curCtrl === 'wasd_only' ? '#fde047' : '#475569'};">
+                  ⌨️ 純鍵盤 WASD ${curCtrl === 'wasd_only' ? '✔(啟用)' : ''}<br><span style="font-size:0.65rem; color:#e0f2fe; font-weight:700;">關閉滑鼠跟隨，僅由鍵盤或左下搖桿控制</span>
                 </button>
               </div>
             </div>
+
             <div style="background:#18181b; border:1.5px solid #334155; padding:10px 12px;">
-              <div style="font-size:0.9rem; font-weight:900; color:#fef08a; margin-bottom:6px;">🎬 戰鬥節奏與攻擊／技能動畫播放速度</div>
-              <div style="font-size:0.76rem; color:#cbd5e1; margin-bottom:8px;">已全面調降角色過快移速並延長刀光、劍雨、火龍與處決特效留存幀數，讓玩家盡情飽覽每一招 2D 像素視覺特效：</div>
+              <div style="font-size:0.88rem; font-weight:900; color:#67e8f9; margin-bottom:6px;">🖥️ 2. 全螢幕沉浸模式、戰場視野縮放與右手觸控戰技輪盤</div>
+              <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:7px; margin-bottom:8px;">
+                <button type="button" data-v56-fov="standard" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curFov === 'standard' ? '#0369a1' : '#0f172a'}; color:#fff; border:2px solid ${curFov === 'standard' ? '#fde047' : '#475569'};">
+                  🔍 標準近景 (1.0x)
+                </button>
+                <button type="button" data-v56-fov="wide" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curFov === 'wide' ? '#0369a1' : '#0f172a'}; color:#fff; border:2px solid ${curFov === 'wide' ? '#fde047' : '#475569'};">
+                  🔍 廣角視野 (1.18x·推薦)
+                </button>
+                <button type="button" data-v56-fov="ultra" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curFov === 'ultra' ? '#0369a1' : '#0f172a'}; color:#fff; border:2px solid ${curFov === 'ultra' ? '#fde047' : '#475569'};">
+                  🔍 全景遠視 (1.35x·手機大視野)
+                </button>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:7px;">
+                <button type="button" data-v56-thud="auto" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curTouchHud === 'auto' ? '#15803d' : '#0f172a'}; color:#fff; border:2px solid ${curTouchHud === 'auto' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤: 自動偵測
+                </button>
+                <button type="button" data-v56-thud="always" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curTouchHud === 'always' ? '#15803d' : '#0f172a'}; color:#fff; border:2px solid ${curTouchHud === 'always' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤: 常駐顯示
+                </button>
+                <button type="button" data-v56-thud="hidden" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curTouchHud === 'hidden' ? '#15803d' : '#0f172a'}; color:#fff; border:2px solid ${curTouchHud === 'hidden' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤: 隱藏
+                </button>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:7px;">
+                <button type="button" id="btn-v56-toggle-autofs" style="padding:7px 6px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${v21.autoBattleFullscreen !== false ? '#0f766e' : '#0f172a'}; color:#fff; border:1.5px solid ${v21.autoBattleFullscreen !== false ? '#fde047' : '#475569'};">
+                  ⛶ 手機/平板開戰自動全螢幕: ${v21.autoBattleFullscreen !== false ? '✔ 開啟' : '關閉'}
+                </button>
+                <button type="button" id="btn-v56-modal-global-fs" style="padding:7px 6px; font-weight:900; font-size:0.74rem; cursor:pointer; background:#1e1b4b; color:#fde047; border:1.5px solid #38bdf8;">
+                  🖥️ 立即切換全局全螢幕
+                </button>
+              </div>
+            </div>
+
+            <div style="background:#18181b; border:1.5px solid #334155; padding:10px 12px;">
+              <div style="font-size:0.88rem; font-weight:900; color:#fef08a; margin-bottom:6px;">🎬 3. 戰鬥節奏與攻擊／技能動畫播放速度</div>
               <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
-                <button type="button" data-v33-pace="cinematic" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${v21.gamePaceMode === 'cinematic' ? '#15803d' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'cinematic' ? '#fde047' : '#475569'};">
-                  🎬 沉浸賞析節奏 (預設推薦)
+                <button type="button" data-v33-pace="cinematic" style="padding:8px 6px; font-weight:900; font-size:0.76rem; cursor:pointer; background:${v21.gamePaceMode === 'cinematic' ? '#15803d' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'cinematic' ? '#fde047' : '#475569'};">
+                  🎬 沉浸賞析 (預設推薦)
                 </button>
-                <button type="button" data-v33-pace="slow_mo" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${v21.gamePaceMode === 'slow_mo' ? '#7e22ce' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'slow_mo' ? '#fde047' : '#475569'};">
-                  🐢 慢動作特寫 (0.75x 極致鑑賞)
+                <button type="button" data-v33-pace="slow_mo" style="padding:8px 6px; font-weight:900; font-size:0.76rem; cursor:pointer; background:${v21.gamePaceMode === 'slow_mo' ? '#7e22ce' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'slow_mo' ? '#fde047' : '#475569'};">
+                  🐢 慢動作特寫 (0.75x)
                 </button>
-                <button type="button" data-v33-pace="fast" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${v21.gamePaceMode === 'fast' ? '#b45309' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'fast' ? '#fde047' : '#475569'};">
-                  ⚡ 緊湊疾風 (1.15x 高速戰鬥)
+                <button type="button" data-v33-pace="fast" style="padding:8px 6px; font-weight:900; font-size:0.76rem; cursor:pointer; background:${v21.gamePaceMode === 'fast' ? '#b45309' : '#0f172a'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'fast' ? '#fde047' : '#475569'};">
+                  ⚡ 緊湊疾風 (1.15x)
                 </button>
               </div>
             </div>
+            ${typeof audio.renderAudioMixerPanelHTML === "function" ? audio.renderAudioMixerPanelHTML() : ""}
           </div>
         `;
+        if (typeof audio.bindAudioMixerPanelEvents === "function") {
+          audio.bindAudioMixerPanelEvents(box, renderTitleSettings);
+        }
         box.querySelector("#btn-v33-close-title-settings")?.addEventListener("click", () => {
           modal.style.display = "none";
           this.renderView();
         });
-        box.querySelectorAll("[data-v33-mouse]").forEach(btn => {
+        box.querySelectorAll("[data-v56-ctrl]").forEach(btn => {
           btn.addEventListener("click", () => {
-            v21.enableMouseMove = (btn.getAttribute("data-v33-mouse") === "on");
+            const m = btn.getAttribute("data-v56-ctrl") || "floating_joy";
+            v21.mobileControlMode = m;
+            v21.enableMouseMove = (m === "touch_follow");
             audio.playQiCharge();
             this.saveGame();
             renderTitleSettings();
           });
+        });
+        box.querySelectorAll("[data-v56-fov]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            v21.cameraFovMode = btn.getAttribute("data-v56-fov") || "wide";
+            audio.playQiCharge();
+            this.saveGame();
+            renderTitleSettings();
+          });
+        });
+        box.querySelectorAll("[data-v56-thud]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            v21.touchHudMode = btn.getAttribute("data-v56-thud") || "auto";
+            audio.playQiCharge();
+            this.saveGame();
+            renderTitleSettings();
+          });
+        });
+        box.querySelector("#btn-v56-toggle-autofs")?.addEventListener("click", () => {
+          v21.autoBattleFullscreen = !(v21.autoBattleFullscreen !== false);
+          audio.playQiCharge();
+          this.saveGame();
+          renderTitleSettings();
+        });
+        box.querySelector("#btn-v56-modal-global-fs")?.addEventListener("click", () => {
+          window.toggleAstralGlobalFullscreen?.();
         });
         box.querySelectorAll("[data-v33-pace]").forEach(btn => {
           btn.addEventListener("click", () => {
@@ -16030,8 +16162,11 @@ App.prototype.renderV12MartialView = function(container) {
             <div style="font-size:1.15rem; font-weight:900; color:#fef08a; letter-spacing:1px;">🛠️ 戰前整備與自訂配置（Loadout & Customization）</div>
             <div style="font-size:0.76rem; color:#cbd5e1;">自由搭配出戰劍仙道體、本命神兵、初始靈獸、護身法寶與挑戰難度</div>
           </div>
-          <div style="background:#1e293b; border:1.5px solid #fbbf24; color:#fde047; padding:4px 10px; font-weight:900; font-size:0.84rem;">
-            💎 道魂晶：${v21.soulGems}
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="v21-btn-back" id="btn-v56-loadout-fs" style="border-color:#38bdf8; color:#7dd3fc;">⛶ 全螢幕</button>
+            <div style="background:#1e293b; border:1.5px solid #fbbf24; color:#fde047; padding:4px 10px; font-weight:900; font-size:0.84rem;">
+              💎 道魂晶：${v21.soulGems}
+            </div>
           </div>
         </div>
 
@@ -16216,27 +16351,45 @@ App.prototype.renderV12MartialView = function(container) {
           </div>
         </div>
 
-        <!-- 步驟 6：移動操作模式與戰鬥動畫節奏設定（預設 WASD 移動，滑鼠移動已收起） -->
+        <!-- 步驟 6：手機／平板／電腦 移動操作模式、全螢幕與戰鬥節奏設定 -->
         <div class="v21-setup-section">
           <div class="v21-sec-title">
-            <span>⑥ 操作控制與動畫節奏設定（預設使用 WASD / 方向鍵移動，滑鼠移動已預設關閉）</span>
+            <span>⑥ 手機／平板／電腦 移動控制、全螢幕視野與動畫節奏（全模式皆同時支援鍵盤 WASD）</span>
             <span style="font-size:0.73rem; color:#67e8f9;">戰場頂部「⚙️設定」亦可隨時切換</span>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:6px;">
-            <div class="v21-choice-box ${!v21.enableMouseMove ? 'active' : ''}" data-setup-mouse="off" style="border-color:${!v21.enableMouseMove ? '#38bdf8' : '#334155'};">
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.84rem; font-weight:900; color:#7dd3fc;">⌨️ 鍵盤 WASD / 方向鍵移動（預設）</span>
-                ${!v21.enableMouseMove ? '<span class="v21-tag-selected">✔ 預設啟用</span>' : ''}
-              </div>
-              <div style="font-size:0.68rem; color:#cbd5e1; margin-top:2px;">收起滑鼠跟隨移動，避免滑鼠游標干擾走位；放開按鍵即刻精準停步！</div>
-            </div>
-            <div class="v21-choice-box ${v21.enableMouseMove ? 'active' : ''}" data-setup-mouse="on" style="border-color:${v21.enableMouseMove ? '#38bdf8' : '#334155'};">
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.84rem; font-weight:900; color:#fde047;">🖱️ 開啟滑鼠游標跟隨移動（混合模式）</span>
-                ${v21.enableMouseMove ? '<span class="v21-tag-selected">✔ 已開啟</span>' : ''}
-              </div>
-              <div style="font-size:0.68rem; color:#cbd5e1; margin-top:2px;">允許使用滑鼠游標或觸控引導角色平滑移動（同時保留 WASD 鍵盤控制）。</div>
-            </div>
+          <div class="v21-grid-4" style="margin-bottom:6px;">
+            ${[
+              { id: "floating_joy", icon: "🕹️", name: "動態浮動搖桿（手機/平板預設）", color: "#38bdf8", desc: "觸碰左半屏任意位置即刻生成 360° 虛擬搖桿並自動跟隨拇指，鬆手即停！" },
+              { id: "fixed_joy", icon: "📌", name: "固定左下搖桿（平板/橫屏推薦）", color: "#67e8f9", desc: "將太極星盤搖桿固定於左下角拇指舒適區，搭配右手技能輪盤雙手操控！" },
+              { id: "touch_follow", icon: "👆", name: "點擊／滑動／滑鼠游標跟隨", color: "#fde047", desc: "觸控點按畫面或移動滑鼠游標直接引導角色前往目標位置（混合控制）。" },
+              { id: "wasd_only", icon: "⌨️", name: "純鍵盤 WASD / 方向鍵（桌面模式）", color: "#a7f3d0", desc: "收起滑鼠游標跟隨，專注使用鍵盤 WASD 走位與 Shift 瞬步。" }
+            ].map(cm => {
+              const isAct = (v21.mobileControlMode || "floating_joy") === cm.id;
+              return `
+                <div class="v21-choice-box ${isAct ? 'active' : ''}" data-setup-ctrl="${cm.id}" style="border-color:${isAct ? cm.color : '#334155'};">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.82rem; font-weight:900; color:${cm.color};">${cm.icon} ${cm.name}</span>
+                    ${isAct ? '<span class="v21-tag-selected">✔ 已啟用</span>' : ''}
+                  </div>
+                  <div style="font-size:0.68rem; color:#cbd5e1; margin-top:2px;">${cm.desc}</div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+          <div class="v21-grid-3" style="margin-bottom:6px;">
+            ${[
+              { id: "standard", name: "🔍 標準近景視野 (1.0x)", desc: "近距離細賞角色與怪物像素細節" },
+              { id: "wide", name: "🔍 廣角戰術視野 (1.18x·推薦)", desc: "自動擴展手機與平板四周視野，清晰預判 BOSS 遠程大招" },
+              { id: "ultra", name: "🔍 全景遠視視野 (1.35x)", desc: "最大化戰場宏觀視野，適合手機直屏或彈幕密集關卡" }
+            ].map(fv => {
+              const isFov = (v21.cameraFovMode || "wide") === fv.id;
+              return `
+                <div class="v21-choice-box ${isFov ? 'active' : ''}" data-setup-fov="${fv.id}" style="border-color:${isFov ? '#38bdf8' : '#334155'};">
+                  <div style="font-size:0.8rem; font-weight:900; color:#7dd3fc;">${fv.name}</div>
+                  <div style="font-size:0.66rem; color:#cbd5e1; margin-top:2px;">${fv.desc}</div>
+                </div>
+              `;
+            }).join("")}
           </div>
           <div class="v21-grid-3">
             ${[
@@ -16370,10 +16523,24 @@ App.prototype.renderV12MartialView = function(container) {
       });
     });
 
-    wrap.querySelectorAll("[data-setup-mouse]").forEach(el => {
+    wrap.querySelector("#btn-v56-loadout-fs")?.addEventListener("click", () => {
+      window.toggleAstralGlobalFullscreen?.();
+    });
+    wrap.querySelectorAll("[data-setup-ctrl]").forEach(el => {
       el.addEventListener("click", () => {
         saveNameInput();
-        v21.enableMouseMove = (el.getAttribute("data-setup-mouse") === "on");
+        const m = el.getAttribute("data-setup-ctrl") || "floating_joy";
+        v21.mobileControlMode = m;
+        v21.enableMouseMove = (m === "touch_follow");
+        audio.playQiCharge();
+        this.saveGame();
+        this.renderView();
+      });
+    });
+    wrap.querySelectorAll("[data-setup-fov]").forEach(el => {
+      el.addEventListener("click", () => {
+        saveNameInput();
+        v21.cameraFovMode = el.getAttribute("data-setup-fov") || "wide";
         audio.playQiCharge();
         this.saveGame();
         this.renderView();
@@ -16575,7 +16742,7 @@ App.prototype.renderV12MartialView = function(container) {
           </div>
         </div>
 
-        <!-- 🌊 PokéSurvivor 關卡波數進度儀表板 -->
+        <!-- 🌊 大荒秘境關卡波數進度儀表板 -->
         <div style="background:#1b1815; border:2px solid #000; box-shadow:2px 2px 0 #000; padding:5px 8px; margin-bottom:5px; color:#f8f5ec; font-family:monospace;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; margin-bottom:3px;">
             <div style="display:flex; align-items:center; gap:6px;">
@@ -16633,24 +16800,71 @@ App.prototype.renderV12MartialView = function(container) {
           <!-- 受擊紅框血霧警示層 -->
           <div id="v21-damage-vignette" style="position:absolute; inset:0; pointer-events:none; z-index:12; box-shadow:inset 0 0 55px rgba(220, 38, 38, 0.88); opacity:0; transition:opacity 0.12s ease;"></div>
 
-          <!-- 戰場頂部精簡懸浮 HUD（上方資訊預設隱藏，所有核心血量、波次、主選單、戰術面板切換與全螢幕直接整合於畫布頂部！） -->
-          <div class="wuxia-mowing-hud" style="position:absolute; top:6px; left:6px; right:6px; display:flex; justify-content:space-between; align-items:center; gap:4px; flex-wrap:wrap; pointer-events:none; z-index:15; box-sizing:border-box;">
+          <!-- 戰場頂部精簡懸浮 HUD（v56.0 手機與平板自適應防擠壓設計：整合搖桿模式、視野縮放、觸控面板開關與一鍵全螢幕！） -->
+          <div class="wuxia-mowing-hud" id="v56-top-battle-hud" style="position:absolute; top:6px; left:6px; right:6px; display:flex; justify-content:space-between; align-items:center; gap:4px; flex-wrap:wrap; pointer-events:none; z-index:15; box-sizing:border-box;">
             <div style="display:flex; align-items:center; gap:4px; pointer-events:auto; flex-wrap:wrap;">
               <button type="button" class="pixel-btn" id="btn-v26-hud-home" style="background:rgba(15,23,42,0.92); color:#cbd5e1; border:1.5px solid #64748b !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🏠選單</button>
               <button type="button" class="pixel-btn" id="btn-v26-hud-setup" style="background:rgba(120,53,15,0.92); color:#fde047; border:1.5px solid #fbbf24 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🛠️配置</button>
-              <button type="button" class="pixel-btn" id="btn-v33-hud-settings" style="background:rgba(14,116,144,0.94); color:#e0f2fe; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">⚙️設定(${v21.enableMouseMove ? '滑鼠+WASD' : 'WASD'})</button>
-              <button type="button" class="pixel-btn" id="btn-v34-hud-audio" style="background:rgba(88,28,135,0.94); color:#fef08a; border:1.5px solid #c084fc !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🔊武俠配樂:開</button>
-              <button type="button" class="pixel-btn" id="btn-v38-hud-stats" style="background:linear-gradient(90deg, rgba(15,23,42,0.95), rgba(30,58,138,0.95)); color:#fef08a; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🧬素質(六維)</button>
-              <button type="button" class="pixel-btn" id="btn-v52-hud-dash" style="background:linear-gradient(90deg, rgba(6,95,70,0.95), rgba(14,116,144,0.95)); color:#a7f3d0; border:1.5px solid #34d399 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">⚡瞬步(Shift)</button>
+              <button type="button" class="pixel-btn" id="btn-v33-hud-settings" style="background:rgba(14,116,144,0.94); color:#e0f2fe; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🕹️設定(${v21.mobileControlMode === 'fixed_joy' ? '固定搖桿' : (v21.mobileControlMode === 'touch_follow' ? '點按跟隨' : (v21.mobileControlMode === 'wasd_only' ? '純WASD' : '浮動搖桿'))})</button>
+              <button type="button" class="pixel-btn" id="btn-v56-hud-fov" style="background:rgba(3,105,161,0.94); color:#bae6fd; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🔍視野:${(v21.cameraFovMode || 'wide') === 'ultra' ? '全景' : ((v21.cameraFovMode || 'wide') === 'standard' ? '標準' : '廣角')}</button>
+              <button type="button" class="pixel-btn" id="btn-v38-hud-stats" style="background:linear-gradient(90deg, rgba(15,23,42,0.95), rgba(30,58,138,0.95)); color:#fef08a; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🧬素質</button>
+              <button type="button" class="pixel-btn" id="btn-v52-hud-dash" style="background:linear-gradient(90deg, rgba(6,95,70,0.95), rgba(14,116,144,0.95)); color:#a7f3d0; border:1.5px solid #34d399 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">⚡瞬步</button>
+              <button type="button" class="pixel-btn" id="btn-v34-hud-audio" style="background:rgba(88,28,135,0.94); color:#fef08a; border:1.5px solid #c084fc !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">🔊配樂</button>
               <button type="button" class="pixel-btn" id="btn-v39-hud-vfx" style="background:linear-gradient(90deg, rgba(88,28,135,0.95), rgba(180,83,9,0.95)); color:#fef08a; border:1.5px solid #fde047 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer;">✨特效:100%</button>
-              <span class="wuxia-hud-pill pixel-pill" id="v34-hud-region" style="white-space:nowrap; font-size:0.68rem; padding:2px 6px; background:rgba(15,23,42,0.92) !important; color:#67e8f9 !important; border:1px solid #38bdf8 !important;">📍太極道場(均衡)</span>
+              <span class="wuxia-hud-pill pixel-pill" id="v34-hud-region" style="white-space:nowrap; font-size:0.68rem; padding:2px 6px; background:rgba(15,23,42,0.92) !important; color:#67e8f9 !important; border:1px solid #38bdf8 !important;">📍太極道場</span>
               <span class="wuxia-hud-pill pixel-pill" id="v13-hud-lv" style="white-space:nowrap; font-size:0.7rem; padding:2px 6px;">Lv.1 (0%)</span>
-              <span class="wuxia-hud-pill pixel-pill" id="v13-hud-kills" style="white-space:nowrap; font-size:0.7rem; padding:2px 6px;">第1波|斬:0|寵:1/4</span>
+              <span class="wuxia-hud-pill pixel-pill" id="v13-hud-kills" style="white-space:nowrap; font-size:0.7rem; padding:2px 6px;">第1波|斬:0</span>
               <span class="wuxia-hud-pill pixel-pill" id="v13-hud-loot" style="white-space:nowrap; font-size:0.7rem; padding:2px 6px; color:#86efac !important;">❤️160/160|🛡️25</span>
             </div>
             <div style="display:flex; align-items:center; gap:4px; pointer-events:auto;">
-              <button type="button" class="pixel-btn" id="btn-v26-toggle-info-drawer" style="background:rgba(30,27,75,0.92); color:#fde047; border:1.5px solid #a855f7 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer; white-space:nowrap;">📋展開資訊</button>
-              <button type="button" class="pixel-btn" id="btn-v19-canvas-fs" style="background:rgba(15,23,42,0.95); color:#38bdf8; border:1.5px solid #38bdf8 !important; font-size:0.68rem; padding:2px 7px; font-weight:900; cursor:pointer; white-space:nowrap;">⛶全螢幕</button>
+              <button type="button" class="pixel-btn" id="btn-v56-hud-touchpad" style="background:rgba(6,95,70,0.92); color:#a7f3d0; border:1.5px solid #34d399 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer; white-space:nowrap;">📱觸控鍵</button>
+              <button type="button" class="pixel-btn" id="btn-v26-toggle-info-drawer" style="background:rgba(30,27,75,0.92); color:#fde047; border:1.5px solid #a855f7 !important; font-size:0.68rem; padding:2px 6px; font-weight:900; cursor:pointer; white-space:nowrap;">📋面板</button>
+              <button type="button" class="pixel-btn" id="btn-v19-canvas-fs" style="background:rgba(2,132,199,0.96); color:#ffffff; border:1.5px solid #fde047 !important; font-size:0.68rem; padding:2px 7px; font-weight:900; cursor:pointer; white-space:nowrap;">⛶全螢幕</button>
+            </div>
+          </div>
+
+          <!-- 🕹️ v56.0 左下角／動態浮動 360° 太極星盤虛擬搖桿 (Virtual Joystick Overlay) -->
+          <div id="v56-virtual-joystick-zone" class="joy-standby">
+            <div class="v56-joy-base" id="v56-joy-base">
+              <div class="v56-joy-crosshair"></div>
+              <div class="v56-joy-knob" id="v56-joy-knob">☯️</div>
+            </div>
+            <div class="v56-joy-hint-label" id="v56-joy-hint-label">🕹️滑動搖桿走位</div>
+          </div>
+
+          <!-- ⚡ v56.0 右下角右手拇指觸控戰技輪盤 (Ergonomic Right-Hand Touch Combat Pad) -->
+          <div id="v56-mobile-touch-pad">
+            <div class="v56-touch-pad-row">
+              <button type="button" class="v56-touch-action-btn util-btn" id="btn-v56-touch-wep" title="切換六大本命神兵">
+                <span class="btn-ico" id="v56-touch-wep-ico">${curWep.icon}</span>
+                <span class="btn-lbl" id="v56-touch-wep-lbl">切兵</span>
+              </button>
+              <button type="button" class="v56-touch-action-btn util-btn" id="btn-v56-touch-catch" title="投擲降妖靈葫收服靈獸 (F)">
+                <span class="btn-ico">🏺</span>
+                <span class="btn-lbl">收妖</span>
+                <span class="btn-badge" id="v56-touch-gourd-badge">${v14.petGourds}</span>
+              </button>
+              <button type="button" class="v56-touch-action-btn skill-btn" id="btn-v56-touch-sk3" title="施展或升階第三式奧義大招 (3)" style="border-color:#facc15;">
+                <span class="btn-ico" id="v56-touch-sk3-ico">🌧️</span>
+                <span class="btn-lbl" id="v56-touch-sk3-lbl">三技</span>
+                <span class="btn-badge" id="v56-touch-sk3-badge">🔒</span>
+              </button>
+            </div>
+            <div class="v56-touch-pad-row">
+              <button type="button" class="v56-touch-action-btn skill-btn" id="btn-v56-touch-sk1" title="施展或升階第一式武技 (1)" style="border-color:#2dd4bf;">
+                <span class="btn-ico" id="v56-touch-sk1-ico">🪷</span>
+                <span class="btn-lbl" id="v56-touch-sk1-lbl">一技</span>
+                <span class="btn-badge" id="v56-touch-sk1-badge">Lv.1</span>
+              </button>
+              <button type="button" class="v56-touch-action-btn skill-btn" id="btn-v56-touch-sk2" title="施展或升階第二式武技 (2)" style="border-color:#38bdf8;">
+                <span class="btn-ico" id="v56-touch-sk2-ico">☄️</span>
+                <span class="btn-lbl" id="v56-touch-sk2-lbl">二技</span>
+                <span class="btn-badge" id="v56-touch-sk2-badge">🔒</span>
+              </button>
+              <button type="button" class="v56-touch-action-btn dash-main-btn" id="btn-v56-touch-dash" title="瞬步化影 · 極限閃避反擊 (Shift)">
+                <span class="btn-ico">⚡</span>
+                <span class="btn-lbl" id="v56-touch-dash-lbl">瞬步</span>
+              </button>
             </div>
           </div>
 
@@ -16729,12 +16943,21 @@ App.prototype.renderV12MartialView = function(container) {
     `;
     container.appendChild(wrap);
 
+    const cleanExitBattleFs = () => {
+      document.body.classList.remove("v56-fs-locked");
+      const exit = document.exitFullscreen || document.webkitExitFullscreen;
+      if (exit && (document.fullscreenElement || document.webkitFullscreenElement)) {
+        try { exit.call(document).catch(() => {}); } catch (e) {}
+      }
+    };
     const goHomeTitle = () => {
+      cleanExitBattleFs();
       this.stopV13MowingLoop();
       v21.screen = "title";
       this.renderView();
     };
     const goSetupScreen = () => {
+      cleanExitBattleFs();
       this.stopV13MowingLoop();
       v21.screen = "setup";
       this.renderView();
@@ -16751,8 +16974,13 @@ App.prototype.renderV12MartialView = function(container) {
         hudAudioBtn.style.borderColor = isOn ? "#4ade80" : "#94a3b8";
         hudAudioBtn.style.color = isOn ? "#fef08a" : "#cbd5e1";
       };
-      if (!audio.userExplicitlyMuted && !audio.bgmPlaying) {
+      audio.sceneMode = "combat";
+      audio.activeStageId = v21.selectedStageId || "bamboo_temple";
+      audio._bgmStep = 0;
+      if (!audio.userExplicitlyMuted) {
+        audio.isMuted = false;
         audio.startWuxiaCombatBGM?.();
+        audio.playBattleStartFanfare?.();
       }
       syncAudioBtn();
       hudAudioBtn.addEventListener("click", () => {
@@ -16783,7 +17011,7 @@ App.prototype.renderV12MartialView = function(container) {
     this.renderV21BattleScreen(container);
   };
 
-  // ==================== v20.0 PokéSurvivor 級別高清流光特效與原生高解析度全螢幕戰鬥引擎 ====================
+  // ==================== v20.0 次世代仙俠高清流光特效與原生高解析度全螢幕戰鬥引擎 ====================
   App.prototype.startV14WuxiaMowing = function(wrap) {
     const v13 = this.char.ensureV13AddictiveState();
     const v14 = this.char.ensureV14WuxiaState();
@@ -16817,7 +17045,7 @@ App.prototype.renderV12MartialView = function(container) {
     const shrine = v21.talents || { atkLv: 1, hpLv: 1, shieldLv: 1, speedLv: 1, petLv: 1 };
     const hasRelic = (rid) => Array.isArray(v21.selectedRelics) && v21.selectedRelics.includes(rid);
 
-    // v54.0 參照《暖雪》《Brotato》《Hades》「高爽感輸出 × 刀尖舔血高風險」生存模型：調降初始溢量血盾，讓走位與瞬步閃避更具刺激感！
+    // v54.0 參照經典動作肉鴿仙俠設計「高爽感輸出 × 刀尖舔血高風險」生存模型：調降初始溢量血盾，讓走位與瞬步閃避更具刺激感！
     const initMaxHp = Math.max(72, 96 + (shrine.hpLv - 1) * 14 + (curSkin.hpBonus || 0) + (hasRelic("spirit_nectar") ? 20 : 0));
     const initShield = Math.max(0, 10 + (shrine.shieldLv - 1) * 8 + (curSkin.startShield || 0));
 
@@ -16916,27 +17144,46 @@ App.prototype.renderV12MartialView = function(container) {
     // 1. 非全螢幕時呈現長方形大畫面，放到手機上玩時自動根據手機螢幕解析度 (rect.width × rect.height 與 devicePixelRatio) 動態調整整個 Canvas 大小與視野。
     // 2. 全螢幕後不再將原本的小畫面直接粗暴放大，而是依據放大後的實際螢幕解析度 (cssW × cssH) 動態擴展邏輯視野 (state.viewW × state.viewH)，讓全螢幕展現更寬廣的戰場視野！
     const syncHighDPICanvasResolution = () => {
-      const dpr = Math.min(1.65, Math.max(1.0, window.devicePixelRatio || 1.25));
+      const dpr = Math.min(1.75, Math.max(1.0, window.devicePixelRatio || 1.25));
       const rect = canvasBox.getBoundingClientRect();
-      const cssW = Math.max(300, rect.width || window.innerWidth || 800);
-      const cssH = Math.max(240, rect.height || Math.round(window.innerHeight * 0.78) || 500);
+      const vpW = (window.visualViewport && window.visualViewport.width) || window.innerWidth || 800;
+      const vpH = (window.visualViewport && window.visualViewport.height) || window.innerHeight || 600;
+      const isFs = Boolean(
+        state.isFullscreen ||
+        document.fullscreenElement === canvasBox ||
+        document.webkitFullscreenElement === canvasBox ||
+        canvasBox.classList.contains("v20-canvas-only-fullscreen")
+      );
+      const cssW = Math.max(280, isFs ? vpW : (rect.width || vpW));
+      const cssH = Math.max(220, isFs ? vpH : (rect.height || Math.round(vpH * 0.82) || 500));
 
-      const isFs = Boolean(state.isFullscreen || document.fullscreenElement === canvasBox);
-      // 依據設備寬度與全螢幕狀態決定每單位遊戲座標對應的 CSS 像素密度（避免全螢幕直接把原圖放大）
-      let unitZoom = 1.15;
+      // v56.0 依據設備尺寸、橫豎屏方向與玩家設定之視野縮放模式 (standard / wide / ultra) 計算最佳等比例縮放係數：
+      // 嚴格確保手機直向與橫向皆擁有充足的戰術預警視野（至少可看清 580~680px 範圍內的 BOSS 大招軌跡），且 X/Y 比例 100% 均勻不變形！
+      const fovMode = v21.cameraFovMode || "wide";
+      const fovScale = fovMode === "ultra" ? 0.74 : (fovMode === "standard" ? 1.0 : 0.85);
+      let baseZoom = 1.12;
       if (isFs) {
-        // 全螢幕時隨螢幕解析度擴展視野，維持精緻適中的角色比例（絕不過度放大）
-        unitZoom = cssW >= 1600 ? 1.25 : (cssW >= 1024 ? 1.15 : 1.0);
+        baseZoom = cssW >= 1600 ? 1.22 : (cssW >= 1024 ? 1.08 : (cssW >= 680 ? 0.94 : 0.78));
       } else if (cssW < 600) {
-        // 手機螢幕自動適配解析度，給予舒適清晰的視野
-        unitZoom = 0.92;
-      } else {
-        // 電腦/平板長方形視窗模式
-        unitZoom = 1.12;
+        baseZoom = 0.76;
+      } else if (cssW <= 1024) {
+        baseZoom = 0.96;
       }
+      let unitZoom = baseZoom * fovScale;
 
-      state.viewW = Math.max(320, Math.min(WORLD_W, Math.round(cssW / unitZoom)));
-      state.viewH = Math.max(240, Math.min(WORLD_H, Math.round(cssH / unitZoom)));
+      // 保底最小戰術邏輯視野：手機直屏保底寬度 560~640，手機橫屏保底高度 440~500，防止畫面過窄看不見遠處 BOSS 蓄力！
+      const isPortrait = cssH > cssW;
+      const minTacticalW = fovMode === "ultra" ? 660 : (fovMode === "wide" ? 580 : 480);
+      const minTacticalH = fovMode === "ultra" ? 500 : (fovMode === "wide" ? 440 : 380);
+      if (isPortrait) {
+        unitZoom = Math.min(unitZoom, cssW / minTacticalW);
+      } else {
+        unitZoom = Math.min(unitZoom, cssW / (minTacticalW + 60), cssH / minTacticalH);
+      }
+      unitZoom = Math.max(0.42, Math.min(1.45, unitZoom));
+
+      state.viewW = Math.max(360, Math.min(WORLD_W, Math.round(cssW / unitZoom)));
+      state.viewH = Math.max(260, Math.min(WORLD_H, Math.round(cssH / unitZoom)));
 
       const targetPixelW = Math.round(cssW * dpr);
       const targetPixelH = Math.round(cssH * dpr);
@@ -16945,6 +17192,16 @@ App.prototype.renderV12MartialView = function(container) {
         canvas.height = targetPixelH;
       }
       state.renderScale = canvas.width / state.viewW;
+
+      // 動態計算頂部 HUD 高度，確保 BOSS 血條與波次宣告橫幅永遠排列於頂部按鈕下方，絕不重疊遮擋！
+      const topHudEl = wrap.querySelector("#v56-top-battle-hud");
+      const bossHudEl = wrap.querySelector("#v18-boss-hud-overlay");
+      const waveBannerEl = wrap.querySelector("#v18-wave-announce-banner");
+      if (topHudEl) {
+        const hudBottom = Math.max(32, (topHudEl.offsetTop || 6) + (topHudEl.offsetHeight || 26) + 4);
+        if (bossHudEl) bossHudEl.style.top = `${hudBottom}px`;
+        if (waveBannerEl) waveBannerEl.style.top = `${hudBottom + (bossHudEl && bossHudEl.style.display !== "none" ? 38 : 6)}px`;
+      }
     };
 
     // 粒子發射器輔助函式
@@ -17001,7 +17258,7 @@ App.prototype.renderV12MartialView = function(container) {
       return v14.weaponSkillLevels[state.weaponId];
     };
 
-    // v55.0 參照《Hades》《暖雪》《Brotato》受控成長傷害曲線：前期手感俐落，中後期透過遞減邊際收益防止傷害指數失控秒殺 BOSS！
+    // v55.0 參照經典動作肉鴿仙俠設計受控成長傷害曲線：前期手感俐落，中後期透過遞減邊際收益防止傷害指數失控秒殺 BOSS！
     const getBaseDamage = () => {
       const shrineBonus = ((shrine.atkLv || 1) - 1) * 0.06;
       const skinBonus = (curSkin.dmgMult || 1.0) - 1.0;
@@ -17201,7 +17458,7 @@ App.prototype.renderV12MartialView = function(container) {
       });
     };
 
-    // ==================== 💥 v51.0 參考《Hades》《暖雪》《Vampire Survivors》：角色全方位受擊特效、護體罡氣震退、護罡碎裂保護與公平傷害上限 ====================
+    // ==================== 💥 v51.0 參考經典動作肉鴿仙俠設計：角色全方位受擊特效、護體罡氣震退、護罡碎裂保護與公平傷害上限 ====================
     const damagePlayer = (rawDmg, attackerName = "妖魔") => {
       if (state.battleEnded || state.paused) return;
       if (state.player.invulnerableTimer > 0) return;
@@ -17236,7 +17493,7 @@ App.prototype.renderV12MartialView = function(container) {
         });
       }
 
-      // 🛡️ 參考《Hades》《暖雪》護盾破碎保護機制 (Shield-Gate)：當護體玄罡 > 0 時優先抵扣；若該擊打穿護盾，溢出傷害減免 50% 並賦予 36 幀破盾保護無敵幀！
+      // 🛡️ 參考經典動作肉鴿仙俠設計護盾破碎保護機制 (Shield-Gate)：當護體玄罡 > 0 時優先抵扣；若該擊打穿護盾，溢出傷害減免 50% 並賦予 36 幀破盾保護無敵幀！
       let actualHpLost = 0;
       let hurtType = "hp";
       if (state.player.frostShield > 0) {
@@ -17410,6 +17667,9 @@ App.prototype.renderV12MartialView = function(container) {
         }
         spawnVFXParticles(en.x, en.y, 5, { type: "spark", color: "#f472b6", size: 8.5, angle: hitAngle, spread: 0.9 });
         state.floatTexts.push({ x: en.x, y: en.y - 16, text: `💥會心 ${dmg}`, color: "#f472b6", life: 15 });
+        if (typeof audio.playEnemyHitSfx === "function") {
+          audio.playEnemyHitSfx("crit", en.x, en.y, state.player.x);
+        }
         if (typeof AstralCelestialEngine2D !== "undefined") {
           AstralCelestialEngine2D.spawnDimensionalCritSlash(state, en.x, en.y, hitAngle, vfxColor);
         }
@@ -17456,6 +17716,9 @@ App.prototype.renderV12MartialView = function(container) {
         if (en.shield >= shieldDmg) {
           en.shield -= shieldDmg;
           en.hitFlash = 4;
+          if (typeof audio.playEnemyHitSfx === "function") {
+            audio.playEnemyHitSfx("shield_hit", en.x, en.y, state.player.x);
+          }
           if (!en._lastShieldVfxFrame || (state.frame - en._lastShieldVfxFrame) >= 12) {
             en._lastShieldVfxFrame = state.frame;
             spawnShockwaveRing(en.x, en.y, 6, en.r + 10, "#38bdf8", 10, 2.5);
@@ -17471,6 +17734,9 @@ App.prototype.renderV12MartialView = function(container) {
           // ⚡ v55.0 「破罡崩解虛弱」：擊碎精英或 BOSS 護罡時觸發短暫破防僵直與 2.5 秒（150幀）+22% 易傷，既有破盾回饋又不會秒殺 BOSS！
           en.stunTimer = Math.max(en.stunTimer || 0, en.type === "boss" ? 45 : 38);
           en.v54ArmorBrokenTimer = 150;
+          if (typeof audio.playEnemyHitSfx === "function") {
+            audio.playEnemyHitSfx("shield_break", en.x, en.y, state.player.x);
+          }
           state.screenShake = Math.max(state.screenShake || 0, en.type === "boss" ? 8 : 4.5);
           spawnShockwaveRing(en.x, en.y, 10, en.r + (en.type === "boss" ? 52 : 30), "#67e8f9", 20, 4.5);
           spawnVFXParticles(en.x, en.y, en.type === "boss" ? 16 : 9, { type: "shard", colors: ["#67e8f9", "#fde047", "#ffffff"], size: 8 });
@@ -17552,6 +17818,9 @@ App.prototype.renderV12MartialView = function(container) {
         }
         en.hp -= dmg;
         en.hitFlash = 4;
+        if (!isCritHit && en.hp > 0 && typeof audio.playEnemyHitSfx === "function") {
+          audio.playEnemyHitSfx("normal", en.x, en.y, state.player.x);
+        }
       }
 
       if (Math.random() < 0.35 || en.type === "boss") {
@@ -17559,38 +17828,50 @@ App.prototype.renderV12MartialView = function(container) {
       }
     };
 
-    // ==================== 🖥️ 純遊戲畫面（#v13-canvas-box）全螢幕切換 ====================
-    const toggleFullscreenMode = () => {
+    // ==================== 🖥️ v56.0 跨平台純遊戲畫面（#v13-canvas-box）全螢幕切換（原生 Fullscreen API + WebKit + iOS/Iframe CSS 滿版雙重保障） ====================
+    const applyFullscreenUIState = (enableFs, tryNativeApi = true) => {
       const btnTop = wrap.querySelector("#btn-v19-toggle-fullscreen");
       const btnCanvas = wrap.querySelector("#btn-v19-canvas-fs");
       const btnBot = wrap.querySelector("#btn-v19-bot-fullscreen");
 
-      state.isFullscreen = !state.isFullscreen;
+      state.isFullscreen = Boolean(enableFs);
       if (state.isFullscreen) {
-        // 只讓 #v13-canvas-box（主要中間的遊戲畫面）進入全螢幕！
         canvasBox.classList.add("v20-canvas-only-fullscreen");
-        if (canvasBox.requestFullscreen) {
-          canvasBox.requestFullscreen().catch(() => {});
+        document.body.classList.add("v56-fs-locked");
+        if (tryNativeApi) {
+          const reqFs = canvasBox.requestFullscreen || canvasBox.webkitRequestFullscreen || canvasBox.mozRequestFullScreen || canvasBox.msRequestFullscreen;
+          if (reqFs) {
+            try { reqFs.call(canvasBox).catch(() => {}); } catch (e) {}
+          }
         }
         if (btnTop) btnTop.innerText = "❎ 退出全螢幕 (Z)";
-        if (btnCanvas) btnCanvas.innerText = "❎ 退出全屏 (Z)";
+        if (btnCanvas) btnCanvas.innerText = "❎退出全屏";
         if (btnBot) btnBot.innerText = "❎ 退出全螢幕";
       } else {
         canvasBox.classList.remove("v20-canvas-only-fullscreen");
-        if (document.fullscreenElement && document.exitFullscreen) {
-          document.exitFullscreen().catch(() => {});
+        document.body.classList.remove("v56-fs-locked");
+        const exitFs = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+        if (exitFs && (document.fullscreenElement || document.webkitFullscreenElement)) {
+          try { exitFs.call(document).catch(() => {}); } catch (e) {}
         }
         canvasBox.style.height = "";
         if (btnTop) btnTop.innerText = "🖥️ 遊戲畫面全螢幕 (Z)";
-        if (btnCanvas) btnCanvas.innerText = "⛶ 遊戲全螢幕";
+        if (btnCanvas) btnCanvas.innerText = "⛶全螢幕";
         if (btnBot) btnBot.innerText = "🖥️ 畫面全螢幕";
       }
 
-      setTimeout(() => {
+      const recalcCam = () => {
         syncHighDPICanvasResolution();
         state.camera.x = Math.max(0, Math.min(WORLD_W - state.viewW, state.player.x - state.viewW / 2));
         state.camera.y = Math.max(0, Math.min(WORLD_H - state.viewH, state.player.y - state.viewH / 2));
-      }, 40);
+      };
+      recalcCam();
+      setTimeout(recalcCam, 60);
+      setTimeout(recalcCam, 220);
+    };
+
+    const toggleFullscreenMode = () => {
+      applyFullscreenUIState(!state.isFullscreen, true);
     };
 
     wrap.querySelector("#btn-v19-toggle-fullscreen")?.addEventListener("click", toggleFullscreenMode);
@@ -17602,19 +17883,51 @@ App.prototype.renderV12MartialView = function(container) {
     wrap.querySelector("#btn-v20-fs-skill2")?.addEventListener("click", () => triggerWeaponSkill(1));
     wrap.querySelector("#btn-v20-fs-skill3")?.addEventListener("click", () => triggerWeaponSkill(2));
 
-    document.addEventListener("fullscreenchange", () => {
-      if (!document.fullscreenElement && state.isFullscreen) {
-        state.isFullscreen = false;
-        canvasBox.classList.remove("v20-canvas-only-fullscreen");
-        canvasBox.style.height = "";
-        const btnCanvas = wrap.querySelector("#btn-v19-canvas-fs");
-        if (btnCanvas) btnCanvas.innerText = "⛶ 遊戲全螢幕";
-      }
+    // 🔍 頂部 HUD 一鍵切換三段戰場視野 (標準 / 廣角 / 全景)
+    wrap.querySelector("#btn-v56-hud-fov")?.addEventListener("click", (e) => {
+      const modes = ["standard", "wide", "ultra"];
+      const labels = { standard: "標準", wide: "廣角", ultra: "全景" };
+      const curIdx = modes.indexOf(v21.cameraFovMode || "wide");
+      const nextMode = modes[(curIdx + 1) % modes.length];
+      v21.cameraFovMode = nextMode;
+      e.currentTarget.innerText = `🔍視野:${labels[nextMode]}`;
+      audio.playQiCharge();
+      this.saveGame();
       syncHighDPICanvasResolution();
+      state.camera.x = Math.max(0, Math.min(WORLD_W - state.viewW, state.player.x - state.viewW / 2));
+      state.camera.y = Math.max(0, Math.min(WORLD_H - state.viewH, state.player.y - state.viewH / 2));
+      state.floatTexts.push({
+        x: state.player.x, y: state.player.y - 30,
+        text: `🔍 戰場視野切換為：【${labels[nextMode]}模式】`,
+        color: "#38bdf8", life: 32
+      });
     });
+
+    const onNativeFsChange = () => {
+      const nativeActive = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+      if (!nativeActive && state.isFullscreen && state._hadNativeFs) {
+        state._hadNativeFs = false;
+        applyFullscreenUIState(false, false);
+        return;
+      }
+      if (nativeActive) state._hadNativeFs = true;
+      syncHighDPICanvasResolution();
+    };
+    document.addEventListener("fullscreenchange", onNativeFsChange);
+    document.addEventListener("webkitfullscreenchange", onNativeFsChange);
     window.addEventListener("resize", syncHighDPICanvasResolution);
-    window.addEventListener("orientationchange", () => setTimeout(syncHighDPICanvasResolution, 80));
-    syncHighDPICanvasResolution();
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", syncHighDPICanvasResolution);
+    }
+    window.addEventListener("orientationchange", () => setTimeout(syncHighDPICanvasResolution, 90));
+
+    // 📱 若為手機／平板螢幕或開啟了「開戰自動全螢幕」，進入戰場即自動展開滿版全螢幕視野！
+    const isMobileOrTabletViewport = (window.innerWidth <= 1024) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+    if (v21.autoBattleFullscreen !== false && isMobileOrTabletViewport) {
+      applyFullscreenUIState(true, false);
+    } else {
+      syncHighDPICanvasResolution();
+    }
 
     const renderWeaponArsenalHUD = () => {
       const wep = getActiveWeapon();
@@ -17810,7 +18123,6 @@ App.prototype.renderV12MartialView = function(container) {
 
       if (wep.id === "sword") {
         if (skillSlotIdx === 0) {
-          audio.playSwordClash();
           const rad = 92 + lv * 14;
           state.skillEffects.push({
             vfxType: "sword_lotus_ring",
@@ -17821,7 +18133,6 @@ App.prototype.renderV12MartialView = function(container) {
           spawnVFXParticles(state.player.x, state.player.y, 18, { type: "petal", colors: ["#2dd4bf", "#67e8f9", "#ffffff"], size: 7 });
           state.enemyProjectiles = [];
         } else if (skillSlotIdx === 1) {
-          audio.playSwordClash();
           state.skillEffects.push({
             vfxType: "sword_giant_beam",
             x: state.player.x, y: state.player.y,
@@ -17837,7 +18148,6 @@ App.prototype.renderV12MartialView = function(container) {
             }
           });
         } else {
-          audio.playLevelUp();
           const drops = [];
           const count = 16 + lv * 4;
           for (let i = 0; i < count; i++) {
@@ -17861,7 +18171,6 @@ App.prototype.renderV12MartialView = function(container) {
         }
       } else if (wep.id === "saber") {
         if (skillSlotIdx === 0) {
-          audio.playSwordClash();
           state.skillEffects.push({
             vfxType: "saber_cross_slash",
             x: state.player.x, y: state.player.y,
@@ -17870,7 +18179,6 @@ App.prototype.renderV12MartialView = function(container) {
             lv, life: 112, maxLife: 112, dmg: Math.round(dmg * 1.3)
           });
         } else if (skillSlotIdx === 1) {
-          audio.playSwordClash();
           state.skillEffects.push({
             vfxType: "saber_blood_tornado",
             x: state.player.x, y: state.player.y,
@@ -17878,7 +18186,6 @@ App.prototype.renderV12MartialView = function(container) {
           });
           state.player.hp = Math.min(state.player.maxHp, state.player.hp + 7 + lv * 2);
         } else {
-          audio.playThunder();
           const tx = targetEn ? targetEn.x : (state.player.x + Math.cos(aimAng) * 95);
           const ty = targetEn ? targetEn.y : (state.player.y + Math.sin(aimAng) * 95);
           state.skillEffects.push({
@@ -17896,7 +18203,6 @@ App.prototype.renderV12MartialView = function(container) {
         }
       } else if (wep.id === "spear") {
         if (skillSlotIdx === 0) {
-          audio.playSwordClash();
           state.skillEffects.push({
             vfxType: "spear_phoenix_flurry",
             x: state.player.x, y: state.player.y,
@@ -17915,7 +18221,6 @@ App.prototype.renderV12MartialView = function(container) {
             }
           });
         } else if (skillSlotIdx === 1) {
-          audio.playSwordClash();
           state.skillEffects.push({
             vfxType: "spear_dragon_drill",
             x: state.player.x, y: state.player.y,
@@ -17923,7 +18228,6 @@ App.prototype.renderV12MartialView = function(container) {
             angle: aimAng, r: 44, lv, life: 116, maxLife: 116, dmg: Math.round(dmg * 1.45)
           });
         } else {
-          audio.playThunder();
           const pillars = [];
           const pCount = 6;
           const rad = 118 + lv * 12;
@@ -17942,7 +18246,6 @@ App.prototype.renderV12MartialView = function(container) {
         }
       } else if (wep.id === "chakram") {
         if (skillSlotIdx === 0) {
-          audio.playQiCharge();
           state.skillEffects.push({
             vfxType: "chakram_yin_yang_orbit",
             x: state.player.x, y: state.player.y,
@@ -17950,7 +18253,6 @@ App.prototype.renderV12MartialView = function(container) {
             lv, life: 162, maxLife: 162, dmg
           });
         } else if (skillSlotIdx === 1) {
-          audio.playQiCharge();
           const bx = targetEn ? targetEn.x : (state.player.x + Math.cos(aimAng) * 110);
           const by = targetEn ? targetEn.y : (state.player.y + Math.sin(aimAng) * 110);
           state.skillEffects.push({
@@ -17959,7 +18261,6 @@ App.prototype.renderV12MartialView = function(container) {
             lv, life: 166, maxLife: 166, dmg
           });
         } else {
-          audio.playLevelUp();
           const targets = state.enemies.slice(0, 7 + lv * 2);
           const chainPts = [{ x: state.player.x, y: state.player.y }];
           targets.forEach(en => {
@@ -17976,7 +18277,6 @@ App.prototype.renderV12MartialView = function(container) {
         }
       } else if (wep.id === "cauldron") {
         if (skillSlotIdx === 0) {
-          audio.playQiCharge();
           const zones = [];
           const zCnt = 3 + Math.floor(lv / 2);
           for (let i = 0; i < zCnt; i++) {
@@ -17992,7 +18292,6 @@ App.prototype.renderV12MartialView = function(container) {
             zones, lv, life: 172, maxLife: 172, dmg
           });
         } else if (skillSlotIdx === 1) {
-          audio.playThunder();
           state.skillEffects.push({
             vfxType: "cauldron_dragon_beams",
             x: state.player.x, y: state.player.y,
@@ -18000,7 +18299,6 @@ App.prototype.renderV12MartialView = function(container) {
             lv, life: 162, maxLife: 162, dmg
           });
         } else {
-          audio.playThunder();
           const tx = targetEn ? targetEn.x : state.player.x;
           const ty = targetEn ? targetEn.y : state.player.y;
           state.skillEffects.push({
@@ -18019,7 +18317,6 @@ App.prototype.renderV12MartialView = function(container) {
         }
       } else if (wep.id === "banner") {
         if (skillSlotIdx === 0) {
-          audio.playThunder();
           const pillars = [];
           const cnt = 4 + lv;
           for (let i = 0; i < cnt; i++) {
@@ -18038,7 +18335,6 @@ App.prototype.renderV12MartialView = function(container) {
             pillars, lv, life: 104, maxLife: 104
           });
         } else if (skillSlotIdx === 1) {
-          audio.playThunder();
           const targets = state.enemies.slice(0, 9 + lv * 2);
           const webPts = [{ x: state.player.x, y: state.player.y }];
           targets.forEach(en => {
@@ -18053,7 +18349,6 @@ App.prototype.renderV12MartialView = function(container) {
             });
           }
         } else {
-          audio.playLevelUp();
           state.skillEffects.push({
             vfxType: "banner_thunder_god_orbs",
             x: state.player.x, y: state.player.y,
@@ -18085,7 +18380,6 @@ App.prototype.renderV12MartialView = function(container) {
       }
 
       if (uniId === "uni_golden_dragon") {
-        audio.playSwordClash();
         const dragonCount = Math.min(8, 1 + Math.floor(lv / 2));
         const rad = 88 + Math.min(95, lv * 6);
         state.player.frostShield = Math.min(state.player.maxShield, (state.player.frostShield || 0) + 8 + Math.min(25, lv * 2));
@@ -18098,7 +18392,6 @@ App.prototype.renderV12MartialView = function(container) {
         spawnShockwaveRing(state.player.x, state.player.y, 14, rad, "#fde047", 20, 4);
         updatePlayerVitalHUD();
       } else if (uniId === "uni_star_meteor") {
-        audio.playThunder();
         const meteorCount = Math.min(14, 3 + lv);
         const meteors = [];
         for (let i = 0; i < meteorCount; i++) {
@@ -18118,7 +18411,6 @@ App.prototype.renderV12MartialView = function(container) {
           meteors, lv, life: 98, maxLife: 98, dmg
         });
       } else if (uniId === "uni_frost_nova") {
-        audio.playQiCharge();
         const rad = 104 + Math.min(110, lv * 7);
         state.player.frostShield = Math.min(state.player.maxShield, (state.player.frostShield || 0) + 6 + lv * 2);
         state.skillEffects.push({
@@ -18136,7 +18428,6 @@ App.prototype.renderV12MartialView = function(container) {
         });
         updatePlayerVitalHUD();
       } else if (uniId === "uni_crimson_lotus") {
-        audio.playThunder();
         const poolCount = Math.min(7, 2 + Math.floor(lv / 2));
         const pools = [];
         for (let i = 0; i < poolCount; i++) {
@@ -18151,7 +18442,6 @@ App.prototype.renderV12MartialView = function(container) {
           pools, lv, life: 130, maxLife: 130, dmg
         });
       } else if (uniId === "uni_chaos_thunder") {
-        audio.playThunder();
         const maxTargets = Math.min(22, 5 + lv * 2);
         const hitList = state.enemies.slice(0, maxTargets);
         const pts = [{ x: state.player.x, y: state.player.y }];
@@ -18165,7 +18455,6 @@ App.prototype.renderV12MartialView = function(container) {
           points: pts, lv, life: 72, maxLife: 72, dmg
         });
       } else if (uniId === "uni_void_blackhole") {
-        audio.playQiCharge();
         const bx = targetEn ? targetEn.x : (state.player.x + Math.cos(state.player.facingAngle) * 105);
         const by = targetEn ? targetEn.y : (state.player.y + Math.sin(state.player.facingAngle) * 105);
         const rad = 96 + Math.min(95, lv * 6);
@@ -18175,7 +18464,6 @@ App.prototype.renderV12MartialView = function(container) {
         });
         spawnShockwaveRing(bx, by, rad, 12, "#818cf8", 24, 4);
       } else if (uniId === "uni_myriad_swords") {
-        audio.playSwordClash();
         const swordRainCnt = Math.min(28, 8 + lv * 3);
         const drops = [];
         for (let i = 0; i < swordRainCnt; i++) {
@@ -18196,7 +18484,6 @@ App.prototype.renderV12MartialView = function(container) {
         });
         spawnShockwaveRing(state.player.x, state.player.y, 14, 150, "#38bdf8", 24, 4.5);
       } else if (uniId === "uni_taiji_grinder") {
-        audio.playQiCharge();
         const rad = 102 + Math.min(90, lv * 7);
         const wheelCnt = Math.min(6, 2 + Math.floor(lv / 2));
         state.skillEffects.push({
@@ -18206,7 +18493,6 @@ App.prototype.renderV12MartialView = function(container) {
         });
         spawnShockwaveRing(state.player.x, state.player.y, 12, rad, "#fbbf24", 22, 4);
       } else if (uniId === "uni_asura_scythe") {
-        audio.playSwordClash();
         const rad = 128 + Math.min(96, lv * 8);
         state.skillEffects.push({
           vfxType: "uni_vfx_asura_scythe",
@@ -18579,7 +18865,7 @@ App.prototype.renderV12MartialView = function(container) {
         return state.waveSpawnQueue.shift();
       };
 
-      // v49.0 參照《Vampire Survivors》《Brotato》《暖雪》漸進解鎖與慢起步曲線：
+      // v49.0 參照經典動作肉鴿仙俠設計漸進解鎖與慢起步曲線：
       // 1. 按波次逐步解鎖五派邪徒種類（第1波僅出現基礎血刀門徒，第2波解鎖青城叛劍，第3波解鎖銅甲屍，第4波解鎖玄陰妖女，第5波+解鎖自爆狂徒），讓玩家從零熟悉每種怪物的招式！
       // 2. 前期怪物血量與移速溫和（2~3招即可斬殺），隨波次與玩家Build成型逐步攀升至後期千軍萬馬割草！
       const buildEnemyEntity = (type, x, y) => {
@@ -18596,7 +18882,7 @@ App.prototype.renderV12MartialView = function(container) {
           { name: "魔教自爆狂徒", hpM: 0.88, spM: 1.04, role: "suicide_bomb" }
         ];
         const swCfg = swarmConfigs[sectVariant] || swarmConfigs[0];
-        // v55.0 對標《Hades》《暖雪》漸進式怪物韌性設計：普通魔卒維持爽快連斬，精銳妖獸具備紮實氣血與護體魔罡，杜絕後期無腦一刀秒殺！
+        // v55.0 對標經典動作肉鴿仙俠設計漸進式怪物韌性設計：普通魔卒維持爽快連斬，精銳妖獸具備紮實氣血與護體魔罡，杜絕後期無腦一刀秒殺！
         let hp = Math.ceil(46 * hm * swCfg.hpM), r = 12, speed = 0.72 * sm * swCfg.spM, name = swCfg.name, shield = 0;
 
         if (type === "charger") {
@@ -18820,87 +19106,485 @@ App.prototype.renderV12MartialView = function(container) {
       this.updateHeader();
     };
 
-    // v33.0 預設收起滑鼠移動操作：除非玩家於「⚙️設定」中主動開啟 enableMouseMove，否則滑鼠移動絕不牽引角色，預設 100% 由 WASD / 方向鍵精準控制！
-    canvas.addEventListener("mousemove", (e) => {
-      if (v21.enableMouseMove) setTargetFromScreen(e.clientX, e.clientY);
-    });
-    canvas.addEventListener("touchmove", (e) => {
-      if (v21.enableMouseMove && e.touches && e.touches[0]) {
-        setTargetFromScreen(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    }, { passive: true });
+    // ==================== 🕹️ v56.0 手機與平板 360° 太極星盤虛擬搖桿 × 多點觸控 × 右手戰技輪盤控制系統 ====================
+    const joyZoneEl = wrap.querySelector("#v56-virtual-joystick-zone");
+    const joyKnobEl = wrap.querySelector("#v56-joy-knob");
+    const joyHintEl = wrap.querySelector("#v56-joy-hint-label");
+    const touchPadEl = wrap.querySelector("#v56-mobile-touch-pad");
+    const btnHudTouchPad = wrap.querySelector("#btn-v56-hud-touchpad");
 
-    canvas.addEventListener("click", (e) => {
+    state.joyActive = false;
+    state.joyTouchId = null;
+    state.joyOriginX = 0;
+    state.joyOriginY = 0;
+    state.joyDx = 0;
+    state.joyDy = 0;
+    state.joyPower = 0;
+    state.touchFollowActive = false;
+
+    const isTouchCapableDevice = () => Boolean(
+      (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+      (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+      window.innerWidth <= 1024 ||
+      state._detectedTouchEvent
+    );
+
+    const syncTouchUIVisibility = () => {
+      const ctrlMode = v21.mobileControlMode || "floating_joy";
+      const thudMode = v21.touchHudMode || "auto";
+      const showTouchPad = thudMode === "always" || (thudMode === "auto" && (isTouchCapableDevice() || state.isFullscreen));
+
+      if (touchPadEl) {
+        touchPadEl.classList.toggle("touch-pad-hidden", !showTouchPad);
+      }
+      canvasBox.classList.toggle("v56-touch-active", showTouchPad);
+      if (btnHudTouchPad) {
+        btnHudTouchPad.innerText = showTouchPad ? "📱觸控:開" : "📱觸控:關";
+        btnHudTouchPad.style.borderColor = showTouchPad ? "#34d399" : "#64748b";
+      }
+
+      if (joyZoneEl) {
+        const hideJoy = (ctrlMode === "touch_follow") || (!showTouchPad && ctrlMode === "wasd_only" && !state.joyActive);
+        joyZoneEl.classList.toggle("joy-hidden", hideJoy);
+        joyZoneEl.classList.toggle("mode-fixed", ctrlMode === "fixed_joy");
+        if (!state.joyActive) {
+          joyZoneEl.style.left = "";
+          joyZoneEl.style.top = "";
+          joyZoneEl.style.bottom = "";
+          if (joyKnobEl) joyKnobEl.style.transform = "translate(0px, 0px)";
+        }
+        if (joyHintEl) {
+          joyHintEl.innerText = ctrlMode === "fixed_joy" ? "📌固定搖桿走位" : "🕹️滑動搖桿走位";
+        }
+      }
+
+      const hudSetBtn = wrap.querySelector("#btn-v33-hud-settings");
+      if (hudSetBtn) {
+        const modeMap = { floating_joy: "浮動搖桿", fixed_joy: "固定搖桿", touch_follow: "點按跟隨", wasd_only: "純WASD" };
+        hudSetBtn.innerText = `🕹️設定(${modeMap[ctrlMode] || '浮動搖桿'})`;
+      }
+    };
+
+    btnHudTouchPad?.addEventListener("click", () => {
+      const cur = v21.touchHudMode || "auto";
+      const currentlyShown = touchPadEl && !touchPadEl.classList.contains("touch-pad-hidden");
+      v21.touchHudMode = currentlyShown ? "hidden" : "always";
+      audio.playQiCharge();
+      this.saveGame();
+      syncTouchUIVisibility();
+    });
+
+    const resetVirtualJoystick = () => {
+      state.joyActive = false;
+      state.joyTouchId = null;
+      state.joyDx = 0;
+      state.joyDy = 0;
+      state.joyPower = 0;
+      if (joyZoneEl) {
+        joyZoneEl.classList.remove("joy-active");
+        joyZoneEl.classList.add("joy-standby");
+        joyZoneEl.style.left = "";
+        joyZoneEl.style.top = "";
+        joyZoneEl.style.bottom = "";
+      }
+      if (joyKnobEl) {
+        joyKnobEl.style.transform = "translate(0px, 0px)";
+      }
+    };
+
+    const startVirtualJoystickAt = (clientX, clientY, touchId = "mouse") => {
+      const boxRect = canvasBox.getBoundingClientRect();
+      const ctrlMode = v21.mobileControlMode || "floating_joy";
+      state.joyActive = true;
+      state.joyTouchId = touchId;
+      state.touchFollowActive = false;
+
+      if (ctrlMode === "fixed_joy" && joyZoneEl) {
+        const jRect = joyZoneEl.getBoundingClientRect();
+        state.joyOriginX = jRect.left + jRect.width * 0.5;
+        state.joyOriginY = jRect.top + jRect.height * 0.5;
+      } else {
+        // 動態浮動搖桿：直接在手指觸碰位置生成搖桿中心，並限制於安全邊界內
+        const clampedLocalX = Math.max(64, Math.min(boxRect.width - 64, clientX - boxRect.left));
+        const clampedLocalY = Math.max(64, Math.min(boxRect.height - 64, clientY - boxRect.top));
+        state.joyOriginX = boxRect.left + clampedLocalX;
+        state.joyOriginY = boxRect.top + clampedLocalY;
+        if (joyZoneEl) {
+          joyZoneEl.classList.remove("joy-hidden");
+          joyZoneEl.style.left = `${Math.round(clampedLocalX - 62)}px`;
+          joyZoneEl.style.top = `${Math.round(clampedLocalY - 62)}px`;
+          joyZoneEl.style.bottom = "auto";
+        }
+      }
+      if (joyZoneEl) {
+        joyZoneEl.classList.remove("joy-standby");
+        joyZoneEl.classList.add("joy-active");
+      }
+      updateVirtualJoystickMove(clientX, clientY);
+    };
+
+    const updateVirtualJoystickMove = (clientX, clientY) => {
+      if (!state.joyActive) return;
+      const maxR = 46;
+      let dx = clientX - state.joyOriginX;
+      let dy = clientY - state.joyOriginY;
+      let dist = Math.hypot(dx, dy);
+
+      // 動態牽引跟隨 (Dynamic Leash)：在浮動搖桿模式下，若拇指滑出超過 maxR + 24px，搖桿底座平滑跟隨拇指移動，讓反向變向零延遲！
+      const ctrlMode = v21.mobileControlMode || "floating_joy";
+      if (ctrlMode !== "fixed_joy" && dist > maxR + 24) {
+        const pull = dist - (maxR + 18);
+        const ang = Math.atan2(dy, dx);
+        const boxRect = canvasBox.getBoundingClientRect();
+        state.joyOriginX = Math.max(boxRect.left + 58, Math.min(boxRect.right - 58, state.joyOriginX + Math.cos(ang) * pull));
+        state.joyOriginY = Math.max(boxRect.top + 58, Math.min(boxRect.bottom - 58, state.joyOriginY + Math.sin(ang) * pull));
+        if (joyZoneEl) {
+          joyZoneEl.style.left = `${Math.round(state.joyOriginX - boxRect.left - 62)}px`;
+          joyZoneEl.style.top = `${Math.round(state.joyOriginY - boxRect.top - 62)}px`;
+        }
+        dx = clientX - state.joyOriginX;
+        dy = clientY - state.joyOriginY;
+        dist = Math.hypot(dx, dy);
+      }
+
+      const deadzone = 5;
+      if (dist <= deadzone) {
+        state.joyDx = 0;
+        state.joyDy = 0;
+        state.joyPower = 0;
+        if (joyKnobEl) joyKnobEl.style.transform = "translate(0px, 0px)";
+        return;
+      }
+
+      const clampedDist = Math.min(maxR, dist);
+      const normX = dx / dist;
+      const normY = dy / dist;
+      const power = Math.min(1.0, Math.max(0.28, (clampedDist - deadzone) / (maxR - deadzone)));
+      state.joyDx = normX;
+      state.joyDy = normY;
+      state.joyPower = power;
+
+      if (joyKnobEl) {
+        const kx = Math.round(normX * clampedDist * 0.82);
+        const ky = Math.round(normY * clampedDist * 0.82);
+        joyKnobEl.style.transform = `translate(${kx}px, ${ky}px)`;
+      }
+    };
+
+    // 檢定觸控點是否直接點在野生靈獸身上（方便直接點靈獸收服）
+    const checkTapWildBeastAt = (clientX, clientY) => {
       const rect = canvas.getBoundingClientRect();
-      const screenX = (e.clientX - rect.left) * (state.viewW / rect.width);
-      const screenY = (e.clientY - rect.top) * (state.viewH / rect.height);
+      if (!rect.width || !rect.height) return null;
+      const screenX = (clientX - rect.left) * (state.viewW / rect.width);
+      const screenY = (clientY - rect.top) * (state.viewH / rect.height);
       const clickWorldX = state.camera.x + screenX;
       const clickWorldY = state.camera.y + screenY;
-
-      let clickedBeast = null;
+      let hitBeast = null;
       state.wildBeasts.forEach(wb => {
-        if (Math.hypot(clickWorldX - wb.x, clickWorldY - wb.y) < 42) clickedBeast = wb;
+        if (wb.hp > 0 && Math.hypot(clickWorldX - wb.x, clickWorldY - wb.y) < 46) {
+          hitBeast = wb;
+        }
       });
+      return hitBeast;
+    };
+
+    // 📱 多點觸控事件綁定（支援左拇指虛擬搖桿 + 右拇指技能輪盤同時操作，並支援雙擊瞬步！）
+    let _lastCanvasTouchTime = 0;
+    let _lastCanvasTouchX = 0;
+    let _lastCanvasTouchY = 0;
+
+    const handleTouchStart = (e) => {
+      if (state.paused || state.battleEnded) return;
+      state._detectedTouchEvent = true;
+      syncTouchUIVisibility();
+
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const t = e.changedTouches[i];
+        // 若直接點擊在野生靈獸上，立即投擲靈葫收服！
+        const tappedBeast = checkTapWildBeastAt(t.clientX, t.clientY);
+        if (tappedBeast) {
+          e.preventDefault();
+          throwCatchGourd(tappedBeast);
+          continue;
+        }
+
+        // 檢定是否雙擊空白處觸發「⚡瞬步化影」
+        const now = performance.now();
+        if (v21.doubleTapDash !== false && (now - _lastCanvasTouchTime < 235) && Math.hypot(t.clientX - _lastCanvasTouchX, t.clientY - _lastCanvasTouchY) < 36) {
+          _lastCanvasTouchTime = 0;
+          triggerShadowDash();
+        } else {
+          _lastCanvasTouchTime = now;
+          _lastCanvasTouchX = t.clientX;
+          _lastCanvasTouchY = t.clientY;
+        }
+
+        const ctrlMode = v21.mobileControlMode || "floating_joy";
+        if (ctrlMode === "touch_follow") {
+          e.preventDefault();
+          state.touchFollowActive = true;
+          state.joyTouchId = t.identifier;
+          setTargetFromScreen(t.clientX, t.clientY);
+        } else if (!state.joyActive) {
+          // 動態浮動搖桿或固定左下搖桿（即使曾誤設為 wasd_only，在手機觸控時亦自動啟用虛擬搖桿保底！）
+          e.preventDefault();
+          startVirtualJoystickAt(t.clientX, t.clientY, t.identifier);
+        }
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (state.paused || state.battleEnded) return;
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const t = e.changedTouches[i];
+        if (t.identifier === state.joyTouchId) {
+          e.preventDefault();
+          if ((v21.mobileControlMode || "floating_joy") === "touch_follow") {
+            state.touchFollowActive = true;
+            setTargetFromScreen(t.clientX, t.clientY);
+          } else {
+            updateVirtualJoystickMove(t.clientX, t.clientY);
+          }
+        }
+      }
+    };
+
+    const handleTouchEnd = (e) => {
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const t = e.changedTouches[i];
+        if (t.identifier === state.joyTouchId) {
+          if ((v21.mobileControlMode || "floating_joy") === "touch_follow") {
+            state.touchFollowActive = false;
+            state.joyTouchId = null;
+            state.player.targetX = state.player.x;
+            state.player.targetY = state.player.y;
+          } else {
+            resetVirtualJoystick();
+          }
+        }
+      }
+    };
+
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchend", handleTouchEnd, { passive: true });
+    canvas.addEventListener("touchcancel", handleTouchEnd, { passive: true });
+
+    if (joyZoneEl) {
+      joyZoneEl.addEventListener("touchstart", handleTouchStart, { passive: false });
+      joyZoneEl.addEventListener("touchmove", handleTouchMove, { passive: false });
+      joyZoneEl.addEventListener("touchend", handleTouchEnd, { passive: true });
+      joyZoneEl.addEventListener("touchcancel", handleTouchEnd, { passive: true });
+      // 亦支援滑鼠按住左下搖桿拖曳（方便平板觸控筆或電腦測試虛擬搖桿）
+      joyZoneEl.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        startVirtualJoystickAt(e.clientX, e.clientY, "mouse");
+      });
+    }
+
+    window.addEventListener("mousemove", (e) => {
+      if (state.joyActive && state.joyTouchId === "mouse") {
+        updateVirtualJoystickMove(e.clientX, e.clientY);
+      }
+    });
+    window.addEventListener("mouseup", () => {
+      if (state.joyActive && state.joyTouchId === "mouse") {
+        resetVirtualJoystick();
+      }
+    });
+
+    // 桌面滑鼠移動與點擊支援
+    canvas.addEventListener("mousemove", (e) => {
+      if (state.joyActive) return;
+      if (v21.enableMouseMove || v21.mobileControlMode === "touch_follow") {
+        if (e.buttons === 1 || v21.enableMouseMove) {
+          state.touchFollowActive = true;
+          setTargetFromScreen(e.clientX, e.clientY);
+        }
+      }
+    });
+
+    canvas.addEventListener("mousedown", (e) => {
+      if (e.button !== 0) return;
+      const clickedBeast = checkTapWildBeastAt(e.clientX, e.clientY);
       if (clickedBeast) {
         throwCatchGourd(clickedBeast);
-      } else if (v21.enableMouseMove) {
+        return;
+      }
+      if (v21.enableMouseMove || v21.mobileControlMode === "touch_follow") {
+        state.touchFollowActive = true;
         setTargetFromScreen(e.clientX, e.clientY);
       }
     });
 
-    // ⚙️ v33.0 戰場頂部「⚙️設定」彈窗控制器（即時切換 WASD / 滑鼠移動、調整動畫與戰鬥節奏）
+    // ⚡ 綁定右下角「右手拇指觸控戰技輪盤」按鈕事件（零延遲觸發瞬步、武器三絕技、收妖與切兵）
+    const bindFastTouchBtn = (selector, handler) => {
+      const el = wrap.querySelector(selector);
+      if (!el) return;
+      let lastTrig = 0;
+      const invoke = (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const now = performance.now();
+        if (now - lastTrig < 120) return;
+        lastTrig = now;
+        handler();
+      };
+      el.addEventListener("touchstart", invoke, { passive: false });
+      el.addEventListener("click", invoke);
+    };
+
+    bindFastTouchBtn("#btn-v56-touch-dash", () => triggerShadowDash());
+    bindFastTouchBtn("#btn-v56-touch-catch", () => throwCatchGourd());
+    bindFastTouchBtn("#btn-v56-touch-wep", () => {
+      const wepKeys = Object.keys(WUXIA_WEAPONS_ARSENAL);
+      const curIdx = wepKeys.indexOf(state.weaponId);
+      const nextWid = wepKeys[(curIdx + 1) % wepKeys.length];
+      switchActiveWeapon(nextWid);
+    });
+    [0, 1, 2].forEach(sIdx => {
+      bindFastTouchBtn(`#btn-v56-touch-sk${sIdx + 1}`, () => {
+        const sLvs = getSkillLevels();
+        const curLv = sLvs[sIdx] !== undefined ? sLvs[sIdx] : (sIdx === 0 ? 1 : 0);
+        const reqHammers = 2 + curLv * 2;
+        if (curLv === 0) {
+          if ((v13.hammers || 0) >= reqHammers) {
+            upgradeWeaponSkill(sIdx);
+          } else {
+            state.floatTexts.push({
+              x: state.player.x, y: state.player.y - 28,
+              text: `🔒 絕技未領悟！升級三選一突破或集齊 ${reqHammers} 把🔨神錘即可解鎖`,
+              color: "#fde047", life: 28
+            });
+          }
+        } else {
+          // 已解鎖：立即主動施放該絕技（若同時持有足夠神錘且未滿等，亦自動升階！）
+          if (curLv < 5 && (v13.hammers || 0) >= reqHammers) {
+            upgradeWeaponSkill(sIdx);
+          } else {
+            triggerWeaponSkill(sIdx, true);
+          }
+        }
+      });
+    });
+
+    syncTouchUIVisibility();
+
+    // ⚙️ v56.0 戰場頂部「🕹️設定」彈窗控制器（即時切換 4 大移動模式、全螢幕視野縮放、觸控輪盤與動畫節奏）
     const openBattleSettingsModal = () => {
       const sModal = wrap.querySelector("#v33-battle-settings-modal");
       if (!sModal) return;
       state.paused = true;
+      resetVirtualJoystick();
       sModal.style.display = "flex";
       const renderBattleSettings = () => {
-        const hudBtn = wrap.querySelector("#btn-v33-hud-settings");
-        if (hudBtn) hudBtn.innerText = `⚙️設定(${v21.enableMouseMove ? '滑鼠+WASD' : 'WASD'})`;
+        const curCtrl = v21.mobileControlMode || "floating_joy";
+        const curFov = v21.cameraFovMode || "wide";
+        const curThud = v21.touchHudMode || "auto";
+        syncTouchUIVisibility();
         sModal.innerHTML = `
-          <div style="background:#0f172a; border:2.5px solid #38bdf8; box-shadow:0 0 32px rgba(56,189,248,0.45); max-width:520px; width:100%; padding:14px 16px; display:flex; flex-direction:column; gap:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid #334155; padding-bottom:8px;">
-              <b style="font-size:1.02rem; color:#fde047;">⚙️ 戰場操作方式與動畫節奏設定</b>
-              <button type="button" id="btn-v33-close-battle-settings" style="background:#dc2626; color:#fff; border:1px solid #fca5a5; padding:3px 10px; font-weight:900; font-size:0.78rem; cursor:pointer;">✖ 返回戰鬥</button>
+          <div style="background:#0f172a; border:2.5px solid #38bdf8; box-shadow:0 0 32px rgba(56,189,248,0.45); max-width:540px; width:100%; padding:12px 14px; display:flex; flex-direction:column; gap:10px; box-sizing:border-box;">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid #334155; padding-bottom:6px;">
+              <b style="font-size:0.96rem; color:#fde047;">🕹️ 手機／平板／電腦 移動方式與全螢幕視野設定</b>
+              <button type="button" id="btn-v33-close-battle-settings" style="background:#15803d; color:#fff; border:1.5px solid #fde047; padding:3px 10px; font-weight:900; font-size:0.76rem; cursor:pointer;">▶ 繼續戰鬥</button>
             </div>
-            <div style="background:#18181b; border:1px solid #3f3f46; padding:10px;">
-              <div style="font-size:0.84rem; font-weight:900; color:#7dd3fc; margin-bottom:4px;">⌨️ 1. 角色移動控制方式（預設 WASD 移動 · 滑鼠移動已收起）</div>
-              <div style="font-size:0.72rem; color:#cbd5e1; margin-bottom:8px;">預設僅用鍵盤 <b>WASD / 方向鍵</b> 控制移動，滑鼠游標不會牽引人物亂跑；若習慣滑鼠跟隨移動，可於下方手動啟動：</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-                <button type="button" data-bset-mouse="off" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${!v21.enableMouseMove ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${!v21.enableMouseMove ? '#fde047' : '#475569'};">
-                  ⌨️ 僅用 WASD / 方向鍵 ${!v21.enableMouseMove ? '✔ (當前)' : ''}
+
+            <div style="background:#18181b; border:1px solid #3f3f46; padding:8px 10px;">
+              <div style="font-size:0.8rem; font-weight:900; color:#7dd3fc; margin-bottom:4px;">🕹️ 1. 角色移動控制方式（全模式皆同時保留鍵盤 WASD / 方向鍵）</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+                <button type="button" data-bset-ctrl="floating_joy" style="padding:7px 5px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curCtrl === 'floating_joy' ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${curCtrl === 'floating_joy' ? '#fde047' : '#475569'};">
+                  🕹️ 動態浮動搖桿 ${curCtrl === 'floating_joy' ? '✔' : ''}<br><span style="font-size:0.62rem; color:#bae6fd;">觸碰任意處生成搖桿跟隨拇指</span>
                 </button>
-                <button type="button" data-bset-mouse="on" style="padding:8px 6px; font-weight:900; font-size:0.78rem; cursor:pointer; background:${v21.enableMouseMove ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${v21.enableMouseMove ? '#fde047' : '#475569'};">
-                  🖱️ 啟動滑鼠跟隨移動 ${v21.enableMouseMove ? '✔ (當前)' : ''}
+                <button type="button" data-bset-ctrl="fixed_joy" style="padding:7px 5px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curCtrl === 'fixed_joy' ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${curCtrl === 'fixed_joy' ? '#fde047' : '#475569'};">
+                  📌 固定左下搖桿 ${curCtrl === 'fixed_joy' ? '✔' : ''}<br><span style="font-size:0.62rem; color:#bae6fd;">搖桿固定於左下角（平板推薦）</span>
+                </button>
+                <button type="button" data-bset-ctrl="touch_follow" style="padding:7px 5px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curCtrl === 'touch_follow' ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${curCtrl === 'touch_follow' ? '#fde047' : '#475569'};">
+                  👆 點擊／滑鼠跟隨 ${curCtrl === 'touch_follow' ? '✔' : ''}<br><span style="font-size:0.62rem; color:#bae6fd;">手指或滑鼠游標直接牽引走位</span>
+                </button>
+                <button type="button" data-bset-ctrl="wasd_only" style="padding:7px 5px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${curCtrl === 'wasd_only' ? '#0284c7' : '#090d14'}; color:#fff; border:2px solid ${curCtrl === 'wasd_only' ? '#fde047' : '#475569'};">
+                  ⌨️ 純鍵盤 WASD ${curCtrl === 'wasd_only' ? '✔' : ''}<br><span style="font-size:0.62rem; color:#bae6fd;">收起滑鼠跟隨，精準鍵盤操作</span>
                 </button>
               </div>
             </div>
-            <div style="background:#18181b; border:1px solid #3f3f46; padding:10px;">
-              <div style="font-size:0.84rem; font-weight:900; color:#86efac; margin-bottom:4px;">🎬 2. 遊戲節奏與技能特效動畫速度</div>
-              <div style="font-size:0.72rem; color:#cbd5e1; margin-bottom:8px;">調整角色移速、怪物推進與刀光／大招動畫播放速度：</div>
+
+            <div style="background:#18181b; border:1px solid #3f3f46; padding:8px 10px;">
+              <div style="font-size:0.8rem; font-weight:900; color:#fde047; margin-bottom:4px;">🔍 2. 戰場鏡頭視野縮放 & 右手觸控戰技輪盤</div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-bottom:6px;">
+                <button type="button" data-bset-fov="standard" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curFov === 'standard' ? '#0369a1' : '#090d14'}; color:#fff; border:2px solid ${curFov === 'standard' ? '#fde047' : '#475569'};">
+                  🔍 標準 (1.0x)
+                </button>
+                <button type="button" data-bset-fov="wide" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curFov === 'wide' ? '#0369a1' : '#090d14'}; color:#fff; border:2px solid ${curFov === 'wide' ? '#fde047' : '#475569'};">
+                  🔍 廣角 (1.18x)
+                </button>
+                <button type="button" data-bset-fov="ultra" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curFov === 'ultra' ? '#0369a1' : '#090d14'}; color:#fff; border:2px solid ${curFov === 'ultra' ? '#fde047' : '#475569'};">
+                  🔍 全景 (1.35x)
+                </button>
+              </div>
               <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;">
-                <button type="button" data-bset-pace="cinematic" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${(v21.gamePaceMode || 'cinematic') === 'cinematic' ? '#15803d' : '#090d14'}; color:#fff; border:2px solid ${(v21.gamePaceMode || 'cinematic') === 'cinematic' ? '#fde047' : '#475569'};">
-                  🎬 沉浸賞析 (預設)
+                <button type="button" data-bset-thud="auto" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curThud === 'auto' ? '#15803d' : '#090d14'}; color:#fff; border:2px solid ${curThud === 'auto' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤:自動
                 </button>
-                <button type="button" data-bset-pace="slow_mo" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${v21.gamePaceMode === 'slow_mo' ? '#7e22ce' : '#090d14'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'slow_mo' ? '#fde047' : '#475569'};">
-                  🐢 慢動作鑑賞 (0.75x)
+                <button type="button" data-bset-thud="always" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curThud === 'always' ? '#15803d' : '#090d14'}; color:#fff; border:2px solid ${curThud === 'always' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤:常駐
                 </button>
-                <button type="button" data-bset-pace="fast" style="padding:7px 4px; font-weight:900; font-size:0.74rem; cursor:pointer; background:${v21.gamePaceMode === 'fast' ? '#b45309' : '#090d14'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'fast' ? '#fde047' : '#475569'};">
+                <button type="button" data-bset-thud="hidden" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${curThud === 'hidden' ? '#15803d' : '#090d14'}; color:#fff; border:2px solid ${curThud === 'hidden' ? '#fde047' : '#475569'};">
+                  📱 觸控輪盤:隱藏
+                </button>
+              </div>
+            </div>
+
+            <div style="background:#18181b; border:1px solid #3f3f46; padding:8px 10px;">
+              <div style="font-size:0.8rem; font-weight:900; color:#86efac; margin-bottom:4px;">🎬 3. 遊戲節奏與全螢幕切換</div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;">
+                <button type="button" data-bset-pace="cinematic" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${(v21.gamePaceMode || 'cinematic') === 'cinematic' ? '#15803d' : '#090d14'}; color:#fff; border:2px solid ${(v21.gamePaceMode || 'cinematic') === 'cinematic' ? '#fde047' : '#475569'};">
+                  🎬 沉浸賞析
+                </button>
+                <button type="button" data-bset-pace="slow_mo" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${v21.gamePaceMode === 'slow_mo' ? '#7e22ce' : '#090d14'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'slow_mo' ? '#fde047' : '#475569'};">
+                  🐢 慢動作 (0.75x)
+                </button>
+                <button type="button" data-bset-pace="fast" style="padding:6px 4px; font-weight:900; font-size:0.72rem; cursor:pointer; background:${v21.gamePaceMode === 'fast' ? '#b45309' : '#090d14'}; color:#fff; border:2px solid ${v21.gamePaceMode === 'fast' ? '#fde047' : '#475569'};">
                   ⚡ 緊湊疾風 (1.15x)
                 </button>
               </div>
             </div>
+            ${typeof audio.renderAudioMixerPanelHTML === "function" ? audio.renderAudioMixerPanelHTML() : ""}
           </div>
         `;
+        if (typeof audio.bindAudioMixerPanelEvents === "function") {
+          audio.bindAudioMixerPanelEvents(sModal, renderBattleSettings);
+        }
         sModal.querySelector("#btn-v33-close-battle-settings")?.addEventListener("click", () => {
           sModal.style.display = "none";
           state.paused = false;
         });
-        sModal.querySelectorAll("[data-bset-mouse]").forEach(b => {
+        sModal.querySelectorAll("[data-bset-ctrl]").forEach(b => {
           b.addEventListener("click", () => {
-            v21.enableMouseMove = (b.getAttribute("data-bset-mouse") === "on");
+            const m = b.getAttribute("data-bset-ctrl") || "floating_joy";
+            v21.mobileControlMode = m;
+            v21.enableMouseMove = (m === "touch_follow");
             state.player.targetX = state.player.x;
             state.player.targetY = state.player.y;
+            audio.playQiCharge();
+            this.saveGame();
+            renderBattleSettings();
+          });
+        });
+        sModal.querySelectorAll("[data-bset-fov]").forEach(b => {
+          b.addEventListener("click", () => {
+            v21.cameraFovMode = b.getAttribute("data-bset-fov") || "wide";
+            const fovBtn = wrap.querySelector("#btn-v56-hud-fov");
+            const labels = { standard: "標準", wide: "廣角", ultra: "全景" };
+            if (fovBtn) fovBtn.innerText = `🔍視野:${labels[v21.cameraFovMode]}`;
+            audio.playQiCharge();
+            this.saveGame();
+            syncHighDPICanvasResolution();
+            renderBattleSettings();
+          });
+        });
+        sModal.querySelectorAll("[data-bset-thud]").forEach(b => {
+          b.addEventListener("click", () => {
+            v21.touchHudMode = b.getAttribute("data-bset-thud") || "auto";
             audio.playQiCharge();
             this.saveGame();
             renderBattleSettings();
@@ -18919,7 +19603,7 @@ App.prototype.renderV12MartialView = function(container) {
     };
     wrap.querySelector("#btn-v33-hud-settings")?.addEventListener("click", openBattleSettingsModal);
 
-    // ⚡ v52.0 參考《Hades》《暖雪》新增【瞬步化影 · 極限閃避反擊 (Shadow Dash & Perfect Dodge Witch-Time)】
+    // ⚡ v52.0 參考經典動作肉鴿仙俠設計新增【瞬步化影 · 極限閃避反擊 (Shadow Dash & Perfect Dodge Witch-Time)】
     const triggerShadowDash = () => {
       if (state.paused || state.battleEnded) return;
       if (state.v52DashCd && state.v52DashCd > 0) {
@@ -18978,7 +19662,8 @@ App.prototype.renderV12MartialView = function(container) {
       state.player.targetX = state.player.x;
       state.player.targetY = state.player.y;
 
-      audio.playQiCharge();
+      if (typeof audio.playDashSfx === "function") audio.playDashSfx(isPerfectDodge);
+      else audio.playQiCharge();
       spawnShockwaveRing(startX, startY, 8, 68, "#38bdf8", 20, 4);
       spawnShockwaveRing(state.player.x, state.player.y, 10, 76, "#34d399", 22, 4.5);
       spawnVFXParticles(state.player.x, state.player.y, 16, { type: "spark", colors: ["#67e8f9", "#34d399", "#fde047", "#ffffff"], size: 8.5 });
@@ -19283,7 +19968,7 @@ App.prototype.renderV12MartialView = function(container) {
           badgeColor: "#dc2626",
           icon: "🔥",
           title: `【神兵超武共鳴】${wep.name} ➔ ${awkTitle}`,
-          desc: `參考《Vampire Survivors》超武進化：本命神兵蛻變為太古神器！全傷害永久 +38%、普攻投射物數量 +1，並解鎖神兵黃金聖芒光環！`,
+          desc: `【太古本命神器覺醒】：本命神兵蛻變為太古神器！全傷害永久 +38%、普攻投射物數量 +1，並解鎖神兵黃金聖芒光環！`,
           apply: () => {
             state.v52WeaponAwakened = true;
             state.v52BonusProjectiles = (state.v52BonusProjectiles || 0) + 1;
@@ -19573,6 +20258,7 @@ App.prototype.renderV12MartialView = function(container) {
         if (state.keysDown["KeyD"] || state.keysDown["ArrowRight"]) inputDx += 1;
 
         if (inputDx !== 0 || inputDy !== 0) {
+          // 1. 鍵盤 WASD / 方向鍵控制
           const invLen = 1 / Math.hypot(inputDx, inputDy);
           const vx = inputDx * invLen * playerMoveSpeed;
           const vy = inputDy * invLen * playerMoveSpeed;
@@ -19583,7 +20269,20 @@ App.prototype.renderV12MartialView = function(container) {
           state.player.facingAngle = Math.atan2(vy, vx);
           state.player.isMoving = true;
           state.player.flipLeft = (inputDx < 0) ? true : ((inputDx > 0) ? false : state.player.flipLeft);
-        } else if (v21.enableMouseMove) {
+        } else if (state.joyActive && (state.joyDx !== 0 || state.joyDy !== 0)) {
+          // 2. 🕹️ v56.0 360° 太極星盤虛擬搖桿線性向量控制（支援微傾慢走精準躲彈幕、滿推全速疾行，鬆手零慣性即停！）
+          const joySpd = playerMoveSpeed * (state.joyPower || 1.0);
+          const vx = state.joyDx * joySpd;
+          const vy = state.joyDy * joySpd;
+          state.player.x = Math.max(32, Math.min(WORLD_W - 32, state.player.x + vx));
+          state.player.y = Math.max(36, Math.min(WORLD_H - 32, state.player.y + vy));
+          state.player.targetX = state.player.x;
+          state.player.targetY = state.player.y;
+          state.player.facingAngle = Math.atan2(state.joyDy, state.joyDx);
+          state.player.isMoving = true;
+          state.player.flipLeft = (state.joyDx < -0.08) ? true : ((state.joyDx > 0.08) ? false : state.player.flipLeft);
+        } else if (v21.enableMouseMove || (v21.mobileControlMode === "touch_follow" && state.touchFollowActive)) {
+          // 3. 👆 點擊／長按滑動／滑鼠游標跟隨移動
           const dxMove = state.player.targetX - state.player.x;
           const dyMove = state.player.targetY - state.player.y;
           const distToTarget = Math.hypot(dxMove, dyMove);
@@ -19640,6 +20339,7 @@ App.prototype.renderV12MartialView = function(container) {
         if (waveFullyCleared && (state.waveIndex < 9 || state.endlessContinued)) {
           if (state.waveClearCountdown === 0) {
             state.waveClearCountdown = 85;
+            if (typeof audio.playWaveClearFanfare === "function") audio.playWaveClearFanfare(wCfg.wave);
             const waveHeal = Math.round(state.player.maxHp * 0.06);
             state.player.hp = Math.min(state.player.maxHp, state.player.hp + waveHeal);
             state.player.frostShield = Math.min(state.player.maxShield, (state.player.frostShield || 0) + 6);
@@ -19676,7 +20376,7 @@ App.prototype.renderV12MartialView = function(container) {
           });
         }
 
-        // ==================== ⚔️ v49.0 參照《Vampire Survivors》《Brotato》《暖雪》漸進式攻速與武學連招成長曲線 ====================
+        // ==================== ⚔️ v49.0 參照經典動作肉鴿仙俠設計漸進式攻速與武學連招成長曲線 ====================
         // 1. 慢起步（Lv.1~2）：基礎攻速沉穩（約 1.2~1.45 秒一擊）、僅施展第一式單發精準打擊，讓玩家清晰看清每一次揮劍與彈道！
         // 2. 漸成長（Lv.3~8）：隨等級突破逐步解鎖「二段連環 (Lv.3+)」與「三段終結奧義 (Lv.6+)」，攻速與投射物數量穩步提升！
         // 3. 後期割草（Lv.9+）：高階攻速（約 0.45~0.55 秒一擊，設有 26 幀最低防糊屏下限）＋ 多重劍氣扇面齊發，體驗從一招一式蛻變至萬劍歸宗的爽快感！
@@ -19718,13 +20418,51 @@ App.prototype.renderV12MartialView = function(container) {
         if (state.v52FrenzyTimer && state.v52FrenzyTimer > 0) {
           regionMod.atkSpeedMult = (regionMod.atkSpeedMult || 1.0) * 1.28;
         }
-        if ((state.frame % 12) < _dtTicks) {
+        if ((state.frame % 10) < _dtTicks) {
+          const dashCooling = Boolean(state.v52DashCd && state.v52DashCd > 0);
+          const dashRemSec = dashCooling ? (state.v52DashCd / 60).toFixed(1) : "";
           const dashBtn = wrap.querySelector("#btn-v52-hud-dash");
           if (dashBtn) {
-            dashBtn.innerText = (state.v52DashCd && state.v52DashCd > 0)
-              ? `⏳瞬步(${Math.ceil(state.v52DashCd / 60)}s)`
-              : `⚡瞬步(Shift)`;
-            dashBtn.style.borderColor = (state.v52DashCd && state.v52DashCd > 0) ? "#64748b" : "#34d399";
+            dashBtn.innerText = dashCooling ? `⏳瞬步(${dashRemSec}s)` : `⚡瞬步`;
+            dashBtn.style.borderColor = dashCooling ? "#64748b" : "#34d399";
+          }
+          // 同步更新右下角手機/平板觸控戰技輪盤狀態
+          const tDashLbl = wrap.querySelector("#v56-touch-dash-lbl");
+          const tDashBtn = wrap.querySelector("#btn-v56-touch-dash");
+          if (tDashLbl) tDashLbl.innerText = dashCooling ? `${dashRemSec}s` : "瞬步";
+          if (tDashBtn) tDashBtn.style.opacity = dashCooling ? "0.68" : "1";
+
+          const tWepIco = wrap.querySelector("#v56-touch-wep-ico");
+          const tWepLbl = wrap.querySelector("#v56-touch-wep-lbl");
+          if (tWepIco) tWepIco.innerText = wep.icon;
+          if (tWepLbl) tWepLbl.innerText = wep.shortName.slice(0, 2);
+
+          const tGourdBadge = wrap.querySelector("#v56-touch-gourd-badge");
+          const tCatchBtn = wrap.querySelector("#btn-v56-touch-catch");
+          const hasWildAlive = state.wildBeasts.some(wb => wb.hp > 0);
+          if (tGourdBadge) tGourdBadge.innerText = `${v14.petGourds || 0}`;
+          if (tCatchBtn) tCatchBtn.classList.toggle("beast-alert", hasWildAlive);
+
+          for (let sIdx = 0; sIdx < 3; sIdx++) {
+            const sk = wep.skills[sIdx];
+            if (!sk) continue;
+            const lv = sLvs[sIdx] !== undefined ? sLvs[sIdx] : (sIdx === 0 ? 1 : 0);
+            const icoEl = wrap.querySelector(`#v56-touch-sk${sIdx + 1}-ico`);
+            const lblEl = wrap.querySelector(`#v56-touch-sk${sIdx + 1}-lbl`);
+            const bdgEl = wrap.querySelector(`#v56-touch-sk${sIdx + 1}-badge`);
+            const btnEl = wrap.querySelector(`#btn-v56-touch-sk${sIdx + 1}`);
+            if (icoEl) icoEl.innerText = sk.icon;
+            if (lblEl) lblEl.innerText = sk.name.slice(0, 2);
+            if (bdgEl) {
+              const reqH = 2 + lv * 2;
+              const canUpg = lv < 5 && (v13.hammers || 0) >= reqH;
+              bdgEl.innerText = lv > 0 ? (canUpg ? `⬆️Lv.${lv}` : `Lv.${lv}`) : (canUpg ? `⬆️解鎖` : `🔒`);
+              bdgEl.style.borderColor = canUpg ? "#22c55e" : "#fbbf24";
+              bdgEl.style.color = canUpg ? "#86efac" : "#fde047";
+            }
+            if (btnEl) {
+              btnEl.style.opacity = lv > 0 ? "1" : "0.62";
+            }
           }
         }
 
@@ -19735,9 +20473,6 @@ App.prototype.renderV12MartialView = function(container) {
 
         if (state.baseAtkTimer >= pacedBaseCd && state.enemies.length > 0) {
           state.baseAtkTimer = 0;
-          if (typeof audio.playWeaponAttack === "function") {
-            audio.playWeaponAttack(wep.id);
-          }
           let closestEn = null;
           let minDist = 410;
           state.enemies.forEach(en => {
@@ -19746,10 +20481,13 @@ App.prototype.renderV12MartialView = function(container) {
           });
           const atkAng = closestEn ? Math.atan2(closestEn.y - state.player.y, closestEn.x - state.player.x) : state.player.facingAngle;
 
-          // v54.0 參照《暖雪》《Hades》流暢武學手感：自 Lv.1 起即完整施展「第一式 ➔ 第二式 ➔ 第三式終結技」三段連招，並隨等級追加額外飛劍與投射物！
+          // v54.0 參照經典動作肉鴿仙俠設計流暢武學手感：自 Lv.1 起即完整施展「第一式 ➔ 第二式 ➔ 第三式終結技」三段連招，並隨等級追加額外飛劍與投射物！
           const maxComboStages = 3;
           state.v42WeaponComboStep = ((state.v42WeaponComboStep || 0) + 1) % maxComboStages;
           const comboStep = state.v42WeaponComboStep; // 0: 第一式, 1: 第二式, 2: 第三式終結技
+          if (typeof audio.playWeaponAttack === "function") {
+            audio.playWeaponAttack(wep.id, comboStep);
+          }
           const lateMowBonusProj = ((state.runLv >= 13) ? 3 : ((state.runLv >= 9) ? 2 : ((state.runLv >= 5) ? 1 : 0))) + (state.v52BonusProjectiles || 0);
           // 🌌 v54.0 紫微星皇道體專屬被動：每第 4 次普攻自動召喚一道【紫微破界星隕】轟擊強敵！
           if (curSkin && curSkin.id === "void") {
@@ -20724,6 +21462,9 @@ App.prototype.renderV12MartialView = function(container) {
           hc.life -= 1;
           if (hc.life <= 0) {
             const hType = hc.hazardType || "circle";
+            if (typeof audio.playHazardDetonation === "function") {
+              audio.playHazardDetonation(hType, hc.subType || "", Boolean(hc.isBossHazard), hc.x, hc.y, state.player.x);
+            }
             const baseDmg = Math.round((hc.baseDmg || 24) * 1.22 * (hc.dmgMult || 1) * waveDmgMult);
             if (hType === "line") {
               // ⚡ BOSS 專屬直線走廊預警結束：由起點發射 66 幀沿路徑平穩推進的實體衝擊波與慢速清晰彈幕！
@@ -20866,7 +21607,7 @@ App.prototype.renderV12MartialView = function(container) {
         });
         state.hazardCircles = survivingHazards;
 
-        // ==================== v49.0 萬魔百態與十殿魔尊「三拍子可讀性戰術引擎」（參考《Hades》《暖雪》《Brotato》：拉長攻擊間隔、放慢彈道與突進速度、錯峰施招絕不重疊） ====================
+        // ==================== v49.0 萬魔百態與十殿魔尊「三拍子可讀性戰術引擎」（參考經典動作肉鴿仙俠設計：拉長攻擊間隔、放慢彈道與突進速度、錯峰施招絕不重疊） ====================
         const canMobCastSpecial = () => (!state.mobSpecialCastCd || state.mobSpecialCastCd <= 0);
         const markMobCastSpecial = (gapFrames = 28) => { state.mobSpecialCastCd = gapFrames; };
 
@@ -22644,7 +23385,7 @@ App.prototype.renderV12MartialView = function(container) {
               size: isBossKill ? 13 : 7.5
             });
             if (typeof audio.playMonsterKill === "function") {
-              audio.playMonsterKill(killStyle, isBossKill, isEliteKill, state.combo || 1);
+              audio.playMonsterKill(killStyle, isBossKill, isEliteKill, state.combo || 1, en.x, en.y, state.player.x);
             }
             state.skillEffects.push({
               vfxType: "kill_soul_burst",
@@ -22814,7 +23555,7 @@ App.prototype.renderV12MartialView = function(container) {
           }
           if (distSq < 625) {
             if (typeof audio.playGemPickup === "function") {
-              audio.playGemPickup(Boolean(g.isChest || g.isMiniBossTrophy || g.isHammer || g.isGourd || g.isPeach || g.isAlchemyPill || g.isBeastSoulOrb || g.isMagnetOrb));
+              audio.playGemPickup(Boolean(g.isChest || g.isMiniBossTrophy || g.isHammer || g.isGourd || g.isPeach || g.isAlchemyPill || g.isBeastSoulOrb || g.isMagnetOrb || g.isIceMarrow), g);
             }
             if (g.isPeach) {
               const healHp = Math.round(state.player.maxHp * 0.12);
@@ -22937,7 +23678,7 @@ App.prototype.renderV12MartialView = function(container) {
                 AstralCelestialEngine2D.onPlayerLevelUp(state, v13, { updatePlayerVitalHUD, showWaveBanner, spawnShockwaveRing });
               }
               updatePlayerVitalHUD();
-              // v55.0 參照《Brotato》《Hades》中後期陡升經驗曲線：
+              // v55.0 參照經典動作肉鴿仙俠設計中後期陡升經驗曲線：
               // 前期 (Lv.1~5) 節奏明快；中期 (Lv.6~10) 穩步攀升；後期 (Lv.11+) 構建陡峭宗師瓶頸牆，10波標準通關穩定落於 Lv.11~13！
               const lv = state.runLv;
               const bottleneckSpike = (lv === 6) ? 28 : ((lv === 10) ? 65 : ((lv >= 13) ? 140 + (lv - 12) * 55 : 0));
@@ -23024,7 +23765,7 @@ App.prototype.renderV12MartialView = function(container) {
         const _vTop = state.camera.y - _cullPad;
         const _vBottom = state.camera.y + state.viewH + _cullPad;
 
-        // ==================== v48.0 參照《Hades》《暖雪》《FFXIV》雙層分級地面戰術預警圖層（BOSS 專屬高對比幾何鋸齒預警 · 小怪極簡去雜訊） ====================
+        // ==================== v48.0 參照經典動作肉鴿仙俠設計雙層分級地面戰術預警圖層（BOSS 專屬高對比幾何鋸齒預警 · 小怪極簡去雜訊） ====================
         state.hazardCircles.forEach(hc => {
           const hcR = Math.max(hc.r || 60, hc.length || 0, hc.outerR || 0) + 40;
           if (hc.x + hcR < _vLeft || hc.x - hcR > _vRight || hc.y + hcR < _vTop || hc.y - hcR > _vBottom) return;
@@ -23050,7 +23791,7 @@ App.prototype.renderV12MartialView = function(container) {
             ctx.globalAlpha = 0.18 + prog * 0.24;
             ctx.fillRect(0, -wid * 0.5, len * prog, wid);
 
-            // 3. 外框高對比雙色邊界線與兩側《Hades》風格內向幾何三角齒紋
+            // 3. 外框高對比雙色邊界線與兩側經典動作肉鴿仙俠設計風格內向幾何三角齒紋
             ctx.strokeStyle = mainCol;
             ctx.globalAlpha = 0.88;
             ctx.lineWidth = 2.0;
@@ -23123,7 +23864,7 @@ App.prototype.renderV12MartialView = function(container) {
             ctx.closePath();
             ctx.stroke();
 
-            // 扇形外弧《Hades》風格幾何三角齒標記
+            // 扇形外弧經典動作肉鴿仙俠設計風格幾何三角齒標記
             if (isBoss) {
               ctx.fillStyle = "#fde047";
               ctx.globalAlpha = 0.72;
@@ -23191,7 +23932,7 @@ App.prototype.renderV12MartialView = function(container) {
               ctx.stroke();
               ctx.restore();
             } else {
-              // 👑 BOSS 專屬圓形預警：《Hades》風格高對比外環幾何三角齒 + 內圈擴張波
+              // 👑 BOSS 專屬圓形預警：經典動作肉鴿仙俠設計風格高對比外環幾何三角齒 + 內圈擴張波
               ctx.fillStyle = "rgba(10, 8, 16, 0.32)";
               ctx.beginPath();
               ctx.arc(0, 0, r, 0, Math.PI * 2);
@@ -23210,7 +23951,7 @@ App.prototype.renderV12MartialView = function(container) {
               ctx.arc(0, 0, r, 0, Math.PI * 2);
               ctx.stroke();
 
-              // 圓周 8 枚《Hades》風格內向幾何三角危險齒標
+              // 圓周 8 枚經典動作肉鴿仙俠設計風格內向幾何三角危險齒標
               ctx.fillStyle = "#fde047";
               ctx.globalAlpha = 0.78;
               for (let i = 0; i < 8; i++) {
@@ -23899,6 +24640,40 @@ App.prototype.renderV12MartialView = function(container) {
 
         const isHeroMoving = Boolean(state.player.isMoving);
         const isHeroFlip = Boolean(state.player.flipLeft);
+        // 🕹️ v56.0 當使用虛擬搖桿或點按跟隨移動時，於角色腳下繪製精準方位導引弧／目的地星芒標記
+        if (state.joyActive && (state.joyDx !== 0 || state.joyDy !== 0)) {
+          const jAng = Math.atan2(state.joyDy, state.joyDx);
+          ctx.save();
+          ctx.translate(state.player.x, state.player.y + 10);
+          ctx.scale(1, 0.62);
+          ctx.strokeStyle = "#38bdf8";
+          ctx.lineWidth = 2.2;
+          ctx.globalAlpha = 0.72;
+          ctx.beginPath();
+          ctx.arc(0, 0, 32, jAng - 0.55, jAng + 0.55);
+          ctx.stroke();
+          const tipX = Math.cos(jAng) * 38;
+          const tipY = Math.sin(jAng) * 38;
+          ctx.fillStyle = "#fde047";
+          ctx.beginPath();
+          ctx.arc(tipX, tipY, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        } else if ((v21.mobileControlMode === "touch_follow" || v21.enableMouseMove) && isHeroMoving) {
+          const distT = Math.hypot(state.player.targetX - state.player.x, state.player.targetY - state.player.y);
+          if (distT > 14) {
+            ctx.save();
+            ctx.translate(state.player.targetX, state.player.targetY);
+            ctx.scale(1, 0.62);
+            ctx.strokeStyle = "#fde047";
+            ctx.lineWidth = 1.8;
+            ctx.globalAlpha = 0.68;
+            ctx.beginPath();
+            ctx.arc(0, 0, 14 + Math.sin(state.frame * 0.25) * 3, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
         // 繪製角色專屬道體光環、手持本命神兵與頭頂高對比度生命／護盾條
         WuxiaHDVFXEngine.drawGlowOrb(ctx, state.player.x, state.player.y, 16, "rgba(255,255,255,0.5)", curSkin.auraColor || "rgba(56,189,248,0.25)", "rgba(0,0,0,0)");
         PixelSpriteEngine.drawHero(ctx, state.player, animFrame, isHeroMoving, isHeroFlip, state.weaponId, curSkin.id, state.baseAtkTimer);
@@ -24082,7 +24857,7 @@ App.prototype.renderV12MartialView = function(container) {
             Math.floor(animFrame * 0.15) % 4
           );
 
-          // 4. 💥 繪製角色本體前景受擊特效（《Hades》《暖雪》風格：十字血芒裂痕／六稜寒晶迸裂 ＋ 護體氣浪環 ＋ 飛濺結晶碎片）
+          // 4. 💥 繪製角色本體前景受擊特效（經典動作肉鴿仙俠設計風格：十字血芒裂痕／六稜寒晶迸裂 ＋ 護體氣浪環 ＋ 飛濺結晶碎片）
           if (hurtT > 0) {
             const px = state.player.x;
             const py = state.player.y;
@@ -24218,7 +24993,7 @@ App.prototype.renderV12MartialView = function(container) {
           WuxiaRegionMechanicsEngine.drawScreenRegionHUD(ctx, state);
         }
 
-        // 💥 v51.0 畫面級 (Screen-Space) 角色受擊四周血煞／寒晶暗角與邊角裂紋閃光（參考《Hades》《暖雪》，讓玩家第一時間清晰感知受擊狀態！）
+        // 💥 v51.0 畫面級 (Screen-Space) 角色受擊四周血煞／寒晶暗角與邊角裂紋閃光（參考經典動作肉鴿仙俠設計讓玩家第一時間清晰感知受擊狀態！）
         if (state.player.hurtVfxTimer && state.player.hurtVfxTimer > 0) {
           const hRatio = state.player.hurtVfxTimer / (state.player.hurtMaxTimer || 26);
           const isHpHit = (state.player.hurtType === "hp" || state.player.hurtType === "shield_break");
@@ -25437,375 +26212,1620 @@ App.prototype.renderV12MartialView = function(container) {
   // ==================== v34.0 國風武俠割草音效與四軌五聲戰曲引擎 + 四大秘境陣壇互動法則 + 2D可愛Q版武俠像素風全角色/怪物/BOSS/神兵多幀動畫引擎 ====================
 
   // ---------------------------------------------------------------------------
-  // 1. 【WuxiaAudioEngine v34.0】：參照《暖雪》《元氣騎士》《Vampire Survivors》重製武俠割草音效與動態五聲配樂
+  // 1. 【WuxiaAudioEngine v58.0 — 太初天籟 · FM物理共鳴刀劍合成 × 立體空間殘響 × 64拍動態國風交響引擎】
+  // (A) 專業四匯流排混音架構 + 立體聲空間殘響迴音網路 (Stereo Slapback Delay & Hall Echo) + Sidechain 閃避壓限 (Audio Ducking)
+  // (B) 開局破陣戰鼓金鐘與名劍出鞘序曲 (`playBattleStartFanfare`)：踏入戰場瞬間即奏響震撼仙俠開戰儀式音效
+  // (C) 全新重譜 64 拍四樂章國風動態配樂：開局古箏雙八度刮奏拂弦 + 疾風劍舞主旋律 + 5.5Hz LFO 顫音洞簫/竹笛對位 + 古琴泛音琶音 + 鎮獄大堂鼓/板鼓/星鈸切分戰拍，隨波次推進與首領狂暴動態升階
+  // (D) 全新 FM 金屬非諧波共鳴 (`playFMClang`) 與破風共振峰 (`playBladeWhoosh`) 實戰音效：徹底革新六大神兵三段式連招、18式本命絕技、9式太初通用神通、境界突破、真氣運轉、九天落雷與靈珠仙珍拾取音色！
   // ---------------------------------------------------------------------------
-  (function upgradeWuxiaAudioV34() {
+  (function upgradeWuxiaAudioV58() {
     if (!audio) return;
 
-    audio.isMuted = false;
-    audio.userExplicitlyMuted = false;
+    let savedCfg = {};
+    try {
+      const raw = localStorage.getItem("astral_sovereign_v57_audio_cfg");
+      if (raw) savedCfg = JSON.parse(raw) || {};
+    } catch (_e) {}
+
+    audio.isMuted = Boolean(savedCfg.isMuted || false);
+    audio.userExplicitlyMuted = Boolean(savedCfg.userExplicitlyMuted || false);
+    audio.bgmVolume = typeof savedCfg.bgmVolume === "number" ? Math.max(0, Math.min(1, savedCfg.bgmVolume)) : 0.82;
+    audio.sfxVolume = typeof savedCfg.sfxVolume === "number" ? Math.max(0, Math.min(1, savedCfg.sfxVolume)) : 0.92;
+    audio.bgmThemeMode = savedCfg.bgmThemeMode || "auto";
+    audio.monoDownmix = Boolean(savedCfg.monoDownmix || false);
+
+    audio.sceneMode = "combat";
+    audio.activeStageId = "bamboo_temple";
+    audio.waveIndex = 0;
     audio.bossModeActive = false;
+    audio.bossEnragedActive = false;
+    audio.frenzyActive = false;
+    audio.waveClearActive = false;
+    audio.lowHpRatio = 1.0;
+    audio.mobCount = 0;
+    audio.comboCount = 0;
+    audio.playerWorldX = 800;
+    audio.playerWorldY = 525;
+
     audio._lastKillSfxAt = 0;
     audio._lastAtkSfxAt = 0;
+    audio._lastHitSfxAt = 0;
     audio._lastGemSfxAt = 0;
+    audio._lastTelegraphSfxAt = 0;
+    audio._lastHazardBoomAt = 0;
+    audio._lastPetAtkSfxAt = 0;
+    audio._lastHeartbeatAt = 0;
     audio._gemStreak = 0;
     audio._bgmStep = 0;
     audio._noiseBuffer = null;
+    audio._pinkNoiseBuffer = null;
+    audio._activeVoiceCount = 0;
+    audio._maxPolyphony = 36;
 
-    // 建立可重用白噪聲與粉紅噪聲緩衝區（模擬刀風破空、血肉斬擊、天雷撕裂、烈焰呼嘯与銅鑼泛音）
-    audio.getNoiseBuffer = function() {
+    audio._seenHazards = typeof WeakSet !== "undefined" ? new WeakSet() : null;
+    audio._seenEffects = typeof WeakSet !== "undefined" ? new WeakSet() : null;
+    audio._seenBossWindups = typeof WeakMap !== "undefined" ? new WeakMap() : null;
+
+    audio.saveAudioConfig = function() {
+      try {
+        localStorage.setItem("astral_sovereign_v57_audio_cfg", JSON.stringify({
+          isMuted: this.isMuted,
+          userExplicitlyMuted: this.userExplicitlyMuted,
+          bgmVolume: this.bgmVolume,
+          sfxVolume: this.sfxVolume,
+          bgmThemeMode: this.bgmThemeMode,
+          monoDownmix: this.monoDownmix
+        }));
+      } catch (_e) {}
+    };
+
+    // 建立專業四匯流排混音圖 + 仙俠大殿立體空間殘響迴音網路 (Stereo Hall Delay Network)
+    const _origInit = audio.init.bind(audio);
+    audio.init = function() {
+      _origInit();
+      if (!this.ctx) return;
+      if (!this._busesInitialized) {
+        try {
+          this._busesInitialized = true;
+          const now = this.ctx.currentTime;
+
+          this.masterCompressor = this.ctx.createDynamicsCompressor();
+          this.masterCompressor.threshold.setValueAtTime(-13, now);
+          this.masterCompressor.knee.setValueAtTime(16, now);
+          this.masterCompressor.ratio.setValueAtTime(4.2, now);
+          this.masterCompressor.attack.setValueAtTime(0.003, now);
+          this.masterCompressor.release.setValueAtTime(0.15, now);
+
+          this.masterGain = this.ctx.createGain();
+          this.masterGain.gain.setValueAtTime(this.isMuted ? 0.0001 : 0.94, now);
+
+          // 1. BGM 匯流排 + 動態情緒低通濾波器 + 古琴大殿空間殘響迴音 (Delay Feedback Bus)
+          this.bgmFilter = this.ctx.createBiquadFilter();
+          this.bgmFilter.type = "lowpass";
+          this.bgmFilter.frequency.setValueAtTime(16500, now);
+          this.bgmFilter.Q.setValueAtTime(0.7, now);
+
+          this.bgmBus = this.ctx.createGain();
+          this.bgmBus.gain.setValueAtTime(Math.max(0.0001, this.bgmVolume), now);
+
+          this.bgmEchoDelay = this.ctx.createDelay(1.0);
+          this.bgmEchoDelay.delayTime.setValueAtTime(0.21, now);
+          this.bgmEchoFilter = this.ctx.createBiquadFilter();
+          this.bgmEchoFilter.type = "bandpass";
+          this.bgmEchoFilter.frequency.setValueAtTime(1450, now);
+          this.bgmEchoFilter.Q.setValueAtTime(0.8, now);
+          this.bgmEchoGain = this.ctx.createGain();
+          this.bgmEchoGain.gain.setValueAtTime(0.26, now);
+
+          this.bgmFilter.connect(this.bgmBus);
+          this.bgmFilter.connect(this.bgmEchoDelay);
+          this.bgmEchoDelay.connect(this.bgmEchoFilter);
+          this.bgmEchoFilter.connect(this.bgmEchoGain);
+          this.bgmEchoGain.connect(this.bgmBus);
+          this.bgmEchoGain.connect(this.bgmEchoDelay);
+
+          // 2. 戰鬥神兵與技能匯流排 + 刀鳴空間短殘響
+          this.combatSfxBus = this.ctx.createGain();
+          this.combatSfxBus.gain.setValueAtTime(Math.max(0.0001, this.sfxVolume), now);
+
+          this.sfxReverbDelay = this.ctx.createDelay(0.5);
+          this.sfxReverbDelay.delayTime.setValueAtTime(0.085, now);
+          this.sfxReverbFilter = this.ctx.createBiquadFilter();
+          this.sfxReverbFilter.type = "lowpass";
+          this.sfxReverbFilter.frequency.setValueAtTime(2400, now);
+          this.sfxReverbGain = this.ctx.createGain();
+          this.sfxReverbGain.gain.setValueAtTime(0.18, now);
+
+          this.combatSfxBus.connect(this.sfxReverbDelay);
+          this.sfxReverbDelay.connect(this.sfxReverbFilter);
+          this.sfxReverbFilter.connect(this.sfxReverbGain);
+          this.sfxReverbGain.connect(this.masterGain);
+
+          // 3. 首領預警、危險引爆與受擊高優先級匯流排
+          this.threatSfxBus = this.ctx.createGain();
+          this.threatSfxBus.gain.setValueAtTime(Math.max(0.0001, Math.min(1.18, this.sfxVolume * 1.10)), now);
+
+          // 4. 仙珍拾取、突破與介面回饋匯流排
+          this.uiSfxBus = this.ctx.createGain();
+          this.uiSfxBus.gain.setValueAtTime(Math.max(0.0001, this.sfxVolume), now);
+          this.uiSfxBus.connect(this.sfxReverbDelay);
+
+          this.bgmBus.connect(this.masterGain);
+          this.combatSfxBus.connect(this.masterGain);
+          this.threatSfxBus.connect(this.masterGain);
+          this.uiSfxBus.connect(this.masterGain);
+
+          this.masterGain.connect(this.masterCompressor);
+          this.masterCompressor.connect(this.ctx.destination);
+        } catch (_e) {
+          this._busesInitialized = false;
+        }
+      }
+    };
+
+    audio.syncBusVolumes = function() {
+      if (!this.ctx || !this._busesInitialized) return;
+      try {
+        const now = this.ctx.currentTime;
+        this.masterGain.gain.setTargetAtTime(this.isMuted ? 0.0001 : 0.94, now, 0.02);
+        this.bgmBus.gain.setTargetAtTime(Math.max(0.0001, this.bgmVolume), now, 0.04);
+        this.combatSfxBus.gain.setTargetAtTime(Math.max(0.0001, this.sfxVolume), now, 0.02);
+        this.threatSfxBus.gain.setTargetAtTime(Math.max(0.0001, Math.min(1.18, this.sfxVolume * 1.10)), now, 0.02);
+        this.uiSfxBus.gain.setTargetAtTime(Math.max(0.0001, this.sfxVolume), now, 0.02);
+      } catch (_e) {}
+    };
+
+    audio.setBgmVolume = function(val) {
+      this.bgmVolume = Math.max(0, Math.min(1, Number(val) || 0));
+      if (this.bgmVolume > 0 && this.isMuted) {
+        this.isMuted = false;
+        this.userExplicitlyMuted = false;
+      }
+      this.syncBusVolumes();
+      if (this.bgmVolume > 0 && !this.bgmPlaying && !this.userExplicitlyMuted) {
+        this.startWuxiaCombatBGM();
+      }
+      this.saveAudioConfig();
+    };
+
+    audio.setSfxVolume = function(val) {
+      this.sfxVolume = Math.max(0, Math.min(1, Number(val) || 0));
+      if (this.sfxVolume > 0 && this.isMuted) {
+        this.isMuted = false;
+        this.userExplicitlyMuted = false;
+      }
+      this.syncBusVolumes();
+      this.saveAudioConfig();
+    };
+
+    audio.setBgmThemeMode = function(mode) {
+      this.bgmThemeMode = mode || "auto";
+      this._bgmStep = 0;
+      this.saveAudioConfig();
+    };
+
+    audio.setMonoDownmix = function(enableMono) {
+      this.monoDownmix = Boolean(enableMono);
+      this.saveAudioConfig();
+    };
+
+    // Sidechain Audio Ducking：首領登場、奧義施放、破罡崩解或極限閃避時，自動短暫壓低 BGM 音量凸顯戰鬥衝擊力
+    audio.triggerAudioDuck = function(duckFactor = 0.30, holdSec = 0.55) {
+      if (this.isMuted || !this.ctx || !this.bgmBus) return;
+      try {
+        const now = this.ctx.currentTime;
+        const baseVol = Math.max(0.0001, this.bgmVolume);
+        const targetDuck = Math.max(0.0001, baseVol * duckFactor);
+        this.bgmBus.gain.cancelScheduledValues(now);
+        this.bgmBus.gain.setValueAtTime(this.bgmBus.gain.value || baseVol, now);
+        this.bgmBus.gain.linearRampToValueAtTime(targetDuck, now + 0.02);
+        this.bgmBus.gain.exponentialRampToValueAtTime(baseVol, now + Math.max(0.12, holdSec));
+      } catch (_e) {}
+    };
+
+    audio.getSpatialParams = function(worldX, worldY, refPlayerX) {
+      if (this.monoDownmix || typeof worldX !== "number") {
+        return { pan: 0, distGain: 1.0 };
+      }
+      const px = typeof refPlayerX === "number" ? refPlayerX : (this.playerWorldX || 800);
+      const py = this.playerWorldY || 525;
+      const dx = worldX - px;
+      const dy = typeof worldY === "number" ? (worldY - py) : 0;
+      const pan = Math.max(-0.85, Math.min(0.85, dx / 250));
+      const dist = Math.hypot(dx, dy);
+      const distGain = Math.max(0.28, Math.min(1.0, 1 - Math.max(0, dist - 90) / 680));
+      return { pan, distGain };
+    };
+
+    audio.getTargetBus = function(busName = "combat") {
       this.init();
       if (!this.ctx) return null;
-      if (this._noiseBuffer) return this._noiseBuffer;
+      if (!this._busesInitialized) return this.ctx.destination;
+      if (busName === "bgm") return this.bgmFilter || this.bgmBus;
+      if (busName === "threat") return this.threatSfxBus;
+      if (busName === "ui") return this.uiSfxBus;
+      return this.combatSfxBus;
+    };
+
+    audio.getNoiseBuffer = function(isPink = false) {
+      this.init();
+      if (!this.ctx) return null;
+      if (isPink && this._pinkNoiseBuffer) return this._pinkNoiseBuffer;
+      if (!isPink && this._noiseBuffer) return this._noiseBuffer;
+
       const len = Math.floor(this.ctx.sampleRate * 1.5);
       const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
       const data = buf.getChannelData(0);
-      for (let i = 0; i < len; i++) {
-        data[i] = Math.random() * 2 - 1;
+      if (isPink) {
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+        for (let i = 0; i < len; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+          b6 = white * 0.115926;
+        }
+        this._pinkNoiseBuffer = buf;
+      } else {
+        for (let i = 0; i < len; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+        this._noiseBuffer = buf;
       }
-      this._noiseBuffer = buf;
       return buf;
     };
 
-    // 播放濾波噪聲包絡（刀風、火海、雷擊、戰鼓皮響）
-    audio.playFilteredNoise = function(duration = 0.08, filterType = "bandpass", startFreq = 1800, endFreq = 450, Q = 1.8, gainVal = 0.22, delaySec = 0) {
-      if (this.isMuted) return;
+    audio.playFilteredNoise = function(duration = 0.08, filterType = "bandpass", startFreq = 1800, endFreq = 450, Q = 1.8, gainVal = 0.22, delaySec = 0, pan = 0, busName = "combat", usePink = false) {
+      if (this.isMuted || this._activeVoiceCount >= this._maxPolyphony) return;
       this.init();
       if (!this.ctx) return;
-      const buf = this.getNoiseBuffer();
+      const buf = this.getNoiseBuffer(usePink);
       if (!buf) return;
       try {
+        this._activeVoiceCount++;
         const now = this.ctx.currentTime + delaySec;
         const src = this.ctx.createBufferSource();
         src.buffer = buf;
         const filter = this.ctx.createBiquadFilter();
         filter.type = filterType;
         filter.Q.setValueAtTime(Q, now);
-        filter.frequency.setValueAtTime(Math.max(40, startFreq), now);
-        filter.frequency.exponentialRampToValueAtTime(Math.max(40, endFreq), now + duration);
+        filter.frequency.setValueAtTime(Math.max(36, startFreq), now);
+        filter.frequency.exponentialRampToValueAtTime(Math.max(36, endFreq), now + duration);
 
         const g = this.ctx.createGain();
-        g.gain.setValueAtTime(0.001, now);
-        g.gain.linearRampToValueAtTime(gainVal, now + Math.min(0.008, duration * 0.2));
+        const effGain = Math.max(0.001, gainVal);
+        g.gain.setValueAtTime(0.0008, now);
+        g.gain.linearRampToValueAtTime(effGain, now + Math.min(0.008, duration * 0.2));
         g.gain.exponentialRampToValueAtTime(0.0008, now + duration);
 
         src.connect(filter);
         filter.connect(g);
-        g.connect(this.ctx.destination);
+
+        const targetBus = this.getTargetBus(busName);
+        let panner = null;
+        if (!this.monoDownmix && pan !== 0 && typeof this.ctx.createStereoPanner === "function") {
+          panner = this.ctx.createStereoPanner();
+          panner.pan.setValueAtTime(Math.max(-0.9, Math.min(0.9, pan)), now);
+          g.connect(panner);
+          panner.connect(targetBus);
+        } else {
+          g.connect(targetBus);
+        }
+
         src.onended = () => {
-          try { src.disconnect(); filter.disconnect(); g.disconnect(); } catch ( _e ) {}
+          this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+          try {
+            src.disconnect();
+            filter.disconnect();
+            g.disconnect();
+            if (panner) panner.disconnect();
+          } catch (_e) {}
         };
-        src.start(now, Math.random() * 0.5, duration + 0.02);
+        src.start(now, Math.random() * 0.6, duration + 0.02);
         src.stop(now + duration + 0.02);
-      } catch (e) {}
+      } catch (_e) {
+        this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+      }
     };
 
-    // 播放帶頻率滑音與泛音的武俠樂音／打擊音（v36.0 播放完畢自動斷開音訊圖節點，100% 保留原始無損音質與高密度打擊感）
-    audio.playSweepTone = function(startFreq, endFreq, type = "triangle", duration = 0.12, gainVal = 0.2, delaySec = 0) {
-      if (this.isMuted) return;
+    audio.playSweepTone = function(startFreq, endFreq, type = "triangle", duration = 0.12, gainVal = 0.2, delaySec = 0, pan = 0, busName = "combat") {
+      if (this.isMuted || this._activeVoiceCount >= this._maxPolyphony) return;
       this.init();
       if (!this.ctx) return;
       try {
+        this._activeVoiceCount++;
         const now = this.ctx.currentTime + delaySec;
         const osc = this.ctx.createOscillator();
         const g = this.ctx.createGain();
         osc.type = type;
-        osc.frequency.setValueAtTime(Math.max(24, startFreq), now);
+        osc.frequency.setValueAtTime(Math.max(22, startFreq), now);
         if (endFreq && endFreq !== startFreq) {
-          osc.frequency.exponentialRampToValueAtTime(Math.max(24, endFreq), now + duration);
+          osc.frequency.exponentialRampToValueAtTime(Math.max(22, endFreq), now + duration);
         }
-        g.gain.setValueAtTime(0.001, now);
-        g.gain.linearRampToValueAtTime(gainVal, now + Math.min(0.006, duration * 0.15));
+        const effGain = Math.max(0.001, gainVal);
+        g.gain.setValueAtTime(0.0008, now);
+        g.gain.linearRampToValueAtTime(effGain, now + Math.min(0.006, duration * 0.15));
         g.gain.exponentialRampToValueAtTime(0.0008, now + duration);
+
         osc.connect(g);
-        g.connect(this.ctx.destination);
+        const targetBus = this.getTargetBus(busName);
+        let panner = null;
+        if (!this.monoDownmix && pan !== 0 && typeof this.ctx.createStereoPanner === "function") {
+          panner = this.ctx.createStereoPanner();
+          panner.pan.setValueAtTime(Math.max(-0.9, Math.min(0.9, pan)), now);
+          g.connect(panner);
+          panner.connect(targetBus);
+        } else {
+          g.connect(targetBus);
+        }
+
         osc.onended = () => {
-          try { osc.disconnect(); g.disconnect(); } catch ( _e ) {}
+          this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+          try {
+            osc.disconnect();
+            g.disconnect();
+            if (panner) panner.disconnect();
+          } catch (_e) {}
         };
         osc.start(now);
         osc.stop(now + duration + 0.01);
-      } catch (e) {}
+      } catch (_e) {
+        this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+      }
     };
 
-    // 覆寫舊版單調 sawtooth 激光音：改為正統【寒鐵刀劍破空交擊錚鳴】
+    // 🔔 FM 金屬非諧波物理共鳴合成器 (`playFMClang`)：打造真實刀劍鏘鳴、古鐘、玉磬、鐵砧與仙劍出鞘音色！
+    audio.playFMClang = function(carrierFreq = 680, modRatio = 2.41, modIndex = 420, duration = 0.22, gainVal = 0.18, delaySec = 0, pan = 0, busName = "combat", endCarrierFreq = null) {
+      if (this.isMuted || this._activeVoiceCount >= this._maxPolyphony) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        this._activeVoiceCount++;
+        const now = this.ctx.currentTime + delaySec;
+        const carrier = this.ctx.createOscillator();
+        const modulator = this.ctx.createOscillator();
+        const modGain = this.ctx.createGain();
+        const outGain = this.ctx.createGain();
+
+        carrier.type = "sine";
+        modulator.type = "triangle";
+
+        carrier.frequency.setValueAtTime(Math.max(30, carrierFreq), now);
+        if (endCarrierFreq && endCarrierFreq !== carrierFreq) {
+          carrier.frequency.exponentialRampToValueAtTime(Math.max(30, endCarrierFreq), now + duration);
+        }
+
+        const modFreq = carrierFreq * modRatio;
+        modulator.frequency.setValueAtTime(Math.max(20, modFreq), now);
+        modGain.gain.setValueAtTime(Math.max(1, modIndex), now);
+        modGain.gain.exponentialRampToValueAtTime(0.5, now + duration * 0.78);
+
+        outGain.gain.setValueAtTime(0.0008, now);
+        outGain.gain.linearRampToValueAtTime(Math.max(0.001, gainVal), now + 0.004);
+        outGain.gain.exponentialRampToValueAtTime(0.0008, now + duration);
+
+        modulator.connect(modGain);
+        modGain.connect(carrier.frequency);
+        carrier.connect(outGain);
+
+        const targetBus = this.getTargetBus(busName);
+        let panner = null;
+        if (!this.monoDownmix && pan !== 0 && typeof this.ctx.createStereoPanner === "function") {
+          panner = this.ctx.createStereoPanner();
+          panner.pan.setValueAtTime(Math.max(-0.9, Math.min(0.9, pan)), now);
+          outGain.connect(panner);
+          panner.connect(targetBus);
+        } else {
+          outGain.connect(targetBus);
+        }
+
+        carrier.onended = () => {
+          this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+          try {
+            carrier.disconnect();
+            modulator.disconnect();
+            modGain.disconnect();
+            outGain.disconnect();
+            if (panner) panner.disconnect();
+          } catch (_e) {}
+        };
+        modulator.start(now);
+        carrier.start(now);
+        modulator.stop(now + duration + 0.01);
+        carrier.stop(now + duration + 0.01);
+      } catch (_e) {
+        this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+      }
+    };
+
+    // 🪈 國風竹笛／洞簫呼吸颤音合成器 (`playFluteNote` — 5.5Hz LFO 顫音 + 氣息泛音)
+    audio.playFluteNote = function(freq = 587.33, duration = 0.45, gainVal = 0.055, delaySec = 0, pan = 0, isXiao = false) {
+      if (this.isMuted || this._activeVoiceCount >= this._maxPolyphony) return;
+      this.init();
+      if (!this.ctx) return;
+      try {
+        this._activeVoiceCount++;
+        const now = this.ctx.currentTime + delaySec;
+        const osc = this.ctx.createOscillator();
+        const lfo = this.ctx.createOscillator();
+        const lfoGain = this.ctx.createGain();
+        const outGain = this.ctx.createGain();
+
+        osc.type = isXiao ? "triangle" : "sine";
+        osc.frequency.setValueAtTime(freq * 0.985, now);
+        osc.frequency.linearRampToValueAtTime(freq, now + 0.045);
+
+        lfo.type = "sine";
+        lfo.frequency.setValueAtTime(5.6, now);
+        lfoGain.gain.setValueAtTime(freq * 0.014, now);
+        lfo.connect(lfoGain);
+        lfoGain.connect(osc.frequency);
+
+        outGain.gain.setValueAtTime(0.0008, now);
+        outGain.gain.linearRampToValueAtTime(gainVal, now + Math.min(0.06, duration * 0.25));
+        outGain.gain.exponentialRampToValueAtTime(0.0008, now + duration);
+
+        osc.connect(outGain);
+        const targetBus = this.getTargetBus("bgm");
+        let panner = null;
+        if (!this.monoDownmix && pan !== 0 && typeof this.ctx.createStereoPanner === "function") {
+          panner = this.ctx.createStereoPanner();
+          panner.pan.setValueAtTime(Math.max(-0.85, Math.min(0.85, pan)), now);
+          outGain.connect(panner);
+          panner.connect(targetBus);
+        } else {
+          outGain.connect(targetBus);
+        }
+
+        // 疊加微弱竹笛吹氣竹膜氣息聲
+        this.playFilteredNoise(Math.min(0.12, duration * 0.4), "bandpass", freq * 2.2, freq * 1.8, 4.5, gainVal * 0.35, delaySec, pan, "bgm");
+
+        osc.onended = () => {
+          this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+          try {
+            osc.disconnect();
+            lfo.disconnect();
+            lfoGain.disconnect();
+            outGain.disconnect();
+            if (panner) panner.disconnect();
+          } catch (_e) {}
+        };
+        lfo.start(now);
+        osc.start(now);
+        lfo.stop(now + duration + 0.01);
+        osc.stop(now + duration + 0.01);
+      } catch (_e) {
+        this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+      }
+    };
+
+    // 覆寫全部舊版基礎音效方法，100% 根除早期單調正弦波嗶嗶聲！
+    audio.playTone = function(freq, type = "sine", duration = 0.2, gainVal = 0.18) {
+      this.playFMClang(freq, 2.0, freq * 0.45, duration, gainVal * 0.75, 0, 0, "ui");
+    };
+
+    // ⚔️ 覆寫名劍出鞘與刀劍破空交擊錚鳴 (`playSwordClash`)：真實中低頻破風呼嘯 + FM 寒鐵雙劍交鳴
     audio.playSwordClash = function() {
       if (this.isMuted) return;
-      // 1. 凌厲刀風破空 (Bandpass 噪聲急速下掃)
-      this.playFilteredNoise(0.075, "bandpass", 2600, 620, 2.2, 0.22, 0);
-      // 2. 寒鐵劍身清脆泛音 (雙頻金屬共鳴)
-      this.playSweepTone(1480, 920, "triangle", 0.09, 0.16, 0);
-      this.playSweepTone(2960, 1840, "sine", 0.14, 0.09, 0.01);
+      const rnd = 0.95 + Math.random() * 0.10;
+      // 1. 紮實中低頻刃風呼嘯 (不再是尖銳刺耳激光聲)
+      this.playFilteredNoise(0.11, "bandpass", 1180 * rnd, 280 * rnd, 1.8, 0.24, 0, -0.12, "combat", true);
+      // 2. FM 寒鐵劍身非諧波清脆鏘鳴（「鏘——！」）
+      this.playFMClang(740 * rnd, 2.42, 620, 0.22, 0.20, 0, 0.12, "combat", 580 * rnd);
+      this.playFMClang(1480 * rnd, 1.5, 380, 0.16, 0.12, 0.015, -0.1, "combat", 1120 * rnd);
+      // 3. 氣勁破空重低音底韻
+      this.playSweepTone(155 * rnd, 48, "sine", 0.11, 0.18, 0, 0, "combat");
     };
 
-    // ⚔️ 六大本命神兵專屬普攻音效（各具獨特武俠兵器聲學特徵）
-    audio.playWeaponAttack = function(weaponId) {
+    // 🌟 覆寫境界突破／領悟升階音效 (`playLevelUp`)：太初鐘磬齊鳴 + 古箏五聲登仙拂弦琶音
+    audio.playLevelUp = function() {
+      if (this.isMuted) return;
+      this.triggerAudioDuck(0.45, 0.55);
+      // 1. 鎮殿金鐘低音共鳴
+      this.playFMClang(293.66, 2.76, 320, 0.55, 0.22, 0, 0, "ui");
+      this.playSweepTone(146.83, 73.42, "sine", 0.36, 0.24, 0, 0, "ui");
+      // 2. 五聲登仙古箏拂弦琶音 (D - F - G - A - D - F)
+      const scale = [293.66, 349.23, 392.00, 440.00, 587.33, 698.46, 880.00];
+      scale.forEach((f, i) => {
+        const pan = (i - 3) * 0.18;
+        this.playFMClang(f, 2.0, f * 0.65, 0.34, 0.15, i * 0.048, pan, "ui");
+      });
+    };
+
+    // ☯️ 覆寫丹田真氣運轉／交互回饋音效 (`playQiCharge`)：渾厚真氣吐納 + 雙魚玉磬清音
+    audio.playQiCharge = function() {
+      if (this.isMuted) return;
+      this.playFilteredNoise(0.14, "bandpass", 680, 240, 2.0, 0.16, 0, 0, "ui", true);
+      this.playSweepTone(146.83, 293.66, "triangle", 0.18, 0.16, 0, -0.15, "ui");
+      this.playFMClang(587.33, 2.0, 240, 0.24, 0.14, 0.04, 0.15, "ui", 880.0);
+    };
+
+    // 🔔 覆寫靈台頓悟古鐘音效 (`playEpiphanyBell`)：真實青銅古鐘 FM 泛音與崑崙玉磬尾韻
+    audio.playEpiphanyBell = function() {
+      if (this.isMuted) return;
+      this.playFMClang(440.0, 2.756, 480, 0.68, 0.20, 0, -0.15, "ui");
+      this.playFMClang(659.25, 2.0, 310, 0.58, 0.15, 0.055, 0.15, "ui");
+      this.playFMClang(880.0, 3.0, 260, 0.72, 0.12, 0.11, 0, "ui");
+    };
+
+    // ⚡ 覆寫九霄天雷轟頂音效 (`playThunder`)：高壓電弧爆裂 + 粉紅噪聲撕裂天幕 + 120Hz->28Hz 鎮獄雷震波
+    audio.playThunder = function() {
+      if (this.isMuted) return;
+      const rnd = 0.94 + Math.random() * 0.12;
+      // 1. 瞬間高壓雷電噼啪閃擊
+      this.playFilteredNoise(0.08, "highpass", 2400 * rnd, 680, 2.4, 0.26, 0, -0.2, "combat");
+      this.playFMClang(920 * rnd, 3.14, 1200, 0.14, 0.18, 0, 0.2, "combat", 140);
+      // 2. 震天低頻雷鳴轟隆
+      this.playSweepTone(135 * rnd, 28, "sine", 0.48, 0.34, 0.015, 0, "combat");
+      this.playSweepTone(92 * rnd, 24, "sawtooth", 0.36, 0.20, 0.025, 0, "combat");
+      // 3. 滾滾雷雲殘響
+      this.playFilteredNoise(0.42, "lowpass", 880 * rnd, 110, 1.4, 0.28, 0.03, 0, "combat", true);
+    };
+
+    // 💔 覆寫角色受擊與護體玄罡碰撞／碎裂音效 (`playPlayerHurtSfx`)
+    audio.playPlayerHurtSfx = function(isShieldHit = false, isShieldBreak = false) {
+      if (this.isMuted) return;
+      if (isShieldHit && !isShieldBreak) {
+        // 🛡️ 玄武寒晶護盾抵禦：厚重冰晶格擋鏘鳴
+        this.playFMClang(880, 2.41, 520, 0.18, 0.22, 0, 0, "threat", 520);
+        this.playSweepTone(180, 62, "sine", 0.14, 0.22, 0, 0, "threat");
+      } else if (isShieldBreak) {
+        // 🛡️💥 護體玄罡崩碎卸力：琉璃寒冰炸裂 + 氣浪震退
+        this.triggerAudioDuck(0.32, 0.50);
+        [1396.91, 987.77, 587.33].forEach((f, idx) => {
+          this.playFMClang(f, 2.82, 780, 0.26, 0.20, idx * 0.025, (idx - 1) * 0.3, "threat", f * 0.42);
+        });
+        this.playFilteredNoise(0.26, "bandpass", 2200, 320, 1.6, 0.28, 0, 0, "threat", true);
+        this.playSweepTone(130, 32, "sine", 0.32, 0.34, 0, 0, "threat");
+      } else {
+        // 💔 角色本體受擊：沉重護甲悶響 + 氣血震盪低頻心跳衝擊
+        this.triggerAudioDuck(0.42, 0.35);
+        this.playSweepTone(165, 36, "sine", 0.24, 0.36, 0, 0, "threat");
+        this.playFilteredNoise(0.15, "lowpass", 760, 140, 1.5, 0.28, 0, 0, "threat", true);
+        this.playFMClang(310, 1.85, 420, 0.15, 0.18, 0.01, 0, "threat", 110);
+      }
+    };
+
+    // 🎺 開局破陣出征序曲 (`playBattleStartFanfare`)：點擊「開始遊戲 / 踏入大荒」進入戰場瞬間立即奏響！
+    audio.playBattleStartFanfare = function() {
+      if (this.isMuted) return;
+      this.init();
+      if (!this.ctx) return;
+      // 1. 鎮獄雙連大堂鼓 + 破陣青銅大鑼
+      this.playSweepTone(118, 34, "sine", 0.32, 0.34, 0, -0.2, "threat");
+      this.playFilteredNoise(0.14, "lowpass", 520, 95, 1.5, 0.24, 0, -0.2, "threat", true);
+      this.playSweepTone(138, 36, "sine", 0.38, 0.38, 0.16, 0.2, "threat");
+      this.playFMClang(220.0, 2.76, 540, 0.85, 0.22, 0.16, 0, "threat", 196.0);
+      // 2. 太乙仙劍出鞘龍吟（「錚——鏘！！」）
+      this.playFilteredNoise(0.22, "bandpass", 1450, 360, 2.0, 0.26, 0.24, 0, "combat", true);
+      this.playFMClang(587.33, 2.41, 680, 0.42, 0.22, 0.24, -0.25, "combat", 880.0);
+      this.playFMClang(880.0, 2.0, 520, 0.48, 0.20, 0.30, 0.25, "combat", 1174.66);
+      // 3. 古箏七音破陣拂弦刮奏 (D羽調五聲疾速上行)
+      const gliss = [293.66, 349.23, 392.00, 440.00, 587.33, 698.46, 880.00, 1174.66];
+      gliss.forEach((f, idx) => {
+        this.playGuzhengPluck(f, 0.32, 0.085, (idx - 3.5) * 0.18, "guzheng", 0.28 + idx * 0.042);
+      });
+    };
+
+    // ⚔️ 六大本命神兵 × 三段式連招物理聲學引擎（徹底取代舊版高頻單調滑音，採用中低頻破風呼嘯 + FM 金屬刀鳴 + 氣勁震波）
+    audio.playWeaponAttack = function(weaponId, comboStep = 0) {
       if (this.isMuted) return;
       const nowMs = performance.now();
-      if (nowMs - this._lastAtkSfxAt < 65) return;
+      if (nowMs - this._lastAtkSfxAt < 56) return;
       this._lastAtkSfxAt = nowMs;
 
+      const step = (comboStep || 0) % 3;
+      const isFinisher = (step === 2);
+      const jitter = 0.95 + Math.random() * 0.10;
+      const stepPitch = (step === 0 ? 1.0 : (step === 1 ? 1.12 : 1.26)) * jitter;
+      const pan = (step === 0 ? -0.18 : (step === 1 ? 0.18 : 0));
+
       if (weaponId === "sword") {
-        // 🗡️ 太乙青霜御劍：清越飛劍破空嘯音 + 寒冰晶鳴
-        this.playFilteredNoise(0.06, "bandpass", 3200, 1100, 3.0, 0.14, 0);
-        this.playSweepTone(1320, 2240, "sine", 0.07, 0.11, 0);
-        this.playSweepTone(2640, 1760, "triangle", 0.09, 0.08, 0.02);
+        // 🗡️ 太乙青霜御劍：第一式寒鐵出鞘破風 ➔ 第二式雙劍交剪冰鳴 ➔ 第三式太乙巨劍貫空共鳴
+        this.playFilteredNoise(isFinisher ? 0.13 : 0.085, "bandpass", 1120 * stepPitch, 290, 1.9, isFinisher ? 0.24 : 0.18, 0, pan, "combat", true);
+        this.playFMClang(587.33 * stepPitch, 2.41, isFinisher ? 560 : 380, isFinisher ? 0.20 : 0.13, isFinisher ? 0.18 : 0.13, 0, pan, "combat", 440 * stepPitch);
+        this.playSweepTone(155 * stepPitch, 52, "sine", isFinisher ? 0.13 : 0.08, isFinisher ? 0.20 : 0.13, 0, 0, "combat");
+        if (step === 1) {
+          this.playFMClang(880 * jitter, 2.0, 310, 0.12, 0.11, 0.035, -pan, "combat", 659.25 * jitter);
+        } else if (isFinisher) {
+          // 第三式終結技：雙音仙劍共鳴和弦 + 破空低頻劍嘯
+          this.playFMClang(880 * jitter, 2.0, 460, 0.24, 0.15, 0.025, -0.2, "combat", 1174.66 * jitter);
+          this.playFMClang(1174.66 * jitter, 1.5, 360, 0.26, 0.12, 0.045, 0.2, "combat", 880 * jitter);
+        }
       } else if (weaponId === "saber") {
-        // 🩸 赤霄焚血狂刀：厚重狂刀破風劈砍 + 熔岩低吼
-        this.playFilteredNoise(0.11, "lowpass", 1100, 220, 1.5, 0.26, 0);
-        this.playSweepTone(340, 78, "sawtooth", 0.11, 0.16, 0);
+        // 🩸 赤霄焚血狂刀：第一式重刃裂風 ➔ 第二式雙狂刀撕裂 ➔ 第三式修羅崩山斷嶽斬
+        this.playFilteredNoise(isFinisher ? 0.18 : 0.12, "lowpass", 860 * stepPitch, 120, 1.6, isFinisher ? 0.32 : 0.24, 0, pan, "combat", true);
+        this.playSweepTone(210 * stepPitch, 44, "sawtooth", isFinisher ? 0.16 : 0.11, isFinisher ? 0.22 : 0.16, 0, pan, "combat");
+        this.playFMClang(320 * stepPitch, 1.85, 480, 0.14, 0.15, 0.01, -pan, "combat", 180);
+        if (isFinisher) {
+          this.playSweepTone(128, 30, "sine", 0.24, 0.30, 0.02, 0, "combat");
+          this.playFilteredNoise(0.16, "bandpass", 1400, 240, 1.8, 0.22, 0.025, 0, "combat", true);
+        }
       } else if (weaponId === "spear") {
-        // 🔱 紫微破界星辰槍：槍尖寒星金屬點刺 + 破甲音爆
-        this.playFilteredNoise(0.065, "bandpass", 2400, 520, 2.5, 0.18, 0);
-        this.playSweepTone(1760, 880, "triangle", 0.06, 0.14, 0);
-        this.playSweepTone(280, 65, "sine", 0.08, 0.18, 0.01);
+        // 🔱 紫微破界星辰槍：第一式槍桿抖動破甲刺 ➔ 第二式疾風連環雙刺 ➔ 第三式蒼龍破界音爆穿雲
+        this.playFilteredNoise(0.065, "bandpass", 1680 * stepPitch, 380, 2.4, 0.20, 0, pan, "combat");
+        this.playFMClang(820 * stepPitch, 2.75, 520, 0.11, 0.15, 0, pan, "combat", 410);
+        this.playSweepTone(220 * stepPitch, 48, "sine", 0.10, 0.20, 0.008, 0, "combat");
+        if (step === 1) {
+          this.playFMClang(980 * jitter, 2.75, 480, 0.10, 0.13, 0.045, -pan, "combat", 490);
+        } else if (isFinisher) {
+          this.playSweepTone(280, 1120 * jitter, "sawtooth", 0.15, 0.14, 0.02, 0, "combat");
+          this.playSweepTone(140, 34, "sine", 0.20, 0.26, 0.025, 0, "combat");
+        }
       } else if (weaponId === "chakram") {
-        // ☯️ 九曜太極陰陽輪：雙魚金輪高速迴旋嗡鳴
-        this.playSweepTone(660, 990, "triangle", 0.09, 0.11, 0);
-        this.playSweepTone(668, 1002, "sine", 0.09, 0.11, 0.015);
+        // ☯️ 九曜太極陰陽輪：第一式旋刃飛輪 ➔ 第二式陰陽雙環交鳴 ➔ 第三式乾坤星璇共振
+        this.playFMClang(523.25 * stepPitch, 2.0, 340, 0.14, 0.14, 0, pan, "combat", 783.99 * stepPitch);
+        this.playFilteredNoise(0.08, "bandpass", 1450 * stepPitch, 520, 2.2, 0.15, 0, -pan, "combat");
+        if (isFinisher) {
+          this.playFMClang(783.99 * jitter, 1.5, 420, 0.20, 0.16, 0.03, 0, "combat", 523.25 * jitter);
+          this.playSweepTone(165, 55, "triangle", 0.16, 0.18, 0.015, 0, "combat");
+        }
       } else if (weaponId === "cauldron") {
-        // 🐉 焚天九龍神火槍：赤金火龍吐息爆鳴
-        this.playFilteredNoise(0.12, "bandpass", 950, 240, 1.4, 0.24, 0);
-        this.playSweepTone(185, 52, "sawtooth", 0.12, 0.18, 0);
+        // 🐉 焚天九龍神火槍：第一式神火銃轟擊 ➔ 第二式雙龍火銃連爆 ➔ 第三式九龍鎮獄神鼎轟炸
+        this.playSweepTone(155 * stepPitch, 36, "sine", isFinisher ? 0.22 : 0.14, isFinisher ? 0.28 : 0.22, 0, pan, "combat");
+        this.playFilteredNoise(isFinisher ? 0.20 : 0.13, "lowpass", 820 * stepPitch, 140, 1.5, isFinisher ? 0.30 : 0.23, 0, pan, "combat", true);
+        this.playFMClang(293.66 * stepPitch, 2.76, 460, 0.18, 0.15, 0.01, -pan, "combat", 196);
+        if (isFinisher) {
+          this.playFMClang(440 * jitter, 2.76, 620, 0.28, 0.18, 0.04, 0, "combat", 293.66);
+        }
       } else if (weaponId === "banner") {
-        // ⚡ 神霄紫電天罰幡：紫電鞭擊噼啪爆響
-        this.playFilteredNoise(0.08, "highpass", 1800, 600, 2.0, 0.20, 0);
-        this.playSweepTone(2400, 180, "sawtooth", 0.075, 0.14, 0);
+        // ⚡ 神霄紫電天罰幡：第一式紫電鞭擊 ➔ 第二式雙極雷弧 ➔ 第三式九霄五雷轟頂
+        this.playFilteredNoise(isFinisher ? 0.14 : 0.085, "bandpass", 2100 * stepPitch, 460, 2.2, isFinisher ? 0.25 : 0.19, 0, pan, "combat");
+        this.playFMClang(960 * stepPitch, 3.14, 880, 0.11, 0.15, 0, pan, "combat", 180);
+        this.playSweepTone(145, 42, "sine", isFinisher ? 0.20 : 0.11, isFinisher ? 0.26 : 0.16, 0.01, 0, "combat");
       } else {
         this.playSwordClash();
       }
     };
 
-    // 💀 斬殺小怪、精英與處決首領專屬多層次爽快割草音效（含連斬升調與六大元素處決尾音）
-    audio.playMonsterKill = function(killStyle = "slash_bisect", isBoss = false, isElite = false, combo = 1) {
+    // 💥 敵人受擊、會心次元斬、護罡抵禦與【⚡破罡崩解虛弱】專屬打擊回饋音效
+    audio.playEnemyHitSfx = function(hitType = "normal", worldX, worldY, playerX) {
       if (this.isMuted) return;
       const nowMs = performance.now();
-      if (!isBoss && nowMs - this._lastKillSfxAt < 34) return;
-      this._lastKillSfxAt = nowMs;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const jitter = 0.94 + Math.random() * 0.12;
 
-      // 連斬音高遞增因子 (1.0 ~ 1.45)，營造《Vampire Survivors》/《暖雪》連續收割爽快感
-      const pitchMult = 1 + Math.min(15, combo || 1) * 0.028;
-
-      // 第 1 層：利刃切裂肉身與破甲悶響 (Flesh & Blade Cleave Impact)
-      this.playFilteredNoise(isElite ? 0.11 : 0.075, "bandpass", 2200 * pitchMult, 380, 1.9, isElite ? 0.28 : 0.22, 0);
-      this.playSweepTone(230 * pitchMult, 52, "triangle", isElite ? 0.11 : 0.08, isElite ? 0.26 : 0.20, 0);
-
-      // 第 2 層：六大元素／兵器專屬處決尾音
-      if (killStyle === "frost_shatter") {
-        // ❄️ 冰雕粉碎：清脆冰晶碎裂雙高音
-        this.playSweepTone(2093 * pitchMult, 2793 * pitchMult, "sine", 0.11, 0.13, 0.015);
-        this.playSweepTone(3136 * pitchMult, 1568, "triangle", 0.13, 0.10, 0.035);
-      } else if (killStyle === "flame_incinerate") {
-        // 🔥 紅蓮焚燼：爆燃火柱呼嘯
-        this.playFilteredNoise(0.14, "lowpass", 920, 140, 1.6, 0.24, 0.01);
-        this.playSweepTone(160, 48, "sawtooth", 0.12, 0.15, 0.01);
-      } else if (killStyle === "thunder_vaporize") {
-        // ⚡ 天雷焦炭：高壓電弧撕裂
-        this.playFilteredNoise(0.09, "highpass", 2200, 750, 2.4, 0.20, 0.01);
-        this.playSweepTone(2800, 160, "sawtooth", 0.085, 0.14, 0.01);
-      } else if (killStyle === "cosmic_implode") {
-        // ✨ 星辰奇點坍縮：引力內縮後星芒綻放
-        this.playSweepTone(320, 1280 * pitchMult, "sine", 0.11, 0.14, 0.01);
-      } else if (killStyle === "nature_bloom") {
-        // 🌸 桃源化靈：古琴五聲清音
-        this.playSweepTone(587.33 * pitchMult, 880 * pitchMult, "triangle", 0.14, 0.13, 0.01);
-      } else {
-        // ⚔️ 一刀兩斷：名劍收鞘金鐵清鳴
-        this.playSweepTone(1174.66 * pitchMult, 1760 * pitchMult, "sine", 0.095, 0.12, 0.015);
+      if (hitType === "shield_break") {
+        this.triggerAudioDuck(0.35, 0.50);
+        [1567.98, 1174.66, 783.99, 392.0].forEach((freq, idx) => {
+          this.playFMClang(freq * jitter, 2.76, 680, 0.25 + idx * 0.03, 0.20 * distGain, idx * 0.02, pan, "threat", freq * 0.45);
+        });
+        this.playFilteredNoise(0.26, "bandpass", 2400, 380, 1.8, 0.28 * distGain, 0, pan, "threat", true);
+        this.playSweepTone(125, 30, "sine", 0.30, 0.34 * distGain, 0, pan, "threat");
+        return;
       }
 
-      // 第 3 層：若為鎮關 BOSS 處決，奏響震天銅鑼、三連戰鼓與凱旋五聲琶音！
-      if (isBoss) {
-        this.playFilteredNoise(0.85, "bandpass", 880, 180, 1.2, 0.35, 0);
-        [0, 0.14, 0.28].forEach((d, idx) => {
-          this.playSweepTone(125 - idx * 12, 34, "sine", 0.28, 0.36, d);
+      if (hitType === "crit") {
+        if (nowMs - this._lastHitSfxAt < 42) return;
+        this._lastHitSfxAt = nowMs;
+        // 💥 會心一擊／次元斬：FM 名刀暴擊金鐵交鳴 + 低頻穿甲震波
+        this.playFMClang(1046.5 * jitter, 2.41, 640, 0.15, 0.17 * distGain, 0, pan, "combat", 659.25 * jitter);
+        this.playFilteredNoise(0.08, "bandpass", 1850 * jitter, 420, 2.2, 0.18 * distGain, 0, pan, "combat", true);
+        this.playSweepTone(175 * jitter, 46, "sine", 0.10, 0.20 * distGain, 0, pan, "combat");
+        return;
+      }
+
+      if (hitType === "shield_hit") {
+        if (nowMs - this._lastHitSfxAt < 55) return;
+        this._lastHitSfxAt = nowMs;
+        this.playFMClang(880 * jitter, 2.76, 420, 0.11, 0.13 * distGain, 0, pan, "combat", 587.33 * jitter);
+        return;
+      }
+
+      // 普通命中：紮實刀劍入肉與破甲悶響
+      if (nowMs - this._lastHitSfxAt < 68) return;
+      this._lastHitSfxAt = nowMs;
+      this.playFilteredNoise(0.055, "lowpass", 780 * jitter, 180, 1.5, 0.15 * distGain, 0, pan, "combat", true);
+      this.playSweepTone(145 * jitter, 48, "sine", 0.065, 0.15 * distGain, 0, pan, "combat");
+    };
+
+    // ⚡ 瞬步化影與【極限閃避 · 太虛時空斷裂反擊】專屬音效
+    audio.playDashSfx = function(isPerfectDodge = false) {
+      if (this.isMuted) return;
+      if (isPerfectDodge) {
+        this.triggerAudioDuck(0.28, 0.65);
+        this.playSweepTone(240, 34, "sine", 0.36, 0.35, 0, 0, "threat");
+        this.playFilteredNoise(0.20, "bandpass", 2200, 420, 2.2, 0.24, 0, 0, "combat", true);
+        const witchScale = [587.33, 783.99, 880.0, 1174.66, 1567.98];
+        witchScale.forEach((f, idx) => {
+          this.playFMClang(f, 2.0, 380, 0.28, 0.16, 0.025 + idx * 0.032, (idx - 2) * 0.25, "combat");
         });
-        const victoryScale = [587.33, 659.25, 783.99, 880.0, 1174.66];
+      } else {
+        this.playFilteredNoise(0.11, "bandpass", 1350, 320, 1.8, 0.20, 0, 0, "combat", true);
+        this.playSweepTone(180, 72, "sine", 0.09, 0.15, 0, 0, "combat");
+        this.playFMClang(587.33, 2.0, 220, 0.12, 0.10, 0.01, 0, "combat", 880);
+      }
+    };
+
+    // 💀 斬殺小怪、精英與處決首領專屬多層次割草音效
+    audio.playMonsterKill = function(killStyle = "slash_bisect", isBoss = false, isElite = false, combo = 1, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const nowMs = performance.now();
+      if (!isBoss && nowMs - this._lastKillSfxAt < 38) return;
+      this._lastKillSfxAt = nowMs;
+
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const jitter = 0.96 + Math.random() * 0.08;
+      const pitchMult = (1 + Math.min(14, combo || 1) * 0.022) * jitter;
+
+      // 第 1 層：渾厚破甲斬裂重擊
+      this.playFilteredNoise(isElite ? 0.13 : 0.085, "bandpass", 1580 * pitchMult, 280, 1.8, (isElite ? 0.28 : 0.21) * distGain, 0, pan, "combat", true);
+      this.playSweepTone(185 * pitchMult, 42, "sine", isElite ? 0.13 : 0.09, (isElite ? 0.26 : 0.19) * distGain, 0, pan, "combat");
+
+      // 第 2 層：六大元素／兵器處決共鳴尾音
+      if (killStyle === "frost_shatter") {
+        this.playFMClang(1174.66 * pitchMult, 2.76, 520, 0.15, 0.13 * distGain, 0.015, pan, "combat", 1760 * pitchMult);
+      } else if (killStyle === "flame_incinerate") {
+        this.playFilteredNoise(0.15, "lowpass", 880, 130, 1.6, 0.24 * distGain, 0.01, pan, "combat", true);
+        this.playSweepTone(150, 42, "sawtooth", 0.13, 0.16 * distGain, 0.01, pan, "combat");
+      } else if (killStyle === "thunder_vaporize") {
+        this.playFMClang(980 * pitchMult, 3.14, 760, 0.12, 0.14 * distGain, 0.01, pan, "combat", 220);
+      } else if (killStyle === "cosmic_implode") {
+        this.playSweepTone(280, 880 * pitchMult, "triangle", 0.13, 0.14 * distGain, 0.01, pan, "combat");
+      } else if (killStyle === "nature_bloom") {
+        this.playFMClang(587.33 * pitchMult, 2.0, 260, 0.16, 0.13 * distGain, 0.01, pan, "combat", 880 * pitchMult);
+      } else {
+        this.playFMClang(783.99 * pitchMult, 2.41, 420, 0.13, 0.13 * distGain, 0.015, pan, "combat", 587.33 * pitchMult);
+      }
+
+      // 第 3 層：首領處決震天銅鑼與五聲凱旋鐘鳴
+      if (isBoss) {
+        this.triggerAudioDuck(0.20, 1.35);
+        this.playFilteredNoise(0.85, "bandpass", 880, 160, 1.2, 0.35, 0, 0, "threat", true);
+        [0, 0.15, 0.30].forEach((d, idx) => {
+          this.playSweepTone(130 - idx * 12, 32, "sine", 0.30, 0.36, d, 0, "threat");
+        });
+        const victoryScale = [293.66, 392.00, 440.00, 587.33, 783.99, 880.00, 1174.66];
         victoryScale.forEach((f, i) => {
-          this.playSweepTone(f, f * 1.01, "triangle", 0.45, 0.20, 0.18 + i * 0.08);
+          this.playFMClang(f, 2.0, 380, 0.50, 0.18, 0.18 + i * 0.07, (i - 3) * 0.18, "ui");
         });
       }
     };
 
-    // 🔥 18招武器絕技、6招通用神通与8招靈寵大招專屬施放音效
+    // 🔥 18招本命神兵絕技 (6武器 × 3槽位) 與 9招太初通用神通獨立專屬音效 (`playSkillCast`)
     audio.playSkillCast = function(skillCategory = "sword", slotIdx = 0) {
       if (this.isMuted) return;
       const cat = String(skillCategory || "");
-      if (cat.includes("sword") || cat.includes("frost")) {
-        // 萬劍齊飛／青蓮劍陣：清越劍鳴陣列 + 寒霜破空
-        this.playFilteredNoise(0.18, "bandpass", 2800, 750, 2.2, 0.24, 0);
-        [587.33, 880, 1174.66, 1760].slice(0, 2 + slotIdx).forEach((f, i) => {
-          this.playSweepTone(f, f * 1.25, "triangle", 0.18, 0.16, i * 0.045);
+      if (slotIdx >= 2 || cat.startsWith("uni_")) {
+        this.triggerAudioDuck(0.38, 0.48);
+      }
+
+      // A. 六大本命神兵 × 三招專屬絕技 (18種獨立聲學設計)
+      if (cat === "sword") {
+        if (slotIdx === 0) {
+          // 招式1【太乙青蓮劍陣】：蓮華綻放冰晶共鳴 + 旋風劍氣環
+          this.playFilteredNoise(0.22, "bandpass", 1400, 380, 2.0, 0.24, 0, 0, "combat", true);
+          [587.33, 783.99, 880.0, 1174.66].forEach((f, i) => {
+            this.playFMClang(f, 2.0, 360, 0.24, 0.16, i * 0.04, (i - 1.5) * 0.25, "combat");
+          });
+        } else if (slotIdx === 1) {
+          // 招式2【太初斷空巨劍】：巨劍蓄力破空貫穿音爆
+          this.playSweepTone(185, 42, "sine", 0.28, 0.30, 0, 0, "combat");
+          this.playFMClang(440, 2.41, 780, 0.32, 0.24, 0, 0, "combat", 880);
+          this.playFilteredNoise(0.26, "bandpass", 1800, 260, 1.8, 0.28, 0.02, 0, "combat", true);
+        } else {
+          // 招式3奧義【萬劍歸宗 · 誅仙劍雨】：仙門大開鐘鳴 + 漫天飛劍連環破空嘯音
+          this.playFMClang(293.66, 2.76, 520, 0.55, 0.24, 0, 0, "combat");
+          [587.33, 698.46, 880.0, 1046.5, 1174.66, 1396.91].forEach((f, i) => {
+            this.playFMClang(f, 2.41, 450, 0.18, 0.15, 0.06 + i * 0.045, (i % 2 === 0 ? -0.35 : 0.35), "combat", f * 0.65);
+          });
+        }
+      } else if (cat === "saber") {
+        if (slotIdx === 0) {
+          // 招式1【赤霄十字斬】：雙重狂刀交叉撕裂破風
+          this.playFilteredNoise(0.18, "lowpass", 1100, 160, 1.6, 0.28, 0, -0.25, "combat", true);
+          this.playFMClang(360, 1.85, 580, 0.18, 0.20, 0, -0.25, "combat", 160);
+          this.playFMClang(420, 1.85, 620, 0.20, 0.22, 0.065, 0.25, "combat", 180);
+        } else if (slotIdx === 1) {
+          // 招式2【血海修羅旋風】：狂暴血煞龍捲呼嘯 + 連環刀刃絞殺
+          this.playFilteredNoise(0.34, "bandpass", 920, 220, 1.5, 0.30, 0, 0, "combat", true);
+          [260, 310, 360].forEach((f, i) => {
+            this.playSweepTone(f, 58, "sawtooth", 0.18, 0.18, i * 0.07, (i - 1) * 0.3, "combat");
+          });
+        } else {
+          // 招式3奧義【修羅斷頭台 · 崩山裂地斬】：泰山壓頂重低音震波 + 熔岩爆裂巨響
+          this.playSweepTone(150, 26, "sine", 0.45, 0.38, 0, 0, "combat");
+          this.playFilteredNoise(0.38, "lowpass", 880, 95, 1.4, 0.34, 0.02, 0, "combat", true);
+          this.playFMClang(220, 2.76, 860, 0.42, 0.26, 0.01, 0, "combat", 98);
+        }
+      } else if (cat === "spear") {
+        if (slotIdx === 0) {
+          // 招式1【百鳥朝鳳連刺】：疾風驟雨連環槍芒點刺
+          [660, 784, 880, 1046.5].forEach((f, i) => {
+            this.playFMClang(f, 2.75, 480, 0.10, 0.16, i * 0.038, (i - 1.5) * 0.22, "combat", f * 0.5);
+          });
+          this.playFilteredNoise(0.18, "bandpass", 1950, 420, 2.2, 0.24, 0, 0, "combat");
+        } else if (slotIdx === 1) {
+          // 招式2【蒼龍破陣鑽】：蒼龍長吟 + 螺旋破甲音爆
+          this.playSweepTone(240, 720, "sawtooth", 0.22, 0.18, 0, 0, "combat");
+          this.playSweepTone(180, 42, "sine", 0.26, 0.28, 0.04, 0, "combat");
+          this.playFilteredNoise(0.24, "bandpass", 1600, 320, 1.8, 0.26, 0.02, 0, "combat", true);
+        } else {
+          // 招式3奧義【紫微星河天柱陣】：六道星辰天柱轟然降臨共鳴
+          this.playSweepTone(135, 32, "sine", 0.40, 0.34, 0, 0, "combat");
+          [440, 587.33, 698.46, 880, 1174.66].forEach((f, i) => {
+            this.playFMClang(f, 2.0, 520, 0.32, 0.17, i * 0.045, (i - 2) * 0.22, "combat");
+          });
+        }
+      } else if (cat === "chakram") {
+        if (slotIdx === 0) {
+          // 招式1【乾坤陰陽雙魚陣】：太極雙環交錯迴旋嗡鳴
+          this.playFMClang(440, 2.0, 320, 0.28, 0.18, 0, -0.25, "combat", 659.25);
+          this.playFMClang(659.25, 2.0, 320, 0.28, 0.18, 0.04, 0.25, "combat", 440);
+        } else if (slotIdx === 1) {
+          // 招式2【太虛噬星黑洞】：深淵引力塌縮低鳴
+          this.playSweepTone(320, 45, "sine", 0.38, 0.30, 0, 0, "combat");
+          this.playFMClang(196, 3.14, 480, 0.36, 0.20, 0.03, 0, "combat", 98);
+        } else {
+          // 招式3奧義【九曜連星彈射】：星輪高速連環折射金鳴
+          [587.33, 783.99, 987.77, 1174.66, 1567.98].forEach((f, i) => {
+            this.playFMClang(f, 2.41, 420, 0.16, 0.16, i * 0.036, (i % 2 === 0 ? -0.3 : 0.3), "combat");
+          });
+        }
+      } else if (cat === "cauldron") {
+        if (slotIdx === 0) {
+          // 招式1【三昧真火熔岩陣】：丹爐噴湧烈焰轟鳴
+          this.playFilteredNoise(0.30, "lowpass", 920, 140, 1.5, 0.30, 0, 0, "combat", true);
+          this.playSweepTone(160, 45, "sawtooth", 0.26, 0.24, 0, 0, "combat");
+        } else if (slotIdx === 1) {
+          // 招式2【九龍神火貫天砲】：九龍咆哮 + 烈焰光束齊射
+          this.playSweepTone(145, 34, "sine", 0.32, 0.32, 0, 0, "combat");
+          this.playFMClang(293.66, 2.76, 640, 0.30, 0.22, 0, 0, "combat", 587.33);
+          this.playFilteredNoise(0.28, "bandpass", 1350, 260, 1.6, 0.28, 0.02, 0, "combat", true);
+        } else {
+          // 招式3奧義【太上鎮獄神鼎天降】：萬鈞青銅巨鼎砸地巨響 + 震天鐘鳴
+          this.playSweepTone(125, 24, "sine", 0.48, 0.40, 0, 0, "combat");
+          this.playFMClang(196.0, 2.76, 820, 0.65, 0.28, 0, -0.15, "combat");
+          this.playFMClang(392.0, 2.0, 560, 0.55, 0.22, 0.03, 0.15, "combat");
+          this.playFilteredNoise(0.36, "lowpass", 780, 100, 1.4, 0.32, 0.02, 0, "combat", true);
+        }
+      } else if (cat === "banner") {
+        if (slotIdx === 0) {
+          // 招式1【九霄五雷轟頂】：連環落雷轟擊
+          this.playThunder();
+        } else if (slotIdx === 1) {
+          // 招式2【紫電神霄連鎖電網】：高壓電弧全場跳躍噼啪聲
+          [880, 1320, 1760, 1174.66].forEach((f, i) => {
+            this.playFMClang(f, 3.14, 920, 0.12, 0.16, i * 0.035, (i - 1.5) * 0.28, "combat", 240);
+          });
+          this.playFilteredNoise(0.20, "highpass", 1800, 520, 2.2, 0.24, 0, 0, "combat");
+        } else {
+          // 招式3奧義【太古雷神法相 · 雷獄天罰】：雷鼓震天 + 紫電風暴
+          this.playThunder();
+          this.playFMClang(293.66, 2.76, 680, 0.45, 0.22, 0.04, 0, "combat", 587.33);
+        }
+      } else if (cat === "uni_golden_dragon") {
+        // 🐉 皇極金龍護體：蒼龍吟嘯 + 金鐘護罡共鳴
+        this.playFMClang(293.66, 2.0, 480, 0.38, 0.22, 0, -0.2, "combat", 587.33);
+        this.playFMClang(587.33, 2.41, 420, 0.36, 0.20, 0.05, 0.2, "combat", 880.0);
+        this.playSweepTone(146.83, 48, "sine", 0.30, 0.26, 0, 0, "combat");
+      } else if (cat === "uni_star_meteor") {
+        // ☄️ 太古星隕天降：星辰呼嘯墜落 + 連環爆裂
+        this.playSweepTone(980, 62, "sawtooth", 0.32, 0.22, 0, -0.2, "combat");
+        this.playSweepTone(135, 28, "sine", 0.42, 0.34, 0.08, 0, "combat");
+        this.playFilteredNoise(0.32, "lowpass", 920, 110, 1.5, 0.30, 0.08, 0, "combat", true);
+      } else if (cat === "uni_frost_nova") {
+        // ❄️ 玄冥千里冰封：寒潮爆發 + 六稜冰晶凝結清鳴
+        this.playFilteredNoise(0.24, "bandpass", 1850, 420, 2.2, 0.24, 0, 0, "combat", true);
+        [880, 1174.66, 1567.98, 2093.0].forEach((f, i) => {
+          this.playFMClang(f, 2.76, 460, 0.22, 0.15, i * 0.032, (i - 1.5) * 0.25, "combat");
         });
-      } else if (cat.includes("saber") || cat.includes("crimson")) {
-        // 赤霄狂刀／斷頭台：重型裂地斬擊 + 血海轟鳴
-        this.playFilteredNoise(0.24, "lowpass", 1200, 130, 1.5, 0.32, 0);
-        this.playSweepTone(280, 42, "sawtooth", 0.25, 0.26, 0);
-        if (slotIdx >= 2) this.playSweepTone(110, 32, "sine", 0.38, 0.35, 0.06);
-      } else if (cat.includes("spear") || cat.includes("star") || cat.includes("dragon")) {
-        // 紫微星辰槍／蒼龍破陣：龍吟長嘯 + 破空穿刺
-        this.playFilteredNoise(0.20, "bandpass", 1900, 420, 2.0, 0.25, 0);
-        this.playSweepTone(440, 1320, "sawtooth", 0.16, 0.15, 0);
-        this.playSweepTone(1320, 660, "triangle", 0.22, 0.18, 0.08);
-      } else if (cat.includes("chakram") || cat.includes("void")) {
-        // 太極陰陽輪／乾坤黑洞：陰陽引力渦流共鳴
-        this.playSweepTone(196, 587.33, "sine", 0.26, 0.22, 0);
-        this.playSweepTone(392, 196, "triangle", 0.26, 0.18, 0.04);
-      } else if (cat.includes("cauldron")) {
-        // 九龍神火槍／鎮獄鼎：丹爐巨鼎轟鳴 + 九龍咆哮烈焰
-        this.playFilteredNoise(0.32, "lowpass", 980, 110, 1.3, 0.34, 0);
-        this.playSweepTone(150, 38, "sine", 0.32, 0.32, 0);
-        this.playSweepTone(520, 180, "sawtooth", 0.24, 0.18, 0.03);
-      } else if (cat.includes("banner") || cat.includes("thunder")) {
-        // 神霄天罰幡／五雷轟頂：九天落雷撕裂 + 雷鼓震響
+      } else if (cat === "uni_crimson_lotus") {
+        // 🔥 紅蓮業火焚世：業火紅蓮爆燃 + 熔岩沸騰
+        this.playFilteredNoise(0.34, "lowpass", 960, 120, 1.4, 0.32, 0, 0, "combat", true);
+        this.playSweepTone(196, 42, "sawtooth", 0.30, 0.26, 0, 0, "combat");
+      } else if (cat === "uni_chaos_thunder") {
+        // ⚡ 混沌神雷天罰：九天落雷 + 電磁脈衝
         this.playThunder();
-        this.playSweepTone(1960, 220, "sawtooth", 0.18, 0.18, 0.02);
+      } else if (cat === "uni_void_blackhole") {
+        // 🌌 歸墟引力奇點：深空引力坍縮嗡鳴
+        this.playSweepTone(280, 36, "sine", 0.42, 0.32, 0, 0, "combat");
+        this.playFMClang(146.83, 3.14, 520, 0.40, 0.20, 0.02, 0, "combat", 73.42);
+      } else if (cat === "uni_myriad_swords") {
+        // 🗡️ 萬劍歸宗天瀑：萬劍齊發破空交響
+        [587.33, 783.99, 880, 1174.66, 1567.98].forEach((f, i) => {
+          this.playFMClang(f, 2.41, 480, 0.20, 0.16, i * 0.035, (i - 2) * 0.25, "combat", f * 0.6);
+        });
+        this.playFilteredNoise(0.26, "bandpass", 1650, 380, 2.0, 0.26, 0, 0, "combat", true);
+      } else if (cat === "uni_taiji_grinder") {
+        // ☯️ 乾坤太極絞殺陣：陰陽磨盤重低音轉動 + 金鐵旋刃
+        this.playFMClang(392, 2.0, 460, 0.32, 0.20, 0, -0.2, "combat", 587.33);
+        this.playFMClang(587.33, 2.41, 460, 0.32, 0.20, 0.04, 0.2, "combat", 392);
+      } else if (cat === "uni_asura_scythe") {
+        // 🩸 修羅泣血死神鐮：巨鐮橫掃裂風 + 噬魂低鳴
+        this.playFilteredNoise(0.26, "lowpass", 1100, 150, 1.6, 0.32, 0, 0, "combat", true);
+        this.playFMClang(260, 1.85, 680, 0.28, 0.24, 0, 0, "combat", 110);
+        this.playSweepTone(140, 34, "sine", 0.28, 0.30, 0.01, 0, "combat");
       } else {
         this.playSwordClash();
       }
     };
 
-    // 👹 BOSS 震撼出場與二階段狂暴覺醒專屬音效（蒼涼號角 + 鎮獄銅鑼 + 三連戰鼓 + 九霄落雷）
+    // 🐾 六大山海靈寵普攻與 🌟T4 太古聖獸覺醒大招專屬音效
+    audio.playPetAttackSfx = function(petId = "fox", tier = 1, isT4 = false, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const nowMs = performance.now();
+      if (nowMs - this._lastPetAtkSfxAt < 140) return;
+      this._lastPetAtkSfxAt = nowMs;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const g = (isT4 ? 0.11 : 0.075) * distGain;
+
+      if (petId === "fox") {
+        this.playFMClang(659.25, 2.0, 220, 0.10, g, 0, pan, "combat", 880);
+      } else if (petId === "turtle") {
+        this.playFMClang(783.99, 2.76, 260, 0.10, g, 0, pan, "combat", 1046.5);
+      } else if (petId === "bird") {
+        this.playFMClang(987.77, 3.14, 420, 0.09, g, 0, pan, "combat", 440);
+      } else if (petId === "tiger") {
+        this.playFilteredNoise(0.07, "bandpass", 1600, 420, 2.0, g * 1.4, 0, pan, "combat", true);
+      } else if (petId === "dragon") {
+        this.playFMClang(523.25, 2.0, 340, 0.11, g, 0, pan, "combat", 783.99);
+      } else {
+        this.playFMClang(587.33, 2.0, 200, 0.11, g, 0, pan, "combat", 880);
+      }
+    };
+
+    audio.playPetUltimateSfx = function(petId = "fox", isT4 = false, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      if (isT4) this.triggerAudioDuck(0.42, 0.45);
+      if (petId === "fox") {
+        this.playFMClang(587.33, 2.0, 420, 0.28, 0.18 * distGain, 0, pan, "combat", 1174.66);
+        this.playFilteredNoise(0.24, "bandpass", 1200, 280, 1.6, 0.22 * distGain, 0.02, pan, "combat", true);
+      } else if (petId === "turtle") {
+        this.playSweepTone(196, 65, "sine", 0.34, 0.25 * distGain, 0, pan, "combat");
+        [783.99, 1046.5, 1567.98].forEach((f, i) => {
+          this.playFMClang(f, 2.76, 360, 0.20, 0.13 * distGain, i * 0.04, pan, "combat");
+        });
+      } else if (petId === "bird") {
+        this.playThunder();
+      } else if (petId === "tiger") {
+        this.playSweepTone(240, 52, "sawtooth", 0.28, 0.24 * distGain, 0, pan, "combat");
+        this.playSwordClash();
+      } else if (petId === "dragon") {
+        this.playFMClang(293.66, 2.0, 520, 0.34, 0.20 * distGain, 0, pan, "combat", 587.33);
+        this.playSweepTone(146.83, 44, "sine", 0.32, 0.24 * distGain, 0.04, pan, "combat");
+      } else {
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+          this.playFMClang(f, 2.0, 220, 0.28, 0.14 * distGain, i * 0.04, pan, "combat");
+        });
+      }
+    };
+
+    // ⚠️ 首領與精銳怪「蓄力鎖定預警音效 (Auditory Telegraph Cues)」
+    audio.playBossDashWindup = function(movePattern = "blade_lunge", worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      if (movePattern === "blade_lunge" || movePattern === "asura_zigzag_step") {
+        this.playFMClang(440, 2.41, 680, 0.26, 0.18 * distGain, 0, pan, "threat", 980);
+      } else if (movePattern === "wolf_arc_flank") {
+        this.playSweepTone(185, 420, "sawtooth", 0.28, 0.19 * distGain, 0, pan, "threat");
+        this.playFilteredNoise(0.22, "bandpass", 900, 1800, 2.0, 0.16 * distGain, 0.04, pan, "threat", true);
+      } else if (movePattern === "bear_juggernaut") {
+        this.playSweepTone(110, 320, "sine", 0.34, 0.26 * distGain, 0, pan, "threat");
+      } else if (movePattern === "thunder_line_charge") {
+        this.playFMClang(330, 3.14, 880, 0.28, 0.18 * distGain, 0, pan, "threat", 1320);
+      } else if (movePattern === "wraith_figure_eight") {
+        this.playFMClang(1174.66, 2.76, 420, 0.22, 0.16 * distGain, 0, pan, "threat");
+        this.playFMClang(1567.98, 2.76, 420, 0.24, 0.14 * distGain, 0.08, pan, "threat");
+      } else {
+        this.playFMClang(392, 2.41, 480, 0.24, 0.18 * distGain, 0, pan, "threat", 784);
+      }
+    };
+
+    // ⚠️ 地面危險預警生成提示音 (`hazardCircles` 出現瞬間)
+    audio.playTelegraphWarning = function(hazardType = "circle", subType = "", isBoss = false, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const nowMs = performance.now();
+      if (nowMs - this._lastTelegraphSfxAt < (isBoss ? 85 : 180)) return;
+      this._lastTelegraphSfxAt = nowMs;
+
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const baseG = (isBoss ? 0.15 : 0.09) * distGain;
+
+      if (hazardType === "line") {
+        this.playFMClang(659.25, 2.0, 320, 0.10, baseG, 0, pan, "threat", 987.77);
+      } else if (hazardType === "cone") {
+        this.playSweepTone(260, 520, "sawtooth", 0.14, baseG, 0, pan, "threat");
+      } else if (hazardType === "ring_wave") {
+        this.playSweepTone(95, 190, "sine", 0.16, baseG * 1.2, 0, pan, "threat");
+      } else {
+        this.playFMClang(587.33, 2.0, 260, 0.10, baseG, 0, pan, "threat", 880);
+      }
+    };
+
+    // 💥 地面危險預警倒數結束「實體引爆音效 (`hc.life <= 0`)」
+    audio.playHazardDetonation = function(hazardType = "circle", subType = "", isBoss = false, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const nowMs = performance.now();
+      if (nowMs - this._lastHazardBoomAt < (isBoss ? 55 : 110)) return;
+      this._lastHazardBoomAt = nowMs;
+
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const g = (isBoss ? 0.24 : 0.16) * distGain;
+
+      if (hazardType === "line") {
+        this.playFilteredNoise(0.18, "bandpass", 1800, 320, 2.0, g, 0, pan, "threat", true);
+        this.playFMClang(440, 2.41, 580, 0.18, g * 0.85, 0, pan, "threat", 110);
+      } else if (hazardType === "cone") {
+        this.playFilteredNoise(0.20, "lowpass", 1200, 180, 1.6, g * 1.1, 0, pan, "threat", true);
+        this.playSweepTone(240, 52, "sawtooth", 0.19, g * 0.9, 0, pan, "threat");
+      } else if (hazardType === "ring_wave") {
+        this.playSweepTone(125, 32, "sine", 0.28, g * 1.25, 0, pan, "threat");
+        this.playFilteredNoise(0.24, "lowpass", 680, 110, 1.4, g, 0, pan, "threat", true);
+      } else if (subType === "thunder_pillar") {
+        this.playSweepTone(135, 38, "sine", 0.24, g * 1.15, 0, pan, "threat");
+        this.playFilteredNoise(0.18, "highpass", 1600, 420, 2.0, g, 0, pan, "threat");
+      } else if (subType === "ice_trap") {
+        this.playFMClang(1174.66, 2.76, 480, 0.16, g * 0.85, 0, pan, "threat", 587.33);
+      } else if (subType === "sword_rain") {
+        this.playFMClang(880, 2.41, 520, 0.16, g * 0.9, 0, pan, "threat", 392);
+      } else {
+        this.playSweepTone(140, 36, "sine", 0.24, g * 1.1, 0, pan, "threat");
+        this.playFilteredNoise(0.20, "lowpass", 920, 140, 1.5, g, 0, pan, "threat", true);
+      }
+    };
+
+    // 👑 十波巨型 BOSS 施放 30 式招牌奧義大招專屬音效 (`v42_boss_sig_vfx`)
+    audio.playBossSkillCast = function(bossPattern = "blade_lunge", skillSlot = 0, isEnraged = false, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      this.triggerAudioDuck(isEnraged ? 0.28 : 0.36, 0.60);
+      const g = (isEnraged ? 0.28 : 0.22) * distGain;
+
+      this.playSweepTone(isEnraged ? 135 : 110, 32, "sine", 0.35, g * 1.2, 0, pan, "threat");
+
+      if (bossPattern === "blade_lunge" || bossPattern === "asura_zigzag_step") {
+        this.playFilteredNoise(0.28, "bandpass", 1800, 360, 2.0, g, 0, pan, "threat", true);
+        [392, 587.33, 783.99].forEach((f, i) => {
+          this.playFMClang(f, 2.41, 620, 0.20, g * 0.75, i * 0.05, pan, "threat", f * 0.45);
+        });
+      } else if (bossPattern === "wolf_arc_flank") {
+        this.playSweepTone(293.66, 659.25, "sawtooth", 0.22, g * 0.85, 0, pan, "threat");
+        this.playSweepTone(659.25, 220, "triangle", 0.28, g * 0.8, 0.16, pan, "threat");
+      } else if (bossPattern === "bear_juggernaut") {
+        this.playFilteredNoise(0.36, "lowpass", 780, 95, 1.4, g * 1.2, 0, pan, "threat", true);
+        this.playSweepTone(180, 38, "sawtooth", 0.34, g, 0, pan, "threat");
+      } else if (bossPattern === "titan_shield_march") {
+        this.playFMClang(220, 2.76, 780, 0.30, g * 0.85, 0, pan, "threat", 880);
+        this.playSweepTone(880, 90, "triangle", 0.26, g * 0.9, 0.16, pan, "threat");
+      } else if (bossPattern === "scorpion_crab_strafe") {
+        this.playFilteredNoise(0.34, "bandpass", 1100, 220, 1.6, g * 1.1, 0, pan, "threat", true);
+        this.playSweepTone(340, 82, "sawtooth", 0.30, g * 0.85, 0.04, pan, "threat");
+      } else if (bossPattern === "wraith_figure_eight") {
+        [783.99, 932.33, 1174.66].forEach((f, i) => {
+          this.playFMClang(f, 2.76, 480, 0.34, g * 0.65, i * 0.05, pan, "threat");
+        });
+      } else if (bossPattern === "thunder_line_charge") {
+        this.playThunder();
+      } else if (bossPattern === "empress_spiral_waltz") {
+        [587.33, 698.46, 880.0, 1174.66].forEach((f, i) => {
+          this.playFMClang(f, 2.0, 380, 0.28, g * 0.72, i * 0.045, pan, "threat");
+        });
+      } else {
+        this.playThunder();
+        [146.83, 220.0, 293.66, 440.0, 587.33].forEach((f, i) => {
+          this.playFMClang(f, 2.76, 620, 0.42, g * 0.68, i * 0.04, pan, "threat");
+        });
+      }
+    };
+
+    audio.playSuicideTickSfx = function(remFrames = 60, worldX, worldY, playerX) {
+      if (this.isMuted) return;
+      const { pan, distGain } = this.getSpatialParams(worldX, worldY, playerX);
+      const urgency = Math.max(0, Math.min(1, 1 - remFrames / 100));
+      const freq = 680 + urgency * 780;
+      this.playFMClang(freq, 2.0, 240, 0.06, (0.09 + urgency * 0.08) * distGain, 0, pan, "threat");
+    };
+
+    // 👹 BOSS 震撼出場與二階段狂暴覺醒專屬音效（蒼涼號角 + 鎮獄青銅大鑼 + 三連大堂鼓 + BGM 壓限）
     audio.playBossSpawn = function(bossName = "", isEnrage = false) {
       if (this.isMuted) return;
       this.init();
       if (!this.ctx) return;
+      this.triggerAudioDuck(0.18, 1.25);
 
-      // 1. 連環三聲鎮獄牛皮大堂鼓 (Taiko War Drum Roll)
-      [0, 0.15, 0.30].forEach((delay, i) => {
-        this.playSweepTone(i === 2 ? 135 : 105, 32, "sine", 0.28, 0.38, delay);
-        this.playFilteredNoise(0.12, "lowpass", 420, 90, 1.5, 0.25, delay);
+      [0, 0.16, 0.32].forEach((delay, i) => {
+        this.playSweepTone(i === 2 ? 140 : 108, 30, "sine", 0.30, 0.38, delay, (i - 1) * 0.25, "threat");
+        this.playFilteredNoise(0.14, "lowpass", 460, 90, 1.5, 0.25, delay, 0, "threat", true);
       });
 
-      // 2. 震天青銅大鑼 (Metallic Bronze Gong Crash)
-      const gongFreqs = [196.0, 277.18, 415.3, 587.33, 830.6];
+      const gongFreqs = [196.0, 277.18, 415.3, 587.33];
       gongFreqs.forEach((gf, idx) => {
-        this.playSweepTone(gf, gf * 0.985, idx % 2 === 0 ? "triangle" : "sawtooth", 0.95, 0.12 / (idx * 0.5 + 1), 0.32);
+        this.playFMClang(gf, 2.76, 680, 0.95, 0.14 / (idx * 0.5 + 1), 0.32, 0, "threat");
       });
-      this.playFilteredNoise(0.75, "bandpass", 1250, 260, 1.4, 0.28, 0.32);
-
-      // 3. 蒼涼魔域低音號角 (Menacing Brass Horn Swell)
-      this.playSweepTone(isEnrage ? 146.83 : 110.0, isEnrage ? 220.0 : 146.83, "sawtooth", 0.68, 0.20, 0.12);
+      this.playFilteredNoise(0.75, "bandpass", 1150, 240, 1.4, 0.26, 0.32, 0, "threat", true);
+      this.playSweepTone(isEnrage ? 146.83 : 110.0, isEnrage ? 293.66 : 146.83, "sawtooth", 0.68, 0.22, 0.12, 0, "threat");
     };
 
-    // 💎 拾取經驗靈珠、蟠桃、金丹、神錘之清脆五聲玉磬音
-    audio.playGemPickup = function(isSpecial = false) {
+    // 💎 拾取經驗靈珠與 8 大仙珍差異化音效（採用古琴泛音 + 崑崙玉磬 FM 共鳴，徹底告別單調正弦波嗶聲）
+    audio.playGemPickup = function(isSpecial = false, gemObj = null) {
       if (this.isMuted) return;
       const nowMs = performance.now();
-      if (!isSpecial && nowMs - this._lastGemSfxAt < 48) return;
-      if (nowMs - this._lastGemSfxAt > 600) this._gemStreak = 0;
+      if (!isSpecial && nowMs - this._lastGemSfxAt < 46) return;
+      if (nowMs - this._lastGemSfxAt > 650) this._gemStreak = 0;
       this._lastGemSfxAt = nowMs;
 
-      const jadeScale = [587.33, 659.25, 783.99, 880.0, 1046.5, 1174.66, 1318.5, 1567.98];
-      const noteFreq = jadeScale[this._gemStreak % jadeScale.length];
+      // 12 階跨雙八度五聲古琴泛音與玉磬音階 (D, F, G, A, C)
+      const jadeScale = [
+        293.66, 349.23, 392.00, 440.00, 523.25,
+        587.33, 698.46, 783.99, 880.00, 1046.50,
+        1174.66, 1396.91
+      ];
+      const idx = this._gemStreak % jadeScale.length;
+      const noteFreq = jadeScale[idx];
       this._gemStreak++;
 
-      if (isSpecial) {
-        this.playSweepTone(880, 1318.5, "triangle", 0.18, 0.18, 0);
-        this.playSweepTone(1318.5, 1760, "sine", 0.24, 0.16, 0.06);
+      if (!isSpecial) {
+        const pan = ((idx % 5) - 2) * 0.15;
+        // 溫潤古琴泛音 + 三倍頻玉磬清響
+        this.playFMClang(noteFreq, 3.0, noteFreq * 0.42, 0.14, 0.095, 0, pan, "ui");
+        if (this._gemStreak % 3 === 0) {
+          this.playFMClang(noteFreq * 1.5, 2.0, noteFreq * 0.3, 0.16, 0.055, 0.02, -pan, "ui");
+        }
+        return;
+      }
+
+      const g = gemObj || {};
+      if (g.isChest || g.isMiniBossTrophy) {
+        this.triggerAudioDuck(0.42, 0.55);
+        [293.66, 392.00, 440.00, 587.33, 783.99, 1174.66].forEach((f, i) => {
+          this.playFMClang(f, 2.0, 380, 0.36, 0.16, i * 0.045, (i - 2.5) * 0.18, "ui");
+        });
+      } else if (g.isHammer) {
+        // 🔨 神鍛仙錘：真實百煉鐵砧打鐵鏗鏘聲
+        this.playFMClang(987.77, 2.76, 920, 0.28, 0.20, 0, 0, "ui");
+        this.playFMClang(1975.5, 2.41, 640, 0.32, 0.14, 0.008, 0, "ui");
+        this.playSweepTone(160, 48, "sine", 0.14, 0.22, 0, 0, "ui");
+      } else if (g.isPeach) {
+        [392.0, 440.0, 587.33, 783.99].forEach((f, i) => {
+          this.playFMClang(f, 2.0, 220, 0.26, 0.14, i * 0.04, 0, "ui");
+        });
+      } else if (g.isAlchemyPill) {
+        this.playFilteredNoise(0.14, "bandpass", 1100, 380, 1.8, 0.16, 0, 0, "ui", true);
+        this.playFMClang(440, 2.0, 340, 0.24, 0.16, 0, -0.15, "ui", 659.25);
+        this.playFMClang(659.25, 2.0, 340, 0.28, 0.15, 0.055, 0.15, "ui", 880.0);
+      } else if (g.isMagnetOrb) {
+        this.playSweepTone(293.66, 880, "sine", 0.24, 0.15, 0, -0.25, "ui");
+        this.playFMClang(587.33, 2.0, 320, 0.26, 0.14, 0.04, 0.25, "ui", 1174.66);
+      } else if (g.isBeastSoulOrb) {
+        this.playFMClang(587.33, 2.0, 360, 0.24, 0.16, 0, -0.15, "ui", 880);
+        this.playFMClang(880.0, 2.0, 360, 0.28, 0.14, 0.05, 0.15, "ui", 1174.66);
       } else {
-        this.playSweepTone(noteFreq, noteFreq * 1.02, "sine", 0.085, 0.09, 0);
+        this.playFMClang(587.33, 2.0, 300, 0.22, 0.15, 0, 0, "ui", 880);
+      }
+    };
+    audio.playJadeGemPickup = function() {
+      this.playGemPickup(false);
+    };
+
+    audio.playWaveClearFanfare = function() {
+      if (this.isMuted) return;
+      this.triggerAudioDuck(0.40, 0.75);
+      const scale = [293.66, 392.0, 440.0, 587.33, 783.99, 880.0];
+      scale.forEach((f, idx) => {
+        this.playFMClang(f, 2.0, 340, 0.45, 0.16, idx * 0.06, (idx - 2.5) * 0.18, "ui");
+      });
+    };
+
+    audio.playRegionActivate = function(regionId = "pond") {
+      if (this.isMuted) return;
+      this.triggerAudioDuck(0.42, 0.55);
+      const chords = {
+        pond: [392.0, 523.25, 659.25, 783.99, 1046.5],
+        cliff: [293.66, 440, 587.33, 880, 1174.66],
+        forest: [349.23, 440, 587.33, 698.46, 880],
+        furnace: [329.63, 440, 587.33, 659.25, 987.77]
+      };
+      const notes = chords[regionId] || chords.pond;
+      this.playSweepTone(115, 38, "sine", 0.45, 0.30, 0, 0, "combat");
+      this.playFilteredNoise(0.35, "bandpass", 1400, 320, 1.8, 0.22, 0, 0, "combat", true);
+      notes.forEach((f, idx) => {
+        this.playFMClang(f, 2.0, 360, 0.42, 0.16, idx * 0.055, (idx - 2) * 0.2, "ui");
+      });
+    };
+
+    audio.playLowHpHeartbeat = function() {
+      if (this.isMuted) return;
+      const nowMs = performance.now();
+      if (nowMs - this._lastHeartbeatAt < 820) return;
+      this._lastHeartbeatAt = nowMs;
+      this.playSweepTone(72, 32, "sine", 0.16, 0.26, 0, 0, "threat");
+      this.playSweepTone(64, 28, "sine", 0.18, 0.20, 0.19, 0, "threat");
+    };
+
+    audio.syncCombatAudioDirector = function(state) {
+      if (!state || !state.player) return;
+      this.sceneMode = "combat";
+      this.activeStageId = state.v52StageId || "bamboo_temple";
+      this.waveIndex = state.waveIndex || 0;
+      this.playerWorldX = state.player.x;
+      this.playerWorldY = state.player.y;
+      this.mobCount = (state.enemies && state.enemies.length) || 0;
+      this.comboCount = state.combo || 0;
+      this.frenzyActive = Boolean(state.v52FrenzyTimer && state.v52FrenzyTimer > 0);
+      this.waveClearActive = Boolean(state.waveClearCountdown && state.waveClearCountdown > 0);
+      this.lowHpRatio = state.player.hp / Math.max(1, state.player.maxHp);
+
+      let hasBoss = false;
+      let hasEnragedBoss = false;
+      if (state.enemies) {
+        for (let i = 0; i < state.enemies.length; i++) {
+          const en = state.enemies[i];
+          if (!en || en.hp <= 0) continue;
+          if (en.type === "boss") {
+            hasBoss = true;
+            if (en.enraged) hasEnragedBoss = true;
+            if (this._seenBossWindups) {
+              const prevPhase = this._seenBossWindups.get(en);
+              if (en.stepPhase !== prevPhase) {
+                this._seenBossWindups.set(en, en.stepPhase);
+                if (en.stepPhase === "windup" || (en.stepPhase === "execute" && prevPhase === "chase")) {
+                  this.playBossDashWindup(en.movePattern, en.x, en.y, state.player.x);
+                }
+              }
+            }
+          }
+          if (en.isSuiciding && en.suicideTimer > 0 && en.suicideTimer % 18 === 0) {
+            this.playSuicideTickSfx(en.suicideTimer, en.x, en.y, state.player.x);
+          }
+        }
+      }
+      this.bossModeActive = hasBoss;
+      this.bossEnragedActive = hasEnragedBoss;
+
+      if (this.ctx && this.bgmFilter) {
+        try {
+          const targetCutoff = (this.lowHpRatio <= 0.30 && !state.battleEnded) ? 1650 : (state.paused ? 1200 : 16500);
+          this.bgmFilter.frequency.setTargetAtTime(targetCutoff, this.ctx.currentTime, 0.15);
+        } catch (_e) {}
+      }
+      if (this.lowHpRatio > 0 && this.lowHpRatio <= 0.30 && !state.paused && !state.battleEnded) {
+        this.playLowHpHeartbeat();
+      }
+
+      if (this._seenHazards && state.hazardCircles) {
+        for (let i = 0; i < state.hazardCircles.length; i++) {
+          const hc = state.hazardCircles[i];
+          if (hc && !this._seenHazards.has(hc)) {
+            this._seenHazards.add(hc);
+            this.playTelegraphWarning(hc.hazardType, hc.subType, Boolean(hc.isBossHazard), hc.x, hc.y, state.player.x);
+          }
+        }
+      }
+
+      if (this._seenEffects && state.skillEffects) {
+        for (let i = 0; i < state.skillEffects.length; i++) {
+          const ef = state.skillEffects[i];
+          if (!ef) continue;
+          const vt = String(ef.vfxType || "");
+
+          if (vt === "v43_boss_rotating_laser") {
+            const warmup = Math.max(76, ef.warmupFrames || 82);
+            const elapsed = (ef.maxLife || 220) - ef.life;
+            if (elapsed === warmup && !ef._beamAudioFired) {
+              ef._beamAudioFired = true;
+              const { pan, distGain } = this.getSpatialParams(ef.x, ef.y, state.player.x);
+              this.triggerAudioDuck(0.35, 0.55);
+              this.playFilteredNoise(0.32, "bandpass", 1800, 380, 2.2, 0.26 * distGain, 0, pan, "threat", true);
+              this.playFMClang(660, 2.41, 680, 0.32, 0.24 * distGain, 0, pan, "threat", 165);
+            }
+          }
+
+          if (this._seenEffects.has(ef)) continue;
+          this._seenEffects.add(ef);
+
+          if (vt === "v42_boss_sig_vfx") {
+            this.playBossSkillCast(ef.bossPattern, ef.skillSlot, Boolean(ef.enraged), ef.x, ef.y, state.player.x);
+          } else if (vt === "v43_boss_rotating_laser") {
+            const { pan, distGain } = this.getSpatialParams(ef.x, ef.y, state.player.x);
+            this.playSweepTone(220, 880, "sine", 0.45, 0.18 * distGain, 0, pan, "threat");
+          } else if (vt === "v43_boss_gravity_well") {
+            const { pan, distGain } = this.getSpatialParams(ef.x, ef.y, state.player.x);
+            this.playSweepTone(392, 110, "triangle", 0.34, 0.18 * distGain, 0, pan, "threat");
+          } else if (vt === "v42_pet_atk_vfx") {
+            this.playPetAttackSfx(ef.petId, ef.tier, ef.isT4, ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_fox_")) {
+            this.playPetUltimateSfx("fox", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_turtle_")) {
+            this.playPetUltimateSfx("turtle", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_bird_")) {
+            this.playPetUltimateSfx("bird", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_deer_")) {
+            this.playPetUltimateSfx("deer", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_tiger_")) {
+            this.playPetUltimateSfx("tiger", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt.startsWith("pet_dragon_")) {
+            this.playPetUltimateSfx("dragon", vt.includes("_t4_"), ef.x, ef.y, state.player.x);
+          } else if (vt === "enemy_demon_flame_cleave" && ef.r && ef.r >= 50) {
+            const { pan, distGain } = this.getSpatialParams(ef.x, ef.y, state.player.x);
+            this.playSweepTone(130, 32, "sine", 0.28, 0.28 * distGain, 0, pan, "threat");
+            this.playFilteredNoise(0.24, "lowpass", 920, 120, 1.5, 0.26 * distGain, 0, pan, "threat", true);
+          } else if (vt === "v42_mob_skill_vfx" && ef.mobSkill === "guardian_quake") {
+            const { pan, distGain } = this.getSpatialParams(ef.x, ef.y, state.player.x);
+            this.playSweepTone(115, 36, "sine", 0.22, 0.20 * distGain, 0, pan, "threat");
+          }
+        }
       }
     };
 
-    // ⛩️ 四大秘境共鳴陣壇啟動音效
-    audio.playRegionActivate = function(regionId = "pond") {
-      if (this.isMuted) return;
-      const chords = {
-        pond: [523.25, 659.25, 783.99, 1046.5, 1567.98],
-        cliff: [440, 587.33, 880, 1174.66, 1760],
-        forest: [392, 493.88, 587.33, 783.99, 1174.66],
-        furnace: [329.63, 440, 659.25, 880, 1318.5]
-      };
-      const notes = chords[regionId] || chords.pond;
-      this.playSweepTone(110, 42, "sine", 0.45, 0.32, 0);
-      this.playFilteredNoise(0.35, "bandpass", 1600, 380, 1.8, 0.25, 0);
-      notes.forEach((f, idx) => {
-        this.playSweepTone(f, f * 1.01, "triangle", 0.42, 0.18, idx * 0.055);
-      });
-    };
-
-    // 🎵 四軌國風武俠疾風背景音樂合成器（古箏/琵琶五聲輪指 + 竹笛副歌 + 堂鼓木魚戰拍 + BOSS十面埋伏變奏）
-    audio.playGuzhengPluck = function(freq, duration = 0.26, gainVal = 0.085) {
-      if (this.isMuted || !this.bgmPlaying) return;
+    // 🎵 三泛音古箏／琵琶／編鐘撥弦合成器 (`playGuzhengPluck` — 含撥片瞬態擦弦噪聲 + 滑音韻味 + 立體聲空間迴音)
+    audio.playGuzhengPluck = function(freq, duration = 0.34, gainVal = 0.085, pan = 0, timbre = "guzheng", delaySec = 0) {
+      if (this.isMuted || this._activeVoiceCount >= this._maxPolyphony) return;
       this.init();
       if (!this.ctx) return;
       try {
-        const now = this.ctx.currentTime;
-        // 主弦音 (Triangle) + 倍頻泛音 (Sine) 模擬古箏/琵琶撥弦音色
+        this._activeVoiceCount++;
+        const now = this.ctx.currentTime + delaySec;
         const osc1 = this.ctx.createOscillator();
         const osc2 = this.ctx.createOscillator();
+        const osc3 = this.ctx.createOscillator();
         const g1 = this.ctx.createGain();
         const g2 = this.ctx.createGain();
+        const g3 = this.ctx.createGain();
 
-        osc1.type = "triangle";
-        osc1.frequency.setValueAtTime(freq, now);
-        osc2.type = "sine";
-        osc2.frequency.setValueAtTime(freq * 2, now);
+        if (timbre === "pipa") {
+          // 琵琶殺伐掃弦：微滑音起手 + 2倍/3倍金屬泛音
+          osc1.type = "sawtooth";
+          osc2.type = "triangle";
+          osc3.type = "sine";
+          osc1.frequency.setValueAtTime(freq * 1.025, now);
+          osc1.frequency.exponentialRampToValueAtTime(freq, now + 0.018);
+          osc2.frequency.setValueAtTime(freq * 2, now);
+          osc3.frequency.setValueAtTime(freq * 3, now);
+          g1.gain.setValueAtTime(0.0008, now);
+          g1.gain.linearRampToValueAtTime(gainVal * 0.72, now + 0.004);
+          g1.gain.exponentialRampToValueAtTime(0.0008, now + duration * 0.85);
+        } else if (timbre === "jade_bell") {
+          // 崑崙編鐘玉磬：純淨基音 + 2.76倍青銅泛音
+          osc1.type = "sine";
+          osc2.type = "triangle";
+          osc3.type = "sine";
+          osc1.frequency.setValueAtTime(freq, now);
+          osc2.frequency.setValueAtTime(freq * 2.0, now);
+          osc3.frequency.setValueAtTime(freq * 2.76, now);
+          g1.gain.setValueAtTime(0.0008, now);
+          g1.gain.linearRampToValueAtTime(gainVal * 0.88, now + 0.004);
+          g1.gain.exponentialRampToValueAtTime(0.0008, now + duration * 1.35);
+        } else {
+          // 仙門古箏／古琴：按弦微吟滑音 (Pitch Grace Ornament) + 豐滿三泛音共鳴箱
+          osc1.type = "triangle";
+          osc2.type = "sine";
+          osc3.type = "sine";
+          osc1.frequency.setValueAtTime(freq * 0.982, now);
+          osc1.frequency.exponentialRampToValueAtTime(freq, now + 0.024);
+          osc2.frequency.setValueAtTime(freq * 2, now);
+          osc3.frequency.setValueAtTime(freq * 3, now);
+          g1.gain.setValueAtTime(0.0008, now);
+          g1.gain.linearRampToValueAtTime(gainVal, now + 0.005);
+          g1.gain.exponentialRampToValueAtTime(0.0008, now + duration * 1.15);
+        }
 
-        g1.gain.setValueAtTime(0.001, now);
-        g1.gain.linearRampToValueAtTime(gainVal, now + 0.005);
-        g1.gain.exponentialRampToValueAtTime(0.0008, now + duration);
-
-        g2.gain.setValueAtTime(0.001, now);
+        g2.gain.setValueAtTime(0.0008, now);
         g2.gain.linearRampToValueAtTime(gainVal * 0.45, now + 0.004);
-        g2.gain.exponentialRampToValueAtTime(0.0008, now + duration * 0.55);
+        g2.gain.exponentialRampToValueAtTime(0.0008, now + duration * 0.65);
 
-        osc1.connect(g1); g1.connect(this.ctx.destination);
-        osc2.connect(g2); g2.connect(this.ctx.destination);
-        osc1.start(now); osc1.stop(now + duration + 0.01);
-        osc2.start(now); osc2.stop(now + duration * 0.6 + 0.01);
-      } catch (e) {}
+        g3.gain.setValueAtTime(0.0008, now);
+        g3.gain.linearRampToValueAtTime(gainVal * 0.22, now + 0.003);
+        g3.gain.exponentialRampToValueAtTime(0.0008, now + duration * 0.35);
+
+        const targetBus = this.getTargetBus("bgm");
+        let panner = null;
+        if (!this.monoDownmix && pan !== 0 && typeof this.ctx.createStereoPanner === "function") {
+          panner = this.ctx.createStereoPanner();
+          panner.pan.setValueAtTime(Math.max(-0.85, Math.min(0.85, pan)), now);
+          g1.connect(panner);
+          g2.connect(panner);
+          g3.connect(panner);
+          panner.connect(targetBus);
+        } else {
+          g1.connect(targetBus);
+          g2.connect(targetBus);
+          g3.connect(targetBus);
+        }
+
+        osc1.connect(g1);
+        osc2.connect(g2);
+        osc3.connect(g3);
+        osc1.onended = () => {
+          this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+          try {
+            osc1.disconnect(); osc2.disconnect(); osc3.disconnect();
+            g1.disconnect(); g2.disconnect(); g3.disconnect();
+            if (panner) panner.disconnect();
+          } catch (_e) {}
+        };
+        osc1.start(now); osc1.stop(now + duration * 1.35 + 0.01);
+        osc2.start(now); osc2.stop(now + duration * 0.70 + 0.01);
+        osc3.start(now); osc3.stop(now + duration * 0.40 + 0.01);
+      } catch (_e) {
+        this._activeVoiceCount = Math.max(0, this._activeVoiceCount - 1);
+      }
     };
 
+    // 🎼 全新重譜 64 拍四樂章國風武俠交響配樂 (`startWuxiaCombatBGM`)
     audio.startWuxiaCombatBGM = function() {
       if (this.isMuted) return false;
       this.init();
       if (!this.ctx) return false;
       if (this.bgmTimer) clearTimeout(this.bgmTimer);
       this.bgmPlaying = true;
+      this.syncBusVolumes();
 
-      // D羽調中國傳統五聲音階 (D, F, G, A, C) 跨八度武俠劍舞旋律譜
-      // 平時：瀟灑疾風江湖行（32拍循環）；BOSS在場時：自動切換急促琵琶《十面埋伏》煞音變奏
-      const melodyNormal = [
-        293.66, 349.23, 392.00, 440.00,  587.33, 440.00, 392.00, 349.23,
-        392.00, 440.00, 523.25, 587.33,  698.46, 587.33, 523.25, 440.00,
-        587.33, 698.46, 783.99, 880.00,  783.99, 698.46, 587.33, 440.00,
-        523.25, 440.00, 392.00, 349.23,  293.66, 349.23, 392.00, 440.00
+      // 1. 【太虛雲海 · 仙門靜修】(主標題與戰前整備 — 空靈古琴泛音與悠遠洞簫對答)
+      const melodySanctuary = [
+        440.00, 0, 587.33, 523.25,  440.00, 392.00, 349.23, 0,
+        293.66, 349.23, 392.00, 440.00,  587.33, 0, 523.25, 0,
+        698.46, 0, 587.33, 523.25,  440.00, 523.25, 392.00, 0,
+        349.23, 392.00, 440.00, 349.23,  293.66, 0, 220.00, 0
       ];
+
+      // 2. 【青玄劍歌 · 萬竹破陣】(竹影古剎 64 拍全新四樂章戰曲：開局拂弦引子 ➔ 疾風御劍 ➔ 劍氣縱橫 ➔ 太乙高潮)
+      const melodyBamboo64 = [
+        // 樂章一：開局古箏疾風破陣 (0~15)
+        587.33, 440.00, 587.33, 698.46,  783.99, 698.46, 587.33, 440.00,
+        523.25, 587.33, 698.46, 880.00,  783.99, 587.33, 440.00, 392.00,
+        // 樂章二：青霜御劍行雲流水 (16~31)
+        293.66, 392.00, 440.00, 587.33,  698.46, 587.33, 783.99, 880.00,
+        1046.50, 880.00, 783.99, 698.46, 587.33, 440.00, 523.25, 587.33,
+        // 樂章三：萬劍歸宗凌霄對決 (32~47)
+        880.00, 0, 783.99, 880.00,       1046.50, 880.00, 698.46, 587.33,
+        783.99, 0, 698.46, 783.99,       880.00, 698.46, 587.33, 440.00,
+        // 樂章四：太初道韻回環終章 (48~63)
+        523.25, 587.33, 698.46, 587.33,  440.00, 392.00, 349.23, 392.00,
+        440.00, 587.33, 698.46, 783.99,  587.33, 440.00, 349.23, 293.66
+      ];
+
+      // 竹笛／洞簫對位副歌旋律譜 (與主旋律形成瀟灑仙俠雙聲部合奏)
+      const fluteCounterBamboo64 = [
+        0, 0, 0, 0,                1174.66, 0, 880.00, 0,
+        0, 0, 1046.50, 0,          1174.66, 0, 0, 0,
+        587.33, 0, 0, 880.00,      0, 0, 1174.66, 0,
+        1396.91, 0, 1174.66, 0,    880.00, 0, 0, 0,
+        1174.66, 0, 0, 0,          1396.91, 0, 1046.50, 0,
+        1174.66, 0, 0, 0,          1318.51, 0, 880.00, 0,
+        783.99, 0, 880.00, 0,      698.46, 0, 587.33, 0,
+        880.00, 0, 1046.50, 0,     880.00, 0, 587.33, 0
+      ];
+
+      // 3. 【瑤池仙鋒 · 崑崙星河】(崑崙瑤池 — F宮調清越編鐘與瑤琴星河樂章)
+      const melodyKunlun = [
+        523.25, 659.25, 783.99, 880.00,  1046.50, 880.00, 783.99, 659.25,
+        587.33, 659.25, 783.99, 1046.50, 880.00, 783.99, 659.25, 523.25,
+        698.46, 783.99, 880.00, 1046.50, 1318.51, 1046.50, 880.00, 783.99,
+        659.25, 783.99, 659.25, 587.33,  523.25, 440.00, 392.00, 523.25
+      ];
+
+      // 4. 【修羅血劫 · 萬魔破陣】(修羅血淵 — A變徵暗黑殺伐琵琶戰曲)
+      const melodyAbyss = [
+        440.00, 523.25, 587.33, 622.25,  659.25, 622.25, 587.33, 523.25,
+        440.00, 659.25, 587.33, 523.25,  466.16, 523.25, 587.33, 440.00,
+        659.25, 783.99, 880.00, 932.33,  880.00, 783.99, 659.25, 587.33,
+        523.25, 466.16, 440.00, 392.00,  349.23, 392.00, 440.00, 587.33
+      ];
+
+      // 5. 【十面埋伏 · 魔尊死鬥】(首領戰急板琵琶掃弦與嗩吶殺伐變奏)
       const melodyBoss = [
-        440.00, 440.00, 523.25, 587.33,  698.46, 587.33, 523.25, 440.00,
         587.33, 587.33, 698.46, 783.99,  880.00, 783.99, 698.46, 587.33,
-        880.00, 783.99, 698.46, 587.33,  698.46, 587.33, 523.25, 440.00,
-        392.00, 440.00, 523.25, 392.00,  293.66, 293.66, 587.33, 440.00
+        698.46, 698.46, 783.99, 880.00,  1046.50, 880.00, 783.99, 698.46,
+        1174.66, 1046.50, 880.00, 783.99, 880.00, 783.99, 698.46, 587.33,
+        523.25, 587.33, 698.46, 523.25,  440.00, 392.00, 587.33, 440.00
       ];
-      const bassRoots = [146.83, 174.61, 196.00, 220.00];
+
+      const bassMap = {
+        sanctuary:     [146.83, 130.81, 174.61, 110.00],
+        bamboo_temple: [146.83, 196.00, 174.61, 220.00, 130.81, 174.61, 196.00, 146.83],
+        kunlun_jade:   [174.61, 220.00, 196.00, 261.63],
+        blood_abyss:   [110.00, 130.81, 116.54, 146.83],
+        boss_rush:     [110.00, 146.83, 164.81, 110.00]
+      };
 
       const stepLoop = () => {
         if (!this.bgmPlaying || this.isMuted) return;
-        const step = this._bgmStep % 32;
+        const step64 = this._bgmStep % 64;
+        const step32 = this._bgmStep % 32;
         this._bgmStep++;
 
-        const isBoss = Boolean(this.bossModeActive);
-        const stepMs = isBoss ? 155 : 195; // BOSS戰自動提速至激昂節奏
-
-        // 1. 古箏／琵琶主旋律
-        const leadNote = isBoss ? melodyBoss[step] : melodyNormal[step];
-        this.playGuzhengPluck(leadNote, isBoss ? 0.22 : 0.28, isBoss ? 0.075 : 0.068);
-
-        // 2. 低音古琴根音與堂鼓重拍 (每 4 拍與半拍切分)
-        if (step % 4 === 0) {
-          const bassNote = bassRoots[Math.floor(step / 8) % bassRoots.length];
-          this.playSweepTone(bassNote, bassNote * 0.99, "triangle", 0.42, 0.065, 0);
-          // 堂鼓低音擊打
-          this.playSweepTone(isBoss ? 105 : 88, 34, "sine", 0.14, isBoss ? 0.13 : 0.095, 0);
-        } else if (step % 2 === 1) {
-          // 江湖木魚／竹板清脆切分輕拍
-          this.playFilteredNoise(0.035, "bandpass", 1600, 900, 3.0, 0.04, 0);
+        let activeTheme = this.bgmThemeMode;
+        if (activeTheme === "auto") {
+          if (this.sceneMode === "sanctuary") {
+            activeTheme = "sanctuary";
+          } else if (this.bossModeActive) {
+            activeTheme = "boss_rush";
+          } else {
+            activeTheme = this.activeStageId || "bamboo_temple";
+          }
         }
 
-        // 3. 竹笛悠揚副旋律（每 8 拍長音點綴）
-        if (step % 8 === 4) {
-          this.playSweepTone(leadNote * 1.5, leadNote * 1.51, "sine", 0.52, 0.042, 0);
+        const isBoss = (activeTheme === "boss_rush") || Boolean(this.bossModeActive && this.bgmThemeMode === "auto");
+        const isEnraged = Boolean(this.bossEnragedActive && isBoss);
+        const isSanctuary = (activeTheme === "sanctuary") || Boolean(this.waveClearActive);
+        const isMidLateWave = (this.waveIndex || 0) >= 3;
+        const isHighFlow = Boolean(this.frenzyActive || (this.comboCount || 0) >= 15 || isMidLateWave);
+
+        // 動態節拍速度：仙門靜修 240ms ➔ 竹影疾風劍舞 172ms ➔ 連斬/中後期 156ms ➔ 首領一階 144ms ➔ 首領二階狂暴 128ms
+        let stepMs = 172;
+        if (isSanctuary) stepMs = 240;
+        else if (isEnraged) stepMs = 128;
+        else if (isBoss) stepMs = 144;
+        else if (isHighFlow) stepMs = 156;
+
+        let leadNote = 0;
+        let timbre = "guzheng";
+        if (isSanctuary) {
+          leadNote = melodySanctuary[step32];
+          timbre = "guzheng";
+        } else if (isBoss) {
+          leadNote = melodyBoss[step32];
+          timbre = "pipa";
+        } else if (activeTheme === "kunlun_jade") {
+          leadNote = melodyKunlun[step32];
+          timbre = "jade_bell";
+        } else if (activeTheme === "blood_abyss") {
+          leadNote = melodyAbyss[step32];
+          timbre = "pipa";
+        } else {
+          leadNote = melodyBamboo64[step64];
+          timbre = (step64 >= 32 && step64 < 48) ? "pipa" : "guzheng";
+        }
+
+        const panLead = Math.sin(step64 * 0.35) * 0.28;
+
+        // 軌道 1：主旋律三泛音撥弦 + 五度和聲伴奏
+        if (leadNote > 0) {
+          this.playGuzhengPluck(leadNote, isBoss ? 0.22 : 0.32, isBoss ? 0.082 : 0.075, panLead, timbre);
+          if (step64 % 4 === 0 && !isSanctuary) {
+            // 每小節強拍疊加低八度或五度古琴厚重和音
+            this.playGuzhengPluck(leadNote * 0.5, 0.38, 0.048, -panLead, "guzheng");
+          }
+          if ((isHighFlow || isEnraged) && step64 % 2 === 0) {
+            this.playGuzhengPluck(leadNote * 1.5, 0.16, 0.035, -panLead, timbre);
+          }
+        }
+
+        // 軌道 2：竹笛／洞簫 LFO 顫音副歌對位旋律 (讓開局音樂立體悠揚、極具仙俠辨識度)
+        if (!isBoss) {
+          const fluteNote = isSanctuary
+            ? (step32 % 8 === 2 ? melodySanctuary[step32] * 1.5 : 0)
+            : fluteCounterBamboo64[step64];
+          if (fluteNote > 0) {
+            this.playFluteNote(fluteNote, isSanctuary ? 0.78 : 0.46, isSanctuary ? 0.048 : 0.052, 0, -panLead * 0.8, isSanctuary);
+          }
+        }
+
+        // 軌道 3：古琴深淵低音與動態五聲琶音鋪底
+        const roots = bassMap[activeTheme] || bassMap.bamboo_temple;
+        const bassNote = roots[Math.floor(step64 / 4) % roots.length];
+        if (step64 % 4 === 0) {
+          this.playSweepTone(bassNote, bassNote * 0.992, "triangle", isSanctuary ? 0.68 : 0.44, 0.075, 0, 0, "bgm");
+        } else if (!isSanctuary && step64 % 2 === 0) {
+          this.playSweepTone(bassNote * 1.5, bassNote * 1.49, "sine", 0.24, 0.042, 0, 0, "bgm");
+        }
+
+        // 軌道 4：立體國風打擊樂組（鎮獄堂鼓 + 江湖板鼓 + 仙門碰鈴星鈸）
+        if (!isSanctuary) {
+          if (step64 % 4 === 0) {
+            // 鎮獄大堂鼓重拍
+            this.playSweepTone(isBoss ? 115 : 96, 32, "sine", 0.16, isBoss ? 0.14 : 0.10, 0, 0, "bgm");
+            this.playFilteredNoise(0.045, "lowpass", 480, 110, 1.4, 0.05, 0, 0, "bgm", true);
+          }
+          if (step64 % 8 === 0) {
+            // 仙門碰鈴／星鈸清脆高頻點綴（「叮——」）
+            this.playFMClang(3135.96, 2.41, 420, 0.22, 0.028, 0, 0.35, "bgm");
+          }
+          if (step64 % 4 === 2 || (isEnraged && step64 % 2 === 1)) {
+            // 江湖板鼓／木魚切分拍
+            this.playFilteredNoise(0.035, "bandpass", 1750, 960, 3.2, 0.042, 0, (step64 % 4 === 2 ? -0.25 : 0.25), "bgm");
+          }
+        }
+
+        // 軌道 5：首領戰與二階段狂暴專屬【嗩吶／號角殺伐高音長鳴】
+        if (isBoss && leadNote > 0 && (step64 % 8 === 0 || (isEnraged && step64 % 4 === 0))) {
+          this.playSweepTone(leadNote * 0.97, leadNote, "sawtooth", 0.34, isEnraged ? 0.045 : 0.032, 0, 0, "bgm");
         }
 
         this.bgmTimer = setTimeout(stepLoop, stepMs);
@@ -25820,10 +27840,12 @@ App.prototype.renderV12MartialView = function(container) {
         this.bgmPlaying = false;
         this.userExplicitlyMuted = true;
         if (this.bgmTimer) clearTimeout(this.bgmTimer);
+        this.saveAudioConfig();
         return false;
       } else {
         this.isMuted = false;
         this.userExplicitlyMuted = false;
+        this.saveAudioConfig();
         return this.startWuxiaCombatBGM();
       }
     };
@@ -25834,18 +27856,138 @@ App.prototype.renderV12MartialView = function(container) {
         this.userExplicitlyMuted = true;
         this.bgmPlaying = false;
         if (this.bgmTimer) clearTimeout(this.bgmTimer);
+        this.syncBusVolumes();
+        this.saveAudioConfig();
         return false;
       } else {
         this.isMuted = false;
         this.userExplicitlyMuted = false;
+        if (this.bgmVolume <= 0) this.bgmVolume = 0.82;
+        if (this.sfxVolume <= 0) this.sfxVolume = 0.92;
+        this.syncBusVolumes();
         this.startWuxiaCombatBGM();
         this.playEpiphanyBell();
+        this.saveAudioConfig();
         return true;
       }
     };
+
+    // 🎛️ 產生《太初天籟 · 獨立音量與國風動態配樂混音台》HTML 面板
+    audio.renderAudioMixerPanelHTML = function() {
+      const bgmPct = Math.round((this.isMuted ? 0 : this.bgmVolume) * 100);
+      const sfxPct = Math.round((this.isMuted ? 0 : this.sfxVolume) * 100);
+      const curTheme = this.bgmThemeMode || "auto";
+      const isMono = Boolean(this.monoDownmix);
+      const volPresets = [0, 25, 50, 75, 100];
+      return `
+        <div style="background:#18181b; border:1.5px solid #c084fc; padding:9px 11px; font-family:monospace;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; margin-bottom:6px;">
+            <span style="font-size:0.84rem; font-weight:900; color:#e879f9;">🎵 4. 太初天籟 · 獨立音量與國風五聲動態混音台 (v58.0)</span>
+            <span style="font-size:0.66rem; color:#cbd5e1;">FM物理刀鳴共鳴 × 立體空間殘響 × 64拍四樂章國風戰曲</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:7px;">
+            <div style="background:#090d14; border:1px solid #334155; padding:6px 8px;">
+              <div style="font-size:0.72rem; font-weight:900; color:#fde047; margin-bottom:4px;">🎼 國風背景配樂 (BGM): <b style="color:#4ade80;">${bgmPct}%</b></div>
+              <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:3px;">
+                ${volPresets.map(p => `
+                  <button type="button" data-v57-bgm-vol="${p / 100}" style="padding:4px 2px; font-size:0.66rem; font-weight:900; cursor:pointer; background:${Math.abs(bgmPct - p) <= 12 ? '#7e22ce' : '#1e293b'}; color:#fff; border:1px solid ${Math.abs(bgmPct - p) <= 12 ? '#fde047' : '#475569'};">${p}%</button>
+                `).join("")}
+              </div>
+            </div>
+            <div style="background:#090d14; border:1px solid #334155; padding:6px 8px;">
+              <div style="font-size:0.72rem; font-weight:900; color:#67e8f9; margin-bottom:4px;">⚔️ 刀劍打擊與預警音效 (SFX): <b style="color:#38bdf8;">${sfxPct}%</b></div>
+              <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:3px;">
+                ${volPresets.map(p => `
+                  <button type="button" data-v57-sfx-vol="${p / 100}" style="padding:4px 2px; font-size:0.66rem; font-weight:900; cursor:pointer; background:${Math.abs(sfxPct - p) <= 12 ? '#0284c7' : '#1e293b'}; color:#fff; border:1px solid ${Math.abs(sfxPct - p) <= 12 ? '#fde047' : '#475569'};">${p}%</button>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:0.71rem; color:#fef08a; font-weight:900; margin-bottom:4px;">🎶 國風戰曲主題切換（預設隨秘境地貌與 BOSS 階段自動無縫變奏）：</div>
+          <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:4px; margin-bottom:7px;">
+            ${[
+              { id: "auto", label: "🔄動態自適應" },
+              { id: "bamboo_temple", label: "🎋青玄劍歌" },
+              { id: "kunlun_jade", label: "❄️瑤池編鐘" },
+              { id: "blood_abyss", label: "🩸血淵琵琶" },
+              { id: "boss_rush", label: "👹十面埋伏" }
+            ].map(tm => `
+              <button type="button" data-v57-bgm-theme="${tm.id}" style="padding:5px 3px; font-size:0.65rem; font-weight:900; cursor:pointer; background:${curTheme === tm.id ? '#b45309' : '#090d14'}; color:#fff; border:1.5px solid ${curTheme === tm.id ? '#fde047' : '#475569'}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                ${tm.label}
+              </button>
+            `).join("")}
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:5px;">
+            <button type="button" id="btn-v57-toggle-mono" style="padding:5px 4px; font-size:0.65rem; font-weight:900; cursor:pointer; background:${isMono ? '#475569' : '#065f46'}; color:#fff; border:1px solid #86efac;">
+              ${isMono ? '🔈單聲道(Mono)' : '🎧2D立體聲方位'}
+            </button>
+            <button type="button" id="btn-v57-test-combo" style="padding:5px 4px; font-size:0.65rem; font-weight:900; cursor:pointer; background:#1e3a8a; color:#fef08a; border:1px solid #38bdf8;">
+              🗡️試聽FM三段連招
+            </button>
+            <button type="button" id="btn-v57-test-boss" style="padding:5px 4px; font-size:0.65rem; font-weight:900; cursor:pointer; background:#7f1d1d; color:#fef08a; border:1px solid #f87171;">
+              🎺試聽開局破陣曲
+            </button>
+            <button type="button" id="btn-v57-test-chest" style="padding:5px 4px; font-size:0.65rem; font-weight:900; cursor:pointer; background:#78350f; color:#fef08a; border:1px solid #fde047;">
+              📦試聽破罡與寶箱
+            </button>
+          </div>
+        </div>
+      `;
+    };
+
+    audio.bindAudioMixerPanelEvents = function(container, reRenderCallback) {
+      if (!container) return;
+      container.querySelectorAll("[data-v57-bgm-vol]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const v = parseFloat(btn.getAttribute("data-v57-bgm-vol") || "0.82");
+          this.setBgmVolume(v);
+          this.playQiCharge();
+          if (typeof reRenderCallback === "function") reRenderCallback();
+        });
+      });
+      container.querySelectorAll("[data-v57-sfx-vol]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const v = parseFloat(btn.getAttribute("data-v57-sfx-vol") || "0.92");
+          this.setSfxVolume(v);
+          this.playSwordClash();
+          if (typeof reRenderCallback === "function") reRenderCallback();
+        });
+      });
+      container.querySelectorAll("[data-v57-bgm-theme]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tm = btn.getAttribute("data-v57-bgm-theme") || "auto";
+          this.setBgmThemeMode(tm);
+          if (!this.bgmPlaying && !this.isMuted) this.startWuxiaCombatBGM();
+          this.playEpiphanyBell();
+          if (typeof reRenderCallback === "function") reRenderCallback();
+        });
+      });
+      container.querySelector("#btn-v57-toggle-mono")?.addEventListener("click", () => {
+        this.setMonoDownmix(!this.monoDownmix);
+        this.playQiCharge();
+        if (typeof reRenderCallback === "function") reRenderCallback();
+      });
+      container.querySelector("#btn-v57-test-combo")?.addEventListener("click", () => {
+        this.playWeaponAttack("sword", 0);
+        setTimeout(() => this.playWeaponAttack("sword", 1), 160);
+        setTimeout(() => {
+          this.playWeaponAttack("sword", 2);
+          this.playEnemyHitSfx("crit", 920, 525, 800);
+        }, 320);
+      });
+      container.querySelector("#btn-v57-test-boss")?.addEventListener("click", () => {
+        this.playBattleStartFanfare();
+      });
+      container.querySelector("#btn-v57-test-chest")?.addEventListener("click", () => {
+        this.playEnemyHitSfx("shield_break", 700, 525, 800);
+        setTimeout(() => this.playGemPickup(true, { isChest: true }), 260);
+      });
+    };
   })();
 
-  // ---------------------------------------------------------------------------
   // 2. 【WuxiaRegionMechanicsEngine v34.0】：為地圖四大秘境地區賦予真實戰術意義與互動充能大陣
   // ---------------------------------------------------------------------------
   const WuxiaRegionMechanicsEngine = {
@@ -25931,7 +28073,11 @@ App.prototype.renderV12MartialView = function(container) {
 
       // 更新 BOSS 在場狀態至音效引擎，自動切換《十面埋伏》激昂變奏
       if (typeof audio !== "undefined") {
-        audio.bossModeActive = state.enemies.some(e => e.type === "boss" && e.hp > 0);
+        if (typeof audio.syncCombatAudioDirector === "function") {
+          audio.syncCombatAudioDirector(state);
+        } else {
+          audio.bossModeActive = state.enemies.some(e => e.type === "boss" && e.hp > 0);
+        }
       }
 
       if (state.v34ThunderGodBuffTimer > 0) state.v34ThunderGodBuffTimer--;
@@ -26306,7 +28452,7 @@ App.prototype.renderV12MartialView = function(container) {
   };
 
   // ---------------------------------------------------------------------------
-  // 3. 【CuteWuxiaPixelEngine v34.0】：參照《元氣騎士》《大俠立志傳》《楓之谷》重製 2D 可愛武俠像素風
+  // 3. 【CuteWuxiaPixelEngine v34.0】：參照經典動作肉鴿仙俠設計重製 2D 可愛武俠像素風
   //    （二頭身 Q 版萌系比例、100% 透明底無白框、水汪汪閃亮大眼、腮紅、4 幀奔跑／跳躍／揮武動畫）
   // ---------------------------------------------------------------------------
   const CuteWuxiaPixelEngine = {
@@ -27359,7 +29505,7 @@ App.prototype.renderV12MartialView = function(container) {
         ctx.restore();
       }
 
-      // ⚡ (2) v48.0 小怪蓄力與突進「去雜訊本地化預警」（移除小怪 185px 跨屏長方框，改為《Hades》《Brotato》風格「腳下 26px 短距方位箭咀 `▸▸` ＋ 本體蓄力光環」，僅 BOSS 顯示完整突進長軌跡！）
+      // ⚡ (2) v48.0 小怪蓄力與突進「去雜訊本地化預警」（移除小怪 185px 跨屏長方框，改為經典動作肉鴿仙俠設計風格「腳下 26px 短距方位箭咀 `▸▸` ＋ 本體蓄力光環」，僅 BOSS 顯示完整突進長軌跡！）
       const activeDashAng = (en.dashLockAngle !== null && en.dashLockAngle !== undefined)
         ? en.dashLockAngle
         : ((en.chargeLockAngle !== null && en.chargeLockAngle !== undefined) ? en.chargeLockAngle : (en.localTellAngle !== undefined ? en.localTellAngle : null));
@@ -27587,7 +29733,7 @@ App.prototype.renderV12MartialView = function(container) {
   // 🚀 v38.0 【太虛神霄 HD-2D 角色素質與次世代光影特效引擎 (`AstralCelestialEngine2D`)】
   // 融合 PixiJS v8 (Particle/Trail Batching)、Phaser 3.90 (Post-FX Bloom/Shine)、
   // Spine 2D (動態附屬骨架物理披風/飄帶/雷輪) 與 Godot 4 (CanvasItem 地面元素烙印與邊緣神光)
-  // 同時實裝《暖雪》《Hades》級別「🧬 太初道體六維素質養成系統」，讓角色素質直接放大技能視覺規模！
+  // 同時實裝經典動作肉鴿仙俠設計級別「🧬 太初道體六維素質養成系統」，讓角色素質直接放大技能視覺規模！
   // ===========================================================================
   const AstralCelestialEngine2D = {
     SOVEREIGN_STATS_META: [
@@ -28176,7 +30322,7 @@ App.prototype.renderV12MartialView = function(container) {
         ctx.restore();
       }
 
-      // 2. 繪製主角高速移動幻影殘影 (Katana Zero / 暖雪風格霓虹殘影)
+      // 2. 繪製主角高速移動幻影殘影 (仙俠疾風流光風格霓虹殘影)
       if (state.v38Afterimages && state.v38Afterimages.length > 0) {
         ctx.save();
         ctx.globalCompositeOperation = "lighter";
@@ -28416,8 +30562,7 @@ App.prototype.renderV12MartialView = function(container) {
 
   // ===========================================================================
   // 🌟 【AstralGenesisEngine2D v40.0 — 鴻蒙萬象 HD-2D 像素精雕與超武神通視覺引擎】
-  // 深度參考《暖雪 Warm Snow》《鬼谷八荒》《通神榜》《Dead Cells》《Vampire Survivors》《Octopath Traveler》
-  // 1. 徹底取代舊版 24x24 方塊拼貼 (p.box)，改以 52x56 ~ 64x64 高密度像素網格光柵化 + 自動 1px 黑邊勾勒 + 頂部邊緣高光 (Rim Light)
+  // 深度參考經典動作肉鴿仙俠設計/ 1. 徹底取代舊版 24x24 方塊拼貼 (p.box)，改以 52x56 ~ 64x64 高密度像素網格光柵化 + 自動 1px 黑邊勾勒 + 頂部邊緣高光 (Rim Light)
   // 2. 四大劍仙主角、四系靈寵 T1~T4 真實四階進化（16種獨立形態）、10種小怪與精英、10波專屬魔尊 BOSS、6大神兵 100% 依圖鑑描述逐一精雕
   // 3. 六大神兵「超武覺醒 (Super-Weapon Awakening)」、普攻刀光投射物、18招武器絕技八卦陣紋、8招聖獸大招與 6 大處決擊殺特效全面升級
   // ===========================================================================
@@ -29614,8 +31759,7 @@ App.prototype.renderV12MartialView = function(container) {
 
   // ===========================================================================
   // 🔥 【AstralSovereignShaderVFXEngine v42.0 — 太初神霄 · 次世代 HD-2D 流光漸層與全流派多變連攜特效引擎】
-  // 深度參考《暖雪 Warm Snow》《鬼谷八荒 Tale of Immortal》《通神榜 Noobs Want to Live》《Vampire Survivors》《Hades》
-  // 1. 徹底根除 v41.0 中導致畫面生硬 (raw) 的「6px 粗黑邊折線閃電」「黑框方塊尾跡」「黑框八角管線陣」與「單一刀光印章貼圖」！
+  // 深度參考經典動作肉鴿仙俠設計/ 1. 徹底根除 v41.0 中導致畫面生硬 (raw) 的「6px 粗黑邊折線閃電」「黑框方塊尾跡」「黑框八角管線陣」與「單一刀光印章貼圖」！
   // 2. 採用離屏預烘焙 128x128~180x180 多層次 Shader 級流光紋理 (Additive HDR Bloom + 雙曲流光刀罡 + 絲滑錐形流光絲帶 + 4層無黑邊分形電漿神雷 + 2.5D 半透明星盤道陣)。
   // 3. 全面擴充 6 大神兵「三段式連招特效」、18 招武器絕技、4 聖獸「12 式多變普攻特效 + 8 大領域絕技」、10 種小怪門派/精英攻擊特效、以及 10 波 BOSS 各自的專屬鎮關大招與彈幕！
   // ===========================================================================

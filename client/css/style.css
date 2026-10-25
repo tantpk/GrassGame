@@ -1925,7 +1925,7 @@ nav.modern-dock {
 
 /* ==================== v13.0 超級洗腦上頭重製版：四大洗腦核心引擎樣式 ==================== */
 
-/* 1. 小丑牌式 (Balatro) 天命乘算輪盤 */
+/* 1. 本命道印卡式 (星宿倍率連乘) 天命乘算輪盤 */
 .v13-slot-machine-card {
   background: linear-gradient(180deg, #fcf8f0 0%, #e8dec9 100%);
   border: 2px solid var(--ink-black);
@@ -1995,7 +1995,7 @@ nav.modern-dock {
   100% { transform: translateY(-3px) scale(0.97); filter: blur(1px); }
 }
 
-/* Balatro 乘算計分板 */
+/* 星宿倍率連乘 乘算計分板 */
 .v13-balatro-score-strip {
   display: flex;
   justify-content: center;
@@ -2041,7 +2041,7 @@ nav.modern-dock {
   box-shadow: 0 0 12px rgba(227, 168, 50, 0.6);
 }
 
-/* 2. 《尋道大千》式無限開鼎爆裝與綠字對比卡 */
+/* 2. 經典動作肉鴿仙俠設計式無限開鼎爆裝與綠字對比卡 */
 .v13-cauldron-box {
   background: radial-gradient(circle at 50% 35%, #fffaf0 0%, #e5dac3 100%);
   border: 2px solid var(--ink-black);
@@ -2090,7 +2090,7 @@ nav.modern-dock {
   box-shadow: 0 0 16px rgba(255, 140, 0, 0.45);
 }
 
-/* 3. 《吸血鬼倖存者》式萬劍割草無雙 Canvas 演武場 */
+/* 3. 太初萬劍割草無雙無雙 Canvas 演武場 */
 .v13-survivor-canvas-wrap {
   position: relative;
   width: 100%;
@@ -2142,7 +2142,7 @@ nav.modern-dock {
   display: flex;
 }
 
-/* 4. 《背包亂鬥》× 二合一九宮八卦合道盤 */
+/* 4. 經典動作肉鴿仙俠設計二合一九宮八卦合道盤 */
 .v13-merge-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2502,7 +2502,7 @@ nav.modern-dock {
   box-shadow: 1px 1px 0px #000000, 0 0 6px rgba(217, 119, 6, 0.4);
 }
 
-/* ==================== v15.0 PokéSurvivor 大世界 4合1 與即時靈寵戰備盤樣式 ==================== */
+/* ==================== v15.0 山海靈獸生存 大世界 4合1 與即時靈寵戰備盤樣式 ==================== */
 .pixel-pet-card {
   font-family: monospace, sans-serif;
   border-radius: 0px;
@@ -3227,4 +3227,351 @@ main#view-viewport {
   border: 2px solid #fbbf24 !important;
   box-shadow: 0 4px 16px rgba(212, 160, 56, 0.38), inset 0 0 12px rgba(251, 191, 36, 0.25) !important;
   color: #fef08a !important;
+}
+
+
+/* ==================== v56.0 手機與平板全螢幕沉浸視野 × 360°太極虛擬搖桿 × 右手觸控戰技輪盤樣式表 ==================== */
+body.v56-fs-locked {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+#app-container.v56-global-app-fullscreen {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* 跨平台戰場真・全螢幕（同時支援原生 Fullscreen API、WebKit Fullscreen 與 iOS Safari / Iframe 固定視窗滿版全螢幕！） */
+.v20-canvas-only-fullscreen#v13-canvas-box,
+#v13-canvas-box:fullscreen,
+#v13-canvas-box:-webkit-full-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  aspect-ratio: auto !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  z-index: 9999 !important;
+  background: #080b10 !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+#v13-canvas-box,
+#v13-mowing-canvas {
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* 全螢幕時頂部 HUD 自動適配手機瀏海與安全區域 (Safe-Area Insets) */
+.v20-canvas-only-fullscreen .wuxia-mowing-hud,
+#v13-canvas-box:fullscreen .wuxia-mowing-hud,
+#v13-canvas-box:-webkit-full-screen .wuxia-mowing-hud {
+  top: max(6px, env(safe-area-inset-top, 6px)) !important;
+  left: max(6px, env(safe-area-inset-left, 6px)) !important;
+  right: max(6px, env(safe-area-inset-right, 6px)) !important;
+}
+
+/* 🕹️ v56.0 360° 太極星盤虛擬搖桿容器與動態組件 */
+#v56-virtual-joystick-zone {
+  position: absolute;
+  left: max(18px, env(safe-area-inset-left, 18px));
+  bottom: max(18px, env(safe-area-inset-bottom, 18px));
+  width: 124px;
+  height: 124px;
+  pointer-events: none;
+  z-index: 36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.16s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#v56-virtual-joystick-zone.mode-fixed {
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+}
+
+#v56-virtual-joystick-zone.joy-standby {
+  opacity: 0.46;
+}
+
+#v56-virtual-joystick-zone.joy-active {
+  opacity: 0.96;
+}
+
+#v56-virtual-joystick-zone.joy-hidden {
+  display: none !important;
+}
+
+.v56-joy-base {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.45) 0%, rgba(9, 13, 22, 0.82) 72%, rgba(2, 132, 199, 0.28) 100%);
+  border: 2px solid rgba(56, 189, 248, 0.78);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.32), inset 0 0 14px rgba(250, 204, 21, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v56-joy-base::before {
+  content: "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px dashed rgba(250, 204, 21, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.52rem;
+  color: rgba(254, 240, 138, 0.32);
+  letter-spacing: 1px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.v56-joy-crosshair {
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  pointer-events: none;
+}
+
+.v56-joy-knob {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #38bdf8 55%, #0284c7 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.85), 0 3px 8px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #090d16;
+  transform: translate(0px, 0px);
+  pointer-events: none;
+}
+
+.v56-joy-hint-label {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.62rem;
+  font-weight: 900;
+  font-family: monospace;
+  color: #bae6fd;
+  background: rgba(9, 13, 22, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  padding: 1px 6px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* ⚡ v56.0 右手拇指人體工學觸控戰技輪盤 (#v56-mobile-touch-pad) */
+#v56-mobile-touch-pad {
+  position: absolute;
+  right: max(12px, env(safe-area-inset-right, 12px));
+  bottom: max(12px, env(safe-area-inset-bottom, 12px));
+  z-index: 38;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#v56-mobile-touch-pad.touch-pad-hidden {
+  display: none !important;
+}
+
+.v56-touch-pad-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  pointer-events: none;
+}
+
+.v56-touch-action-btn {
+  pointer-events: auto;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(30, 41, 59, 0.92) 0%, rgba(9, 13, 22, 0.96) 100%);
+  border: 2px solid #38bdf8;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.78), inset 0 0 8px rgba(56, 189, 248, 0.25);
+  padding: 0;
+  font-family: monospace;
+  transition: transform 0.08s ease, border-color 0.12s ease, opacity 0.12s ease;
+}
+
+.v56-touch-action-btn:active {
+  transform: scale(0.91);
+}
+
+.v56-touch-action-btn.skill-btn {
+  width: 50px;
+  height: 50px;
+}
+
+.v56-touch-action-btn.util-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+}
+
+.v56-touch-action-btn.dash-main-btn {
+  width: 62px;
+  height: 62px;
+  background: radial-gradient(circle at 50% 30%, rgba(6, 95, 70, 0.95) 0%, rgba(14, 116, 144, 0.96) 65%, rgba(9, 13, 22, 0.98) 100%);
+  border: 2.5px solid #34d399;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.48), 0 4px 12px rgba(0, 0, 0, 0.85);
+}
+
+.v56-touch-action-btn .btn-ico {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.v56-touch-action-btn.dash-main-btn .btn-ico {
+  font-size: 1.25rem;
+}
+
+.v56-touch-action-btn .btn-lbl {
+  font-size: 0.6rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-top: 2px;
+  color: #fef08a;
+  white-space: nowrap;
+}
+
+.v56-touch-action-btn .btn-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #0f172a;
+  border: 1px solid #fbbf24;
+  color: #fde047;
+  font-size: 0.56rem;
+  font-weight: 900;
+  padding: 0 4px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+.v56-touch-action-btn.beast-alert {
+  border-color: #fde047 !important;
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.85), inset 0 0 10px rgba(250, 204, 21, 0.45) !important;
+  animation: v56PulseGold 0.9s infinite alternate;
+}
+
+@keyframes v56PulseGold {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* 局內所有彈出視窗在手機橫豎屏與全螢幕下安全捲動防裁切 */
+#v13-mow-perk-modal,
+#v33-battle-settings-modal,
+#v38-sovereign-stats-modal,
+#v21-battle-end-modal {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 當啟用右手觸控面板時，收合全螢幕底部中央重複的 1/2/3 按鈕列，改為精簡頂部/底部不擋手設計 */
+#v13-canvas-box.v56-touch-active .v20-fs-floating-bar {
+  display: none !important;
+}
+
+@media (max-width: 820px) {
+  .wuxia-mowing-hud {
+    gap: 3px !important;
+  }
+  .wuxia-mowing-hud .pixel-btn,
+  .wuxia-mowing-hud .wuxia-hud-pill {
+    font-size: 0.63rem !important;
+    padding: 2px 5px !important;
+  }
+  .v26-rectangular-game-stage#v13-canvas-box {
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    height: calc(100dvh - 46px) !important;
+    max-height: calc(100dvh - 46px) !important;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  #v56-virtual-joystick-zone {
+    width: 104px;
+    height: 104px;
+    bottom: max(10px, env(safe-area-inset-bottom, 10px));
+    left: max(14px, env(safe-area-inset-left, 14px));
+  }
+  .v56-joy-base {
+    width: 96px;
+    height: 96px;
+  }
+  .v56-touch-action-btn.skill-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .v56-touch-action-btn.dash-main-btn {
+    width: 54px;
+    height: 54px;
+  }
+  #v13-mow-perk-modal,
+  #v33-battle-settings-modal,
+  #v38-sovereign-stats-modal,
+  #v21-battle-end-modal {
+    justify-content: flex-start !important;
+    padding-top: 8px !important;
+    padding-bottom: 14px !important;
+  }
 }
